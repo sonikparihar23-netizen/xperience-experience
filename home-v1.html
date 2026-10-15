@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#FFFFFF;color:#0A0A0A;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0A0A0A;text-decoration:none}
+a:hover{color:#5C5C5C}
+select{font-family:inherit}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#FFFFFF">
+
+  <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#0A0A0A;color:#D6D6D6;font-size:13px;letter-spacing:.02em">
+      <div style="max-width:1360px;margin:0 auto;padding:10px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;justify-content:space-between">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 28px">
+          <a href="tel:+971564080888" style="color:#D6D6D6">+971 5 640 80888</a>
+          <a href="mailto:info@xrealty.ae" style="color:#D6D6D6">info@xrealty.ae</a>
+          <span>Dubai Hills Estate, Dubai, UAE</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center"><span style="color:#FFFFFF">★★★★★</span><span>4.9 on Google</span></div>
+      </div>
+    </div>
+  </sc-if>
+
+  <header onMouseLeave="{{ closeMenu }}" style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="https://www.xrealty.ae/" style="display:flex;align-items:center;flex-shrink:0">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:38px;width:auto;display:block">
+      </a>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:4px;height:100%">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+            <a href="{{ n.href }}" onMouseEnter="{{ n.onEnter }}" style="display:flex;align-items:center;gap:6px;height:100%;padding:0 14px;font-size:15px;font-weight:500;color:#FFFFFF" style-hover="color:#F3F3F3">
+              {{ n.label }}
+              <sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ false }}">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+              </sc-if>
+            </a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:12px">
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <a href="https://www.xrealty.ae/contact-us-dubai-real-estate-agency/" style="display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.01em" style-hover="background:#F3F3F3;color:#0A0A0A">Book a consultation</a>
+        </sc-if>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleDrawer }}" aria-label="Menu" style="width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF">
+            <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 3L15 15M15 3L3 15" stroke="currentColor" stroke-width="1.6"></path></svg>
+            </sc-if>
+            <sc-if value="{{ drawerClosed }}" hint-placeholder-val="{{ true }}">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+            </sc-if>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ showDropdown }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;background:#FFFFFF;border-bottom:1px solid #E3E3E3;box-shadow:0 24px 48px -24px rgba(10,10,10,.25)">
+        <div style="max-width:1360px;margin:0 auto;padding:32px clamp(20px,5vw,64px) 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px">
+          <sc-for list="{{ dropdownItems }}" as="d" hint-placeholder-count="6">
+            <a href="{{ d.href }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:6px;color:#0A0A0A" style-hover="background:#F3F3F3">
+              <span style="font-size:15px;font-weight:600">{{ d.title }}</span>
+              <span style="font-size:13px;color:#5C5C5C">{{ d.desc }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showDrawer }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;height:calc(100vh - 76px);overflow-y:auto;background:#FFFFFF;border-top:1px solid #E3E3E3">
+        <div style="padding:24px clamp(20px,5vw,64px) 48px;display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ drawerGroups }}" as="g" hint-placeholder-count="4">
+            <div style="padding:18px 0;border-bottom:1px solid #E3E3E3;display:flex;flex-direction:column;gap:12px">
+              <a href="{{ g.href }}" style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;color:#0A0A0A">{{ g.label }}</a>
+              <sc-if value="{{ g.hasChildren }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ g.children }}" as="c" hint-placeholder-count="4">
+                    <a href="{{ c.href }}" style="padding:9px 14px;border:1px solid #CFCFCF;border-radius:999px;font-size:14px;color:#0A0A0A">{{ c.title }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+            <a href="https://www.xrealty.ae/contact-us-dubai-real-estate-agency/" style="display:flex;align-items:center;justify-content:center;height:54px;background:#0A0A0A;color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:600">Book a consultation</a>
+            <a href="tel:+971564080888" style="display:flex;align-items:center;justify-content:center;height:54px;border:1px solid #0A0A0A;color:#0A0A0A;border-radius:999px;font-size:15px;font-weight:600">Call +971 5 640 80888</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <section data-screen-label="Hero" style="position:relative;background:#1A1A1A;min-height:clamp(600px,90vh,880px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <image-slot id="hero-bg" shape="rect" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp" placeholder="Hero image"></image-slot>
+    </div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.55) 40%,rgba(10,10,10,.15) 75%,rgba(10,10,10,0) 100%),linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,.2) 30%,rgba(10,10,10,.55) 65%,rgba(10,10,10,.9) 100%)"></div>
+    <div style="position:relative;pointer-events:none;max-width:1360px;width:100%;margin:0 auto;padding:clamp(120px,14vw,200px) clamp(20px,5vw,64px) clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:28px;color:#FFFFFF;text-shadow:0 2px 24px rgba(0,0,0,.45)">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">
+        <span>Award-winning Dubai brokerage</span><span style="width:28px;height:1px;background:#FFFFFF"></span><span>Off-plan specialists</span>
+      </div>
+      <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,8vw,124px);line-height:.92;letter-spacing:-.02em;max-width:13ch;text-wrap:balance">Dubai property, guided by <em style="font-style:italic;color:#F3F3F3">Xperts.</em></h1>
+      <p style="margin:0;max-width:52ch;font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:#E6E6E6;text-wrap:pretty">We help global investors and homeowners buy and sell Dubai property with confidence — from exclusive launches to key handover.</p>
+    </div>
+    <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(24px,4vw,56px)">
+      <div style="background:#FFFFFF;border-radius:10px;padding:10px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)">
+        <div style="display:flex;gap:4px;padding:4px 4px 10px">
+          <sc-for list="{{ searchTabs }}" as="t" hint-placeholder-count="3">
+            <sc-if value="{{ t.active }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ t.select }}" style="height:36px;padding:0 16px;border-radius:999px;border:none;background:#0A0A0A;color:#FFFFFF;font:600 13px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ t.label }}</button>
+            </sc-if>
+            <sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ t.select }}" style="height:36px;padding:0 16px;border-radius:999px;border:none;background:transparent;color:#5C5C5C;font:600 13px 'Hanken Grotesk',sans-serif;cursor:pointer" style-hover="color:#0A0A0A">{{ t.label }}</button>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px">
+          <sc-for list="{{ searchFields }}" as="f" hint-placeholder-count="4">
+            <label style="position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 16px;background:#F3F3F3;border-radius:6px;cursor:pointer">
+              <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#5C5C5C">{{ f.label }}</span>
+              <select onChange="{{ f.onChange }}" style="appearance:none;-webkit-appearance:none;border:none;background:transparent;font-size:16px;font-weight:500;color:#0A0A0A;padding:2px 20px 0 0;outline:none;cursor:pointer;width:100%">
+                <sc-for list="{{ f.options }}" as="o" hint-placeholder-count="3">
+                  <option value="{{ o }}">{{ o }}</option>
+                </sc-for>
+              </select>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="position:absolute;right:16px;bottom:18px;pointer-events:none;color:#5C5C5C"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+            </label>
+          </sc-for>
+          <button onClick="{{ runSearch }}" style="display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border:none;border-radius:6px;background:#0A0A0A;color:#FFFFFF;font:600 15px 'Hanken Grotesk',sans-serif;cursor:pointer" style-hover="background:#2A2A2A">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+            Search properties
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured" data-screen-label="Featured properties" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Handpicked for you</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.015em">Featured properties</h2>
+      </div>
+      <a href="https://www.xrealty.ae/off-plan-projects-for-sale-in-dubai/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">View all projects →</a>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:28px;scrollbar-width:none">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+        <sc-if value="{{ c.active }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ c.select }}" style="flex-shrink:0;height:40px;padding:0 18px;border-radius:999px;border:1px solid #0A0A0A;background:#0A0A0A;color:#FFFFFF;font:600 14px 'Hanken Grotesk',sans-serif;cursor:pointer">{{ c.label }}</button>
+        </sc-if>
+        <sc-if value="{{ c.inactive }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ c.select }}" style="flex-shrink:0;height:40px;padding:0 18px;border-radius:999px;border:1px solid #CFCFCF;background:transparent;color:#0A0A0A;font:500 14px 'Hanken Grotesk',sans-serif;cursor:pointer" style-hover="border-color:#0A0A0A">{{ c.label }}</button>
+        </sc-if>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(20px,2.4vw,32px) clamp(16px,2vw,24px)">
+      <sc-for list="{{ properties }}" as="p" hint-placeholder-count="8">
+        <article style="display:flex;flex-direction:column;gap:14px">
+          <div style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#EDEDED">
+            <image-slot id="prop-{{ p.slug }}" shape="rect" src="{{ p.img }}" placeholder="{{ p.name }}"></image-slot>
+            <span style="position:absolute;top:12px;left:12px;pointer-events:none;padding:6px 10px;border-radius:999px;background:rgba(251,248,242,.94);font-size:12px;font-weight:600;color:#0A0A0A">{{ p.developer }}</span>
+            <button onClick="{{ p.toggleSave }}" aria-label="Save" style="position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:999px;border:none;background:rgba(251,248,242,.94);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#0A0A0A">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="{{ p.heartFill }}" stroke="currentColor" stroke-width="1.8"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+            </button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:#5C5C5C">{{ p.tagline }}</span>
+            <a href="{{ p.href }}" style="font-size:18px;font-weight:600;line-height:1.25;color:#0A0A0A;text-wrap:pretty">{{ p.name }}</a>
+            <span style="font-size:14px;color:#5C5C5C">{{ p.community }}</span>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:6px;padding-top:12px;border-top:1px solid #E3E3E3">
+              <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#5C5C5C">From</span>
+              <span style="font-size:17px;font-weight:700">{{ p.price }}</span>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+    <sc-if value="{{ savedLabelShow }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:28px 0 0;font-size:14px;color:#5C5C5C">{{ savedLabel }}</p>
+    </sc-if>
+  </section>
+
+  <section data-screen-label="Communities" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Explore Dubai</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.015em">Hot communities</h2>
+      </div>
+      <a href="https://www.xrealty.ae/area/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All areas →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));grid-auto-rows:clamp(300px,32vw,420px);gap:clamp(12px,1.6vw,20px)">
+      <sc-for list="{{ communities }}" as="c" hint-placeholder-count="6">
+        <div style="position:relative;border-radius:6px;overflow:hidden;background:#262626">
+          <image-slot id="area-{{ c.slug }}" shape="rect" src="{{ c.img }}" placeholder="{{ c.name }}"></image-slot>
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.8) 100%)"></div>
+          <a href="{{ c.href }}" style="position:absolute;left:0;right:0;bottom:0;padding:24px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.6vw,38px);line-height:1">{{ c.name }}</span>
+              <span style="font-size:14px;line-height:1.4;color:#E6E6E6;max-width:32ch">{{ c.tagline }}</span>
+            </div>
+            <span style="flex-shrink:0;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="#FFFFFF" stroke-width="1.5"></path></svg>
+            </span>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ showOffPlan }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Off-plan" style="margin-top:clamp(72px,9vw,128px);background:#0A0A0A;color:#FFFFFF">
+      <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:end">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFFFFF">New launches · Dubai</span>
+          <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,5.4vw,80px);line-height:.95;letter-spacing:-.015em;text-wrap:balance">Off-plan access, <em style="color:#F3F3F3">before the portals.</em></h2>
+          <p style="margin:0;max-width:48ch;font-size:17px;line-height:1.6;color:#BDBDBD;text-wrap:pretty">We secure pre-launch allocations on most of Dubai's top developer projects — often days before they're listed publicly. Flexible payment plans, strong capital growth, and zero buyer commission on most developer-direct purchases.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+            <a href="https://www.xrealty.ae/off-plan-projects-for-sale-in-dubai/" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#F3F3F3;color:#0A0A0A">Browse off-plan</a>
+            <a href="https://wa.me/971565467991" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:600" style-hover="border-color:#FFFFFF;color:#FFFFFF">WhatsApp a specialist</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));border-top:1px solid rgba(255,255,255,.18)">
+          <div style="padding:28px 24px 8px 0;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(44px,4.4vw,64px);line-height:1">AED 1M+</span>
+            <span style="font-size:14px;color:#BDBDBD">Entry price</span>
+          </div>
+          <div style="padding:28px 24px 8px 0;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(44px,4.4vw,64px);line-height:1">10–30%</span>
+            <span style="font-size:14px;color:#BDBDBD">Booking amount</span>
+          </div>
+          <div style="padding:28px 24px 8px 0;display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(44px,4.4vw,64px);line-height:1">Zero</span>
+            <span style="font-size:14px;color:#BDBDBD">Buyer commission</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <section data-screen-label="Why XR" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:20px;max-width:520px">
+      <div style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#EDEDED">
+        <image-slot id="agent-rakhi" shape="rect" placeholder="Portrait — Rakhi Megchiani"></image-slot>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Meet the Xperts</span>
+          <a href="https://www.xrealty.ae/agent/rakhi-megchiani/" style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1.05;color:#0A0A0A">Rakhi Megchiani</a>
+          <span style="font-size:14px;color:#5C5C5C">Sales Director · Financial Management &amp; Strategies</span>
+        </div>
+        <a href="https://www.xrealty.ae/agent/" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All agents →</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Why Xperience Realty</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.6vw,68px);line-height:.98;letter-spacing:-.015em;text-wrap:balance">Advice that outlasts the transaction.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:22px 0;border-top:1px solid #E3E3E3">
+            <span style="font-family:'Instrument Serif',serif;font-size:24px;color:#5C5C5C">{{ r.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:18px;font-weight:600">{{ r.title }}</span>
+              <span style="font-size:15px;line-height:1.55;color:#5C5C5C;text-wrap:pretty">{{ r.body }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Guides" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Knowledge centre</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.015em">Property guides</h2>
+      </div>
+      <a href="https://www.xrealty.ae/guides/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All guides →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:0 clamp(24px,4vw,64px)">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="6">
+        <a href="{{ g.href }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start;padding:26px 0;border-top:1px solid #E3E3E3;color:#0A0A0A" style-hover="color:#5C5C5C">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">{{ g.audience }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.2vw,32px);line-height:1.08">{{ g.title }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#5C5C5C;text-wrap:pretty">{{ g.desc }}</span>
+          </div>
+          <span style="width:44px;height:44px;border-radius:999px;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;margin-top:4px">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Developers" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Our partners</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1;letter-spacing:-.01em">Direct relationships with Dubai's leading developers</h2>
+      </div>
+      <a href="https://www.xrealty.ae/developer/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All developers →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(50%,200px),1fr));border-top:1px solid #E3E3E3;border-left:1px solid #E3E3E3">
+      <sc-for list="{{ developers }}" as="d" hint-placeholder-count="10">
+        <a href="{{ d.href }}" style="display:flex;align-items:center;justify-content:center;text-align:center;min-height:104px;padding:20px;border-right:1px solid #E3E3E3;border-bottom:1px solid #E3E3E3;font-size:16px;font-weight:600;letter-spacing:.02em;color:#0A0A0A" style-hover="background:#FFFFFF;color:#5C5C5C">{{ d.name }}</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Blog" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Stay informed</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.015em">Market insights</h2>
+      </div>
+      <a href="https://www.xrealty.ae/blogs/" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All articles →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(24px,3vw,40px)">
+      <sc-for list="{{ blogs }}" as="b" hint-placeholder-count="3">
+        <article style="display:flex;flex-direction:column;gap:16px">
+          <div style="position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#EDEDED">
+            <image-slot id="blog-{{ b.slug }}" shape="rect" src="{{ b.img }}" placeholder="Article image"></image-slot>
+          </div>
+          <span style="font-size:13px;font-weight:600;color:#5C5C5C">{{ b.date }}</span>
+          <a href="{{ b.href }}" style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.2vw,32px);line-height:1.08;color:#0A0A0A;text-wrap:balance" style-hover="color:#5C5C5C">{{ b.title }}</a>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#5C5C5C;text-wrap:pretty">{{ b.excerpt }}</p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,6vw,96px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5C5C5C">Quick answers</span>
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.015em">Frequently asked questions</h2>
+      <a href="https://www.xrealty.ae/faqs/" style="align-self:flex-start;margin-top:12px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">More FAQs →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;border-bottom:1px solid #E3E3E3">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+        <div style="border-top:1px solid #E3E3E3">
+          <button onClick="{{ q.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;border:none;background:transparent;text-align:left;cursor:pointer;color:#0A0A0A;font:600 18px/1.35 'Hanken Grotesk',sans-serif">
+            <span>{{ q.q }}</span>
+            <span style="flex-shrink:0;width:36px;height:36px;border-radius:999px;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400">{{ q.icon }}</span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 56px 26px 0;font-size:16px;line-height:1.6;color:#5C5C5C;text-wrap:pretty">{{ q.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px)">
+    <div style="position:relative;border-radius:10px;overflow:hidden;background:#F3F3F3;padding:clamp(40px,6vw,88px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,6vw,92px);line-height:.95;letter-spacing:-.02em;max-width:14ch;color:#0A0A0A;text-wrap:balance">Ready to find your <em>dream home in Dubai?</em></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="https://www.xrealty.ae/contact-us-dubai-real-estate-agency/" style="display:inline-flex;align-items:center;height:56px;padding:0 28px;background:#0A0A0A;color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#2A2A2A;color:#FFFFFF">Book a consultation</a>
+        <a href="https://www.xrealty.ae/off-plan-projects-for-sale-in-dubai/" style="display:inline-flex;align-items:center;height:56px;padding:0 28px;border:1px solid #0A0A0A;color:#0A0A0A;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#0A0A0A;color:#FFFFFF">Browse properties</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0A0A0A;color:#BDBDBD">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,64px) 32px;display:flex;flex-direction:column;gap:56px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:end;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.14)">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(36px,4vw,56px);line-height:1;color:#FFFFFF">Xperience Realty</span>
+          <p style="margin:0;max-width:46ch;font-size:15px;line-height:1.6">The highest level of service, advice and support for local and overseas clients with all their property requirements.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFFFFF">Newsletter</span>
+          <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <input type="email" placeholder="Your email address" onInput="{{ onEmail }}" style="flex:1 1 220px;height:54px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#FFFFFF;font:500 15px 'Hanken Grotesk',sans-serif;outline:none">
+              <button onClick="{{ subscribe }}" style="height:54px;padding:0 26px;border-radius:999px;border:none;background:#FFFFFF;color:#0A0A0A;font:600 15px 'Hanken Grotesk',sans-serif;cursor:pointer" style-hover="background:#F3F3F3">Subscribe</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;font-size:16px;color:#FFFFFF">Thanks — you're on the list.</p>
+          </sc-if>
+          <span style="font-size:13px">By subscribing you agree to our <a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline">Terms &amp; Privacy Policy</a>.</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:40px 32px">
+        <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFFFFF">{{ col.title }}</span>
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+              <a href="{{ l.href }}" style="font-size:15px;color:#BDBDBD" style-hover="color:#FFFFFF">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
+        <span>© 2026 Xperience Realty Real Estate L.L.C. All rights reserved.</span>
+        <div style="display:flex;flex-wrap:wrap;gap:20px">
+          <sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
+            <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showOffPlanBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;featuredCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;min&quot;:2,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Listings&quot;}}">
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, menu: null, drawer: false, tab: 'Buy', dev: 'All', saved: [], faq: 0, email: '', subscribed: false };
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : this.state.drawer });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+
+  renderVals() {
+    const B = 'https://www.xrealty.ae';
+    const s = this.state;
+    const isMobile = s.vw < 980;
+    const menus = {
+      properties: [
+        ['Apartments', 'Apartments for sale in Dubai', '/apartments-for-sale-in-dubai/'],
+        ['Villas', 'Villas for sale in Dubai', '/villas-for-sale-in-dubai/'],
+        ['Penthouses', 'Penthouses for sale in Dubai', '/penthouse-for-sale-in-dubai/'],
+        ['Mansions', 'Mansions for sale in Dubai', '/mansions-for-sale-in-dubai/'],
+        ['Off-Plan Projects', 'New launches across Dubai', '/off-plan-projects-for-sale-in-dubai/'],
+        ['Townhouses', 'Townhouses for sale in Dubai', '/townhouse-for-sale-in-dubai/'],
+      ],
+      developers: [
+        ['Emaar Properties', '/developer/emaar-properties/'], ['Nakheel', '/developer/nakheel/'], ['Damac Properties', '/developer/damac-properties/'],
+        ['Beyond', '/developer/beyond-developments/'], ['Dubai Properties', '/developer/dubai-properties/'], ['Ellington Properties', '/developer/ellington-properties/'],
+        ['Meraas', '/developer/meraas/'], ['Omniyat', '/developer/omniyat/'], ['Ardee Developments', '/developer/ardee-developments/'],
+        ['Sobha Realty', '/developer/sobha/'], ['Nshama', '/developer/nshama/'], ['Arada Developments', '/developer/arada-developments/'],
+      ].map(([t, h]) => [t, 'Explore projects', h]),
+      guides: [
+        ['Buyers Guide', 'From search to key handover', '/guides/a-complete-guide-to-buying-property-in-dubai/'],
+        ['Sellers Guide', 'Valuation, marketing, closing', '/guides/a-complete-guide-to-selling-property-in-dubai/'],
+        ['Tenants Guide', 'Ejari, RERA rights, leases', '/guides/a-complete-guide-to-renting-property-in-dubai/'],
+        ['Landlords Guide', 'Yield, NOCs, compliance', '/guides/a-complete-guide-to-landlords-in-dubai/'],
+        ['Off Plan Guide', 'Payment plans and SPAs', '/guides/a-complete-guide-to-off-plan-in-dubai/'],
+        ['Investment Guide', 'ROI, visas, tax-free income', '/guides/a-complete-guide-to-Investment-in-dubai/'],
+      ],
+    };
+    const toItems = k => menus[k].map(([title, desc, h]) => ({ title, desc, href: B + h }));
+    const nav = [
+      { key: 'properties', label: 'Properties', href: B + '/off-plan-projects-for-sale-in-dubai/' },
+      { key: 'developers', label: 'Developers', href: B + '/developer/' },
+      { key: 'guides', label: 'Guides', href: B + '/guides/' },
+      { label: 'XR Team', href: B + '/agent/' },
+      { label: 'Blogs', href: B + '/blogs/' },
+      { label: 'About', href: B + '/about-us/' },
+      { label: 'Contact', href: B + '/contact-us-dubai-real-estate-agency/' },
+    ];
+    const navItems = nav.map(n => ({ ...n, hasMenu: !!n.key, onEnter: () => this.setState({ menu: n.key || null }) }));
+    const drawerGroups = nav.map(n => ({ ...n, hasChildren: n.key === 'properties' || n.key === 'guides', children: n.key === 'properties' || n.key === 'guides' ? toItems(n.key) : [] }));
+
+    const props = [
+      ['frond-f', "Dubai's New Waterfront Icon", 'Nakheel', 'Nakheel', 'Frond F Beach & Coral Collections', 'Palm Jebel Ali', 'AED 30,000,000', 'frond-f-beach-and-coral-collections-at-palm-jebel-ali'],
+      ['valia', "Connected to the City's Defining Destinations", 'Emaar Properties', 'Emaar', 'Valia at Dubai Creek Harbour', 'Dubai Creek Harbour', 'AED 1,910,000', 'valia-at-dubai-creek-harbour'],
+      ['kanyon', 'Life Beyond the Door', 'Beyond', 'Beyond', 'Kanyon by Beyond', 'Dubai Maritime City', 'AED 2,400,000', 'kanyon-by-beyond'],
+      ['everly', 'Life Composed Around the Crystal Lagoon', 'Ellington Properties', 'Ellington', 'Everly Place by Ellington', 'MBR City', 'AED 1,900,000', 'everly-place-by-ellington-properties'],
+      ['fior-1', "Emaar's Waterfront Community", 'Emaar Properties', 'Emaar', 'Fior 1 at Rashid Yachts & Marina', 'Rashid Yachts & Marina', 'AED 2,200,000', 'fior-1-at-rashid-yachts-and-marina'],
+      ['the-woods', 'Built Around Nature and Wellness', 'Sobha Realty', 'Sobha', 'The Woods at Sobha Sanctuary', 'Dubailand', 'AED 999,000', 'the-woods-at-sobha-sanctuary-by-sobha-realty'],
+      ['golf-trails', 'Prime Positioning', 'Emaar Properties', 'Emaar', 'Golf Trails at Emaar South', 'Emaar South', 'AED 1,250,000', 'golf-trails-at-emaar-south'],
+      ['arancia', 'Designed Around Green Living', 'Beyond', 'Beyond', 'Arancia Yards by Beyond', 'Dubailand', 'AED 1,000,000', 'arancia-the-yards-by-beyond'],
+      ['golf-vale', 'Where Leisure Finds its Rhythm', 'Emaar Properties', 'Emaar', 'Golf Vale at Emaar South', 'Emaar South', 'AED 1,090,000', 'golf-vale-at-emaar-south'],
+      ['golf-fields', 'More Than Just a Home', 'Emaar Properties', 'Emaar', 'Golf Fields at Emaar South', 'Emaar South', 'AED 1,260,000', 'golf-fields-at-emaar-south'],
+    ].map(([slug, tagline, developer, short, name, community, price, path]) => ({ slug, tagline, developer, short, name, community, price, href: `${B}/property/${path}/` }));
+    const CL = (v, id, w = 1200) => `https://res.cloudinary.com/dkhns25jh/image/upload/w_${w},f_auto,q_auto/${v}/xr_media/${id}.webp`;
+    const IMG = {
+      valiaExt: CL('v1786024664', 'hf14iqghcjyalcrgr8rv'), valiaInt: CL('v1786024589', 'azldwpnaxgzt1hcqt9xi'), valia2: CL('v1786024596', 'tng4fvgqeipawfjdsdh3'),
+      valia3: CL('v1786024607', 'fhn0x36pa0lu8qrw3qjf'), valiaCity: CL('v1786024414', 'yih9rhneuqhgovopmcjb'), valiaAmen: CL('v1786024547', 'c6shcktnp8peisklmv1u'),
+      fiorExt: CL('v1783592590', 'xljqzm8fduxygd9lmhvy'), fiorLobby: CL('v1783592656', 'xgid55zsix2nhwyqaa1u'), fiorLiving: CL('v1783592664', 'eegv6rcdfjm5wmzsyfad'),
+      fiorLiving2: CL('v1783592577', 'wvi2lddsjau1ya5kmihm'), fiorPool: CL('v1783592835', 'v26qtyo0vqwehgevvc4h'),
+    };
+    const propImg = { 'frond-f': IMG.fiorPool, valia: IMG.valiaExt, kanyon: IMG.valia3, everly: IMG.valia2, 'fior-1': IMG.fiorExt, 'the-woods': IMG.valiaAmen, 'golf-trails': IMG.fiorLiving2, arancia: IMG.fiorLiving, 'golf-vale': IMG.valiaInt, 'golf-fields': IMG.fiorLobby };
+    props.forEach(p => { p.img = propImg[p.slug]; });
+    const limit = Math.max(1, this.props.featuredCount ?? 8);
+    const filtered = (s.dev === 'All' ? props : props.filter(p => p.short === s.dev)).slice(0, limit);
+    const properties = filtered.map(p => {
+      const saved = s.saved.includes(p.slug);
+      return { ...p, heartFill: saved ? 'currentColor' : 'none', toggleSave: () => this.setState(st => ({ saved: st.saved.includes(p.slug) ? st.saved.filter(x => x !== p.slug) : [...st.saved, p.slug] })) };
+    });
+    const chips = ['All', 'Emaar', 'Beyond', 'Nakheel', 'Ellington', 'Sobha'].map(label => ({ label, active: s.dev === label, inactive: s.dev !== label, select: () => this.setState({ dev: label }) }));
+
+    const searchTabs = ['Buy', 'Off-plan', 'Rent'].map(label => ({ label, active: s.tab === label, inactive: s.tab !== label, select: () => this.setState({ tab: label }) }));
+    const searchFields = [
+      { label: 'Property type', options: ['Any type', 'Apartment', 'Villa', 'Townhouse', 'Penthouse', 'Mansion'] },
+      { label: 'Bedrooms', options: ['Any', 'Studio', '1', '2', '3', '4', '5+'] },
+      { label: 'Price range', options: ['Any price', 'Up to AED 1M', 'AED 1M – 2M', 'AED 2M – 5M', 'AED 5M – 10M', 'AED 10M+'] },
+      { label: 'Community', options: ['All communities', 'Dubai Hills Estate', 'Dubai Creek Harbour', 'Palm Jebel Ali', 'Emaar South', 'The Valley', 'Grand Polo'] },
+    ].map(f => ({ ...f, onChange: () => {} }));
+
+    const communities = [
+      ['grand-polo', 'Grand Polo', 'Where elegance meets equestrian excellence', '/area/grand-polo-club-and-resort/'],
+      ['the-valley', 'The Valley', 'Curated for families, designed for the future', '/area/the-valley/'],
+      ['al-marjan', 'Al Marjan Island', 'Where the sea shapes ambition', '/area/al-marjan-island-ras-al-khaimah/'],
+      ['dubai-hills', 'Dubai Hills Estate', 'Where green living meets prestige', '/area/dubai-hills-estate/'],
+      ['the-oasis', 'The Oasis', 'Designed for those who choose differently', '/area/the-oasis/'],
+      ['creek-harbour', 'Dubai Creek Harbour', 'Where the city meets the water', '/area/dubai-creek-harbour/'],
+    ].map(([slug, name, tagline, h]) => ({ slug, name, tagline, href: B + h, img: ({ 'grand-polo': IMG.valiaAmen, 'the-valley': IMG.valia2, 'al-marjan': IMG.fiorPool, 'dubai-hills': IMG.valiaInt, 'the-oasis': IMG.fiorLobby, 'creek-harbour': IMG.valiaCity })[slug] }));
+
+    const reasons = [
+      ['Award-winning brokerage', 'Recognised by Emaar and several of Dubai\'s leading developers. True Brokers on Bayut and SuperAgents on Property Finder.'],
+      ['RERA-certified agents', 'Experienced specialists with first-hand knowledge of Dubai\'s most sought-after communities.'],
+      ['Data-driven advisory', 'Investment guidance backed by real market analytics — capital growth, rental yield and lifestyle fit.'],
+      ['Consultation to handover', 'A structured, transparent process, with after-sale support and portfolio management beyond.'],
+    ].map(([title, body], i) => ({ n: '0' + (i + 1), title, body }));
+
+    const guideMeta = [
+      ['Buyers', 'A complete guide to buying property in Dubai', 'The full purchase process — from initial search to key handover, including DLD fees and registration costs.'],
+      ['Sellers', 'Selling property in Dubai, simplified', 'Maximise your property\'s value: listing, valuation, marketing and closing in Dubai\'s market.'],
+      ['Investors', 'Why invest in Dubai?', 'ROI analysis, residency through property investment, tax-free rental income and diversification.'],
+      ['Landlords', 'Renting out your property in Dubai', 'Optimise rental yield, understand NOC requirements, and comply with RERA regulations.'],
+      ['Tenants', 'How to rent property in Dubai', 'Ejari registration, RERA rights, cheque structures and lease terms explained.'],
+      ['Off-plan', 'Why off-plan properties?', 'Payment plans, developer reputation, SPA agreements and capital growth potential.'],
+    ];
+    const guideHrefs = ['buying-property', 'selling-property', 'Investment', 'landlords', 'renting-property', 'off-plan'];
+    const guides = guideMeta.map(([audience, title, desc], i) => ({ audience, title, desc, href: `${B}/guides/a-complete-guide-to-${guideHrefs[i]}-in-dubai/` }));
+
+    const developers = [
+      ['Emaar Properties', 'emaar-properties'], ['Nakheel', 'nakheel'], ['Damac Properties', 'damac-properties'], ['Nshama', 'nshama'], ['Meraas', 'meraas'],
+      ['Dubai Properties', 'dubai-properties'], ['Sobha', 'sobha'], ['Omniyat', 'omniyat'], ['Ardee Developments', 'ardee-developments'], ['Ellington Properties', 'ellington-properties'],
+    ].map(([name, p]) => ({ name, href: `${B}/developer/${p}/` }));
+
+    const blogs = [
+      ['five-areas', 'Sep 29, 2026', 'Where to buy in Dubai in 2026: five areas for different buyer priorities', 'A practical guide to five Dubai locations for end users, long-term growth buyers and income-focused investors.', 'where-to-buy-dubai-five-buyer-priorities'],
+      ['resilient', 'Sep 9, 2026', 'What makes Dubai so resilient?', 'Population growth, investor demand, infrastructure, tourism and a strong economy — why the market holds.', 'why-dubai-real-estate-is-resilient'],
+      ['creek', 'Aug 15, 2026', 'Why Dubai Creek Harbour is set to become a property hotspot', '100% freehold, prime location, new Emaar launches and the upcoming Metro Blue Line.', 'why-invest-in-dubai-creek-harbour'],
+    ].map(([slug, date, title, excerpt, p]) => ({ slug, date, title, excerpt, href: `${B}/blogs/${p}/`, img: ({ 'five-areas': IMG.valiaExt, resilient: IMG.valia3, creek: IMG.valiaCity })[slug] }));
+
+    const faqs = [
+      ['How do I choose the best real estate broker in Dubai?', 'Look for experience, market knowledge, verified track records, and transparent communication. The best brokers offer strategic advice, access to premium inventory, and a client-first approach.'],
+      ['Can foreigners buy property in Dubai?', 'Yes. Foreign investors can buy property in designated freehold areas across Dubai, with full ownership rights and access to a wide range of residential properties.'],
+      ['Can I get UAE residency if I buy property?', 'Property investment in Dubai can qualify buyers for UAE residency visas, subject to eligibility criteria and minimum investment thresholds set by the authorities.'],
+      ['What are the benefits of buying off-plan?', 'Attractive launch pricing, flexible payment plans, high capital growth potential, and access to new developments in prime communities.'],
+      ['What additional costs should I consider?', 'Dubai Land Department fees, registration charges, agency commissions, and service fees. Our agents provide a full cost breakdown during the advisory process.'],
+      ['How long does a purchase take to complete?', 'A secondary-market transaction generally completes within a few weeks once documentation and payments are arranged. Off-plan purchases follow the developer\'s payment schedule until completion.'],
+    ].map(([q, a], i) => ({ q, a, open: s.faq === i, icon: s.faq === i ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }) }));
+
+    const L = (label, h) => ({ label, href: h.startsWith('http') ? h : B + h });
+    const footerCols = [
+      { title: 'Company', links: [L('About XR', '/about-us/'), L('Join XR', '/careers/'), L('Contact us', '/contact-us-dubai-real-estate-agency/'), L('XR Blog', '/blogs/'), L('Dubai FAQs', '/faqs/')] },
+      { title: 'For sale', links: [L('Apartments', '/apartments-for-sale-in-dubai/'), L('Villas', '/villas-for-sale-in-dubai/'), L('Townhouses', '/townhouse-for-sale-in-dubai/'), L('Penthouses', '/penthouse-for-sale-in-dubai/'), L('Mansions', '/mansions-for-sale-in-dubai/'), L('Land & plots', '/land-for-sale-in-dubai/')] },
+      { title: 'Off-plan', links: [L('Off-plan projects', '/off-plan-projects-for-sale-in-dubai/'), L('Off-plan apartments', '/off-plan-apartments-for-sale-in-dubai/'), L('Off-plan villas', '/off-plan-villas-for-sale-in-dubai/'), L('Off-plan townhouses', '/off-plan-townhouses-for-sale-in-dubai/'), L('Ultra luxury projects', '/dubai-properties/for-sale/type-ultra-luxury-projects/')] },
+      { title: 'Dubai living', links: [L('Beachfront', '/living-experience-dubai/beachfront/'), L('Waterfront', '/living-experience-dubai/waterfront/'), L('Downtown', '/living-experience-dubai/downtown/'), L('Golf course', '/living-experience-dubai/golf-course/'), L('Island living', '/living-experience-dubai/island-living/'), L('Green nature', '/living-experience-dubai/green-nature/')] },
+      { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
+    ].map(c => ({ ...c, links: c.links.map(l => ({ ...l, href: /^(tel|mailto)/.test(l.label) ? l.href : l.href })) }));
+    footerCols[4].links = [{ label: '+971 5 640 80888', href: 'tel:+971564080888' }, { label: 'info@xrealty.ae', href: 'mailto:info@xrealty.ae' }, { label: 'Dubai Hills Estate, Dubai', href: 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47' }];
+
+    const socials = [['YouTube', 'https://www.youtube.com/@xrealtyae'], ['Instagram', 'https://www.instagram.com/xperience.realty'], ['LinkedIn', 'https://www.linkedin.com/company/xrealty-ae'], ['X', 'https://x.com/xrealty_ae'], ['Facebook', 'https://www.facebook.com/profile.php?id=61562378023612']].map(([label, href]) => ({ label, href }));
+
+    return {
+      showTopBar: (this.props.showTopBar ?? true) && !isMobile,
+      showOffPlan: this.props.showOffPlanBand ?? true,
+      isMobile, isDesktop: !isMobile,
+      navItems, drawerGroups,
+      showDropdown: !isMobile && !!s.menu,
+      dropdownItems: s.menu ? toItems(s.menu) : [],
+      closeMenu: () => s.menu && this.setState({ menu: null }),
+      drawerOpen: s.drawer, drawerClosed: !s.drawer, showDrawer: isMobile && s.drawer,
+      toggleDrawer: () => this.setState({ drawer: !s.drawer }),
+      searchTabs, searchFields,
+      runSearch: () => { const el = document.getElementById('featured'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); },
+      chips, properties,
+      savedLabelShow: s.saved.length > 0,
+      savedLabel: `${s.saved.length} saved to your shortlist — an Xpert can send you full brochures and payment plans.`,
+      communities, reasons, guides, developers, blogs, faqs, footerCols, socials,
+      notSubscribed: !s.subscribed, subscribed: s.subscribed,
+      onEmail: e => this.setState({ email: e.target.value }),
+      subscribe: () => { if (/\S+@\S+\.\S+/.test(s.email)) this.setState({ subscribed: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

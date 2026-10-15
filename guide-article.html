@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can foreigners buy property in Dubai?","acceptedAnswer":{"@type":"Answer","text":"Yes. Foreign nationals can buy freehold property in designated areas of Dubai with full ownership, without needing UAE residency."}},{"@type":"Question","name":"How much is the DLD fee in Dubai?","acceptedAnswer":{"@type":"Answer","text":"The Dubai Land Department transfer fee is 4% of the purchase price, plus administrative charges."}},{"@type":"Question","name":"How long does buying a ready property take?","acceptedAnswer":{"@type":"Answer","text":"A cash purchase of a ready property typically takes 2–4 weeks from signing the MOU to transfer; with a mortgage, allow 4–8 weeks."}}]}</script>
+<style>
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
+<script src="./xr-extras.js"></script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);color:var(--ink)">
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-width:0">
+        <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
+        </a>
+        <a href="guides.html" style="display:flex;align-items:center;gap:8px;height:44px;font-size:14px;font-weight:600;color:#FFFFFF;white-space:nowrap" style-hover="color:#FF9100">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.6"></path></svg>All guides
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ toggleTheme }}" aria-label="{{ themeAria }}" title="{{ themeAria }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          </sc-if>
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg>
+          </sc-if>
+        </button>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <a href="#ask" onClick="{{ goAsk }}" style="display:inline-flex;align-items:center;height:44px;padding:0 22px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:14px;font-weight:600" style-hover="background:#E3E3E3;color:#0A0A0A">Book a consultation</a>
+        </sc-if>
+      </div>
+    </div>
+    <div role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progressNum }}" style="position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:transparent">
+      <div style="height:100%;width:{{ progressPct }};background:#FF9100;transition:width .1s linear"></div>
+    </div>
+  </header>
+
+  <section data-screen-label="Article hero" style="position:relative;background:#1A1A1A;color:#FFFFFF;overflow:hidden">
+    <img src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024664/xr_media/hf14iqghcjyalcrgr8rv.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.65) 50%,rgba(10,10,10,.3) 100%),linear-gradient(180deg,rgba(10,10,10,.2),rgba(10,10,10,.75))"></div>
+    <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,64px) clamp(40px,5vw,64px);display:flex;flex-direction:column;gap:22px">
+      <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:#D6D6D6">
+        <a href="index.html" style="color:#D6D6D6" style-hover="color:#FFFFFF">Home</a><span aria-hidden="true">/</span>
+        <a href="guides.html" style="color:#D6D6D6" style-hover="color:#FFFFFF">Guides</a><span aria-hidden="true">/</span>
+        <span style="color:#FFFFFF">Buyers</span>
+      </nav>
+      <span style="align-self:flex-start;display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.4);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Buyers guide</span>
+      <h1 style="margin:0;max-width:16ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,5.8vw,84px);line-height:.98;letter-spacing:-.02em;text-wrap:balance">Buying property in Dubai, <em style="color:#FF9100">step by step.</em></h1>
+      <p style="margin:0;max-width:56ch;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:#E6E6E6;text-wrap:pretty">Everything between “I'm thinking of buying” and getting your keys — costs, documents, timelines and the mistakes to avoid.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding-top:8px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="https://media.xrealty.ae/large_Rakhi_72f9cbb2de.webp" alt="" style="width:44px;height:44px;border-radius:999px;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.4)">
+          <span style="display:flex;flex-direction:column;gap:2px;font-size:13px">
+            <span style="color:#D6D6D6">Reviewed by</span>
+            <a href="https://www.xrealty.ae/agent/rakhi-megchiani/" style="font-weight:700;color:#FFFFFF" style-hover="color:#FF9100">Rakhi Megchiani, Sales Director</a>
+          </span>
+        </div>
+        <span style="font-size:13px;color:#D6D6D6">Updated Sep 2026 · 14 min read · 8 chapters</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:{{ gridCols }};gap:clamp(32px,5vw,80px);align-items:start">
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <aside style="position:sticky;top:104px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">In this guide</span>
+        <nav aria-label="Contents" style="display:flex;flex-direction:column;border-left:1px solid var(--line)">
+          <sc-for list="{{ toc }}" as="t" hint-placeholder-count="8">
+            <a href="#{{ t.id }}" onClick="{{ t.go }}" aria-current="{{ t.current }}" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px;padding:10px 0 10px 16px;margin-left:-1px;border-left:2px solid {{ t.bar }};font-size:14px;line-height:1.35;font-weight:{{ t.weight }};color:{{ t.color }}" style-hover="color:var(--ink)">
+              <span style="font-variant-numeric:tabular-nums;color:var(--muted)">{{ t.n }}</span><span>{{ t.title }}</span>
+            </a>
+          </sc-for>
+        </nav>
+        <a href="#ask" onClick="{{ goAsk }}" style="display:flex;align-items:center;justify-content:center;height:48px;margin-top:8px;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:600" style-hover="border-color:var(--ink)">Ask about this guide</a>
+      </aside>
+    </sc-if>
+
+    <article style="min-width:0;max-width:760px;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <details style="border:1px solid var(--line);border-radius:12px;padding:0 18px">
+          <summary style="display:flex;align-items:center;justify-content:space-between;min-height:56px;font-size:15px;font-weight:700;cursor:pointer;list-style:none">In this guide · 8 chapters<span aria-hidden="true" style="color:#FF9100">+</span></summary>
+          <nav aria-label="Contents" style="display:flex;flex-direction:column;padding-bottom:12px">
+            <sc-for list="{{ toc }}" as="t" hint-placeholder-count="8">
+              <a href="#{{ t.id }}" onClick="{{ t.go }}" style="display:grid;grid-template-columns:32px minmax(0,1fr);min-height:44px;align-items:center;border-top:1px solid var(--line);font-size:15px">
+                <span style="color:var(--muted)">{{ t.n }}</span><span>{{ t.title }}</span>
+              </a>
+            </sc-for>
+          </nav>
+        </details>
+      </sc-if>
+
+      <div style="border-radius:12px;background:var(--soft);padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Key takeaways</span>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ takeaways }}" as="k" hint-placeholder-count="4">
+            <li style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:16px;line-height:1.5">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top:3px;color:#FF9100"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+              <span>{{ k }}</span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+
+      <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="8">
+        <section id="{{ c.id }}" data-chapter="{{ c.id }}" style="display:flex;flex-direction:column;gap:18px;scroll-margin-top:100px">
+          <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Chapter {{ c.n }}</span>
+          <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance">{{ c.title }}</h2>
+          <sc-for list="{{ c.paras }}" as="p" hint-placeholder-count="2">
+            <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">{{ p }}</p>
+          </sc-for>
+          <sc-if value="{{ c.hasList }}" hint-placeholder-val="{{ false }}">
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)">
+              <sc-for list="{{ c.list }}" as="li" hint-placeholder-count="3">
+                <li style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5">
+                  <span style="font-weight:600">{{ li.k }}</span><span style="color:var(--muted);text-align:right">{{ li.v }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </sc-if>
+          <sc-if value="{{ c.hasTip }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:4px minmax(0,1fr);gap:16px;padding:4px 0">
+              <span style="border-radius:999px;background:#FF9100"></span>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:4px 0">
+                <span style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Xpert tip</span>
+                <span style="font-size:16px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ c.tip }}</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ c.hasTool }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ c.toolHref }}" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-radius:12px;border:1px solid var(--line2)" style-hover="border-color:var(--ink)">
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:16px;font-weight:700">{{ c.toolTitle }}</span>
+                <span style="font-size:14px;color:var(--muted)">{{ c.toolDesc }}</span>
+              </span>
+              <span aria-hidden="true" style="color:#FF9100;font-size:18px">→</span>
+            </a>
+          </sc-if>
+        </section>
+      </sc-for>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <sc-if value="{{ notVoted }}" hint-placeholder-val="{{ true }}">
+          <span style="font-size:16px;font-weight:600">Was this guide helpful?</span>
+          <div style="display:flex;gap:8px">
+            <button onClick="{{ voteYes }}" style="height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:14px;font-weight:600;cursor:pointer" style-hover="border-color:var(--ink)">Yes</button>
+            <button onClick="{{ voteNo }}" style="height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:14px;font-weight:600;cursor:pointer" style-hover="border-color:var(--ink)">Not really</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ voted }}" hint-placeholder-val="{{ false }}">
+          <span role="status" style="font-size:16px">{{ voteMsg }}</span>
+        </sc-if>
+      </div>
+
+      <section id="ask" style="display:flex;flex-direction:column;gap:18px;scroll-margin-top:100px">
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.02">Ask an Xpert about buying</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:var(--muted)">Pick a question or write your own — it opens WhatsApp with your message ready to send.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ askChips }}" as="a" hint-placeholder-count="3">
+            <button onClick="{{ a.pick }}" style="min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:14px;cursor:pointer;text-align:left" style-hover="border-color:#FF9100">{{ a.label }}</button>
+          </sc-for>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your question</span>
+          <textarea rows="3" value="{{ question }}" onChange="{{ onQuestion }}" placeholder="Type your question…" style="padding:14px 16px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-family:inherit;font-size:16px;line-height:1.5;resize:vertical"></textarea>
+        </label>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="{{ waHref }}" style="display:inline-flex;align-items:center;height:52px;padding:0 24px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600" style-hover="background:var(--ink-h);color:var(--bg)">Send on WhatsApp</a>
+          <a href="tel:+971564080888" style="display:inline-flex;align-items:center;height:52px;padding:0 24px;border-radius:999px;border:1px solid var(--line2);color:var(--ink);font-size:15px;font-weight:600" style-hover="border-color:var(--ink)">Call a specialist</a>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <section data-screen-label="Related guides" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px)">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px">
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,3.6vw,50px);line-height:1">Keep reading</h2>
+      <a href="guides.html" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All guides →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 clamp(24px,4vw,56px)">
+      <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+        <a href="{{ r.href }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:22px 0;border-top:1px solid var(--line)" style-hover="color:var(--muted)">
+          <span style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ r.audience }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1.1">{{ r.title }}</span>
+          </span>
+          <span aria-hidden="true" style="color:#FF9100;font-size:18px">→</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="background:#0A0A0A;color:#BDBDBD">
+    <div style="max-width:1360px;margin:0 auto;padding:40px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:13px">
+      <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto">
+      <span>Information is indicative and reviewed periodically. It isn't legal or financial advice.</span>
+      <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="https://www.xrealty.ae/terms-and-conditions/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
+    </div>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="height:76px"></div>
+    </sc-if>
+  </footer>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:#0A0A0A;border-top:1px solid rgba(255,255,255,.12);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px">
+      <a href="tel:+971564080888" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">Call</a>
+      <a href="https://wa.me/971565467991" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">WhatsApp</a>
+      <a href="#ask" onClick="{{ goAsk }}" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;background:#FFFFFF;color:#0A0A0A;font-size:14px;font-weight:600">Ask an Xpert</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', progress: 0, active: 'who', vote: null, question: '' };
+  componentDidMount() {
+    this.onResize = () => this.setState({ vw: window.innerWidth });
+    this.onScroll = () => {
+      const d = document.documentElement, max = d.scrollHeight - window.innerHeight;
+      let active = this.state.active;
+      document.querySelectorAll('[data-chapter]').forEach(el => { if (el.getBoundingClientRect().top < 160) active = el.getAttribute('data-chapter'); });
+      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      if (Math.abs(progress - this.state.progress) > 0.004 || active !== this.state.active) this.setState({ progress, active });
+    };
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    let t = null; try { t = localStorage.getItem('xr-theme'); } catch (e) {}
+    const theme = t || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    this.setState({ theme }, () => this.applyTheme());
+  }
+  componentDidUpdate() { this.applyTheme(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onScroll); }
+  applyTheme() { document.documentElement.dataset.theme = this.state.theme; }
+  scrollTo(id) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' }); }
+
+  renderVals() {
+    const s = this.state, B = 'https://www.xrealty.ae';
+    const isDesktop = s.vw >= 1024;
+    const G = 'guides.html';
+    const chapters = [
+      { id: 'who', title: 'Who can buy in Dubai', paras: ['Foreign nationals can buy freehold property — full ownership of the unit and land — in designated areas such as Downtown, Dubai Marina, Dubai Hills Estate, Palm Jumeirah and Dubai Creek Harbour. You don\'t need UAE residency, and you can buy in your own name, jointly, or through a company.', 'Non-residents can complete the whole process remotely using a power of attorney, although most buyers visit at least once for viewings.'], tip: 'If you plan to apply for a golden visa, buy in your personal name — company-owned property usually doesn\'t qualify.' },
+      { id: 'budget', title: 'Set your budget — and the extra 7%', paras: ['On top of the purchase price, plan for roughly 6–8% in one-off costs on a ready property: the 4% DLD transfer fee, trustee fees, agency commission and, if you borrow, mortgage registration and bank fees.', 'If you need a mortgage, get pre-approval before you start viewing. It confirms what you can borrow and makes your offer stronger.'], list: [{ k: 'Expat, first home up to AED 5M', v: 'Up to 80% loan' }, { k: 'Expat, first home above AED 5M', v: 'Up to 70% loan' }, { k: 'Maximum term', v: '25 years' }, { k: 'Debt-to-income cap', v: '50% of salary' }], tool: ['Estimate your buying costs', 'Fees calculator on the guides page', G + '#fees'] },
+      { id: 'choose', title: 'Choose ready or off-plan', paras: ['Ready property lets you move in or rent it out immediately, and you see exactly what you\'re buying. Off-plan is bought from the developer before completion — usually at a lower entry price with a payment plan spread over construction.', 'Compare communities on what matters to you: commute, schools, rental yield, service charges and the developer\'s track record.'], tip: 'Ask for the service-charge history per sq ft — two similar buildings can differ by thousands of dirhams a year.' },
+      { id: 'offer', title: 'Make an offer and sign Form F', paras: ['Once a price is agreed, buyer, seller and both agents sign Form F — the RERA-standard memorandum of understanding. It sets the price, the deposit, who pays which fees and the transfer date.', 'The buyer usually gives a 10% security-deposit cheque, held by the broker until transfer.'], tip: 'Make sure Form F includes a clear transfer date and what happens if your mortgage isn\'t approved.' },
+      { id: 'noc', title: 'Get the developer\'s NOC', paras: ['The seller applies to the developer for a No Objection Certificate, which confirms there are no unpaid service charges on the unit. Fees typically range from AED 500 to AED 5,000 depending on the developer, and it usually takes 1–2 weeks.'] },
+      { id: 'transfer', title: 'Transfer at a DLD trustee office', paras: ['Buyer and seller (or their representatives) meet at a registered trustee office. You hand over manager\'s cheques for the balance and fees, and the DLD issues the new title deed — now sent digitally, usually the same day.'], list: [{ k: 'Bring', v: 'Passport, Emirates ID (if resident), manager\'s cheques' }, { k: 'DLD fee', v: '4% + AED 580' }, { k: 'Trustee fee', v: 'AED 4,000 + VAT' }] },
+      { id: 'after', title: 'After you get the keys', paras: ['Register with DEWA for electricity and water, set up district cooling where the building uses it, and arrange home insurance. If you\'re letting the property, your tenancy must be registered on Ejari.'] },
+      { id: 'visa', title: 'Residency through property', paras: ['Property worth AED 2 million or more can qualify you for a 10-year UAE golden visa, including mortgaged and some off-plan properties from approved developers. Smaller investments may qualify for a 2-year property-investor visa.'], tool: ['Check if you qualify', 'Golden visa checker on the guides page', G + '#tools'] },
+    ].map((c, i) => ({ ...c, n: String(i + 1).padStart(2, '0'), hasList: !!c.list, list: c.list || [], hasTip: !!c.tip, hasTool: !!c.tool, toolTitle: c.tool ? c.tool[0] : '', toolDesc: c.tool ? c.tool[1] : '', toolHref: c.tool ? c.tool[2] : '' }));
+    const toc = chapters.map(c => { const on = s.active === c.id; return { id: c.id, n: c.n, title: c.title, current: on ? 'true' : undefined, bar: on ? '#FF9100' : 'transparent', weight: on ? 700 : 500, color: on ? 'var(--ink)' : 'var(--muted)', go: e => { e.preventDefault(); this.scrollTo(c.id); } }; });
+    const q = s.question.trim();
+    const msg = `Hi, I'm reading the XR Buyers guide. ${q || 'Could an Xpert help me with buying in Dubai?'}`;
+    return {
+      isDesktop, isMobile: !isDesktop, gridCols: isDesktop ? '260px minmax(0,1fr)' : 'minmax(0,1fr)',
+      isDark: s.theme === 'dark', isLight: s.theme !== 'dark',
+      themeAria: s.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
+      goAsk: e => { e.preventDefault(); this.scrollTo('ask'); },
+      progressPct: (s.progress * 100).toFixed(1) + '%', progressNum: Math.round(s.progress * 100),
+      takeaways: ['Foreigners can own freehold property outright — no residency required.', 'Budget about 7% on top of the price for fees on a ready purchase.', 'A cash purchase can complete in 2–4 weeks; allow 4–8 with a mortgage.', 'AED 2M+ can qualify you for a 10-year golden visa.'],
+      chapters, toc,
+      voted: !!s.vote, notVoted: !s.vote,
+      voteMsg: s.vote === 'yes' ? 'Thanks — glad it helped.' : 'Thanks for telling us. An Xpert can answer anything we missed below.',
+      voteYes: () => this.setState({ vote: 'yes' }), voteNo: () => this.setState({ vote: 'no' }),
+      askChips: ['How much deposit do I need?', 'Can I buy without visiting Dubai?', 'Which areas have the best rental yield?'].map(label => ({ label, pick: () => this.setState({ question: label }) })),
+      question: s.question, onQuestion: e => this.setState({ question: e.target.value }),
+      waHref: 'https://wa.me/971565467991?text=' + encodeURIComponent(msg),
+      related: [['Off-plan', 'Buying off-plan in Dubai', 'off-plan'], ['Investors', 'Investing in Dubai property', 'Investment'], ['Landlords', 'Renting out your property', 'landlords']].map(([audience, title, slug]) => ({ audience, title, href: `${B}/guides/a-complete-guide-to-${slug}-in-dubai/` })),
+    };
+  }
+}
+</script>
+</body>
+</html>

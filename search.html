@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<script src="./xr-data.js"></script>
+<style>
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
+html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
+</style>
+<script src="./xr-extras.js"></script>
+</helmet>
+<div style="min-height:100vh;background:var(--bg);color:var(--ink)">
+  <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
+      </a>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="Primary" style="display:flex;align-items:center;height:100%">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="7">
+            <a href="{{ n.href }}" aria-current="{{ n.current }}" style="position:relative;display:flex;align-items:center;height:100%;padding:0 12px;font-size:15px;font-weight:500;color:#FFFFFF;white-space:nowrap" style-hover="color:#BDBDBD">{{ n.label }}<span style="position:absolute;left:12px;right:12px;bottom:18px;height:2px;border-radius:2px;background:{{ n.bar }}"></span></a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button onClick="{{ toggleLang }}" aria-label="{{ langAria }}" title="{{ langAria }}" style="min-width:44px;height:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#FFFFFF;font-size:13px;font-weight:600;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">{{ langBtn }}</button>
+        <button onClick="{{ toggleTheme }}" aria-label="{{ themeAria }}" title="{{ themeAria }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          </sc-if>
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg>
+          </sc-if>
+        </button>
+        <a href="compare.html" aria-label="{{ shortlistAria }}" style="position:relative;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          <sc-if value="{{ hasSaved }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#FF9100;color:#0A0A0A;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ savedCount }}</span>
+          </sc-if>
+        </a>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <a href="contact.html" style="display:inline-flex;align-items:center;height:44px;padding:0 20px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap" style-hover="background:#E3E3E3;color:#0A0A0A">{{ t.contact }}</a>
+        </sc-if>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleDrawer }}" aria-label="Menu" aria-expanded="{{ drawerOpen }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="{{ menuIconPath }}" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ showDrawer }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;height:calc(100vh - 72px);overflow-y:auto;background:var(--bg)">
+        <nav aria-label="Mobile" style="padding:16px clamp(20px,5vw,64px) 120px;display:flex;flex-direction:column">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="7">
+            <a href="{{ n.href }}" style="display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);font-family:'Instrument Serif','Noto Kufi Arabic',serif;font-size:32px;line-height:1.1;color:var(--ink)">{{ n.label }}<span aria-hidden="true" style="font-size:12px;color:{{ n.bar }}">●</span></a>
+          </sc-for>
+          <a href="contact.html" style="margin-top:24px;display:flex;align-items:center;justify-content:center;height:52px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600">{{ t.contact }}</a>
+        </nav>
+      </div>
+    </sc-if>
+  </header>
+  <main>
+    <section data-screen-label="Search header" style="max-width:1360px;margin:0 auto;padding:clamp(32px,4vw,56px) clamp(20px,5vw,64px) 0;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Dubai · new launches &amp; off-plan</span>
+        <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,5.6vw,84px);line-height:.95;letter-spacing:-.02em">Find your <em style="color:#FF9100">property.</em></h1>
+      </div>
+      <div role="tablist" aria-label="View" style="display:flex;padding:4px;border-radius:999px;background:var(--soft)">
+        <sc-for list="{{ views }}" as="v" hint-placeholder-count="2">
+          <button role="tab" aria-selected="{{ v.active }}" onClick="{{ v.select }}" style="height:40px;padding:0 20px;border-radius:999px;border:none;background:{{ v.bg }};color:{{ v.fg }};font-size:14px;font-weight:600;cursor:pointer">{{ v.label }}</button>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-label="Filters" style="position:sticky;top:72px;z-index:400;background:var(--bg);border-bottom:1px solid var(--line);margin-top:24px">
+      <div style="max-width:1360px;margin:0 auto;padding:12px clamp(20px,5vw,64px);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;align-items:center">
+        <sc-for list="{{ selects }}" as="f" hint-placeholder-count="6">
+          <label style="position:relative;flex-shrink:0;display:flex;align-items:center;gap:6px;height:44px;padding:0 34px 0 16px;border-radius:999px;border:1px solid {{ f.border }};font-size:14px;white-space:nowrap;cursor:pointer">
+            <span style="color:var(--muted)">{{ f.label }}</span>
+            <select value="{{ f.value }}" onChange="{{ f.onChange }}" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%">
+              <sc-for list="{{ f.options }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+            </select>
+            <strong style="font-weight:600">{{ f.value }}</strong>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="position:absolute;right:14px;color:var(--muted)"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+          </label>
+        </sc-for>
+        <sc-if value="{{ hasFilters }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ clearAll }}" style="flex-shrink:0;height:44px;padding:0 14px;border:none;background:transparent;color:var(--ink);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap">Clear all</button>
+        </sc-if>
+      </div>
+    </section>
+
+    <section style="max-width:1360px;margin:0 auto;padding:20px clamp(20px,5vw,64px) clamp(64px,8vw,104px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px">
+        <span aria-live="polite" style="font-size:15px;color:var(--muted)"><strong style="color:var(--ink)">{{ count }}</strong> {{ countLabel }}</span>
+        <label style="display:flex;align-items:center;gap:8px;font-size:14px">
+          <span style="color:var(--muted)">Sort</span>
+          <select value="{{ sort }}" onChange="{{ onSort }}" style="height:40px;padding:0 12px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:14px;font-weight:600">
+            <option value="rec">Recommended</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="soon">Handover: soonest</option>
+          </select>
+        </label>
+      </div>
+
+      <div style="display:flex;gap:24px;align-items:flex-start">
+        <sc-if value="{{ showList }}" hint-placeholder-val="{{ true }}">
+          <div style="flex:1 1 0;min-width:0">
+            <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,{{ cardMin }}),1fr));gap:32px 20px">
+                <sc-for list="{{ results }}" as="p" hint-placeholder-count="6">
+                  <article onMouseEnter="{{ p.hover }}" style="display:flex;flex-direction:column;gap:14px">
+                    <div style="position:relative;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)">
+                      <a href="{{ p.href }}" tabindex="-1" aria-hidden="true" style="display:block;width:100%;height:100%"><img class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+                      <span style="position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;background:rgba(10,10,10,.65);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>{{ p.status }} · {{ p.handover }}</span>
+                      <button onClick="{{ p.toggleSave }}" aria-label="{{ p.saveAria }}" aria-pressed="{{ p.saved }}" style="position:absolute;top:8px;right:8px;width:44px;height:44px;border-radius:999px;border:none;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#0A0A0A">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="{{ p.heartFill }}" stroke="{{ p.heartStroke }}" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+                      </button>
+                    </div>
+                    <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:6px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
+                      <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ p.developer }}</span>
+                      <span style="font-size:18px;font-weight:600;line-height:1.25">{{ p.name }}</span>
+                      <span style="font-size:14px;color:var(--muted)">{{ p.community }} · {{ p.type }} · {{ p.beds }}</span>
+                      <span style="display:flex;align-items:baseline;gap:6px;margin-top:4px"><span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)">{{ t.from }}</span><span style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums">{{ p.priceLabel }}</span></span>
+                    </a>
+                    <label style="display:flex;align-items:center;gap:10px;min-height:32px;font-size:14px;cursor:pointer;color:var(--muted)">
+                      <input type="checkbox" checked="{{ p.inCompare }}" onChange="{{ p.toggleCompare }}" style="width:18px;height:18px;accent-color:#FF9100;cursor:pointer">Add to compare
+                    </label>
+                  </article>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:clamp(28px,4vw,48px);border-radius:12px;background:var(--soft)">
+                <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,38px);line-height:1.05">Nothing listed that matches — yet.</span>
+                <p style="margin:0;max-width:56ch;font-size:16px;line-height:1.6;color:var(--muted)">We get pre-launch allocations on most top developer projects, often before they're public. Tell us what you need and an Xpert will come back with options.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:10px">
+                  <a href="contact.html" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600" style-hover="color:var(--bg)">Ask an Xpert</a>
+                  <button onClick="{{ clearAll }}" style="height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:15px;font-weight:600;cursor:pointer">Clear filters</button>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showMap }}" hint-placeholder-val="{{ false }}">
+          <div style="flex:{{ mapFlex }};min-width:0;position:sticky;top:148px">
+            <div ref="{{ mapRef }}" role="region" aria-label="Results map" style="height:calc(100vh - 180px);min-height:420px;border-radius:12px;overflow:hidden;background:var(--img);z-index:0"></div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+  </main>
+
+  <sc-if value="{{ hasCompare }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);bottom:{{ trayBottom }};z-index:650;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 20px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;box-shadow:0 20px 40px -16px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);white-space:nowrap">
+      <span style="font-size:14px;font-weight:600">{{ compareCount }} of 3 selected</span>
+      <button onClick="{{ clearCompare }}" style="border:none;background:transparent;color:#BDBDBD;font-size:13px;text-decoration:underline;cursor:pointer">Clear</button>
+      <a href="compare.html" style="display:inline-flex;align-items:center;height:42px;padding:0 20px;border-radius:999px;background:#FF9100;color:#0A0A0A;font-size:14px;font-weight:700" style-hover="color:#0A0A0A;background:#FFA733">{{ t.compare }} →</a>
+    </div>
+  </sc-if>
+  <footer style="background:#0A0A0A;color:#BDBDBD">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,5vw,64px) 32px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:36px 32px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:44px;width:auto;align-self:flex-start">
+          <p style="margin:0;max-width:34ch;font-size:14px;line-height:1.6">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
+        </div>
+        <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFFFFF">{{ col.title }}</span>
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="4">
+              <a href="{{ l.href }}" style="font-size:15px;color:#BDBDBD" style-hover="color:#FFFFFF">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
+        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="https://www.xrealty.ae/terms-and-conditions/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
+        <div style="display:flex;flex-wrap:wrap;gap:20px">
+          <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+            <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="height:{{ footerPad }}"></div>
+  </footer>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:600;background:#0A0A0A;border-top:1px solid rgba(255,255,255,.12);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px">
+      <a href="tel:+971564080888" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">{{ t.call }}</a>
+      <a href="https://wa.me/971565467991" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">{{ t.whatsapp }}</a>
+      <a href="{{ enquireHref }}" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;background:#FFFFFF;color:#0A0A0A;font-size:14px;font-weight:600">{{ t.enquire }}</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', lang: 'en', drawer: false, view: 'list', community: 'Any', type: 'Any', beds: 'Any', budget: 'Any', handover: 'Any', plan: 'Any', developer: 'Any', sort: 'rec', hover: null };
+  mapRef = React.createRef();
+  componentDidMount() {
+    const go = () => {
+      if (!window.XR) return setTimeout(go, 30);
+      window.XR.mount(this);
+      const X = window.XR, c = X.param('community'), d = X.param('developer');
+      const patch = {};
+      if (c && X.cBy[c]) patch.community = X.cBy[c].name;
+      if (d) { const m = X.properties.find(p => p.short.toLowerCase() === d.toLowerCase()); if (m) patch.developer = m.short; }
+      if (X.param('view') === 'map') patch.view = 'map'; const ty = X.param('type'); if (ty) patch.type = ty; const bu = { mid: '1.25M – 2M', gv: '2M – 5M', lux: '5M+', entry: 'Up to 1.25M' }[X.param('budget')]; if (bu) patch.budget = bu;
+      this.setState(patch);
+    };
+    go();
+  }
+  componentDidUpdate() {
+    if (!window.XR) return; window.XR.sync(this);
+    const sig = ['view', 'community', 'type', 'beds', 'budget', 'handover', 'plan', 'developer', 'sort', 'theme', 'vw'].map(k => this.state[k]).join('|');
+    if (sig !== this._sig || (!this._drawn && this.mapRef.current)) { this._sig = sig; this.drawMap(); }
+  }
+  componentWillUnmount() { window.XR && window.XR.unmount(this); }
+  filtered() {
+    const X = window.XR, s = this.state;
+    const budgets = { 'Up to 1.25M': [0, 1250000], '1.25M – 2M': [1250001, 2000000], '2M – 5M': [2000001, 5000000], '5M+': [5000001, Infinity] };
+    let r = X.properties.filter(p =>
+      (s.community === 'Any' || p.community === s.community) && (s.type === 'Any' || p.type === s.type) && (s.developer === 'Any' || p.short === s.developer) &&
+      (s.beds === 'Any' || (s.beds === 'Studio' ? p.bedsMin === 0 : (b => p.bedsMin <= b && p.bedsMax >= b)(parseInt(s.beds)))) &&
+      (s.budget === 'Any' || (([lo, hi]) => p.price >= lo && p.price <= hi)(budgets[s.budget])) &&
+      (s.handover === 'Any' || (s.handover === '2030+' ? p.handoverYear >= 2030 : p.handoverYear <= +s.handover.replace('By ', ''))) &&
+      (s.plan === 'Any' || p.planLabel === s.plan));
+    const so = { low: (a, b) => a.price - b.price, high: (a, b) => b.price - a.price, soon: (a, b) => a.handoverYear - b.handoverYear || a.handover.localeCompare(b.handover) }[s.sort];
+    return so ? [...r].sort(so) : r;
+  }
+  drawMap() {
+    const el = this.mapRef.current; if (!el || !window.XR) return;
+    this._drawn = true;
+    const r = this.filtered();
+    const pts = (r.length ? r : window.XR.properties).map(p => ({ lat: p.lat, lng: p.lng, label: window.XR.aedShort(p.price), active: this.state.hover === p.slug, popup: `<a href="${p.href}" style="font:600 14px 'Hanken Grotesk',sans-serif;color:#0A0A0A">${p.name}</a><br><span style="font:13px 'Hanken Grotesk',sans-serif;color:#5C5C5C">${p.community}</span>` }));
+    clearTimeout(this._mt);
+    this._mt = setTimeout(() => window.XR.map(el, { center: [25.1, 55.25], zoom: 10, dark: this.state.theme === 'dark', markers: pts, fit: true }), 40);
+  }
+  renderVals() {
+    const X = window.XR; if (!X) return {};
+    const s = this.state, sh = X.shell(this, 'properties');
+    const uniq = a => ['Any', ...[...new Set(a)].sort()];
+    const set = k => e => this.setState({ [k]: e.target.value });
+    const F = (key, label, options) => ({ key, label, options, value: s[key], onChange: set(key), border: s[key] === 'Any' ? 'var(--line2)' : 'var(--ink)' });
+    const selects = [
+      F('community', 'Area', uniq(X.properties.map(p => p.community))), F('type', 'Type', uniq(X.properties.map(p => p.type))),
+      F('beds', 'Beds', ['Any', 'Studio', '1', '2', '3', '4', '5+']), F('budget', 'Budget', ['Any', 'Up to 1.25M', '1.25M – 2M', '2M – 5M', '5M+']),
+      F('handover', 'Handover', ['Any', 'By 2028', 'By 2029', '2030+']), F('plan', 'Payment plan', uniq(X.properties.map(p => p.planLabel))),
+      F('developer', 'Developer', uniq(X.properties.map(p => p.short))),
+    ];
+    const r = this.filtered();
+    const isMobile = sh.isMobile, view = s.view;
+    const showMap = view === 'map', showList = !(isMobile && showMap);
+    const compare = X.store.compare();
+    return {
+      ...sh, selects, sort: s.sort, onSort: set('sort'),
+      hasFilters: selects.some(f => f.value !== 'Any'),
+      clearAll: () => this.setState({ community: 'Any', type: 'Any', beds: 'Any', budget: 'Any', handover: 'Any', plan: 'Any', developer: 'Any' }),
+      views: [['list', 'List'], ['map', 'Map']].map(([k, label]) => ({ label, active: view === k ? 'true' : 'false', bg: view === k ? 'var(--ink)' : 'transparent', fg: view === k ? 'var(--bg)' : 'var(--ink)', select: () => { this._drawn = false; this.setState({ view: k }); } })),
+      count: r.length, countLabel: r.length === 1 ? 'project' : 'projects',
+      showList, showMap, mapFlex: isMobile ? '1 1 100%' : '0 0 46%', cardMin: showMap ? '240px' : '280px',
+      hasResults: r.length > 0, noResults: r.length === 0, mapRef: this.mapRef,
+      results: r.map(p => { const saved = X.store.isSaved(p.slug); return { ...p, saved, saveAria: (saved ? 'Remove ' : 'Save ') + p.name, heartFill: saved ? '#FF9100' : 'none', heartStroke: saved ? '#FF9100' : 'currentColor', toggleSave: () => X.store.toggleSaved(p.slug), inCompare: compare.includes(p.slug), toggleCompare: () => X.store.toggleCompare(p.slug), hover: () => showMap && this.setState({ hover: p.slug }) }; }),
+      hasCompare: compare.length > 0, compareCount: compare.length, clearCompare: () => X.store.setCompare([]),
+      trayBottom: isMobile ? '92px' : '24px',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--err:#B3261E;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--err:#FFB4AB;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+select,input,button{font-family:inherit}
+.xr-logo{filter:grayscale(1) brightness(0)}
+html[data-theme="dark"] .xr-search,.xr-search *{transition:background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease}
+.xr-search:not(:hover):not(:focus-within){background:rgba(10,10,10,.28)!important;border-color:rgba(255,255,255,.35)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.xr-search:not(:hover):not(:focus-within) .xr-sf{background:rgba(255,255,255,.08)!important}
+.xr-search:not(:hover):not(:focus-within) .xr-sl,.xr-search:not(:hover):not(:focus-within) .xr-sc{color:#E6E6E6!important}
+.xr-search:not(:hover):not(:focus-within) .xr-ss{color:#FFFFFF!important}
+.xr-search:not(:hover):not(:focus-within) .xr-sb{background:rgba(255,255,255,.14)!important;color:#FFFFFF!important}
+.xr-search option{color:#0A0A0A}
+.xr-logo{filter:grayscale(1) brightness(0) invert(1)}
+a:hover .xr-search,.xr-search *{transition:background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease}
+.xr-search:not(:hover):not(:focus-within){background:rgba(10,10,10,.28)!important;border-color:rgba(255,255,255,.35)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.xr-search:not(:hover):not(:focus-within) .xr-sf{background:rgba(255,255,255,.08)!important}
+.xr-search:not(:hover):not(:focus-within) .xr-sl,.xr-search:not(:hover):not(:focus-within) .xr-sc{color:#E6E6E6!important}
+.xr-search:not(:hover):not(:focus-within) .xr-ss{color:#FFFFFF!important}
+.xr-search:not(:hover):not(:focus-within) .xr-sb{background:rgba(255,255,255,.14)!important;color:#FFFFFF!important}
+.xr-search option{color:#0A0A0A}
+.xr-logo{filter:none}
+@keyframes xr-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.xr-marquee{animation:none!important}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--bg);color:var(--ink)">
+
+  <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#0A0A0A;color:#D6D6D6;font-size:13px;letter-spacing:.02em;border-bottom:1px solid rgba(255,255,255,.08)">
+      <div style="max-width:1360px;margin:0 auto;padding:9px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;justify-content:space-between">
+        <span>Dubai Hills Estate, Dubai, UAE</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 28px">
+          <a href="tel:+971564080888" style="color:#D6D6D6" style-hover="color:#FFFFFF">+971 5 640 80888</a>
+          <a href="mailto:info@xrealty.ae" style="color:#D6D6D6" style-hover="color:#FFFFFF">info@xrealty.ae</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <header onMouseLeave="{{ closeMenu }}" style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="https://www.xrealty.ae/" aria-label="Xperience Realty home" style="display:flex;align-items:center;flex-shrink:0">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
+      </a>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="Primary" style="display:flex;align-items:center;gap:2px;height:100%">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+            <a href="{{ n.href }}" onMouseEnter="{{ n.onEnter }}" onFocus="{{ n.onEnter }}" aria-haspopup="{{ n.hasMenu }}" aria-expanded="{{ n.expanded }}" style="display:flex;align-items:center;gap:6px;height:100%;padding:0 14px;font-size:15px;font-weight:500;color:#FFFFFF" style-hover="color:#BDBDBD">
+              {{ n.label }}
+              <sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ false }}">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+              </sc-if>
+            </a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ openCalc }}" aria-label="Currency and area calculator" title="Currency & area calculator" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="2"></rect><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 11h1M7.5 11h1M10 11h1"></path></svg>
+        </button>
+        <button onClick="{{ toggleTheme }}" aria-label="{{ themeAria }}" title="{{ themeAria }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          </sc-if>
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg>
+          </sc-if>
+        </button>
+        <button onClick="{{ showSaved }}" aria-label="{{ shortlistAria }}" style="position:relative;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FFFFFF">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="{{ headerHeartFill }}" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          <sc-if value="{{ hasSaved }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#FF9100;color:#0A0A0A;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ savedCount }}</span>
+          </sc-if>
+        </button>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <a href="#enquire" onClick="{{ goEnquire }}" style="display:inline-flex;align-items:center;height:44px;padding:0 22px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:14px;font-weight:600" style-hover="background:#E3E3E3;color:#0A0A0A">Book a consultation</a>
+        </sc-if>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleDrawer }}" aria-label="Menu" aria-expanded="{{ drawerOpen }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF">
+            <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3L15 15M15 3L3 15" stroke="currentColor" stroke-width="1.6"></path></svg>
+            </sc-if>
+            <sc-if value="{{ drawerClosed }}" hint-placeholder-val="{{ true }}">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+            </sc-if>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ showDropdown }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(10,10,10,.25)">
+        <div style="max-width:1360px;margin:0 auto;padding:28px clamp(20px,5vw,64px) 36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px">
+          <sc-for list="{{ dropdownItems }}" as="d" hint-placeholder-count="6">
+            <a href="{{ d.href }}" style="display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:8px;color:var(--ink)" style-hover="background:var(--soft);color:var(--ink)">
+              <span style="font-size:15px;font-weight:600">{{ d.title }}</span>
+              <span style="font-size:13px;color:var(--muted)">{{ d.desc }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showDrawer }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;top:100%;height:calc(100vh - 72px);overflow-y:auto;background:var(--bg)">
+        <div style="padding:16px clamp(20px,5vw,64px) 120px;display:flex;flex-direction:column">
+          <sc-for list="{{ drawerGroups }}" as="g" hint-placeholder-count="4">
+            <div style="padding:18px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px">
+              <a href="{{ g.href }}" style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1;color:var(--ink)">{{ g.label }}</a>
+              <sc-if value="{{ g.hasChildren }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ g.children }}" as="c" hint-placeholder-count="4">
+                    <a href="{{ c.href }}" style="display:flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:999px;font-size:14px;color:var(--ink)">{{ c.title }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <section data-screen-label="Hero" style="position:relative;background:#1A1A1A;min-height:clamp(560px,86vh,840px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <div style="position:absolute;inset:0;background:#1A1A1A url('https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp') center/cover no-repeat"></div>
+      <sc-if value="{{ ytFailed }}" hint-placeholder-val="{{ false }}">
+        <video autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"><source src="https://videos.pexels.com/video-files/7578552/7578552-hd_1920_1080_30fps.mp4" type="video/mp4"></video>
+      </sc-if>
+      <iframe ref="{{ heroVideoRef }}" onLoad="{{ onYtLoad }}" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/zW52zGAURTw?start=40&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zW52zGAURTw&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Xperience Realty property video" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="position:absolute;top:50%;left:50%;width:max(100%,calc(100% * 16 / 9 * 1));min-width:177.78vh;height:max(100%,56.25vw);min-height:100%;transform:translate(-50%,-50%) scale(1.15);border:0;pointer-events:none;opacity:{{ ytOpacity }};transition:opacity .6s"></iframe>
+    </div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 50%,rgba(10,10,10,.75) 100%)"></div>
+    <button onClick="{{ toggleHeroSound }}" aria-label="{{ heroSoundAria }}" title="{{ heroSoundAria }}" style="position:absolute;top:20px;right:calc(clamp(20px,5vw,64px) + 54px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+      <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ true }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="M16 9.5l5 5M21 9.5l-5 5"></path></svg>
+      </sc-if>
+      <sc-if value="{{ heroUnmuted }}" hint-placeholder-val="{{ false }}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"></path></svg>
+      </sc-if>
+    </button>
+    <button onClick="{{ toggleHeroVideo }}" aria-label="{{ heroVideoAria }}" style="position:absolute;top:20px;right:clamp(20px,5vw,64px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+      <sc-if value="{{ heroPlaying }}" hint-placeholder-val="{{ true }}">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" rx="1"></rect><rect x="7.5" y="1" width="3.5" height="12" rx="1"></rect></svg>
+      </sc-if>
+      <sc-if value="{{ heroPaused }}" hint-placeholder-val="{{ false }}">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><path d="M2 1.2v11.6L11.5 7z"></path></svg>
+      </sc-if>
+    </button>
+    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0">Xperience Realty — Dubai property, guided by Xperts</h1>
+    <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px">
+      <form onSubmit="{{ runSearch }}" role="search" style="background:var(--bg);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:8px;max-width:920px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)">
+        <label style="position:relative;flex:1 1 150px;display:flex;flex-direction:column;gap:2px;padding:11px 16px;background:var(--soft);border-radius:8px;cursor:pointer">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)">Community</span>
+          <select value="{{ community }}" onChange="{{ onCommunity }}" style="appearance:none;-webkit-appearance:none;border:none;background:transparent;font-size:16px;font-weight:500;color:var(--ink);padding:2px 20px 0 0;cursor:pointer;width:100%">
+            <sc-for list="{{ communityOptions }}" as="o" hint-placeholder-count="3">
+              <option value="{{ o }}">{{ o }}</option>
+            </sc-for>
+          </select>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="position:absolute;right:16px;bottom:18px;pointer-events:none;color:var(--muted)"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+        </label>
+        <label style="position:relative;flex:1 1 150px;display:flex;flex-direction:column;gap:2px;padding:11px 16px;background:var(--soft);border-radius:8px;cursor:pointer">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)">Budget</span>
+          <select value="{{ budget }}" onChange="{{ onBudget }}" style="appearance:none;-webkit-appearance:none;border:none;background:transparent;font-size:16px;font-weight:500;color:var(--ink);padding:2px 20px 0 0;cursor:pointer;width:100%">
+            <sc-for list="{{ budgetOptions }}" as="o" hint-placeholder-count="3">
+              <option value="{{ o }}">{{ o }}</option>
+            </sc-for>
+          </select>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="position:absolute;right:16px;bottom:18px;pointer-events:none;color:var(--muted)"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+        </label>
+        <button type="submit" style="flex:1 1 180px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;border:none;border-radius:8px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;cursor:pointer" style-hover="background:var(--ink-h)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+          {{ searchLabel }}
+        </button>
+      </form>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;font-size:14px;color:#E6E6E6">
+        <a href="https://www.google.com/search?q=Xperience+Realty+Dubai+reviews" style="display:flex;align-items:center;gap:8px;color:#FFFFFF" style-hover="color:#E3E3E3"><span style="letter-spacing:1px;color:#FF9100">★★★★★</span><strong style="font-weight:700">4.9</strong><span style="color:#E6E6E6">Google reviews</span></a>
+        <span style="width:1px;height:14px;background:rgba(255,255,255,.35)"></span>
+        <span>Emaar award-winning</span>
+        <span style="width:1px;height:14px;background:rgba(255,255,255,.35)"></span>
+        <span>RERA-certified agents</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Developer partners" style="border-bottom:1px solid var(--line)">
+    <div style="max-width:1360px;margin:0 auto;padding:33px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:21px 48px">
+      <span style="font-size:20px;font-weight:600;color:var(--muted)">Direct partner of</span>
+      <div onMouseEnter="{{ pauseMarquee }}" onMouseLeave="{{ playMarquee }}" onFocus="{{ pauseMarquee }}" onBlur="{{ playMarquee }}" style="flex:1 1 400px;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)">
+        <div class="xr-marquee" style="display:flex;width:max-content;animation:xr-marquee 32s linear infinite;animation-play-state:{{ marqueeState }}">
+          <sc-for list="{{ developerLoop }}" as="d" hint-placeholder-count="16">
+            <a href="{{ d.href }}" aria-hidden="{{ d.dup }}" tabindex="{{ d.tab }}" title="{{ d.name }}" style="flex-shrink:0;display:flex;align-items:center;height:48px;margin-right:56px;font-size:20px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--ink)" style-hover="color:#FF9100">
+              <sc-if value="{{ d.hasLogo }}" hint-placeholder-val="{{ false }}">
+                <img class="xr-logo" src="{{ d.logo }}" alt="{{ d.name }}" style="height:{{ d.h }};width:auto;max-width:180px;display:block;object-fit:contain;transition:filter .2s">
+              </sc-if>
+              <sc-if value="{{ d.noLogo }}" hint-placeholder-val="{{ true }}">{{ d.name }}</sc-if>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <a href="https://www.xrealty.ae/developer/" style="font-size:21px;font-weight:600;border-bottom:1.5px solid currentColor;padding-bottom:3px">All developers →</a>
+    </div>
+  </section>
+
+  <section id="featured" data-screen-label="Featured properties" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0;scroll-margin-top:80px">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Handpicked for you</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Featured projects</h2>
+      </div>
+      <a href="https://www.xrealty.ae/off-plan-projects-for-sale-in-dubai/" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">View all projects →</a>
+    </div>
+    <div role="tablist" aria-label="Filter by developer" style="display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;margin:0 -2px 18px;scrollbar-width:none">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+        <sc-if value="{{ c.active }}" hint-placeholder-val="{{ false }}">
+          <button role="tab" aria-selected="true" onClick="{{ c.select }}" style="flex-shrink:0;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;cursor:pointer">{{ c.label }}<span style="font-size:12px;font-weight:600;color:#BDBDBD">{{ c.count }}</span></button>
+        </sc-if>
+        <sc-if value="{{ c.inactive }}" hint-placeholder-val="{{ true }}">
+          <button role="tab" aria-selected="false" onClick="{{ c.select }}" style="flex-shrink:0;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:14px;font-weight:500;cursor:pointer" style-hover="border-color:var(--ink)">{{ c.label }}<span style="font-size:12px;font-weight:600;color:var(--muted)">{{ c.count }}</span></button>
+        </sc-if>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px;min-height:24px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px">
+        <span aria-live="polite" style="font-size:14px;color:var(--muted)">{{ resultLabel }}</span>
+        <sc-if value="{{ hasFilters }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ clearFilters }}" style="border:none;background:transparent;padding:4px 0;font-size:14px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer">Clear filters</button>
+        </sc-if>
+      </div>
+      <div role="group" aria-label="View as" style="display:flex;padding:4px;border-radius:999px;background:var(--soft);border:1px solid var(--line)">
+        <sc-for list="{{ viewOpts }}" as="v" hint-placeholder-count="2">
+          <sc-if value="{{ v.active }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ v.select }}" aria-pressed="true" style="display:flex;align-items:center;gap:8px;height:40px;padding:0 18px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;cursor:pointer">{{ v.label }}</button>
+          </sc-if>
+          <sc-if value="{{ v.inactive }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ v.select }}" aria-pressed="false" style="display:flex;align-items:center;gap:8px;height:40px;padding:0 18px;border:none;border-radius:999px;background:transparent;color:var(--ink);font-size:14px;font-weight:500;cursor:pointer" style-hover="color:var(--muted)">{{ v.label }}</button>
+          </sc-if>
+        </sc-for>
+      </div>
+    </div>
+    <sc-if value="{{ showMap }}" hint-placeholder-val="{{ false }}">
+      <div style="position:relative;height:clamp(440px,62vh,640px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--img)">
+        <iframe ref="{{ mapRef }}" src="./dubai-map.html" title="Map of featured Dubai projects" onLoad="{{ onMapLoad }}" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Pins show starting prices. Click a pin for project details · <span style="color:#FF9100">●</span> marks your saved projects.</p>
+    </sc-if>
+    <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)">
+        <sc-for list="{{ properties }}" as="p" hint-placeholder-count="8">
+          <article style="display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--img)">
+              <image-slot id="prop-{{ p.slug }}" shape="rect" src="{{ p.img }}" placeholder="{{ p.name }}"></image-slot>
+              <button onClick="{{ p.toggleSave }}" aria-label="{{ p.saveAria }}" aria-pressed="{{ p.saved }}" style="position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:999px;border:none;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#0A0A0A;box-shadow:0 4px 12px rgba(0,0,0,.12)">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="{{ p.heartFill }}" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+              </button>
+            </div>
+            <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:6px;color:var(--ink)" style-hover="color:var(--ink);opacity:.75">
+              <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ p.developer }}</span>
+              <span style="font-size:18px;font-weight:600;line-height:1.25;text-wrap:pretty">{{ p.name }}</span>
+              <span style="display:flex;align-items:center;gap:6px;font-size:14px;color:var(--muted)">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M6 13s4.5-4.2 4.5-7.5a4.5 4.5 0 1 0-9 0C1.5 8.8 6 13 6 13z" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="5.5" r="1.6" stroke="currentColor" stroke-width="1.3"></circle></svg>
+                {{ p.community }}
+              </span>
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:8px;padding-top:12px;border-top:1px solid var(--line)">
+                <span style="display:flex;align-items:baseline;gap:6px">
+                  <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)">From</span>
+                  <span style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums">{{ p.price }}</span>
+                </span>
+                <span aria-hidden="true" style="font-size:16px">→</span>
+              </span>
+            </a>
+          </article>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ noResultsGrid }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:clamp(32px,5vw,56px);border-radius:12px;background:var(--soft)">
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,40px);line-height:1.05">{{ emptyTitle }}</span>
+        <p style="margin:0;max-width:56ch;font-size:16px;line-height:1.6;color:var(--muted)">We get pre-launch allocations on most of Dubai's top developer projects, often days before they hit public portals. Tell us what you're after and an Xpert will come back with options.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="#enquire" onClick="{{ goEnquire }}" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;background:var(--ink);color:var(--bg);border-radius:999px;font-size:15px;font-weight:600" style-hover="background:var(--ink-h);color:var(--bg)">Ask an Xpert</a>
+          <button onClick="{{ clearFilters }}" style="height:48px;padding:0 22px;border:1px solid var(--ink);background:transparent;border-radius:999px;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer">Clear filters</button>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+
+  <sc-if value="{{ showOffPlan }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Off-plan" style="margin-top:clamp(64px,8vw,112px);background:var(--band);color:#FFFFFF">
+      <div style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:end">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#BDBDBD">New launches · Dubai</span>
+          <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,4.8vw,68px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Off-plan access, <em style="color:#FF9100">before the portals.</em></h2>
+          <p style="margin:0;max-width:48ch;font-size:17px;line-height:1.6;color:#BDBDBD;text-wrap:pretty">Pre-launch allocations on most of Dubai's top developer projects — often days before they're listed publicly. Flexible payment plans and zero buyer commission on most developer-direct purchases.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+            <a href="https://www.xrealty.ae/off-plan-projects-for-sale-in-dubai/" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#E3E3E3;color:#0A0A0A">Browse off-plan</a>
+            <a href="https://wa.me/971565467991" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:600" style-hover="border-color:#FFFFFF;color:#FFFFFF">WhatsApp a specialist</a>
+          </div>
+        </div>
+        <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));border-top:1px solid rgba(255,255,255,.18)">
+          <div style="padding:26px 24px 6px 0;display:flex;flex-direction:column-reverse;gap:8px">
+            <dt style="font-size:14px;color:#BDBDBD">Entry price</dt>
+            <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(40px,4vw,58px);line-height:1">AED 1M+</dd>
+          </div>
+          <div style="padding:26px 24px 6px 0;display:flex;flex-direction:column-reverse;gap:8px">
+            <dt style="font-size:14px;color:#BDBDBD">Booking amount</dt>
+            <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(40px,4vw,58px);line-height:1">10–30%</dd>
+          </div>
+          <div style="padding:26px 24px 6px 0;display:flex;flex-direction:column-reverse;gap:8px">
+            <dt style="font-size:14px;color:#BDBDBD">Buyer commission</dt>
+            <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(40px,4vw,58px);line-height:1">Zero</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </sc-if>
+
+  <section data-screen-label="Communities" style="padding:clamp(64px,8vw,112px) 0 0">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Explore Dubai</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Hot communities</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="https://www.xrealty.ae/area/" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All areas →</a>
+        <div style="display:flex;gap:8px">
+          <button onClick="{{ railPrev }}" aria-label="Previous communities" style="width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)" style-hover="border-color:var(--ink)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+          <button onClick="{{ railNext }}" aria-label="Next communities" style="width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)" style-hover="border-color:var(--ink)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div ref="{{ railRef }}" style="display:flex;gap:clamp(12px,1.6vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 max(clamp(20px,5vw,64px),calc((100vw - 1360px) / 2 + 64px));padding:0 max(clamp(20px,5vw,64px),calc((100vw - 1360px) / 2 + 64px)) 8px;scrollbar-width:none">
+      <sc-for list="{{ communities }}" as="c" hint-placeholder-count="6">
+        <div style="position:relative;flex:0 0 clamp(260px,30vw,400px);height:clamp(360px,38vw,500px);border-radius:8px;overflow:hidden;background:#262626;scroll-snap-align:start">
+          <image-slot id="area-{{ c.slug }}" shape="rect" src="{{ c.img }}" placeholder="{{ c.name }}"></image-slot>
+          <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,10,0) 38%,rgba(10,10,10,.85) 100%)"></div>
+          <a href="{{ c.href }}" style="position:absolute;left:0;right:0;bottom:0;padding:24px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;color:#FFFFFF" style-hover="color:#FFFFFF">
+            <span style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:0">
+              <span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,2.4vw,36px);line-height:1">{{ c.name }}</span>
+              <span style="font-size:14px;line-height:1.4;color:#E6E6E6;max-width:30ch">{{ c.tagline }}</span>
+              <span style="display:flex;flex-direction:column;gap:2px;margin-top:6px;padding-top:10px;border-top:1px solid rgba(255,255,255,.25)">
+                <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#E6E6E6;white-space:nowrap">Approx. from</span>
+                <span style="display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px">
+                  <span style="font-size:17px;font-weight:700;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">{{ c.price }}</span>
+                  <span style="font-size:13px;color:#E6E6E6;white-space:nowrap">· {{ c.type }}</span>
+                </span>
+              </span>
+            </span>
+            <span style="flex-shrink:0;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="#FFFFFF" stroke-width="1.5"></path></svg>
+            </span>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="enquire" data-screen-label="Why XR + enquiry" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:start;scroll-margin-top:80px">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Why Xperience Realty</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Advice that outlasts the transaction.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid var(--line)">
+            <span style="font-family:'Instrument Serif',serif;font-size:22px;color:var(--muted)">{{ r.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:17px;font-weight:600">{{ r.title }}</span>
+              <span style="font-size:15px;line-height:1.55;color:var(--muted);text-wrap:pretty">{{ r.body }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <a href="https://www.xrealty.ae/agent/" style="align-self:flex-start;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">Meet the XR team →</a>
+    </div>
+
+    <div style="background:var(--soft);border-radius:12px;padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;gap:22px">
+      <sc-if value="{{ leadOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,40px);line-height:1.05">Speak to an Xpert</span>
+            <span style="font-size:15px;line-height:1.5;color:var(--muted)">Share a few details and a specialist will call you back.</span>
+          </div>
+          <form onSubmit="{{ submitLead }}" novalidate="" style="display:flex;flex-direction:column;gap:14px">
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:13px;font-weight:600">Full name</span>
+              <input type="text" autocomplete="name" value="{{ lead.name }}" onChange="{{ onLeadName }}" placeholder="Your name" style="height:52px;padding:0 16px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);font-size:16px;color:var(--ink)">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:13px;font-weight:600">Phone</span>
+              <span style="display:flex;height:52px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);overflow:hidden">
+                <span style="display:flex;align-items:center;padding:0 14px;border-right:1px solid var(--line);font-size:16px;color:var(--muted)">+971</span>
+                <input type="tel" autocomplete="tel-national" inputmode="tel" value="{{ lead.phone }}" onChange="{{ onLeadPhone }}" placeholder="50 123 4567" style="flex:1;min-width:0;border:none;padding:0 16px;font-size:16px;color:var(--ink);background:transparent">
+              </span>
+            </label>
+            <fieldset style="margin:0;padding:0;border:none;display:flex;flex-direction:column;gap:8px">
+              <legend style="font-size:13px;font-weight:600;padding:0;margin-bottom:8px">I'm looking to</legend>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ interests }}" as="i" hint-placeholder-count="4">
+                  <sc-if value="{{ i.active }}" hint-placeholder-val="{{ false }}">
+                    <button type="button" onClick="{{ i.select }}" aria-pressed="true" style="height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;cursor:pointer">{{ i.label }}</button>
+                  </sc-if>
+                  <sc-if value="{{ i.inactive }}" hint-placeholder-val="{{ true }}">
+                    <button type="button" onClick="{{ i.select }}" aria-pressed="false" style="height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:14px;font-weight:500;cursor:pointer" style-hover="border-color:var(--ink)">{{ i.label }}</button>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </fieldset>
+            <sc-if value="{{ hasLeadErr }}" hint-placeholder-val="{{ false }}">
+              <span role="alert" style="font-size:14px;font-weight:600;color:var(--err)">{{ leadErr }}</span>
+            </sc-if>
+            <button type="submit" style="height:56px;margin-top:4px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;cursor:pointer" style-hover="background:var(--ink-h)">Request a callback</button>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted)">
+              <span>Prefer to chat now?</span>
+              <a href="https://wa.me/971565467991" style="font-weight:600;border-bottom:1px solid currentColor">WhatsApp us</a>
+            </div>
+          </form>
+        </div>
+      </sc-if>
+      <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;flex-direction:column;gap:14px;padding:24px 0">
+          <span style="width:48px;height:48px;border-radius:999px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2"></path></svg>
+          </span>
+          <span style="font-family:'Instrument Serif',serif;font-size:36px;line-height:1.05">{{ leadThanks }}</span>
+          <span style="font-size:15px;line-height:1.55;color:var(--muted)">An Xpert will call you on {{ leadPhoneDisplay }} shortly. For anything urgent, call +971 5 640 80888.</span>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section data-screen-label="Guides" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Knowledge centre</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Property guides</h2>
+      </div>
+      <a href="https://www.xrealty.ae/guides/" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All guides →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 clamp(24px,4vw,56px)">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="6">
+        <a href="{{ g.href }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:22px 0;border-top:1px solid var(--line);color:var(--ink)" style-hover="color:var(--muted)">
+          <span style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ g.audience }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(24px,2vw,28px);line-height:1.1">{{ g.title }}</span>
+            <span style="font-size:15px;line-height:1.5;color:var(--muted);text-wrap:pretty">{{ g.desc }}</span>
+          </span>
+          <span style="width:44px;height:44px;border-radius:999px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Blog" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Stay informed</span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Market insights</h2>
+      </div>
+      <a href="https://www.xrealty.ae/blogs/" style="font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">All articles →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,3vw,40px)">
+      <sc-for list="{{ blogs }}" as="b" hint-placeholder-count="3">
+        <article style="display:flex;flex-direction:column;gap:14px">
+          <div style="position:relative;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:var(--img)">
+            <image-slot id="blog-{{ b.slug }}" shape="rect" src="{{ b.img }}" placeholder="Article image"></image-slot>
+          </div>
+          <time style="font-size:13px;font-weight:600;color:var(--muted)">{{ b.date }}</time>
+          <a href="{{ b.href }}" style="font-family:'Instrument Serif',serif;font-size:clamp(24px,2vw,30px);line-height:1.1;color:var(--ink);text-wrap:balance" style-hover="color:var(--muted)">{{ b.title }}</a>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--muted);text-wrap:pretty">{{ b.excerpt }}</p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,6vw,96px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Quick answers</span>
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Frequently asked questions</h2>
+      <a href="https://www.xrealty.ae/faqs/" style="align-self:flex-start;margin-top:12px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">More FAQs →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;border-bottom:1px solid var(--line)">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+        <div style="border-top:1px solid var(--line)">
+          <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border:none;background:transparent;text-align:left;cursor:pointer;color:var(--ink);font-size:17px;font-weight:600;line-height:1.35">
+            <span>{{ q.q }}</span>
+            <span aria-hidden="true" style="flex-shrink:0;width:36px;height:36px;border-radius:999px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400">{{ q.icon }}</span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ q.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px)">
+    <div style="border-radius:12px;background:var(--band);color:#FFFFFF;padding:clamp(36px,5.5vw,80px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px">
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,5.2vw,80px);line-height:1;letter-spacing:-.02em;max-width:14ch;text-wrap:balance">Ready to find your <em style="color:#FF9100">dream home in Dubai?</em></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#enquire" onClick="{{ goEnquire }}" style="display:inline-flex;align-items:center;height:56px;padding:0 28px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#E3E3E3;color:#0A0A0A">Book a consultation</a>
+        <a href="tel:+971564080888" style="display:inline-flex;align-items:center;height:56px;padding:0 28px;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:600" style-hover="border-color:#FFFFFF;color:#FFFFFF">Call +971 5 640 80888</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0A0A0A;color:#BDBDBD">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,64px) 32px;display:flex;flex-direction:column;gap:48px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:36px;align-items:end;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:48px;width:auto;align-self:flex-start">
+          <p style="margin:0;max-width:44ch;font-size:15px;line-height:1.6">The highest level of service, advice and support for local and overseas clients with all their property requirements.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:15px;font-weight:600;color:#FFFFFF">Market updates and new launches, monthly</span>
+          <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ subscribe }}" style="display:flex;gap:8px;flex-wrap:wrap">
+              <label style="flex:1 1 220px;display:flex"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</span>
+                <input type="email" autocomplete="email" placeholder="Your email address" value="{{ email }}" onChange="{{ onEmail }}" style="flex:1;min-width:0;height:52px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#FFFFFF;font-size:15px">
+              </label>
+              <button type="submit" style="height:52px;padding:0 26px;border-radius:999px;border:none;background:#FFFFFF;color:#0A0A0A;font-size:15px;font-weight:600;cursor:pointer" style-hover="background:#E3E3E3">Subscribe</button>
+            </form>
+            <sc-if value="{{ hasEmailErr }}" hint-placeholder-val="{{ false }}">
+              <span role="alert" style="font-size:14px;font-weight:600;color:#FFB4AB">Please enter a valid email address.</span>
+            </sc-if>
+          </sc-if>
+          <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+            <p role="status" style="margin:0;font-size:16px;color:#FFFFFF">Thanks — you're on the list.</p>
+          </sc-if>
+          <span style="font-size:13px">By subscribing you agree to our <a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline">Terms &amp; Privacy Policy</a>.</span>
+        </div>
+      </div>
+      <nav aria-label="Footer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:36px 32px">
+        <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFFFFF;margin-bottom:2px">{{ col.title }}</span>
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5">
+              <a href="{{ l.href }}" style="font-size:15px;line-height:1.4;color:#BDBDBD" style-hover="color:#FFFFFF">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </nav>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
+        <span>© 2026 Xperience Realty Real Estate L.L.C. All rights reserved.</span>
+        <div style="display:flex;flex-wrap:wrap;gap:20px">
+          <sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
+            <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="height:76px"></div>
+    </sc-if>
+  </footer>
+
+  <sc-if value="{{ calcOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeCalc }}" style="position:fixed;inset:0;z-index:90;background:rgba(10,10,10,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px">
+      <div role="dialog" aria-modal="true" aria-label="Currency and area calculator" onClick="{{ stopProp }}" style="width:100%;max-width:480px;max-height:calc(100vh - 32px);overflow-y:auto;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,26px);display:flex;flex-direction:column;gap:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div role="tablist" aria-label="Calculator" style="display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--soft)">
+            <sc-for list="{{ calcTabs }}" as="t" hint-placeholder-count="2">
+              <sc-if value="{{ t.active }}" hint-placeholder-val="{{ false }}">
+                <button type="button" role="tab" aria-selected="true" onClick="{{ t.select }}" style="height:36px;padding:0 16px;border-radius:999px;border:none;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;cursor:pointer">{{ t.label }}</button>
+              </sc-if>
+              <sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}">
+                <button type="button" role="tab" aria-selected="false" onClick="{{ t.select }}" style="height:36px;padding:0 16px;border-radius:999px;border:none;background:transparent;color:var(--ink);font-size:14px;font-weight:500;cursor:pointer">{{ t.label }}</button>
+              </sc-if>
+            </sc-for>
+          </div>
+          <button type="button" onClick="{{ closeCalc }}" aria-label="Close calculator" style="width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:var(--ink)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        </div>
+        <sc-if value="{{ calcTabCurrency }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:15px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(20px,1.8vw,26px);line-height:1">Currency converter</span>
+          <span style="font-size:12px;font-weight:600;color:var(--muted)">Indicative rates</span>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:13px;font-weight:600">Property price</span>
+          <span style="display:flex;height:44px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);overflow:hidden">
+            <span style="display:flex;align-items:center;padding:0 12px;border-right:1px solid var(--line);font-size:15px;font-weight:700;color:var(--muted)">AED</span>
+            <input type="text" inputmode="numeric" value="{{ calcAedDisplay }}" onChange="{{ onCalcAed }}" aria-label="Price in AED" style="flex:1;min-width:0;border:none;padding:0 12px;font-size:16px;font-weight:600;color:var(--ink);background:transparent;font-variant-numeric:tabular-nums">
+          </span>
+        </label>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ presets }}" as="p" hint-placeholder-count="4">
+            <button type="button" onClick="{{ p.select }}" style="height:30px;padding:0 11px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:12px;font-weight:600;cursor:pointer" style-hover="border-color:var(--ink)">{{ p.label }}</button>
+          </sc-for>
+        </div>
+        <div role="radiogroup" aria-label="Convert to" style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ currencies }}" as="c" hint-placeholder-count="6">
+            <sc-if value="{{ c.active }}" hint-placeholder-val="{{ false }}">
+              <button type="button" role="radio" aria-checked="true" onClick="{{ c.select }}" style="height:36px;min-width:48px;padding:0 11px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-size:13px;font-weight:700;cursor:pointer">{{ c.code }}</button>
+            </sc-if>
+            <sc-if value="{{ c.inactive }}" hint-placeholder-val="{{ true }}">
+              <button type="button" role="radio" aria-checked="false" onClick="{{ c.select }}" style="height:36px;min-width:48px;padding:0 11px;border-radius:999px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:12px;font-weight:600;cursor:pointer" style-hover="border-color:var(--ink)">{{ c.code }}</button>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div aria-live="polite" style="display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--line)">
+          <span style="font-size:13px;font-weight:600;color:var(--muted)">{{ calcCurName }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.3vw,45px);line-height:1;font-variant-numeric:tabular-nums">{{ calcResult }}</span>
+          <span style="font-size:13px;color:var(--muted)">{{ calcRateLine }}</span>
+        </div>
+      </div>
+        </sc-if>
+        <sc-if value="{{ calcTabArea }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:15px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(20px,1.8vw,26px);line-height:1">Area converter</span>
+          <span style="font-size:12px;font-weight:600;color:var(--muted)">1 sq m = 10.764 sq ft</span>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:end">
+          <label style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:13px;font-weight:600">{{ areaFromLabel }}</span>
+            <input type="text" inputmode="decimal" value="{{ areaVal }}" onChange="{{ onArea }}" aria-label="{{ areaFromLabel }}" style="height:44px;width:100%;padding:0 12px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);font-size:16px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums">
+          </label>
+          <button type="button" onClick="{{ swapArea }}" aria-label="Swap units" style="width:36px;height:36px;margin-bottom:4px;border-radius:999px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5h11M10 2l3 3-3 3M14 11H3M6 8l-3 3 3 3" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </button>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:13px;font-weight:600">{{ areaToLabel }}</span>
+            <output aria-live="polite" style="height:44px;display:flex;align-items:center;padding:0 12px;border-radius:8px;border:1px dashed var(--line2);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;overflow:hidden">{{ areaResult }}</output>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ unitPresets }}" as="u" hint-placeholder-count="4">
+            <button type="button" onClick="{{ u.select }}" style="height:30px;padding:0 11px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:12px;font-weight:600;cursor:pointer" style-hover="border-color:var(--ink)">{{ u.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--line)">
+          <span style="font-size:13px;font-weight:600;color:var(--muted)">Price per sq ft, using the price in Currency</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.3vw,45px);line-height:1;font-variant-numeric:tabular-nums">{{ ppsf }}</span>
+          <span style="font-size:13px;color:var(--muted)">{{ ppsm }}</span>
+        </div>
+      </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:#0A0A0A;border-top:1px solid rgba(255,255,255,.12);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px">
+      <a href="tel:+971564080888" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 1.5h2.5l1.2 3.2-1.6 1.1a8.5 8.5 0 0 0 4.6 4.6l1.1-1.6 3.2 1.2V12.5a2 2 0 0 1-2 2A12.5 12.5 0 0 1 1.5 3.5a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.3"></path></svg>
+        Call
+      </a>
+      <a href="https://wa.me/971565467991" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:14px;font-weight:600">WhatsApp</a>
+      <a href="#enquire" onClick="{{ goEnquire }}" style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:999px;background:#FFFFFF;color:#0A0A0A;font-size:14px;font-weight:600">Enquire</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:8px">
+      <a href="https://wa.me/971565467991" aria-label="Chat on WhatsApp" title="WhatsApp" style="width:52px;height:52px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15)" style-hover="background:#2A2A2A;color:#FF9100">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 5-1.3A9.8 9.8 0 1 0 12 2.2zm0 17.8a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.4 1 2.5.1.2 1.7 2.7 4.2 3.8 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.2z"></path></svg>
+      </a>
+      <a href="https://t.me/xrealtyae" aria-label="Chat on Telegram" title="Telegram" style="width:52px;height:52px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15)" style-hover="background:#2A2A2A;color:#FF9100">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 3.6 2.9 10.7c-1.3.5-1.3 1.2-.2 1.6l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.4zM8.7 13.4l9.7-6.1c.5-.3.9-.1.5.2l-8.3 7.5-.3 3.5-1.6-5.1z"></path></svg>
+      </a>
+      <a href="tel:+971564080888" style="display:flex;align-items:center;gap:10px;height:52px;padding:0 22px 0 18px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;font-size:14px;font-weight:600;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15)" style-hover="background:#2A2A2A;color:#FFFFFF">
+        <span style="width:8px;height:8px;border-radius:999px;background:#FF9100;box-shadow:0 0 0 4px rgba(255,145,0,.22)"></span>
+        Call a specialist
+      </a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light' | 'dark'&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showOffPlanBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;featuredCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;min&quot;:2,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Listings&quot;}}">
+class Component extends DCLogic {
+  state = {
+    theme: 'light', view: 'grid', marqueePaused: false, calcAed: 1910000, calcCur: 'USD', areaVal: '1,250', areaUnit: 'sqft',
+    vw: typeof window !== 'undefined' ? window.innerWidth : 1280, menu: null, drawer: false,
+    dev: 'All', community: 'All communities', budget: 'Any budget', saved: [], faq: 0,
+    email: '', emailErr: false, subscribed: false,
+    lead: { name: '', phone: '', interest: 'Buy a home' }, leadErr: '', leadSent: false,
+  };
+  railRef = React.createRef();
+  heroVideoRef = React.createRef();
+  mapRef = React.createRef();
+  postMap() {
+    const f = this.mapRef.current; if (!f || !f.contentWindow || !this._mapItems) return;
+    f.contentWindow.postMessage({ type: 'xr-map', theme: this.state.theme, items: this._mapItems }, '*');
+  }
+
+  applyTheme() { document.documentElement.dataset.theme = this.state.theme; }
+  componentDidUpdate() { this.applyTheme(); this.postMap(); }
+  componentDidMount() {
+    this.onCalcKey = e => { if (e.key === 'Escape' && this.state.calcOpen) this.setState({ calcOpen: false }); };
+    window.addEventListener('keydown', this.onCalcKey);
+    this.onYtMsg = e => {
+      if (!/youtube\.com$/.test((e.origin || '').replace(/^https?:\/\/(www\.)?/, '').replace(/^/, 'x.'))) return;
+      let d; try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; } catch (_) { return; }
+      if (!d) return;
+      if (d.event === 'onError') return this.setState({ ytFailed: true });
+      const st = d.event === 'onStateChange' ? d.info : d.info && d.info.playerState;
+      if (st === 1) { clearTimeout(this.ytTimer); this.setState({ ytPlaying: true }); }
+    };
+    window.addEventListener('message', this.onYtMsg);
+    this.ytTimer = setTimeout(() => { if (!this.state.ytPlaying) this.setState({ ytFailed: true }); }, 9000);
+    this.ytCmd = (fn, args) => { const f = this.heroVideoRef.current; if (f && f.contentWindow) f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: fn, args: args || [] }), '*'); };
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { setTimeout(() => this.ytCmd('pauseVideo'), 1500); this.setState({ heroPaused: true }); }
+    let t = null; try { t = localStorage.getItem('xr-theme'); } catch (e) {}
+    const theme = t || this.props.defaultTheme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    this.setState({ theme }, () => this.applyTheme());
+    this.onResize = () => this.setState(s => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : s.drawer }));
+    window.addEventListener('resize', this.onResize);
+    this.onMsg = e => { if (e.data && e.data.type === 'xr-map-ready') this.postMap(); };
+    window.addEventListener('message', this.onMsg);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onCalcKey); window.removeEventListener('message', this.onYtMsg); clearTimeout(this.ytTimer); window.removeEventListener('resize', this.onResize); window.removeEventListener('message', this.onMsg); }
+
+  calcVals(s) {
+    const RATES = [['USD', 'US dollar', 3.6725], ['GBP', 'British pound', 4.90], ['EUR', 'Euro', 4.25], ['INR', 'Indian rupee', 0.0425], ['SAR', 'Saudi riyal', 0.979], ['CNY', 'Chinese yuan', 0.515], ['RUB', 'Russian rouble', 0.045]];
+    const SYM = { USD: '$', GBP: '£', EUR: '€', INR: '₹', SAR: 'SAR ', CNY: '¥', RUB: '₽' };
+    const r = RATES.find(x => x[0] === s.calcCur) || RATES[0];
+    const fmt = n => Math.round(n).toLocaleString('en-US');
+    const val = s.calcAed / r[2];
+    const num = parseFloat(String(s.areaVal).replace(/,/g, '')) || 0;
+    const sqft = s.areaUnit === 'sqft' ? num : num * 10.7639;
+    const conv = s.areaUnit === 'sqft' ? num / 10.7639 : num * 10.7639;
+    return {
+      calcAedDisplay: s.calcAed ? fmt(s.calcAed) : '',
+      onCalcAed: e => this.setState({ calcAed: +e.target.value.replace(/\D/g, '').slice(0, 11) || 0 }),
+      presets: [1000000, 2000000, 5000000, 10000000].map(v => ({ label: 'AED ' + v / 1e6 + 'M', select: () => this.setState({ calcAed: v }) })),
+      currencies: RATES.map(([code]) => ({ code, active: code === r[0], inactive: code !== r[0], select: () => this.setState({ calcCur: code }) })),
+      calcCurName: r[1],
+      calcResult: SYM[r[0]] + (val >= 1e7 ? (val / 1e6).toFixed(2) + 'M' : fmt(val)),
+      calcRateLine: `1 ${r[0]} ≈ AED ${r[2] < 0.1 ? r[2].toFixed(4) : r[2].toFixed(r[0] === 'USD' ? 4 : 2)}${r[0] === 'USD' ? ' (fixed peg)' : ''}`,
+      areaVal: s.areaVal,
+      onArea: e => this.setState({ areaVal: e.target.value.replace(/[^\d.,]/g, '').slice(0, 10) }),
+      areaFromLabel: s.areaUnit === 'sqft' ? 'Square feet' : 'Square metres',
+      areaToLabel: s.areaUnit === 'sqft' ? 'Square metres' : 'Square feet',
+      areaResult: num ? conv.toLocaleString('en-US', { maximumFractionDigits: 1 }) : '—',
+      swapArea: () => this.setState({ areaUnit: s.areaUnit === 'sqft' ? 'sqm' : 'sqft', areaVal: num ? conv.toLocaleString('en-US', { maximumFractionDigits: 1 }) : '' }),
+      unitPresets: [['Studio', 450], ['1 bed', 800], ['2 bed', 1250], ['3 bed villa', 2800]].map(([label, ft]) => ({ label: `${label} · ${ft.toLocaleString('en-US')} sq ft`, select: () => this.setState({ areaUnit: 'sqft', areaVal: ft.toLocaleString('en-US') }) })),
+      ppsf: sqft && s.calcAed ? 'AED ' + fmt(s.calcAed / sqft) : '—',
+      ppsm: sqft && s.calcAed ? `AED ${fmt(s.calcAed / (sqft / 10.7639))} per sq m · ${SYM[r[0]]}${fmt(s.calcAed / r[2] / sqft)} per sq ft` : 'Enter a price and size',
+    };
+  }
+  scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+  }
+
+  renderVals() {
+    const B = 'https://www.xrealty.ae';
+    const s = this.state;
+    const isMobile = s.vw < 980;
+    const menus = {
+      properties: [
+        ['Apartments', 'Apartments for sale in Dubai', '/apartments-for-sale-in-dubai/'],
+        ['Villas', 'Villas for sale in Dubai', '/villas-for-sale-in-dubai/'],
+        ['Penthouses', 'Penthouses for sale in Dubai', '/penthouse-for-sale-in-dubai/'],
+        ['Mansions', 'Mansions for sale in Dubai', '/mansions-for-sale-in-dubai/'],
+        ['Off-Plan Projects', 'New launches across Dubai', '/off-plan-projects-for-sale-in-dubai/'],
+        ['Townhouses', 'Townhouses for sale in Dubai', '/townhouse-for-sale-in-dubai/'],
+      ],
+      developers: [
+        ['Emaar Properties', '/developer/emaar-properties/'], ['Nakheel', '/developer/nakheel/'], ['Damac Properties', '/developer/damac-properties/'],
+        ['Beyond', '/developer/beyond-developments/'], ['Dubai Properties', '/developer/dubai-properties/'], ['Ellington Properties', '/developer/ellington-properties/'],
+        ['Meraas', '/developer/meraas/'], ['Omniyat', '/developer/omniyat/'], ['Ardee Developments', '/developer/ardee-developments/'],
+        ['Sobha Realty', '/developer/sobha/'], ['Nshama', '/developer/nshama/'], ['Arada Developments', '/developer/arada-developments/'],
+      ].map(([t, h]) => [t, 'Explore projects', h]),
+      guides: [
+        ['Buyers Guide', 'From search to key handover', '/guides/a-complete-guide-to-buying-property-in-dubai/'],
+        ['Sellers Guide', 'Valuation, marketing, closing', '/guides/a-complete-guide-to-selling-property-in-dubai/'],
+        ['Tenants Guide', 'Ejari, RERA rights, leases', '/guides/a-complete-guide-to-renting-property-in-dubai/'],
+        ['Landlords Guide', 'Yield, NOCs, compliance', '/guides/a-complete-guide-to-landlords-in-dubai/'],
+        ['Off Plan Guide', 'Payment plans and SPAs', '/guides/a-complete-guide-to-off-plan-in-dubai/'],
+        ['Investment Guide', 'ROI, visas, tax-free income', '/guides/a-complete-guide-to-Investment-in-dubai/'],
+      ],
+    };
+    const toItems = k => menus[k].map(([title, desc, h]) => ({ title, desc, href: B + h }));
+    const nav = [
+      { key: 'properties', label: 'Properties', href: B + '/off-plan-projects-for-sale-in-dubai/' },
+      { key: 'developers', label: 'Developers', href: B + '/developer/' },
+      { key: 'guides', label: 'Guides', href: B + '/guides/' },
+      { label: 'XR Team', href: B + '/agent/' },
+      { label: 'Insights', href: B + '/blogs/' },
+      { label: 'About', href: B + '/about-us/' },
+    ];
+    const navItems = nav.map(n => ({ ...n, hasMenu: !!n.key, expanded: n.key ? s.menu === n.key : undefined, onEnter: () => this.setState({ menu: n.key || null }) }));
+    const drawerGroups = [...nav, { label: 'Contact', href: B + '/contact-us-dubai-real-estate-agency/' }].map(n => ({ ...n, hasChildren: n.key === 'properties' || n.key === 'guides', children: n.key === 'properties' || n.key === 'guides' ? toItems(n.key) : [] }));
+
+    const CL = (v, id, w = 1200) => `https://res.cloudinary.com/dkhns25jh/image/upload/w_${w},f_auto,q_auto/${v}/xr_media/${id}.webp`;
+    const IMG = {
+      valiaExt: CL('v1786024664', 'hf14iqghcjyalcrgr8rv'), valiaInt: CL('v1786024589', 'azldwpnaxgzt1hcqt9xi'), valia2: CL('v1786024596', 'tng4fvgqeipawfjdsdh3'),
+      valia3: CL('v1786024607', 'fhn0x36pa0lu8qrw3qjf'), valiaCity: CL('v1786024414', 'yih9rhneuqhgovopmcjb'), valiaAmen: CL('v1786024547', 'c6shcktnp8peisklmv1u'),
+      fiorExt: CL('v1783592590', 'xljqzm8fduxygd9lmhvy'), fiorLobby: CL('v1783592656', 'xgid55zsix2nhwyqaa1u'), fiorLiving: CL('v1783592664', 'eegv6rcdfjm5wmzsyfad'),
+      fiorLiving2: CL('v1783592577', 'wvi2lddsjau1ya5kmihm'), fiorPool: CL('v1783592835', 'v26qtyo0vqwehgevvc4h'),
+    };
+    const all = [
+      ['valia', 'Emaar Properties', 'Emaar', 'Valia at Dubai Creek Harbour', 'Dubai Creek Harbour', 'AED 1,910,000', 'valia-at-dubai-creek-harbour', IMG.valiaExt],
+      ['fior-1', 'Emaar Properties', 'Emaar', 'Fior 1 at Rashid Yachts & Marina', 'Rashid Yachts & Marina', 'AED 2,200,000', 'fior-1-at-rashid-yachts-and-marina', IMG.fiorExt],
+      ['frond-f', 'Nakheel', 'Nakheel', 'Frond F Beach & Coral Collections', 'Palm Jebel Ali', 'AED 30,000,000', 'frond-f-beach-and-coral-collections-at-palm-jebel-ali', IMG.fiorPool],
+      ['kanyon', 'Beyond', 'Beyond', 'Kanyon by Beyond', 'Dubai Maritime City', 'AED 2,400,000', 'kanyon-by-beyond', IMG.valia3],
+      ['everly', 'Ellington Properties', 'Ellington', 'Everly Place by Ellington', 'MBR City', 'AED 1,900,000', 'everly-place-by-ellington-properties', IMG.valia2],
+      ['the-woods', 'Sobha Realty', 'Sobha', 'The Woods at Sobha Sanctuary', 'Dubailand', 'AED 999,000', 'the-woods-at-sobha-sanctuary-by-sobha-realty', IMG.valiaAmen],
+      ['golf-trails', 'Emaar Properties', 'Emaar', 'Golf Trails at Emaar South', 'Emaar South', 'AED 1,250,000', 'golf-trails-at-emaar-south', IMG.fiorLiving2],
+      ['arancia', 'Beyond', 'Beyond', 'Arancia Yards by Beyond', 'Dubailand', 'AED 1,000,000', 'arancia-the-yards-by-beyond', IMG.fiorLiving],
+      ['golf-vale', 'Emaar Properties', 'Emaar', 'Golf Vale at Emaar South', 'Emaar South', 'AED 1,090,000', 'golf-vale-at-emaar-south', IMG.valiaInt],
+      ['golf-fields', 'Emaar Properties', 'Emaar', 'Golf Fields at Emaar South', 'Emaar South', 'AED 1,260,000', 'golf-fields-at-emaar-south', IMG.fiorLobby],
+    ].map(([slug, developer, short, name, community, price, path, img]) => ({ slug, developer, short, name, community, price, img, priceNum: +price.replace(/\D/g, ''), href: `${B}/property/${path}/` }));
+
+    const budgets = [['Any budget', 0, Infinity], ['Up to AED 1.25M', 0, 1250000], ['AED 1.25M – 2M', 1250001, 2000000], ['AED 2M – 5M', 2000001, 5000000], ['AED 5M+', 5000001, Infinity]];
+    const [, lo, hi] = budgets.find(b => b[0] === s.budget) || budgets[0];
+    const searched = all.filter(p => (s.community === 'All communities' || p.community === s.community) && p.priceNum >= lo && p.priceNum <= hi);
+    const byChip = label => label === 'All' ? searched : label === 'Saved' ? searched.filter(p => s.saved.includes(p.slug)) : searched.filter(p => p.short === label);
+    const chipLabels = ['All', 'Emaar', 'Beyond', 'Nakheel', 'Ellington', 'Sobha', ...(s.saved.length ? ['Saved'] : [])];
+    const dev = chipLabels.includes(s.dev) ? s.dev : 'All';
+    const chips = chipLabels.map(label => ({ label, count: byChip(label).length, active: dev === label, inactive: dev !== label, select: () => this.setState({ dev: label }) }));
+    const limit = Math.max(1, this.props.featuredCount ?? 8);
+    const filtered = byChip(dev);
+    const shown = filtered.slice(0, limit);
+    const properties = shown.map(p => {
+      const saved = s.saved.includes(p.slug);
+      return { ...p, saved, saveAria: saved ? `Remove ${p.name} from shortlist` : `Save ${p.name} to shortlist`, heartFill: saved ? 'currentColor' : 'none', toggleSave: () => this.setState(st => ({ saved: st.saved.includes(p.slug) ? st.saved.filter(x => x !== p.slug) : [...st.saved, p.slug] })) };
+    });
+    this._mapItems = filtered.map(p => ({ slug: p.slug, name: p.name, developer: p.developer, community: p.community, price: p.price, href: p.href, img: p.img, saved: s.saved.includes(p.slug) }));
+    const hasFilters = s.community !== 'All communities' || s.budget !== 'Any budget' || dev !== 'All';
+    const ctx = [s.community !== 'All communities' ? `in ${s.community}` : '', s.budget !== 'Any budget' ? `· ${s.budget}` : ''].filter(Boolean).join(' ');
+    const resultLabel = dev === 'Saved' ? `${filtered.length} saved to your shortlist` : `Showing ${shown.length} of ${filtered.length} project${filtered.length === 1 ? '' : 's'} ${ctx}`.trim();
+    const communityOptions = ['All communities', ...[...new Set(all.map(p => p.community))].sort()];
+
+    const communities = [
+      ['creek-harbour', 'Dubai Creek Harbour', 'Where the city meets the water', '/area/dubai-creek-harbour/', IMG.valiaCity, 1400000, 'Apartments'],
+      ['grand-polo', 'Grand Polo', 'Where elegance meets equestrian excellence', '/area/grand-polo-club-and-resort/', IMG.valiaAmen, 4500000, 'Villas'],
+      ['the-valley', 'The Valley', 'Curated for families, designed for the future', '/area/the-valley/', IMG.valia2, 2600000, 'Townhouses'],
+      ['al-marjan', 'Al Marjan Island', 'Where the sea shapes ambition', '/area/al-marjan-island-ras-al-khaimah/', IMG.fiorPool, 1200000, 'Apartments'],
+      ['dubai-hills', 'Dubai Hills Estate', 'Where green living meets prestige', '/area/dubai-hills-estate/', IMG.valiaInt, 1500000, 'Apartments'],
+      ['the-oasis', 'The Oasis', 'Designed for those who choose differently', '/area/the-oasis/', IMG.fiorLobby, 9400000, 'Villas'],
+    ].map(([slug, name, tagline, h, img, aed, type]) => ({ slug, name, tagline, type, href: B + h, img, price: 'AED ' + (aed >= 1e6 ? (aed / 1e6).toFixed(aed % 1e6 ? 1 : 0) + 'M' : (aed / 1e3) + 'K') }));
+
+    const reasons = [
+      ['Award-winning brokerage', 'Recognised by Emaar and several of Dubai\'s leading developers. True Brokers on Bayut and SuperAgents on Property Finder.'],
+      ['RERA-certified agents', 'Experienced specialists with first-hand knowledge of Dubai\'s most sought-after communities.'],
+      ['Data-driven advisory', 'Guidance backed by real market analytics — capital growth, rental yield and lifestyle fit.'],
+      ['Consultation to handover', 'A structured, transparent process, with after-sale support and portfolio management beyond.'],
+    ].map(([title, body], i) => ({ n: '0' + (i + 1), title, body }));
+
+    const guideHrefs = ['buying-property', 'selling-property', 'Investment', 'landlords', 'renting-property', 'off-plan'];
+    const guides = [
+      ['Buyers', 'Buying property in Dubai', 'The full purchase process — from search to key handover, including DLD fees.'],
+      ['Sellers', 'Selling property in Dubai', 'Listing, valuation, marketing and closing in Dubai\'s market.'],
+      ['Investors', 'Why invest in Dubai?', 'ROI, residency through property, tax-free rental income.'],
+      ['Landlords', 'Renting out your property', 'Rental yield, NOC requirements and RERA compliance.'],
+      ['Tenants', 'Renting in Dubai', 'Ejari registration, RERA rights, cheques and lease terms.'],
+      ['Off-plan', 'Why off-plan?', 'Payment plans, developer track record, SPAs and capital growth.'],
+    ].map(([audience, title, desc], i) => ({ audience, title, desc, href: `${B}/guides/a-complete-guide-to-${guideHrefs[i]}-in-dubai/` }));
+
+    const developers = [['Emaar', 'emaar-properties', 'emaar.com'], ['Nakheel', 'nakheel', 'nakheel.com'], ['Damac', 'damac-properties', 'damacproperties.com'], ['Meraas', 'meraas', 'meraas.com'], ['Sobha', 'sobha', 'sobharealty.com'], ['Omniyat', 'omniyat', 'omniyat.com'], ['Ellington', 'ellington-properties', 'ellingtonproperties.ae'], ['Dubai Properties', 'dubai-properties', 'dp.ae'], ['Nshama', 'nshama', 'nshama.ae'], ['Arada', 'arada-developments', 'arada.com']].map(([name, p, dom]) => { const W = 'https://commons.wikimedia.org/wiki/Special:FilePath/', EN = 'https://en.wikipedia.org/wiki/Special:FilePath/';
+      const LOGOS = { Emaar: [W + 'Emaar_logo.svg', '30px'], Nakheel: [W + 'Nakheel_logo.svg', '28px'], Damac: [W + 'Damac_logo.svg', '18px'], Meraas: [W + 'Meraas-logo.svg', '34px'], Sobha: [EN + 'Sobha_(company).svg', '36px'], ...(this.props.developerLogos || {}) };
+      const lg = LOGOS[name]; const logo = Array.isArray(lg) ? lg[0] : lg; const h = Array.isArray(lg) ? lg[1] : '32px';
+      return { name, logo, h, hasLogo: !!logo, noLogo: !logo, href: `${B}/developer/${p}/` }; });
+
+    const blogs = [
+      ['five-areas', 'Sep 29, 2026', 'Where to buy in Dubai in 2026: five areas for different buyer priorities', 'Five Dubai locations for end users, long-term growth buyers and income-focused investors.', 'where-to-buy-dubai-five-buyer-priorities', IMG.valiaExt],
+      ['resilient', 'Sep 9, 2026', 'What makes Dubai so resilient?', 'Population growth, investor demand, infrastructure and a strong economy — why the market holds.', 'why-dubai-real-estate-is-resilient', IMG.valia3],
+      ['creek', 'Aug 15, 2026', 'Why Dubai Creek Harbour is set to become a property hotspot', '100% freehold, prime location, new Emaar launches and the upcoming Metro Blue Line.', 'why-invest-in-dubai-creek-harbour', IMG.valiaCity],
+    ].map(([slug, date, title, excerpt, p, img]) => ({ slug, date, title, excerpt, img, href: `${B}/blogs/${p}/` }));
+
+    const faqs = [
+      ['Can foreigners buy property in Dubai?', 'Yes. Foreign investors can buy property in designated freehold areas across Dubai, with full ownership rights and access to a wide range of residential properties.'],
+      ['Can I get UAE residency if I buy property?', 'Property investment in Dubai can qualify buyers for UAE residency visas, subject to eligibility criteria and minimum investment thresholds set by the authorities.'],
+      ['What are the benefits of buying off-plan?', 'Attractive launch pricing, flexible payment plans, high capital growth potential, and access to new developments in prime communities.'],
+      ['What additional costs should I consider?', 'Dubai Land Department fees, registration charges, agency commissions, and service fees. Our agents provide a full cost breakdown during the advisory process.'],
+      ['How long does a purchase take to complete?', 'A secondary-market transaction generally completes within a few weeks once documentation and payments are arranged. Off-plan purchases follow the developer\'s payment schedule until completion.'],
+      ['How do I choose the right broker in Dubai?', 'Look for experience, market knowledge, verified track records, and transparent communication — plus strategic advice and access to premium inventory.'],
+    ].map(([q, a], i) => ({ q, a, open: s.faq === i, icon: s.faq === i ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }) }));
+
+    const L = (label, h) => ({ label, href: /^(https?:|tel:|mailto:)/.test(h) ? h : B + h });
+    const footerCols = [
+      { title: 'Company', links: [L('About XR', '/about-us/'), L('Join XR', '/careers/'), L('Contact us', '/contact-us-dubai-real-estate-agency/'), L('XR Blog', '/blogs/'), L('Dubai FAQs', '/faqs/')] },
+      { title: 'For sale', links: [L('Apartments', '/apartments-for-sale-in-dubai/'), L('Villas', '/villas-for-sale-in-dubai/'), L('Townhouses', '/townhouse-for-sale-in-dubai/'), L('Penthouses', '/penthouse-for-sale-in-dubai/'), L('Mansions', '/mansions-for-sale-in-dubai/'), L('Land & plots', '/land-for-sale-in-dubai/')] },
+      { title: 'Off-plan', links: [L('Off-plan projects', '/off-plan-projects-for-sale-in-dubai/'), L('Off-plan apartments', '/off-plan-apartments-for-sale-in-dubai/'), L('Off-plan villas', '/off-plan-villas-for-sale-in-dubai/'), L('Off-plan townhouses', '/off-plan-townhouses-for-sale-in-dubai/'), L('Ultra luxury projects', '/dubai-properties/for-sale/type-ultra-luxury-projects/')] },
+      { title: 'Dubai living', links: [L('Beachfront', '/living-experience-dubai/beachfront/'), L('Waterfront', '/living-experience-dubai/waterfront/'), L('Downtown', '/living-experience-dubai/downtown/'), L('Golf course', '/living-experience-dubai/golf-course/'), L('Island living', '/living-experience-dubai/island-living/'), L('Green nature', '/living-experience-dubai/green-nature/')] },
+      { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
+    ];
+    const socials = [['YouTube', 'https://www.youtube.com/@xrealtyae'], ['Instagram', 'https://www.instagram.com/xperience.realty'], ['LinkedIn', 'https://www.linkedin.com/company/xrealty-ae'], ['X', 'https://x.com/xrealty_ae'], ['Facebook', 'https://www.facebook.com/profile.php?id=61562378023612']].map(([label, href]) => ({ label, href }));
+
+    const interests = ['Buy a home', 'Invest off-plan', 'Sell', 'Rent'].map(label => ({ label, active: s.lead.interest === label, inactive: s.lead.interest !== label, select: () => this.setState(st => ({ lead: { ...st.lead, interest: label } })) }));
+    const setLead = k => e => { const v = e.target.value; this.setState(st => ({ lead: { ...st.lead, [k]: v }, leadErr: '' })); };
+    const railBy = dir => () => { const el = this.railRef.current; if (el) el.scrollBy({ left: dir * Math.max(280, el.clientWidth * 0.7), behavior: 'smooth' }); };
+    const firstName = s.lead.name.trim().split(/\s+/)[0] || '';
+
+    return {
+      showTopBar: (this.props.showTopBar ?? true) && !isMobile,
+      showOffPlan: this.props.showOffPlanBand ?? true,
+      isMobile, isDesktop: !isMobile,
+      calcOpen: !!s.calcOpen, calcTabCurrency: (s.calcTab || 'currency') === 'currency', calcTabArea: s.calcTab === 'area',
+      calcTabs: [['currency', 'Currency'], ['area', 'Area']].map(([k, label]) => ({ label, active: (s.calcTab || 'currency') === k, inactive: (s.calcTab || 'currency') !== k, select: () => this.setState({ calcTab: k }) })),
+      openCalc: () => this.setState({ calcOpen: true }),
+      openCalcLink: e => { e.preventDefault(); this.setState({ calcOpen: true, drawer: false }); },
+      closeCalc: () => this.setState({ calcOpen: false }),
+      stopProp: e => e.stopPropagation(),
+      ytFailed: !!s.ytFailed, ytOpacity: s.ytFailed ? 0 : (s.ytPlaying ? 1 : 0),
+      onYtLoad: () => { const f = this.heroVideoRef.current; if (f && f.contentWindow) { f.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 'hero', channel: 'widget' }), '*'); f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'addEventListener', args: ['onError'], id: 'hero', channel: 'widget' }), '*'); } },
+      heroMuted: !s.heroSound, heroUnmuted: !!s.heroSound,
+      heroSoundAria: s.heroSound ? 'Mute video' : 'Play video with sound',
+      toggleHeroSound: () => { const on = !s.heroSound; if (this.ytCmd) { if (on) { this.ytCmd('unMute'); this.ytCmd('setVolume', [70]); this.ytCmd('playVideo'); } else this.ytCmd('mute'); } this.setState({ heroSound: on, heroPaused: on ? false : s.heroPaused }); },
+      heroVideoRef: this.heroVideoRef, heroPlaying: !s.heroPaused, heroPaused: !!s.heroPaused,
+      heroVideoAria: s.heroPaused ? 'Play background video' : 'Pause background video',
+      toggleHeroVideo: () => { const p = !s.heroPaused; this.ytCmd && this.ytCmd(p ? 'pauseVideo' : 'playVideo'); this.setState({ heroPaused: p }); },
+      developerLoop: [...developers.map(d => ({ ...d, dup: undefined, tab: undefined })), ...developers.map(d => ({ ...d, dup: 'true', tab: -1 }))],
+      marqueeState: s.marqueePaused ? 'paused' : 'running',
+      pauseMarquee: () => this.setState({ marqueePaused: true }), playMarquee: () => this.setState({ marqueePaused: false }),
+      ...this.calcVals(s),
+      showMap: s.view === 'map', showGrid: s.view !== 'map' && shown.length > 0, noResultsGrid: s.view !== 'map' && shown.length === 0,
+      viewOpts: [['grid', 'Grid'], ['map', 'Map']].map(([k, label]) => ({ label, active: s.view === k, inactive: s.view !== k, select: () => this.setState({ view: k }) })),
+      mapRef: this.mapRef, onMapLoad: () => this.postMap(),
+      isDark: s.theme === 'dark', isLight: s.theme !== 'dark',
+      themeAria: s.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
+      navItems, drawerGroups,
+      showDropdown: !isMobile && !!s.menu,
+      dropdownItems: s.menu ? toItems(s.menu) : [],
+      closeMenu: () => s.menu && this.setState({ menu: null }),
+      drawerOpen: s.drawer, drawerClosed: !s.drawer, showDrawer: isMobile && s.drawer,
+      toggleDrawer: () => this.setState({ drawer: !s.drawer }),
+      savedCount: s.saved.length, hasSaved: s.saved.length > 0,
+      headerHeartFill: s.saved.length ? 'currentColor' : 'none',
+      shortlistAria: s.saved.length ? `Shortlist, ${s.saved.length} saved` : 'Shortlist, empty',
+      showSaved: () => { this.setState({ dev: s.saved.length ? 'Saved' : 'All', drawer: false }); this.scrollTo('featured'); },
+      goEnquire: e => { e.preventDefault(); this.setState({ drawer: false }); this.scrollTo('enquire'); },
+      community: s.community, budget: s.budget, communityOptions, budgetOptions: budgets.map(b => b[0]),
+      onCommunity: e => this.setState({ community: e.target.value }),
+      onBudget: e => this.setState({ budget: e.target.value }),
+      searchLabel: hasFilters && searched.length ? `Show ${searched.length} project${searched.length === 1 ? '' : 's'}` : 'Search projects',
+      runSearch: e => { e.preventDefault(); this.setState({ dev: 'All' }); this.scrollTo('featured'); },
+      chips, properties, resultLabel, hasFilters,
+      hasResults: shown.length > 0, noResults: shown.length === 0,
+      emptyTitle: dev === 'Saved' ? 'Your shortlist is empty.' : 'Nothing listed that matches — yet.',
+      clearFilters: () => this.setState({ community: 'All communities', budget: 'Any budget', dev: 'All' }),
+      railRef: this.railRef, railPrev: railBy(-1), railNext: railBy(1),
+      communities, reasons, guides, developers, blogs, faqs, footerCols, socials,
+      lead: s.lead, interests, onLeadName: setLead('name'), onLeadPhone: setLead('phone'),
+      hasLeadErr: !!s.leadErr, leadErr: s.leadErr, leadOpen: !s.leadSent, leadSent: s.leadSent,
+      leadThanks: firstName ? `Thank you, ${firstName}.` : 'Thank you.',
+      leadPhoneDisplay: '+971 ' + s.lead.phone.trim(),
+      submitLead: e => {
+        e.preventDefault();
+        const { name, phone } = this.state.lead;
+        if (name.trim().length < 2) return this.setState({ leadErr: 'Please enter your name.' });
+        if (phone.replace(/\D/g, '').length < 7) return this.setState({ leadErr: 'Please enter a valid phone number.' });
+        this.setState({ leadSent: true, leadErr: '' });
+      },
+      email: s.email, hasEmailErr: s.emailErr, notSubscribed: !s.subscribed, subscribed: s.subscribed,
+      onEmail: e => this.setState({ email: e.target.value, emailErr: false }),
+      subscribe: e => { e.preventDefault(); if (/\S+@\S+\.\S+/.test(this.state.email)) this.setState({ subscribed: true }); else this.setState({ emailErr: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
