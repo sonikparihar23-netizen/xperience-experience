@@ -10,7 +10,7 @@
     const d = document.createElement('div');
     d.id = 'xr-consent'; d.dir = get('xr-lang') === 'ar' ? 'rtl' : 'ltr'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Cookie preferences');
     d.style.cssText = "position:fixed;left:16px;right:16px;bottom:calc(16px + var(--xr-bar,0px));z-index:9999;max-width:560px;margin-inline:auto;background:#0A0A0A;color:#E6E6E6;border:1px solid rgba(255,145,0,.35);border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font:400 14px/1.5 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 24px 48px -16px rgba(0,0,0,.5)";
-    d.innerHTML = "<span style='flex:1 1 260px'>We use cookies to improve your experience and measure site performance. <a href='https://www.xrealty.ae/privacy-policy/' style='color:#FFFFFF;text-decoration:underline'>Privacy policy</a></span>" +
+    d.innerHTML = "<span style='flex:1 1 260px'>We use cookies to improve your experience and measure site performance. <a href='legal.html?doc=privacy' style='color:#FFFFFF;text-decoration:underline'>Privacy policy</a></span>" +
       "<span style='display:flex;gap:8px'><button data-v='essential' style='height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;font:600 13px inherit;cursor:pointer'>Essential only</button>" +
       "<button data-v='all' style='height:42px;padding:0 18px;border-radius:999px;border:none;background:#FF9100;color:#0A0A0A;font:700 13px inherit;cursor:pointer'>Accept all</button></span>";
     d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); } });

@@ -666,7 +666,7 @@ a:hover .xr-logo{filter:none}
     <div style="display:flex;flex-direction:column;gap:12px">
       <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Quick answers</span>
       <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Frequently asked questions</h2>
-      <a href="https://www.xrealty.ae/faqs/" style="align-self:flex-start;margin-top:12px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">More FAQs →</a>
+      <a href="faqs.html" style="align-self:flex-start;margin-top:12px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">More FAQs →</a>
     </div>
     <div style="display:flex;flex-direction:column;border-bottom:1px solid var(--line)">
       <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
@@ -716,7 +716,7 @@ a:hover .xr-logo{filter:none}
           <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
             <p role="status" style="margin:0;font-size:16px;color:#FFFFFF">Thanks — you're on the list.</p>
           </sc-if>
-          <span style="font-size:13px">By subscribing you agree to our <a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline">Terms &amp; Privacy Policy</a>.</span>
+          <span style="font-size:13px">By subscribing you agree to our <a href="legal.html?doc=privacy" style="color:#BDBDBD;text-decoration:underline">Terms &amp; Privacy Policy</a>.</span>
         </div>
       </div>
       <nav aria-label="Footer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:36px 32px">
@@ -730,7 +730,7 @@ a:hover .xr-logo{filter:none}
         </sc-for>
       </nav>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
-        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="https://www.xrealty.ae/terms-and-conditions/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
+        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="legal.html?doc=privacy" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="legal.html?doc=terms" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
         <div style="display:flex;flex-wrap:wrap;gap:20px">
           <sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
             <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>
@@ -983,12 +983,12 @@ class Component extends DCLogic {
         ['Sobha Realty', 'developers.html?d=sobha'], ['Nshama', 'developers.html?d=nshama'], ['Arada Developments', 'developers.html?d=arada-developments'],
       ].map(([t, h]) => [t, 'Explore projects', h]),
       guides: [
-        ['Buyers Guide', 'From search to key handover', 'guide-article.html'],
-        ['Sellers Guide', 'Valuation, marketing, closing', 'guides.html'],
-        ['Tenants Guide', 'Ejari, RERA rights, leases', 'guides.html'],
-        ['Landlords Guide', 'Yield, NOCs, compliance', 'guides.html'],
-        ['Off Plan Guide', 'Payment plans and SPAs', 'guides.html'],
-        ['Investment Guide', 'ROI, visas, tax-free income', 'guides.html'],
+        ['Buyers Guide', 'From search to key handover', 'guide.html?g=buying'],
+        ['Sellers Guide', 'Valuation, marketing, closing', 'guide.html?g=selling'],
+        ['Tenants Guide', 'Ejari, RERA rights, leases', 'guide.html?g=renting'],
+        ['Landlords Guide', 'Yield, NOCs, compliance', 'guide.html?g=landlords'],
+        ['Off Plan Guide', 'Payment plans and SPAs', 'guide.html?g=off-plan'],
+        ['Investment Guide', 'ROI, visas, tax-free income', 'guide.html?g=investment'],
       ],
     };
     const toItems = k => menus[k].map(([title, desc, h]) => ({ title, desc, href: h.startsWith('/') ? B + h : h }));
@@ -1077,7 +1077,7 @@ class Component extends DCLogic {
       ['Landlords', 'Renting out your property', 'Rental yield, NOC requirements and RERA compliance.'],
       ['Tenants', 'Renting in Dubai', 'Ejari registration, RERA rights, cheques and lease terms.'],
       ['Off-plan', 'Why off-plan?', 'Payment plans, developer track record, SPAs and capital growth.'],
-    ].map(([audience, title, desc], i) => ({ audience, title, desc, href: guideHrefs[i] === 'buying-property' ? 'guide-article.html' : 'guides.html' }));
+    ].map(([audience, title, desc], i) => ({ audience, title, desc, href: 'guide.html?g=' + ({ 'buying-property': 'buying', 'selling-property': 'selling', 'renting-property': 'renting', Investment: 'investment' }[guideHrefs[i]] || guideHrefs[i]) }));
 
     const developers = [['Emaar', 'emaar-properties', 'emaar.com'], ['Nakheel', 'nakheel', 'nakheel.com'], ['Damac', 'damac-properties', 'damacproperties.com'], ['Meraas', 'meraas', 'meraas.com'], ['Sobha', 'sobha', 'sobharealty.com'], ['Omniyat', 'omniyat', 'omniyat.com'], ['Ellington', 'ellington-properties', 'ellingtonproperties.ae'], ['Dubai Properties', 'dubai-properties', 'dp.ae'], ['Nshama', 'nshama', 'nshama.ae'], ['Arada', 'arada-developments', 'arada.com']].map(([name, p, dom]) => { const W = 'https://commons.wikimedia.org/wiki/Special:FilePath/', EN = 'https://en.wikipedia.org/wiki/Special:FilePath/';
       const LOGOS = { Emaar: [W + 'Emaar_logo.svg', '30px'], Nakheel: [W + 'Nakheel_logo.svg', '28px'], Damac: [W + 'Damac_logo.svg', '18px'], Meraas: [W + 'Meraas-logo.svg', '34px'], Sobha: [EN + 'Sobha_(company).svg', '36px'], ...(this.props.developerLogos || {}) };
@@ -1088,7 +1088,7 @@ class Component extends DCLogic {
       ['five-areas', 'Sep 29, 2026', 'Where to buy in Dubai in 2026: five areas for different buyer priorities', 'Five Dubai locations for end users, long-term growth buyers and income-focused investors.', 'where-to-buy-dubai-five-buyer-priorities', IMG.valiaExt],
       ['resilient', 'Sep 9, 2026', 'What makes Dubai so resilient?', 'Population growth, investor demand, infrastructure and a strong economy — why the market holds.', 'why-dubai-real-estate-is-resilient', IMG.valia3],
       ['creek', 'Aug 15, 2026', 'Why Dubai Creek Harbour is set to become a property hotspot', '100% freehold, prime location, new Emaar launches and the upcoming Metro Blue Line.', 'why-invest-in-dubai-creek-harbour', IMG.valiaCity],
-    ].map(([slug, date, title, excerpt, p, img]) => ({ slug, date, title, excerpt, img, href: `${B}/blogs/${p}/` }));
+    ].map(([slug, date, title, excerpt, p, img]) => ({ slug, date, title, excerpt, img, href: 'blog.html?b=' + p }));
 
     const faqs = [
       ['Can foreigners buy property in Dubai?', 'Yes. Foreign investors can buy property in designated freehold areas across Dubai, with full ownership rights and access to a wide range of residential properties.'],
@@ -1101,10 +1101,10 @@ class Component extends DCLogic {
 
     const L = (label, h) => ({ label, href: h.startsWith('/') ? B + h : h });
     const footerCols = [
-      { title: 'Company', links: [L('About XR', 'about.html'), L('XR Team', 'team.html'), L('Sell with XR', 'sell.html'), L('Insights', 'insights.html'), L('Guides', 'guides.html'), L('Join XR', '/careers/'), L('Contact us', 'contact.html'), L('Dubai FAQs', '/faqs/')] },
+      { title: 'Company', links: [L('About XR', 'about.html'), L('XR Team', 'team.html'), L('Sell with XR', 'sell.html'), L('Insights', 'insights.html'), L('Guides', 'guides.html'), L('Join XR', 'careers.html'), L('Contact us', 'contact.html'), L('Dubai FAQs', 'faqs.html')] },
       { title: 'For sale', links: [L('Apartments', 'search.html?type=Apartment'), L('Villas', 'search.html?type=Villa'), L('Townhouses', 'search.html?type=Townhouse'), L('Penthouses', 'search.html?budget=lux'), L('Mansions', 'search.html?budget=lux'), L('Land & plots', '/land-for-sale-in-dubai/')] },
       { title: 'Off-plan', links: [L('Off-plan projects', 'search.html'), L('Off-plan apartments', 'search.html?type=Apartment'), L('Off-plan villas', 'search.html?type=Villa'), L('Off-plan townhouses', 'search.html?type=Townhouse'), L('Developers', 'developers.html'), L('Communities', 'community.html'), L('Compare shortlist', 'compare.html')] },
-      { title: 'Dubai living', links: [L('Beachfront', '/living-experience-dubai/beachfront/'), L('Waterfront', '/living-experience-dubai/waterfront/'), L('Downtown', '/living-experience-dubai/downtown/'), L('Golf course', '/living-experience-dubai/golf-course/'), L('Island living', '/living-experience-dubai/island-living/'), L('Green nature', '/living-experience-dubai/green-nature/')] },
+      { title: 'Dubai living', links: [L('Beachfront', 'living.html?a=beachfront'), L('Waterfront', 'living.html?a=waterfront'), L('Downtown', 'living.html?a=downtown'), L('Golf course', 'living.html?a=golf-course'), L('Island living', 'living.html?a=island-living'), L('Green nature', 'living.html?a=green-nature')] },
       { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
     ];
     const socials = [['YouTube', 'https://www.youtube.com/@xrealtyae'], ['Instagram', 'https://www.instagram.com/xperience.realty'], ['LinkedIn', 'https://www.linkedin.com/company/xrealty-ae'], ['X', 'https://x.com/xrealty_ae'], ['Facebook', 'https://www.facebook.com/profile.php?id=61562378023612']].map(([label, href]) => ({ label, href }));
@@ -1174,7 +1174,7 @@ class Component extends DCLogic {
       onCommunity: e => this.setState({ community: e.target.value }),
       onBudget: e => this.setState({ budget: e.target.value }),
       searchLabel: isRent ? 'Search rentals' : hasFilters && searched.length ? `Show ${searched.length} project${searched.length === 1 ? '' : 's'}` : 'Search projects',
-      runSearch: e => { e.preventDefault(); if (isRent) { window.open(B + '/dubai-properties/for-rent/', '_blank', 'noopener'); return; } this.setState({ dev: 'All' }); this.scrollTo('featured'); },
+      runSearch: e => { e.preventDefault(); if (isRent) { location.href = 'rent.html'; return; } this.setState({ dev: 'All' }); this.scrollTo('featured'); },
       chips, properties, resultLabel, hasFilters,
       hasResults: shown.length > 0, noResults: shown.length === 0,
       emptyTitle: dev === 'Saved' ? 'Your shortlist is empty.' : 'Nothing listed that matches — yet.',

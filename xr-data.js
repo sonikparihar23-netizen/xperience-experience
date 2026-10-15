@@ -118,10 +118,10 @@
       menuIconPath: s.drawer ? 'M3 3L15 15M15 3L3 15' : 'M2 5H16M2 9H16M2 13H16',
       enquireHref: opts.enquireHref || P.contact, footerPad: isMobile ? '76px' : '0px',
       footerCols: [
-        { title: 'Explore', links: [L('Properties', P.search), L('Communities', P.community()), L('Developers', P.developers), L('Shortlist & compare', P.compare)] },
+        { title: 'Explore', links: [L('Properties', P.search), L('Communities', P.community()), L('Developers', P.developers), L('Rent a home', 'rent.html'), L('Shortlist & compare', P.compare)] },
         { title: 'Popular searches', links: [L('Homes AED 1.25M – 2M', P.search + '?budget=mid'), L('Villas for sale', P.search + '?type=Villa'), L('Dubai Hills Estate', P.search + '?community=dubai-hills'), L('Golden Visa homes (AED 2M – 5M)', P.search + '?budget=gv'), L('Luxury AED 5M+', P.search + '?budget=lux')] },
-        { title: 'Learn', links: [L('Guides', P.guides), L('Insights', P.insights), L('Dubai FAQs', B + '/faqs/')] },
-        { title: 'Company', links: [L('About XR', P.about), L('Sell with XR', P.sell), L('XR Team', P.team), L('Careers', B + '/careers/'), L('Contact us', P.contact)] },
+        { title: 'Learn', links: [L('Guides', P.guides), L('Insights', P.insights), L('Dubai FAQs', 'faqs.html'), L('Dubai living', 'living.html')] },
+        { title: 'Company', links: [L('About XR', P.about), L('Sell with XR', P.sell), L('XR Team', P.team), L('Careers', 'careers.html'), L('Contact us', P.contact)] },
         { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
       ],
       socials: [['YouTube', 'https://www.youtube.com/@xrealtyae'], ['Instagram', 'https://www.instagram.com/xperience.realty'], ['LinkedIn', 'https://www.linkedin.com/company/xrealty-ae'], ['X', 'https://x.com/xrealty_ae']].map(([label, href]) => ({ label, href })),
