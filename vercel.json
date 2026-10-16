@@ -3,6 +3,198 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/guide-article", "destination": "/guide?g=buying", "permanent": true }
+    {
+      "source": "/guide-article",
+      "destination": "/guide?g=buying",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "missing": [
+        {
+          "type": "query",
+          "key": "b"
+        }
+      ],
+      "destination": "/insights",
+      "permanent": false
+    },
+    {
+      "source": "/property",
+      "missing": [
+        {
+          "type": "query",
+          "key": "p"
+        }
+      ],
+      "destination": "/search",
+      "permanent": false
+    },
+    {
+      "source": "/guide.html",
+      "destination": "/guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/living.html",
+      "destination": "/living",
+      "permanent": true
+    },
+    {
+      "source": "/property.html",
+      "destination": "/property",
+      "permanent": true
+    },
+    {
+      "source": "/community.html",
+      "destination": "/community",
+      "permanent": true
+    },
+    {
+      "source": "/developers.html",
+      "destination": "/developers",
+      "permanent": true
+    },
+    {
+      "source": "/legal.html",
+      "destination": "/legal",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/guide",
+      "has": [
+        {
+          "type": "query",
+          "key": "g",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/guide-:slug"
+    },
+    {
+      "source": "/blog",
+      "has": [
+        {
+          "type": "query",
+          "key": "b",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/blog-:slug"
+    },
+    {
+      "source": "/living",
+      "has": [
+        {
+          "type": "query",
+          "key": "a",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/living-:slug"
+    },
+    {
+      "source": "/property",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/property-:slug"
+    },
+    {
+      "source": "/community",
+      "has": [
+        {
+          "type": "query",
+          "key": "c",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/community-:slug"
+    },
+    {
+      "source": "/developers",
+      "has": [
+        {
+          "type": "query",
+          "key": "d",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/developer-:slug"
+    },
+    {
+      "source": "/legal",
+      "has": [
+        {
+          "type": "query",
+          "key": "doc",
+          "value": "^(?<slug>[a-z0-9-]+)$"
+        }
+      ],
+      "destination": "/s/legal-:slug"
+    },
+    {
+      "source": "/guide",
+      "destination": "/s/guide-buying"
+    },
+    {
+      "source": "/living",
+      "destination": "/s/living-index"
+    },
+    {
+      "source": "/community",
+      "destination": "/s/community-index"
+    },
+    {
+      "source": "/developers",
+      "destination": "/s/developer-index"
+    },
+    {
+      "source": "/legal",
+      "destination": "/s/legal-privacy"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "xrealty123.vercel.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.+)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
   ]
 }

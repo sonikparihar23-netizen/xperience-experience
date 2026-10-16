@@ -10,9 +10,9 @@
   const POOL = Object.values(IMG);
   const LOGO = 'https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png';
   const P = {
-    home: 'index.html', search: 'search.html', developers: 'developers.html', guides: 'guides.html',
+    home: 'index.html', search: 'search.html', developers: 'developers', guides: 'guides.html',
     team: 'team.html', insights: 'insights.html', about: 'about.html', contact: 'contact.html', compare: 'compare.html', sell: 'sell.html',
-    property: s => 'property.html?p=' + s, community: s => 'community.html' + (s ? '?c=' + s : ''),
+    property: s => 'property?p=' + s, community: s => 'community' + (s ? '?c=' + s : ''),
   };
   const M = 'https://media.xrealty.ae/';
   const agents = [
@@ -121,7 +121,7 @@
       footerCols: [
         { title: 'Explore', links: [L('Properties', P.search), L('Communities', P.community()), L('Developers', P.developers), L('Rent a home', 'rent.html'), L('Shortlist & compare', P.compare)] },
         { title: 'Popular searches', links: [L('Homes AED 1.25M – 2M', P.search + '?budget=mid'), L('Villas for sale', P.search + '?type=Villa'), L('Dubai Creek Harbour', P.search + '?community=creek-harbour'), L('Golden Visa homes (AED 2M – 5M)', P.search + '?budget=gv'), L('Luxury AED 5M+', P.search + '?budget=lux')] },
-        { title: 'Learn', links: [L('Guides', P.guides), L('Insights', P.insights), L('Dubai FAQs', 'faqs.html'), L('Dubai living', 'living.html')] },
+        { title: 'Learn', links: [L('Guides', P.guides), L('Insights', P.insights), L('Dubai FAQs', 'faqs.html'), L('Dubai living', 'living')] },
         { title: 'Company', links: [L('About XR', P.about), L('Sell with XR', P.sell), L('XR Team', P.team), L('Careers', 'careers.html'), L('Contact us', P.contact)] },
         { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
       ],

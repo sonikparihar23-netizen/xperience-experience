@@ -899,7 +899,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Find the community that fits you",
-    "href": "community.html"
+    "href": "community"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024664/xr_media/hf14iqghcjyalcrgr8rv.webp"
   },
@@ -983,7 +983,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Build an investment plan on fundamentals",
-    "href": "guide.html?g=investment"
+    "href": "guide?g=investment"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp"
   },
@@ -1068,7 +1068,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Explore Dubai Creek Harbour",
-    "href": "community.html?c=creek-harbour"
+    "href": "community?c=creek-harbour"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp"
   },
@@ -1174,7 +1174,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Run the numbers on your investment",
-    "href": "guide.html?g=investment"
+    "href": "guide?g=investment"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592835/xr_media/v26qtyo0vqwehgevvc4h.webp"
   },
@@ -1456,7 +1456,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Learn how off-plan buying works",
-    "href": "guide.html?g=off-plan"
+    "href": "guide?g=off-plan"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024589/xr_media/azldwpnaxgzt1hcqt9xi.webp"
   },
@@ -1536,7 +1536,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Explore Grand Polo Club",
-    "href": "community.html?c=grand-polo"
+    "href": "community?c=grand-polo"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp"
   },
@@ -1750,7 +1750,7 @@ window.XR_CONTENT = {
    ],
    "cta": {
     "title": "Read our step-by-step buying guide",
-    "href": "guide.html?g=buying"
+    "href": "guide?g=buying"
    },
    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592664/xr_media/eegv6rcdfjm5wmzsyfad.webp"
   },

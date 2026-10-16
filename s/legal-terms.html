@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- seo:start -->
+<title>Terms of use | Xperience Realty</title>
+<meta name="description" content="These terms set out the rules for using the Xperience Realty website. Please read them carefully, as by using the website you agree to them.">
+<link rel="canonical" href="https://www.xrealty.ae/legal?doc=terms">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Xperience Realty">
+<meta property="og:title" content="Terms of use | Xperience Realty">
+<meta property="og:description" content="These terms set out the rules for using the Xperience Realty website. Please read them carefully, as by using the website you agree to them.">
+<meta property="og:url" content="https://www.xrealty.ae/legal?doc=terms">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "RealEstateAgent", "@id": "https://www.xrealty.ae/#org", "name": "Xperience Realty", "url": "https://www.xrealty.ae/", "logo": "https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png", "image": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp", "telephone": "+971564080888", "email": "info@xrealty.ae", "address": {"@type": "PostalAddress", "addressLocality": "Dubai Hills Estate, Dubai", "addressCountry": "AE"}, "areaServed": "Dubai", "sameAs": ["https://www.youtube.com/@xrealtyae", "https://www.instagram.com/xperience.realty", "https://www.linkedin.com/company/xrealty-ae", "https://x.com/xrealty_ae", "https://www.facebook.com/profile.php?id=61562378023612"]}]}</script>
+<!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<title>Privacy policy | Xperience Realty</title>
-<meta name="description" content="Privacy policy and terms of use for the Xperience Realty website.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -16,8 +27,8 @@
 <script src="./xr-data.js"><\/script>
 <script src="./xr-content.js"><\/script>
 <style>
-:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
-html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;--accent-text:#B35C00;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--accent-text:#FF9100;color-scheme:dark}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
 html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
@@ -170,7 +181,7 @@ class Component extends DCLogic {
     const titles = { privacy: 'Privacy policy', terms: 'Terms of use' };
     const d = { ...C.site[key], title: titles[key] };
     this.setTitle(d.title);
-    const docs = ['privacy', 'terms'].map(k => { const on = k === key; return { label: titles[k], href: 'legal.html?doc=' + k, current: on ? 'page' : undefined, border: on ? 'var(--ink)' : 'var(--line2)', bg: on ? 'var(--ink)' : 'transparent', fg: on ? 'var(--bg)' : 'var(--ink)' }; });
+    const docs = ['privacy', 'terms'].map(k => { const on = k === key; return { label: titles[k], href: 'legal?doc=' + k, current: on ? 'page' : undefined, border: on ? 'var(--ink)' : 'var(--line2)', bg: on ? 'var(--ink)' : 'transparent', fg: on ? 'var(--bg)' : 'var(--ink)' }; });
     const sections = d.sections.map((sc, i) => ({ ...sc, n: i + 1, paras: sc.paras || [], hasList: !!(sc.list && sc.list.length), list: sc.list || [] }));
     return { ...X.shell(this, null), d, docs, sections };
   }

@@ -10,7 +10,7 @@ import os, re, sys
 ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), '..')
 MARK = '<script type="text/x-dc-template">'
 
-for f in sorted(os.listdir(ROOT)):
+for f in sorted(os.listdir(ROOT)) + ['templates/' + t for t in sorted(os.listdir(os.path.join(ROOT, 'templates')))]:
     if not f.endswith('.html'):
         continue
     p = os.path.join(ROOT, f)
