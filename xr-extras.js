@@ -11,7 +11,7 @@
     d.id = 'xr-consent'; d.dir = get('xr-lang') === 'ar' ? 'rtl' : 'ltr'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Cookie preferences');
     d.style.cssText = "position:fixed;left:16px;right:16px;bottom:calc(16px + var(--xr-bar,0px));z-index:9999;max-width:560px;margin-inline:auto;background:#0A0A0A;color:#E6E6E6;border:1px solid rgba(255,145,0,.35);border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;font:400 14px/1.5 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 24px 48px -16px rgba(0,0,0,.5)";
     d.innerHTML = "<span style='flex:1 1 260px'>We use cookies to improve your experience and measure site performance. <a href='legal.html?doc=privacy' style='color:#FFFFFF;text-decoration:underline'>Privacy policy</a></span>" +
-      "<span style='display:flex;gap:8px'><button data-v='essential' style='height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;font:600 13px inherit;cursor:pointer'>Essential only</button>" +
+      "<span style='display:flex;gap:8px'><button data-v='essential' style='height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer'>Essential only</button>" +
       "<button data-v='all' style='height:42px;padding:0 18px;border-radius:999px;border:none;background:#FF9100;color:#0A0A0A;font:700 13px inherit;cursor:pointer'>Accept all</button></span>";
     d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); } });
     document.body.appendChild(d);
@@ -30,7 +30,7 @@
     f.querySelectorAll('input,select,textarea').forEach((el, i) => { if (el.type === 'radio' && !el.checked) return; const k = el.getAttribute('aria-label') || el.getAttribute('autocomplete') || el.name || el.type || 'field' + i; if (el.value) fields[k] = el.value; });
     const pressed = [...f.querySelectorAll('[aria-pressed="true"]')].map(b => b.textContent.trim());
     if (!Object.keys(fields).length) return;
-    const lead = { page: document.title || location.pathname, path: location.pathname, property: q.get('p'), community: q.get('c'), interest: pressed, fields, firstTouch: JSON.parse(get('xr-first-touch') || 'null'), lang: document.documentElement.lang, at: new Date().toISOString() };
+    const lead = { page: document.title || location.pathname, path: location.pathname, property: q.get('p'), community: q.get('c'), interest: pressed, fields, firstTouch: (() => { try { return JSON.parse(get('xr-first-touch') || 'null'); } catch (e) { return null; } })(), lang: document.documentElement.lang, at: new Date().toISOString() };
     let all = []; try { all = JSON.parse(get('xr-leads') || '[]'); } catch (err) {}
     all.push(lead); set('xr-leads', JSON.stringify(all.slice(-50)));
     window.dispatchEvent(new CustomEvent('xr-lead', { detail: lead }));
@@ -98,7 +98,8 @@
   function ensureBtn() {
     const header = document.querySelector('header'); if (!header) return;
     const native = [...header.querySelectorAll('button')].some(b => b !== document.getElementById('xr-lang-btn') && /^(ع|EN|AR|عربي)$/i.test(b.textContent.trim()));
-    if (native || document.getElementById('xr-lang-btn')) return;
+    if (native) return 'native';
+    if (document.getElementById('xr-lang-btn')) return;
     const theme = [...header.querySelectorAll('button')].find(b => /mode|الوضع/i.test(b.getAttribute('aria-label') || '') || /mode|الوضع/i.test(b.dataset.xrOarialabel || ''));
     if (!theme) return;
     const b = document.createElement('button'); b.id = 'xr-lang-btn'; b.type = 'button';
@@ -112,8 +113,10 @@
   const boot = () => {
     mo.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
     document.body.__xrAr = lang() === 'ar'; apply();
-    let tries = 0; const t = setInterval(() => { ensureBtn(); if (++tries > 40) clearInterval(t); }, 250);
-    new MutationObserver(() => { if (!document.getElementById('xr-lang-btn')) ensureBtn(); }).observe(document.body, { childList: true, subtree: true });
+    // Pages with their own language button don't need ours: stop watching once one is found
+    const watch = new MutationObserver(() => { if (!document.getElementById('xr-lang-btn') && ensureBtn() === 'native') { watch.disconnect(); clearInterval(t); } });
+    let tries = 0; const t = setInterval(() => { if (ensureBtn() === 'native' || ++tries > 40) { clearInterval(t); if (tries <= 40) watch.disconnect(); } }, 250);
+    watch.observe(document.body, { childList: true, subtree: true });
   };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();
 })();

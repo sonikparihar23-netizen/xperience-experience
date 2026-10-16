@@ -6,11 +6,11 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<script src="./image-slot.js"><\/script>
 <style>
 :root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--err:#B3261E;--accent:#FF9100;color-scheme:light}
 html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--err:#FFB4AB;color-scheme:dark}
@@ -691,7 +691,7 @@ a:hover .xr-search,.xr-search *{transition:background-color .25s ease,color .25s
     </div>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light' | 'dark'&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showOffPlanBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;featuredCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;min&quot;:2,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Listings&quot;}}">
 class Component extends DCLogic {
   state = {

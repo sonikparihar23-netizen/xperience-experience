@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XR Team | Xperience Realty</title>
+<meta name="description" content="Meet the Xperience Realty advisors: specialists in Dubai off-plan, luxury and investment property.">
+<meta property="og:title" content="XR Team | Xperience Realty">
+<meta property="og:description" content="Meet the Xperience Realty advisors: specialists in Dubai off-plan, luxury and investment property.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,11 +26,11 @@ a:hover{color:var(--muted)}
 select,input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
-  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -90,7 +96,7 @@ select,input,button{font-family:inherit}
       <div aria-hidden="true" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,14px);align-items:end">
         <sc-for list="{{ heroFaces }}" as="f" hint-placeholder-count="3">
           <div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#1A1A1A;margin-bottom:{{ f.offset }}">
-            <img class="xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.15)">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.15)">
           </div>
         </sc-for>
       </div>
@@ -136,7 +142,7 @@ select,input,button{font-family:inherit}
             <button onClick="{{ a.open }}" aria-label="Open {{ a.name }}'s profile" style="position:relative;display:block;aspect-ratio:4/5;padding:0;border:none;border-radius:10px;overflow:hidden;background:#1A1A1A;cursor:pointer">
               <img class="xr-lazy" data-src="{{ a.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ a.name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
               <span style="position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(10,10,10,0),rgba(10,10,10,.7))"></span>
-              <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>{{ a.tier }}</span>
+              <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.78);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>{{ a.tier }}</span>
               <span style="position:absolute;left:18px;right:18px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px">
                 <sc-for list="{{ a.langTags }}" as="l" hint-placeholder-count="2">
                   <span style="display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;border:1px solid rgba(255,255,255,.45);color:#FFFFFF;font-size:12px;font-weight:600">{{ l }}</span>
@@ -232,7 +238,7 @@ select,input,button{font-family:inherit}
         </sc-for>
       </div>
       <div aria-live="polite" style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:start;padding:clamp(20px,2.4vw,28px);border-radius:12px;background:var(--bg);border:1px solid var(--line)">
-        <img class="xr-lazy" data-src="{{ match.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ match.name }}" style="width:120px;height:150px;border-radius:8px;object-fit:cover;object-position:center top;background:var(--img)">
+        <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ match.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ match.name }}" style="width:120px;height:150px;border-radius:8px;object-fit:cover;object-position:center top;background:var(--img)">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Your best match</span>
           <span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1">{{ match.name }}</span>
@@ -287,7 +293,7 @@ select,input,button{font-family:inherit}
       </button>
       <div style="display:grid;grid-template-columns:{{ selCols }};clear:both;margin-top:-60px">
         <div style="position:relative;min-height:420px;background:#1A1A1A">
-          <img class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ sel.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
+          <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ sel.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
         </div>
         <div style="padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:24px">
           <div style="display:flex;flex-direction:column;gap:8px">
@@ -330,12 +336,12 @@ select,input,button{font-family:inherit}
     </aside>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', spec: 'All', lang: 'Any language', sel: null, mGoal: 'Buy a home', mLang: 'English' };
   componentDidMount() {
-    this.onResize = () => this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
+    this.onResize = () => window.innerWidth !== this.state.vw && this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
     this.onKey = e => { if (e.key === 'Escape' && this.state.sel !== null) this.setState({ sel: null }); };
     window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onKey);

@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dubai property developers | Xperience Realty</title>
+<meta name="description" content="Projects and track records from Emaar, Nakheel, Damac, Sobha, Meraas and other Dubai developers.">
+<meta property="og:title" content="Dubai property developers | Xperience Realty">
+<meta property="og:description" content="Projects and track records from Emaar, Nakheel, Damac, Sobha, Meraas and other Dubai developers.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,11 +26,11 @@ a:hover{color:var(--muted)}
 select,input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
-  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -71,7 +77,7 @@ select,input,button{font-family:inherit}
 
   <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
   <section data-screen-label="Developer profile" style="position:relative;background:#1A1A1A;color:#FFFFFF;overflow:hidden">
-    <img class="xr-lazy" data-src="{{ pg.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ pg.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 50%,rgba(10,10,10,.35) 100%),linear-gradient(180deg,rgba(10,10,10,.1),rgba(10,10,10,.7))"></div>
     <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(20px,5vw,64px) clamp(32px,4vw,52px);display:flex;flex-direction:column;gap:22px">
       <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:#D6D6D6">
@@ -82,7 +88,7 @@ select,input,button{font-family:inherit}
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px">
         <span style="display:flex;align-items:center;justify-content:center;width:180px;height:96px;padding:0 20px;border-radius:12px;background:#FFFFFF;box-shadow:0 12px 28px -12px rgba(0,0,0,.45)">
           <sc-if value="{{ pg.hasLogo }}" hint-placeholder-val="{{ false }}">
-            <img class="xr-lazy" data-src="{{ pg.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ pg.name }}" style="max-height:52px;max-width:100%;width:auto;object-fit:contain">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ pg.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ pg.name }}" style="max-height:52px;max-width:100%;width:auto;object-fit:contain">
           </sc-if>
           <sc-if value="{{ pg.noLogo }}" hint-placeholder-val="{{ true }}">
             <span style="font-family:'Instrument Serif',serif;font-size:28px;line-height:1;color:#0A0A0A;text-align:center">{{ pg.name }}</span>
@@ -141,7 +147,7 @@ select,input,button{font-family:inherit}
         <sc-for list="{{ pg.projects }}" as="p" hint-placeholder-count="3">
           <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:14px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
             <span style="position:relative;display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)">
-              <img class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
             </span>
             <span style="display:flex;flex-direction:column;gap:6px">
               <span style="font-size:18px;font-weight:600;line-height:1.25">{{ p.name }}</span>
@@ -210,7 +216,7 @@ select,input,button{font-family:inherit}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)">
       <sc-for list="{{ others }}" as="o" hint-placeholder-count="3">
         <a href="{{ o.href }}" onClick="{{ o.go }}" style="position:relative;display:flex;align-items:flex-end;height:220px;border-radius:12px;overflow:hidden;background:#262626;color:#FFFFFF" style-hover="color:#FFFFFF">
-          <img class="xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.85))"></span>
           <span style="position:relative;display:flex;flex-direction:column;gap:4px;padding:20px">
             <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1">{{ o.name }}</span>
@@ -224,7 +230,7 @@ select,input,button{font-family:inherit}
 
   <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ true }}">
   <section data-screen-label="Developers hero" style="position:relative;background:#1A1A1A;color:#FFFFFF;overflow:hidden">
-    <img src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 50%,rgba(10,10,10,.35) 100%),linear-gradient(180deg,rgba(10,10,10,.1),rgba(10,10,10,.7))"></div>
     <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(20px,5vw,64px) clamp(36px,4vw,56px);display:flex;flex-direction:column;gap:22px">
       <nav aria-label="Breadcrumb" style="display:flex;gap:8px;font-size:13px;color:#D6D6D6">
@@ -279,11 +285,11 @@ select,input,button{font-family:inherit}
         <sc-for list="{{ devs }}" as="d" hint-placeholder-count="9">
           <article style="display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)" style-hover="border-color:var(--line2)">
             <button onClick="{{ d.open }}" aria-label="Open {{ d.name }} profile" style="position:relative;display:flex;align-items:flex-end;justify-content:center;height:180px;border:none;background:#1A1A1A;cursor:pointer;padding:0 28px 16px;overflow:hidden">
-              <img class="xr-lazy" data-src="{{ d.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
               <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.5))"></span>
               <span style="position:relative;display:flex;align-items:center;justify-content:center;min-width:110px;max-width:60%;height:52px;padding:0 16px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 12px 28px -12px rgba(0,0,0,.45)">
                 <sc-if value="{{ d.hasLogo }}" hint-placeholder-val="{{ false }}">
-                  <img class="xr-lazy" data-src="{{ d.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ d.name }}" style="height:{{ d.logoH }};max-height:30px;max-width:100%;width:auto;object-fit:contain">
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ d.name }}" style="height:{{ d.logoH }};max-height:30px;max-width:100%;width:auto;object-fit:contain">
                 </sc-if>
                 <sc-if value="{{ d.noLogo }}" hint-placeholder-val="{{ true }}">
                   <span style="font-family:'Instrument Serif',serif;font-size:28px;line-height:1;color:#0A0A0A;letter-spacing:-.01em;white-space:nowrap">{{ d.name }}</span>
@@ -513,14 +519,14 @@ select,input,button{font-family:inherit}
     <div onClick="{{ closeSel }}" style="position:fixed;inset:0;z-index:80;background:rgba(10,10,10,.55)"></div>
     <aside role="dialog" aria-modal="true" aria-label="{{ sel.full }}" style="position:fixed;top:0;right:0;bottom:0;z-index:81;width:min(640px,100%);overflow-y:auto;background:var(--bg);color:var(--ink);box-shadow:-30px 0 60px -30px rgba(0,0,0,.5)">
       <div style="position:relative;height:220px;background:#1A1A1A">
-        <img class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25),rgba(10,10,10,.7))"></div>
         <button onClick="{{ closeSel }}" aria-label="Close" style="position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;display:flex;align-items:center;justify-content:center;cursor:pointer">
           <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3L15 15M15 3L3 15" stroke="currentColor" stroke-width="1.8"></path></svg>
         </button>
         <div style="position:absolute;left:24px;bottom:-36px;width:150px;height:84px;border-radius:12px;background:#FFFFFF;border:1px solid #E3E3E3;display:flex;align-items:center;justify-content:center;padding:0 16px;box-shadow:0 12px 24px -12px rgba(0,0,0,.35)">
           <sc-if value="{{ sel.hasLogo }}" hint-placeholder-val="{{ false }}">
-            <img class="xr-lazy" data-src="{{ sel.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ sel.name }}" style="max-height:40px;max-width:100%;width:auto;object-fit:contain">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ sel.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ sel.name }}" style="max-height:40px;max-width:100%;width:auto;object-fit:contain">
           </sc-if>
           <sc-if value="{{ sel.noLogo }}" hint-placeholder-val="{{ true }}">
             <span style="font-family:'Instrument Serif',serif;font-size:24px;line-height:1;color:#0A0A0A;text-align:center">{{ sel.name }}</span>
@@ -568,7 +574,7 @@ select,input,button{font-family:inherit}
             <div style="display:flex;flex-direction:column;gap:12px">
               <sc-for list="{{ sel.projects }}" as="p" hint-placeholder-count="2">
                 <a href="{{ p.href }}" style="display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;color:var(--ink)" style-hover="border-color:var(--ink);color:var(--ink)">
-                  <img class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:120px;height:84px;border-radius:8px;object-fit:cover;background:var(--img)">
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:120px;height:84px;border-radius:8px;object-fit:cover;background:var(--img)">
                   <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
                     <span style="font-size:16px;font-weight:700;line-height:1.25">{{ p.name }}</span>
                     <span style="font-size:13px;color:var(--muted)">{{ p.community }}</span>
@@ -594,12 +600,12 @@ select,input,button{font-family:inherit}
     </aside>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { route: null, copied: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', seg: 'All', sort: 'featured', compare: [], sel: null, faq: 0, alertDevs: ['Emaar'], alertPhone: '', alertErr: '', alertSent: false };
   componentDidMount() {
-    this.onResize = () => this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
+    this.onResize = () => window.innerWidth !== this.state.vw && this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
     this.onKey = e => { if (e.key === 'Escape' && this.state.sel) this.setState({ sel: null }); };
     window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onKey);

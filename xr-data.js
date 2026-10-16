@@ -39,7 +39,8 @@
     C('al-marjan', 'Al Marjan Island', 'Where the sea shapes ambition', IMG.fiorPool, 1200000, 2200, 7.5, 25.66, 55.74, [3, 4], 'A coral-shaped set of islands in Ras Al Khaimah, home to the region\'s first integrated resort.', ['Wynn integrated resort', 'Beachfront living', 'Resort hotels', 'Strong rental demand'], [['RAK Airport', 25], ['Dubai Marina', 60], ['DXB Airport', 50]]),
     C('the-oasis', 'The Oasis', 'Designed for those who choose differently', IMG.fiorLobby, 9000000, 1800, 4.8, 25.03, 55.25, [2, 1], 'Emaar\'s ultra-luxury mansion community set around lagoons and lush landscaping.', ['Crystal lagoons', 'Mansions & villas', 'Low density', 'Wellness clubs'], [['Downtown Dubai', 25], ['Dubai Marina', 20], ['DXB Airport', 30]]),
   ];
-  const cBy = Object.fromEntries(communities.map(c => [c.slug, c]));
+  const byKey = list => Object.assign(Object.create(null), Object.fromEntries(list.map(x => [x.slug, x])));
+  const cBy = byKey(communities);
 
   const pr = (slug, developer, short, name, cSlug, price, type, bMin, bMax, sMin, sMax, handover, plan, img, agent, desc, lat, lng) => {
     const c = cBy[cSlug];
@@ -51,7 +52,7 @@
   };
   const fmt = n => Math.round(n).toLocaleString('en-US');
   const aed = n => 'AED ' + fmt(n);
-  const aedShort = n => n >= 1e6 ? 'AED ' + (n / 1e6).toFixed(n >= 1e7 ? 0 : 2).replace(/\.?0+$/, '') + 'M' : 'AED ' + Math.round(n / 1000) + 'K';
+  const aedShort = n => n >= 1e6 ? 'AED ' + +(n / 1e6).toFixed(n >= 1e7 ? 0 : 2) + 'M' : 'AED ' + Math.round(n / 1000) + 'K';
   const bedLabel = b => b === 0 ? 'Studio' : b + ' BR';
   const properties = [
     pr('valia', 'Emaar Properties', 'Emaar', 'Valia at Dubai Creek Harbour', 'creek-harbour', 1910000, 'Apartment', 1, 3, 760, 1720, 'Q4 2029', [80, 20], IMG.valiaExt, 0, 'Waterfront apartments in the heart of Dubai Creek Harbour with views of the Creek Tower plaza and the Downtown skyline, steps from the promenade and Creek Marina.', 25.199, 55.352),
@@ -89,7 +90,7 @@
 
   function mount(c) {
     c.__xrU = () => c.setState({ xrTick: Date.now() });
-    c.__xrR = () => c.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 1180 ? false : st.drawer }));
+    c.__xrR = () => window.innerWidth !== c.state.vw && c.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 1180 ? false : st.drawer }));
     window.addEventListener('resize', c.__xrR); window.addEventListener('xr-store', c.__xrU); window.addEventListener('storage', c.__xrU);
     const theme = raw('xr-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     c.setState({ vw: window.innerWidth, theme, lang: raw('xr-lang') || 'en', xrReady: true });
@@ -98,7 +99,7 @@
   function sync(c) {
     const d = document.documentElement, s = c.state;
     d.dataset.theme = s.theme || 'light'; d.dir = s.lang === 'ar' ? 'rtl' : 'ltr'; d.lang = s.lang || 'en';
-    document.querySelectorAll('img.xr-lazy[data-src]').forEach(el => { const v = el.getAttribute('data-src'); if (v && v.indexOf('{{') < 0 && el.getAttribute('src') !== v) el.setAttribute('src', v); });
+    document.querySelectorAll('img.xr-lazy[data-src]').forEach(el => { const v = el.getAttribute('data-src'); if (v && v.indexOf('{{') < 0 && el.getAttribute('src') !== v) { el.loading = 'lazy'; el.decoding = 'async'; el.setAttribute('src', v); } });
   }
   function shell(c, current, opts = {}) {
     const s = c.state, t = I18N[s.lang] || I18N.en, isMobile = (s.vw || 1280) < 1180;
@@ -119,7 +120,7 @@
       enquireHref: opts.enquireHref || P.contact, footerPad: isMobile ? '76px' : '0px',
       footerCols: [
         { title: 'Explore', links: [L('Properties', P.search), L('Communities', P.community()), L('Developers', P.developers), L('Rent a home', 'rent.html'), L('Shortlist & compare', P.compare)] },
-        { title: 'Popular searches', links: [L('Homes AED 1.25M – 2M', P.search + '?budget=mid'), L('Villas for sale', P.search + '?type=Villa'), L('Dubai Hills Estate', P.search + '?community=dubai-hills'), L('Golden Visa homes (AED 2M – 5M)', P.search + '?budget=gv'), L('Luxury AED 5M+', P.search + '?budget=lux')] },
+        { title: 'Popular searches', links: [L('Homes AED 1.25M – 2M', P.search + '?budget=mid'), L('Villas for sale', P.search + '?type=Villa'), L('Dubai Creek Harbour', P.search + '?community=creek-harbour'), L('Golden Visa homes (AED 2M – 5M)', P.search + '?budget=gv'), L('Luxury AED 5M+', P.search + '?budget=lux')] },
         { title: 'Learn', links: [L('Guides', P.guides), L('Insights', P.insights), L('Dubai FAQs', 'faqs.html'), L('Dubai living', 'living.html')] },
         { title: 'Company', links: [L('About XR', P.about), L('Sell with XR', P.sell), L('XR Team', P.team), L('Careers', 'careers.html'), L('Contact us', P.contact)] },
         { title: 'Visit us', links: [L('+971 5 640 80888', 'tel:+971564080888'), L('info@xrealty.ae', 'mailto:info@xrealty.ae'), L('Dubai Hills Estate, Dubai', 'https://maps.app.goo.gl/ChpufZ9MafTGmcc47')] },
@@ -159,5 +160,5 @@
     return m;
   }
 
-  window.XR = { B, IMG, LOGO, P, agents, communities, cBy, properties, pBy: Object.fromEntries(properties.map(p => [p.slug, p])), I18N, store, mount, unmount, sync, shell, boot, map, fmt, aed, aedShort, param: k => new URLSearchParams(location.search).get(k) };
+  window.XR = { B, IMG, LOGO, P, agents, communities, cBy, properties, pBy: byKey(properties), I18N, store, mount, unmount, sync, shell, boot, map, fmt, aed, aedShort, param: k => new URLSearchParams(location.search).get(k) };
 })();

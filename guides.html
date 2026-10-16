@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dubai property guides | Xperience Realty</title>
+<meta name="description" content="Plain-English guides to buying, selling, renting and investing in Dubai property.">
+<meta property="og:title" content="Dubai property guides | Xperience Realty">
+<meta property="og:description" content="Plain-English guides to buying, selling, renting and investing in Dubai property.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,12 +26,12 @@ a:hover{color:var(--muted)}
 select,input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
 
-  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;align-items:center;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -365,12 +371,12 @@ select,input,button{font-family:inherit}
     </div>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { drawer: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', goal: 'All', q: '', process: 'ready', tool: 'mortgage', income: 40000, debts: 0, deposit: 600000, years: 25, vValue: '2m', vStatus: 'ready', vFin: 'cash', price: 2000000, mortgage: false, email: '', emailErr: false, sent: false };
   componentDidMount() {
-    this.onResize = () => this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
+    this.onResize = () => window.innerWidth !== this.state.vw && this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
     window.addEventListener('resize', this.onResize);
     let t = null; try { t = localStorage.getItem('xr-theme'); } catch (e) {}
     const theme = t || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');

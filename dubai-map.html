@@ -57,7 +57,7 @@ map.on('focus', () => map.scrollWheelZoom.enable());
 map.on('blur', () => map.scrollWheelZoom.disable());
 const layer = L.layerGroup().addTo(map);
 const card = document.getElementById('card');
-let active = null, markers = {}, items = [];
+let active = null, markers = {}, items = [], fitKey = null;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const short = p => p.replace('AED ', '').replace(/,000,000$/, 'M').replace(/(\d),(\d)\d\d,000$/, '$1.$2M').replace(/,000$/, 'K');
 function select(slug) {
@@ -65,7 +65,7 @@ function select(slug) {
   Object.entries(markers).forEach(([k, m]) => m.getElement() && m.getElement().querySelector('.pin').classList.toggle('on', k === slug));
   const p = items.find(i => i.slug === slug);
   if (!p) { card.className = 'card'; return; }
-  card.innerHTML = `<img src="${esc(p.img)}" alt=""><div class="b"><span class="dev">${esc(p.developer)}</span><span class="nm">${esc(p.name)}</span><span class="loc">${esc(p.community)}</span><span class="pr"><span>From ${esc(p.price)}</span><a href="${esc(p.href)}" target="_top">View project</a></span></div><button class="x" aria-label="Close">×</button>`;
+  card.innerHTML = `<img loading="lazy" decoding="async" src="${esc(p.img)}" alt=""><div class="b"><span class="dev">${esc(p.developer)}</span><span class="nm">${esc(p.name)}</span><span class="loc">${esc(p.community)}</span><span class="pr"><span>From ${esc(p.price)}</span><a href="${esc(p.href)}" target="_top">View project</a></span></div><button class="x" aria-label="Close">×</button>`;
   card.className = 'card show';
   card.querySelector('.x').onclick = () => select(null);
 }
@@ -79,7 +79,10 @@ function render(list) {
   });
   document.getElementById('empty').style.display = items.length ? 'none' : 'flex';
   if (!items.find(i => i.slug === active)) select(null); else select(active);
-  if (items.length) map.fitBounds(L.latLngBounds(items.map(p => COORDS[p.slug])), { padding: [60, 60], maxZoom: 13 });
+  // Refit only when the set of pins changes (not when a save toggles), so pan/zoom is kept
+  const key = items.map(p => p.slug).join(',');
+  if (items.length && key !== fitKey) map.fitBounds(L.latLngBounds(items.map(p => COORDS[p.slug])), { padding: [60, 60], maxZoom: 13 });
+  fitKey = key;
 }
 map.on('click', () => select(null));
 window.addEventListener('message', e => {

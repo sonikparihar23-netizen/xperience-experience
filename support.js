@@ -28,12 +28,19 @@
     const { props, preview } = parseDataProps(
       scriptEl?.getAttribute("data-props") ?? null
     );
+    // A template wrapped in <script type="text/x-dc-template"> is inert raw text: the browser
+    // doesn't fetch its images/iframes/videos before render, and it's already the exact source.
+    const rawEl = dc.querySelector('script[type="text/x-dc-template"]');
     return {
-      template: dc.innerHTML,
+      template: rawEl ? unescapeRawTemplate(rawEl.textContent || "") : dc.innerHTML,
+      exact: !!rawEl,
       js: scriptEl ? scriptEl.textContent || "" : "",
       props,
       preview
     };
+  }
+  function unescapeRawTemplate(t) {
+    return t.replace(/<\\\/script/gi, "</script").replace(/<\\!--/g, "<!--");
   }
   function parseDcText(src) {
     const openMatch = /<x-dc(?:\s[^>]*)?>/.exec(src);
@@ -155,7 +162,7 @@
     runtime.markFetched(rootName);
     runtime.setRootName(rootName);
     runtime.adoptParsed(rootName, parsed);
-    if (!window.__resources) {
+    if (!window.__resources && !parsed.exact) {
       fetch(location.href).then((res) => res.ok ? res.text() : "").then((t) => {
         const raw = t ? parseDcText(t) : null;
         if (raw?.template) runtime.updateHtml(rootName, raw.template);

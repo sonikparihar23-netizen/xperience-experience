@@ -30,15 +30,19 @@ XRealty marketing site: plain static HTML/JS, no build step. Deployed on Vercel.
 
 Guide, blog, Dubai living, rentals, FAQ, careers and legal text lives in `xr-content.js`; edit it there.
 
-`home-v1.html` and `home-v2.html` are earlier home page versions, kept for reference.
+`home-v1.html` and `home-v2.html` are earlier home page versions, kept for reference and not deployed.
+
+## Editing pages
+
+Each page's template sits inside `<x-dc><script type="text/x-dc-template">…</script></x-dc>` so the browser doesn't download its images and videos before `support.js` renders it. Inside that block, closing script tags are written `<\/script>`. After adding a new page in the plain `<x-dc>…</x-dc>` form, run `python3 tools/wrap_templates.py` to wrap it. To test with Vercel-style clean URLs locally, run `python3 tools/serve.py` and open http://localhost:8766.
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8000
+python3 tools/serve.py
 ```
 
-Then open http://localhost:8000. Pages must be served over HTTP (not opened as files) because the runtime fetches the page source.
+Then open http://localhost:8766. Pages must be served over HTTP (not opened as files) because the runtime fetches the page source.
 
 ## Deploy
 

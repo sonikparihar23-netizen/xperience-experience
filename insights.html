@@ -3,10 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dubai property insights | Xperience Realty</title>
+<meta name="description" content="Market updates, area spotlights and investment analysis from Xperience Realty.">
+<meta property="og:title" content="Dubai property insights | Xperience Realty">
+<meta property="og:description" content="Market updates, area spotlights and investment analysis from Xperience Realty.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,11 +26,11 @@ a:hover{color:var(--muted)}
 input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
-  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -83,8 +89,8 @@ input,button{font-family:inherit}
     <section data-screen-label="Featured article" style="max-width:1360px;margin:0 auto;padding:clamp(28px,3.4vw,48px) clamp(20px,5vw,64px) 0">
       <a href="{{ feature.href }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,56px);align-items:center;color:var(--ink)" style-hover="color:var(--ink)">
         <span style="position:relative;display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--img)">
-          <img class="xr-lazy" data-src="{{ feature.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
-          <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.65);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Latest</span>
+          <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ feature.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.78);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Latest</span>
         </span>
         <span style="display:flex;flex-direction:column;gap:16px">
           <span style="display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;font-weight:600;color:var(--muted)"><span style="color:var(--ink);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700">{{ feature.cat }}</span><span>{{ feature.date }}</span><span>{{ feature.read }}</span></span>
@@ -92,7 +98,7 @@ input,button{font-family:inherit}
           <span style="font-size:17px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ feature.excerpt }}</span>
           <span style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line)">
             <span style="display:flex;align-items:center;gap:10px">
-              <img src="https://media.xrealty.ae/large_Tarun_sharma_8ea57a02a7.webp" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:center top">
+              <img loading="lazy" decoding="async" src="https://media.xrealty.ae/large_Tarun_sharma_8ea57a02a7.webp" alt="" style="width:40px;height:40px;border-radius:999px;object-fit:cover;object-position:center top">
               <span style="display:flex;flex-direction:column;font-size:13px"><span style="font-weight:700">Tarun Sharma</span><span style="color:var(--muted)">Director, Research &amp; Strategy</span></span>
             </span>
             <span style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600">Read article<span aria-hidden="true" style="color:#FF9100">→</span></span>
@@ -213,12 +219,12 @@ input,button{font-family:inherit}
     </div>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', cat: 'All', sort: 'new', limit: 9, email: '', emailErr: false, subscribed: false };
   componentDidMount() {
-    this.onResize = () => this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
+    this.onResize = () => window.innerWidth !== this.state.vw && this.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 980 ? false : st.drawer }));
     window.addEventListener('resize', this.onResize);
     let t = null; try { t = localStorage.getItem('xr-theme'); } catch (e) {}
     const theme = t || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');

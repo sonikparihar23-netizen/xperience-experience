@@ -3,14 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property details | Xperience Realty</title>
+<meta name="description" content="Prices, payment plans, floor plans and handover dates for Dubai projects.">
+<meta property="og:title" content="Property details | Xperience Realty">
+<meta property="og:description" content="Prices, payment plans, floor plans and handover dates for Dubai projects.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<script src="./xr-data.js"></script>
+<script src="./xr-data.js"><\/script>
 <style>
 :root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
 html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
@@ -25,10 +31,10 @@ input,button,select,textarea{font-family:inherit}
 .leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
 html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
-  <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -78,6 +84,15 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
     </sc-if>
   </header>
   <main>
+    <sc-if value="{{ missing }}" hint-placeholder-val="{{ false }}">
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,120px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Not found</span>
+        <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,6vw,92px);line-height:.96;letter-spacing:-.02em">We couldn't find <em style="color:#FF9100">that property.</em></h1>
+        <p style="margin:0;max-width:52ch;font-size:17px;line-height:1.6;color:var(--muted)">It may have sold out or moved. Browse current projects instead.</p>
+        <a href="search.html" style="display:inline-flex;align-items:center;height:52px;padding:0 24px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600">See all properties</a>
+      </section>
+    </sc-if>
+    <sc-if value="{{ found }}" hint-placeholder-val="{{ true }}">
     <section data-screen-label="Property header" style="max-width:1360px;margin:0 auto;padding:clamp(24px,3vw,40px) clamp(20px,5vw,64px) 0;display:flex;flex-direction:column;gap:20px">
       <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--muted)">
         <a href="index.html" style="color:var(--muted)">{{ t.home }}</a><span aria-hidden="true">/</span>
@@ -89,7 +104,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;height:clamp(420px,46vw,600px)">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
             <button onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="position:relative;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);cursor:zoom-in;grid-row:{{ g.row }}">
-              <img class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease" style-hover="transform:scale(1.03)">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease" style-hover="transform:scale(1.03)">
               <sc-if value="{{ g.last }}" hint-placeholder-val="{{ false }}">
                 <span style="position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:13px;font-weight:600">View all {{ galleryCount }} photos</span>
               </sc-if>
@@ -101,7 +116,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         <div style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * clamp(20px,5vw,64px));padding:0 clamp(20px,5vw,64px);scrollbar-width:none">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="3">
             <button onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="flex:0 0 86%;aspect-ratio:4/3;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);scroll-snap-align:center">
-              <img class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
             </button>
           </sc-for>
         </div>
@@ -145,14 +160,16 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         </dl>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+          <sc-if value="{{ hasPermit }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line);border-radius:10px">
-            <img class="xr-lazy" data-src="{{ permitQr }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="DLD permit QR code" width="76" height="76" style="width:76px;height:76px;border-radius:6px;background:#FFFFFF;padding:4px;flex-shrink:0">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ permitQr }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="DLD permit QR code" width="76" height="76" style="width:76px;height:76px;border-radius:6px;background:#FFFFFF;padding:4px;flex-shrink:0">
             <span style="display:flex;flex-direction:column;gap:4px">
               <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)">DLD advertising permit</span>
               <span style="font-size:16px;font-weight:700;font-variant-numeric:tabular-nums">{{ permitNo }}</span>
               <span style="font-size:13px;color:var(--muted)">Scan to verify on the DLD Trakheesi system.</span>
             </span>
           </div>
+          </sc-if>
           <div style="display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid {{ visaBorder }};border-radius:10px">
             <span aria-hidden="true" style="width:44px;height:44px;border-radius:999px;background:{{ visaDot }};color:#0A0A0A;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700">{{ visaIcon }}</span>
             <span style="display:flex;flex-direction:column;gap:4px">
@@ -219,7 +236,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <aside id="enquire" style="flex:1 1 320px;max-width:420px;position:sticky;top:96px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:96px">
         <div style="border:1px solid var(--line);border-radius:12px;padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:18px;background:var(--bg)">
           <div style="display:flex;align-items:center;gap:14px">
-            <img class="xr-lazy" data-src="{{ agent.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:56px;height:56px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--img)">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ agent.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:56px;height:56px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--img)">
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-size:16px;font-weight:700">{{ agent.name }}</span>
               <span style="font-size:13px;color:var(--muted)">{{ agent.role }} · {{ agent.langs }}</span>
@@ -260,7 +277,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 20px">
         <sc-for list="{{ similar }}" as="s" hint-placeholder-count="3">
           <a href="{{ s.href }}" style="display:flex;flex-direction:column;gap:12px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
-            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img class="xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ s.developer }}</span>
             <span style="font-size:18px;font-weight:600;line-height:1.25">{{ s.name }}</span>
             <span style="font-size:14px;color:var(--muted)">{{ s.community }} · {{ t.from }} <strong style="color:var(--ink)">{{ s.priceLabel }}</strong></span>
@@ -268,11 +285,12 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         </sc-for>
       </div>
     </section>
+    </sc-if>
   </main>
 
   <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
     <div role="dialog" aria-modal="true" aria-label="Photo gallery" style="position:fixed;inset:0;z-index:1000;background:rgba(10,10,10,.95);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,64px)">
-      <img class="xr-lazy" data-src="{{ lbSrc }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="max-width:100%;max-height:100%;border-radius:8px;object-fit:contain">
+      <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ lbSrc }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="max-width:100%;max-height:100%;border-radius:8px;object-fit:contain">
       <button onClick="{{ closeLb }}" aria-label="Close gallery" style="position:absolute;top:16px;right:16px;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#FFFFFF;font-size:22px;cursor:pointer">×</button>
       <button onClick="{{ prevLb }}" aria-label="Previous photo" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:20px;cursor:pointer">‹</button>
       <button onClick="{{ nextLb }}" aria-label="Next photo" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:20px;cursor:pointer">›</button>
@@ -314,7 +332,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
     </div>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', lang: 'en', drawer: false, photo: -1, lead: { name: '', phone: '', unit: '' }, err: '', sent: false, copied: false };
@@ -326,25 +344,27 @@ class Component extends DCLogic {
   }
   componentDidUpdate() { if (!window.XR) return; window.XR.sync(this); if (this._lastTheme !== this.state.theme) { const first = this._lastTheme === undefined; this._lastTheme = this.state.theme; if (!first) this.drawMap(); } }
   componentWillUnmount() { window.XR && window.XR.unmount(this); window.removeEventListener('keydown', this.onKey); }
+  missing() { const X = window.XR, slug = X.param('p'); return !!slug && !X.pBy[slug]; }
   prop() { const X = window.XR; return X.pBy[X.param('p')] || X.properties[0]; }
-  drawMap() { const p = this.prop(); window.XR.map(this.mapRef.current, { center: [p.lat, p.lng], zoom: 13, dark: this.state.theme === 'dark', markers: [{ lat: p.lat, lng: p.lng }] }); }
+  drawMap() { if (!this.mapRef.current || this.missing()) return; const p = this.prop(); window.XR.map(this.mapRef.current, { center: [p.lat, p.lng], zoom: 13, dark: this.state.theme === 'dark', markers: [{ lat: p.lat, lng: p.lng }] }); }
   step(d) { const n = this.prop().gallery.length; this.setState(s => ({ photo: (s.photo + d + n) % n })); }
   renderVals() {
     const X = window.XR; if (!X) return {};
     const s = this.state, p = this.prop(), c = X.cBy[p.communitySlug], sh = X.shell(this, 'properties', { enquireHref: '#enquire' });
+    if (this.missing()) return { ...sh, missing: true, found: false };
     const saved = X.store.isSaved(p.slug), inCompare = X.store.inCompare(p.slug);
     const unitOptions = ['Any unit type', ...p.units.map(u => u.label)];
     const gallery = p.gallery.map((src, i) => ({ src, row: i === 0 ? 'span 2' : 'auto', last: i === p.gallery.length - 1, aria: `Open photo ${i + 1} of ${p.gallery.length}`, open: () => this.setState({ photo: i }) }));
     const setLead = k => e => { const v = e.target.value; this.setState(st => ({ lead: { ...st.lead, [k]: v }, err: '' })); };
     const [a, b] = p.plan;
     return {
-      ...sh, p, c, gallery, galleryCount: p.gallery.length, agent: p.agent,
+      ...sh, missing: false, found: true, p, c, gallery, galleryCount: p.gallery.length, agent: p.agent,
       saved, inCompare, heartFill: saved ? '#FF9100' : 'none', heartStroke: saved ? '#FF9100' : 'currentColor', saveLabel: saved ? 'Saved' : 'Save',
       compareLabel: inCompare ? '✓ In compare' : '+ Compare',
       toggleSave: () => X.store.toggleSaved(p.slug), toggleCompare: () => X.store.toggleCompare(p.slug),
       shareLabel: s.copied ? 'Link copied' : 'Share',
       share: async () => { const url = location.href; try { if (navigator.share) await navigator.share({ title: p.name, url }); else { await navigator.clipboard.writeText(url); this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 2000); } } catch (e) {} },
-      permitNo: p.permit || 'Permit no. to be added',
+      hasPermit: !!p.permit, permitNo: p.permit || '',
       permitQr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=0&data=' + encodeURIComponent(p.permitUrl || ('https://trakheesi.dubailand.gov.ae/rev/madmoun/listing/validate?permit=' + (p.permit || p.slug))),
       visaTitle: p.price >= 2000000 ? 'Golden Visa eligible' : p.price >= 750000 ? 'Investor visa eligible' : 'Below visa threshold',
       visaBody: p.price >= 2000000 ? 'AED 2M+ — may qualify for a 10-year UAE Golden Visa.' : p.price >= 750000 ? 'AED 750K+ — may qualify for a 2-year property visa.' : 'Ask an Xpert about qualifying options.',

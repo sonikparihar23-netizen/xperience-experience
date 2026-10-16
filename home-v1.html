@@ -6,11 +6,11 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<script src="./image-slot.js"><\/script>
 <style>
 html,body{margin:0;padding:0;background:#FFFFFF;color:#0A0A0A;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
@@ -420,7 +420,7 @@ select{font-family:inherit}
     </div>
   </footer>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showTopBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showOffPlanBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;featuredCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;min&quot;:2,&quot;max&quot;:10,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Listings&quot;}}">
 class Component extends DCLogic {
   state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, menu: null, drawer: false, tab: 'Buy', dev: 'All', saved: [], faq: 0, email: '', subscribed: false };

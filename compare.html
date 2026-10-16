@@ -3,14 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare properties | Xperience Realty</title>
+<meta name="description" content="Compare your shortlisted Dubai properties side by side.">
+<meta property="og:title" content="Compare properties | Xperience Realty">
+<meta property="og:description" content="Compare your shortlisted Dubai properties side by side.">
+<meta property="og:image" content="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
-<x-dc>
+<x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<script src="./xr-data.js"></script>
+<script src="./xr-data.js"><\/script>
 <style>
 :root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
 html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
@@ -25,10 +31,10 @@ input,button,select,textarea{font-family:inherit}
 .leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
 html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
 </style>
-<script src="./xr-extras.js"></script>
+<script src="./xr-extras.js"><\/script>
 </helmet>
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
-  <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -95,7 +101,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:24px 20px">
         <sc-for list="{{ savedList }}" as="p" hint-placeholder-count="3">
           <article style="display:flex;flex-direction:column;gap:12px;padding:12px;border-radius:12px;border:2px solid {{ p.ring }}">
-            <a href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+            <a href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
             <a href="{{ p.href }}" style="font-size:17px;font-weight:600;line-height:1.25;color:var(--ink)">{{ p.name }}</a>
             <span style="font-size:14px;color:var(--muted)">{{ p.community }} · {{ p.priceLabel }}</span>
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px">
@@ -175,7 +181,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
     </div>
   </sc-if>
 </div>
-</x-dc>
+</script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', lang: 'en', drawer: false };
