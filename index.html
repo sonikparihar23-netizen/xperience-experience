@@ -39,6 +39,9 @@ a:hover .xr-logo{filter:none}
 .xr-top select option,.xr-sel option{color:#0A0A0A}
 @keyframes xr-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.xr-marquee{animation:none!important}}
+@keyframes xr-hero-text-out{to{opacity:0;visibility:hidden}}
+.xr-hero-text{animation:xr-hero-text-out .8s ease 5s forwards}
+@media (prefers-reduced-motion:reduce){.xr-hero-text{animation:none}}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
 <script src="./xr-extras.js"><\/script>
@@ -190,7 +193,7 @@ a:hover .xr-logo{filter:none}
     </button>
     </sc-if>
         <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px">
-      <div style="display:flex;flex-direction:column;gap:14px;max-width:760px;color:#FFFFFF;text-shadow:0 2px 24px rgba(0,0,0,.45);padding-top:clamp(96px,10vw,140px)">
+      <div class="xr-hero-text" style="display:flex;flex-direction:column;gap:14px;max-width:760px;color:#FFFFFF;text-shadow:0 2px 24px rgba(0,0,0,.45);padding-top:clamp(96px,10vw,140px)">
         <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">Award-winning Dubai brokerage · Off-plan specialists</span>
         <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,5.6vw,88px);line-height:.95;letter-spacing:-.02em;text-wrap:balance">Dubai property, guided by <em style="font-style:italic;color:#FF9100">Xperts.</em></h1>
         <p style="margin:0;max-width:46ch;font-size:clamp(16px,1.3vw,18px);line-height:1.55;color:#E6E6E6;text-wrap:pretty">Buy, sell or invest with confidence — from exclusive pre-launch access to key handover.</p>
