@@ -7,6 +7,8 @@
 <title>Nshama: projects in Dubai | Xperience Realty</title>
 <meta name="description" content="Affordable, amenity-rich family living at Town Square Dubai.">
 <link rel="canonical" href="https://www.xrealty.ae/developers?d=nshama">
+<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">
+<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Xperience Realty">
 <meta property="og:title" content="Nshama: projects in Dubai | Xperience Realty">
@@ -224,7 +226,7 @@ select,input,button{font-family:inherit}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)">
       <sc-for list="{{ others }}" as="o" hint-placeholder-count="3">
         <a class="xr-zc" href="{{ o.href }}" onClick="{{ o.go }}" style="position:relative;display:flex;align-items:flex-end;height:220px;border-radius:12px;overflow:hidden;background:#262626;color:#FFFFFF" style-hover="color:#FFFFFF">
-          <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ o.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.85))"></span>
           <span style="position:relative;display:flex;flex-direction:column;gap:4px;padding:20px">
             <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1">{{ o.name }}</span>
@@ -527,7 +529,7 @@ select,input,button{font-family:inherit}
     <div onClick="{{ closeSel }}" style="position:fixed;inset:0;z-index:80;background:rgba(10,10,10,.55)"></div>
     <aside role="dialog" aria-modal="true" aria-label="{{ sel.full }}" style="position:fixed;top:0;right:0;bottom:0;z-index:81;width:min(640px,100%);overflow-y:auto;background:var(--bg);color:var(--ink);box-shadow:-30px 0 60px -30px rgba(0,0,0,.5)">
       <div style="position:relative;height:220px;background:#1A1A1A">
-        <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ sel.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ sel.full }}" style="width:100%;height:100%;object-fit:cover;display:block">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25),rgba(10,10,10,.7))"></div>
         <button onClick="{{ closeSel }}" aria-label="Close" style="position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;display:flex;align-items:center;justify-content:center;cursor:pointer">
           <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3L15 15M15 3L3 15" stroke="currentColor" stroke-width="1.8"></path></svg>
@@ -582,7 +584,7 @@ select,input,button{font-family:inherit}
             <div style="display:flex;flex-direction:column;gap:12px">
               <sc-for list="{{ sel.projects }}" as="p" hint-placeholder-count="2">
                 <a href="{{ p.href }}" style="display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;color:var(--ink)" style-hover="border-color:var(--ink);color:var(--ink)">
-                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:120px;height:84px;border-radius:8px;object-fit:cover;background:var(--img)">
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:120px;height:84px;border-radius:8px;object-fit:cover;background:var(--img)">
                   <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
                     <span style="font-size:16px;font-weight:700;line-height:1.25">{{ p.name }}</span>
                     <span style="font-size:13px;color:var(--muted)">{{ p.community }}</span>

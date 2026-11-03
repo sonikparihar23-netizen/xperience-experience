@@ -7,6 +7,8 @@
 <title>XR Team | Xperience Realty</title>
 <meta name="description" content="Meet the Xperience Realty advisors: specialists in Dubai off-plan, luxury and investment property.">
 <link rel="canonical" href="https://www.xrealty.ae/team">
+<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">
+<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Xperience Realty">
 <meta property="og:title" content="XR Team | Xperience Realty">
@@ -104,7 +106,7 @@ select,input,button{font-family:inherit}
       <div aria-hidden="true" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,14px);align-items:end">
         <sc-for list="{{ heroFaces }}" as="f" hint-placeholder-count="3">
           <div class="xr-zc" style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#1A1A1A;margin-bottom:{{ f.offset }}">
-            <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.15)">
+            <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ f.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.15)">
           </div>
         </sc-for>
       </div>
@@ -186,7 +188,7 @@ select,input,button{font-family:inherit}
       </div>
     </sc-if>
     <div style="display:flex;justify-content:center;margin-top:clamp(32px,4vw,48px)">
-      <a href="https://www.xrealty.ae/agent/" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:999px;border:1px solid var(--line2);font-size:15px;font-weight:600" style-hover="border-color:var(--ink)">See all 28 specialists</a>
+      <a href="team" style="display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:999px;border:1px solid var(--line2);font-size:15px;font-weight:600" style-hover="border-color:var(--ink)">See all 28 specialists</a>
     </div>
   </section>
 
@@ -401,7 +403,7 @@ class Component extends DCLogic {
       toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
       goMatch: go('match'),
       heroStats: [['28', 'Specialists'], ['12', 'Languages'], ['4.9★', 'Google rating']].map(([value, label]) => ({ value, label })),
-      heroFaces: [team[0], team[2], team[4]].map((a, k) => ({ img: a.img, offset: ['0px', '40px', '0px'][k] })),
+      heroFaces: [team[0], team[2], team[4]].map((a, k) => ({ img: a.img, name: a.name, offset: ['0px', '40px', '0px'][k] })),
       q: s.q, onQ: e => this.setState({ q: e.target.value }),
       specs, lang: s.lang, langOptions, onLang: e => this.setState({ lang: e.target.value }),
       resultLabel: `${shown.length} of ${n} featured Xperts${s.spec !== 'All' ? ' · ' + s.spec : ''}${s.lang !== 'Any language' ? ' · speaks ' + s.lang : ''}`,

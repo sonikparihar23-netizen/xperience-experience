@@ -135,8 +135,8 @@
     if (window.L) return Promise.resolve(window.L);
     if (leafletP) return leafletP;
     leafletP = new Promise(res => {
-      const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(l);
-      const sc = document.createElement('script'); sc.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; sc.onload = () => res(window.L); document.head.appendChild(sc);
+      const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/vendor/leaflet/leaflet.css'; document.head.appendChild(l);
+      const sc = document.createElement('script'); sc.src = '/vendor/leaflet/leaflet.js'; sc.onload = () => res(window.L); document.head.appendChild(sc);
     });
     return leafletP;
   }

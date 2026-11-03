@@ -82,6 +82,9 @@ def head_block(path, title, desc, img=HERO, kind='website', ld=(), robots=None):
         tags.append(f'<meta name="robots" content="{robots}">')
     else:
         tags.append(f'<link rel="canonical" href="{html.escape(url)}">')
+    # React is self-hosted; preloading lets it download while the page is still parsing
+    tags += ['<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">',
+             '<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">']
     tags += [f'<meta property="og:type" content="{kind}">', '<meta property="og:site_name" content="Xperience Realty">',
              f'<meta property="og:title" content="{html.escape(title)}">', f'<meta property="og:description" content="{html.escape(clip(desc, 200))}">',
              f'<meta property="og:url" content="{html.escape(url)}">', f'<meta property="og:image" content="{html.escape(og_img(img))}">',
@@ -214,7 +217,10 @@ def main():
         {'source': '/blog', 'missing': [{'type': 'query', 'key': 'b'}], 'destination': '/insights', 'permanent': False},
         {'source': '/property', 'missing': [{'type': 'query', 'key': 'p'}], 'destination': '/search', 'permanent': False},
     ] + [{'source': f'/{page}.html', 'destination': f'/{page}', 'permanent': True} for page in routes]
-    v['headers'] = [{'source': '/(.*)', 'has': [{'type': 'host', 'value': STAGING_HOST}], 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex, nofollow'}]},
+    security = [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'X-Frame-Options', 'value': 'SAMEORIGIN'},
+                {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
+                {'key': 'Permissions-Policy', 'value': 'camera=(), microphone=(), geolocation=(), payment=()'}]
+    v['headers'] = [{'source': '/(.*)', 'headers': security}] + [{'source': '/(.*)', 'has': [{'type': 'host', 'value': STAGING_HOST}], 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex, nofollow'}]},
                     {'source': '/(.*)', 'has': [{'type': 'host', 'value': '(?<sub>.+)\\.vercel\\.app'}], 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex, nofollow'}]}]
     with open(vp, 'w') as fh:
         fh.write(json.dumps(v, indent=2) + '\n')

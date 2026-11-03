@@ -7,6 +7,8 @@
 <title>Golf Trails at Emaar South: apartments from AED 1,250,000 | Xperience Realty</title>
 <meta name="description" content="Golf-course apartments in Emaar South with fairway views, cycle trails and quick access to Al Maktoum International.">
 <link rel="canonical" href="https://www.xrealty.ae/property?p=golf-trails">
+<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">
+<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Xperience Realty">
 <meta property="og:title" content="Golf Trails at Emaar South: apartments from AED 1,250,000 | Xperience Realty">
@@ -112,7 +114,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;height:clamp(420px,46vw,600px)">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
             <button class="xr-zc" onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="position:relative;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);cursor:zoom-in;grid-row:{{ g.row }}">
-              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
               <sc-if value="{{ g.last }}" hint-placeholder-val="{{ false }}">
                 <span style="position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:13px;font-weight:600">View all {{ galleryCount }} photos</span>
               </sc-if>
@@ -124,7 +126,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         <div style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * clamp(20px,5vw,64px));padding:0 clamp(20px,5vw,64px);scrollbar-width:none">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="3">
             <button class="xr-zc" onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="flex:0 0 86%;aspect-ratio:4/3;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);scroll-snap-align:center">
-              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
             </button>
           </sc-for>
         </div>
@@ -244,7 +246,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <aside id="enquire" style="flex:1 1 320px;max-width:420px;position:sticky;top:96px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:96px">
         <div style="border:1px solid var(--line);border-radius:12px;padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:18px;background:var(--bg)">
           <div style="display:flex;align-items:center;gap:14px">
-            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ agent.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:56px;height:56px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--img)">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ agent.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ agent.name }}" style="width:56px;height:56px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--img)">
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-size:16px;font-weight:700">{{ agent.name }}</span>
               <span style="font-size:13px;color:var(--muted)">{{ agent.role }} · {{ agent.langs }}</span>
@@ -285,7 +287,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 20px">
         <sc-for list="{{ similar }}" as="s" hint-placeholder-count="3">
           <a class="xr-zc" href="{{ s.href }}" style="display:flex;flex-direction:column;gap:12px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
-            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ s.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ s.developer }}</span>
             <span style="font-size:18px;font-weight:600;line-height:1.25">{{ s.name }}</span>
             <span style="font-size:14px;color:var(--muted)">{{ s.community }} · {{ t.from }} <strong style="color:var(--ink)">{{ s.priceLabel }}</strong></span>
@@ -298,7 +300,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
 
   <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
     <div role="dialog" aria-modal="true" aria-label="Photo gallery" style="position:fixed;inset:0;z-index:1000;background:rgba(10,10,10,.95);display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,64px)">
-      <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ lbSrc }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="max-width:100%;max-height:100%;border-radius:8px;object-fit:contain">
+      <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ lbSrc }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="max-width:100%;max-height:100%;border-radius:8px;object-fit:contain">
       <button onClick="{{ closeLb }}" aria-label="Close gallery" style="position:absolute;top:16px;right:16px;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#FFFFFF;font-size:22px;cursor:pointer">×</button>
       <button onClick="{{ prevLb }}" aria-label="Previous photo" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:20px;cursor:pointer">‹</button>
       <button onClick="{{ nextLb }}" aria-label="Next photo" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:20px;cursor:pointer">›</button>

@@ -7,6 +7,8 @@
 <title>Island living in Dubai | Xperience Realty</title>
 <meta name="description" content="Dubai built its own islands to add more coastline. Live on Palm Jumeirah, Dubai Islands and beyond, with beaches, privacy and a resort feel.">
 <link rel="canonical" href="https://www.xrealty.ae/living?a=island-living">
+<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">
+<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Xperience Realty">
 <meta property="og:title" content="Island living in Dubai | Xperience Realty">
@@ -112,7 +114,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <section style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);padding-top:clamp(36px,4vw,56px);padding-bottom:clamp(64px,8vw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,2.4vw,32px)">
         <sc-for list="{{ areas }}" as="ar" hint-placeholder-count="6">
           <a class="xr-zc" href="{{ ar.href }}" style="display:flex;flex-direction:column;gap:14px" style-hover="color:var(--ink)">
-            <span style="display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--img)"><img class="xr-zoom" src="{{ ar.img }}" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span style="display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--img)"><img class="xr-zoom" src="{{ ar.img }}" alt="{{ ar.name }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="font-family:'Instrument Serif',serif;font-size:32px;line-height:1">{{ ar.name }}</span>
             <span style="font-size:15px;line-height:1.55;color:var(--muted)">{{ ar.lede }}</span>
           </a>
@@ -194,7 +196,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
-        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://www.xrealty.ae/privacy-policy/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="https://www.xrealty.ae/terms-and-conditions/" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
+        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="legal?doc=privacy" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="legal?doc=terms" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
         <div style="display:flex;flex-wrap:wrap;gap:20px">
           <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
             <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>

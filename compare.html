@@ -7,6 +7,8 @@
 <title>Compare properties | Xperience Realty</title>
 <meta name="description" content="Compare your shortlisted Dubai properties side by side.">
 <meta name="robots" content="noindex, follow">
+<link rel="preload" as="script" href="/vendor/react.production.min.js" crossorigin="anonymous" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z">
+<link rel="preload" as="script" href="/vendor/react-dom.production.min.js" crossorigin="anonymous" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Xperience Realty">
 <meta property="og:title" content="Compare properties | Xperience Realty">
@@ -109,7 +111,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:24px 20px">
         <sc-for list="{{ savedList }}" as="p" hint-placeholder-count="3">
           <article style="display:flex;flex-direction:column;gap:12px;padding:12px;border-radius:12px;border:2px solid {{ p.ring }}">
-            <a class="xr-zc" href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+            <a class="xr-zc" href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></a>
             <a href="{{ p.href }}" style="font-size:17px;font-weight:600;line-height:1.25;color:var(--ink)">{{ p.name }}</a>
             <span style="font-size:14px;color:var(--muted)">{{ p.community }} · {{ p.priceLabel }}</span>
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px">
