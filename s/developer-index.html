@@ -20,8 +20,969 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+select,input,button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="developers"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 50; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="xr-lang-btn" type="button" aria-label="التبديل إلى العربية" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font: 600 15px &quot;IBM Plex Sans Arabic&quot;, &quot;Hanken Grotesk&quot;, sans-serif; cursor: pointer;">ع</button><button aria-label="Switch to light mode" title="Switch to light mode" class="scp1" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+
+  
+
+  
+  <section data-screen-label="Developers hero" style="position: relative; background: rgb(26, 26, 26); color: rgb(255, 255, 255); overflow: hidden;">
+    <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.35) 100%), linear-gradient(rgba(10, 10, 10, 0.1), rgba(10, 10, 10, 0.7));"></div>
+    <div style="position: relative; max-width: 1360px; margin: 0px auto; padding: clamp(56px, 8vw, 112px) clamp(20px, 5vw, 64px) clamp(36px, 4vw, 56px); display: flex; flex-direction: column; gap: 22px;">
+      <nav aria-label="Breadcrumb" style="display: flex; gap: 8px; font-size: 13px; color: rgb(214, 214, 214);">
+        <a href="index.html" class="scp3" style="color: rgb(214, 214, 214);">Home</a><span aria-hidden="true">/</span><span style="color: rgb(255, 255, 255);">Developers</span>
+      </nav>
+      <h1 style="margin: 0px; max-width: 15ch; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(42px, 5.8vw, 84px); line-height: 0.98; letter-spacing: -0.02em; text-wrap: balance;">Dubai's leading developers, <em style="color: rgb(255, 145, 0);">one trusted advisor.</em></h1>
+      <p style="margin: 0px; max-width: 54ch; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: rgb(230, 230, 230); text-wrap: pretty;">Compare track records, entry prices and payment plans side by side — then buy developer-direct through XR with priority allocation and zero buyer commission on most launches.</p>
+      <label style="position: relative; display: flex; align-items: center; max-width: 620px; height: 60px; margin-top: 6px; border-radius: 999px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 60px -30px;">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-left: 22px; flex-shrink: 0; color: rgb(92, 92, 92);"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+        <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Search developers</span>
+        <input type="search" placeholder="Search developer or community — e.g. Emaar, Palm Jumeirah" value="" style="flex: 1 1 0%; min-width: 0px; height: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; padding: 0px 22px 0px 12px; font-size: 16px; color: rgb(10, 10, 10); border-radius: 999px;">
+      </label>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: rgb(230, 230, 230); padding-top: 4px;">
+        <span><span class="sc-interp">11</span> partner developers</span>
+        <span style="width: 1px; height: 14px; background: rgba(255, 255, 255, 0.35); align-self: center;"></span>
+        <span><span class="sc-interp">13</span> live projects</span>
+        <span style="width: 1px; height: 14px; background: rgba(255, 255, 255, 0.35); align-self: center;"></span>
+        <span>RERA escrow-protected off-plan</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="directory" data-screen-label="Directory" style="max-width: 1360px; margin: 0px auto; padding: clamp(40px, 5vw, 64px) clamp(20px, 5vw, 64px) 0px; scroll-margin-top: 80px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 22px;">
+      <div role="tablist" aria-label="Developer type" style="display: flex; gap: 8px; overflow-x: auto; padding: 2px; margin: -2px; scrollbar-width: none;">
+        
+          
+            <button role="tab" aria-selected="true" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer;"><span class="sc-interp">All</span><span style="font-size: 12px; opacity: 0.7;"><span class="sc-interp">11</span></span></button>
+          
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp7" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Master developer</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">4</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp7" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Luxury</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">4</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp7" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Ultra luxury</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp7" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Boutique</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp7" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Value</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+      </div>
+      <label style="position: relative; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); font-size: 14px;">
+        <span style="color: var(--muted);">Sort</span>
+        <select style="appearance: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; font-size: 14px; font-weight: 600; color: var(--ink); padding-right: 18px; cursor: pointer;">
+          
+            <option value="featured"><span class="sc-interp">Featured</span></option>
+          
+            <option value="az"><span class="sc-interp">A–Z</span></option>
+          
+            <option value="live"><span class="sc-interp">Most live projects</span></option>
+          
+            <option value="price"><span class="sc-interp">Lowest entry price</span></option>
+          
+            <option value="est"><span class="sc-interp">Longest track record</span></option>
+          
+        </select>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="position: absolute; right: 16px; pointer-events: none; color: var(--muted);"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+      </label>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px;">
+      <span aria-live="polite" style="font-size: 14px; color: var(--muted);"><span class="sc-interp">11 developers</span></span>
+      <span style="font-size: 14px; color: var(--muted);">Tick up to 3 to compare</span>
+    </div>
+
+    
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(16px, 2vw, 24px);">
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Emaar profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Emaar_logo.svg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Emaar_logo.svg" alt="Emaar" style="height: 40px; max-height: 30px; max-width: 100%; width: auto; object-fit: contain;">
+                
+                
+              </span>
+              
+                <span style="position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0px 10px; border-radius: 999px; background: rgb(10, 10, 10); color: rgb(255, 255, 255); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0);"></span>Award partner</span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Emaar Properties</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Master developer</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">1997</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">4 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">The developer behind Burj Khalifa and Downtown Dubai — the benchmark for delivery and resale value.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Downtown Dubai</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Dubai Hills Estate</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Dubai Creek Harbour</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">5 projects</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 1.09M</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=emaar-properties" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Nakheel profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592835/xr_media/v26qtyo0vqwehgevvc4h.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592835/xr_media/v26qtyo0vqwehgevvc4h.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Nakheel_logo.svg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nakheel_logo.svg" alt="Nakheel" style="height: 36px; max-height: 30px; max-width: 100%; width: auto; object-fit: contain;">
+                
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Nakheel</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Master developer</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2000</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">4 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Creator of the Palm Jumeirah and now Palm Jebel Ali — Dubai's waterfront specialist.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Palm Jumeirah</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Palm Jebel Ali</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Jumeirah Village</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">1 project</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 3M</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=nakheel" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Damac profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Damac_logo.svg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Damac_logo.svg" alt="Damac" style="height: 22px; max-height: 30px; max-width: 100%; width: auto; object-fit: contain;">
+                
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Damac Properties</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Luxury</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2002</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">4 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Branded luxury residences and large lifestyle communities with flexible payment plans.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Damac Hills</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Damac Lagoons</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Business Bay</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">2 projects</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 979K</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=damac-properties" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Meraas profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Meraas-logo.svg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Meraas-logo.svg" alt="Meraas" style="height: 44px; max-height: 30px; max-width: 100%; width: auto; object-fit: contain;">
+                
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Meraas</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Luxury</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2007</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">4 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Design-led destinations — Bluewaters, City Walk and La Mer — now part of Dubai Holding.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Bluewaters Island</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">City Walk</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Jumeirah Bay</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">1 project</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 5.09M</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=meraas" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Sobha profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://en.wikipedia.org/wiki/Special:FilePath/Sobha_(company).svg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sobha_(company).svg" alt="Sobha" style="height: 46px; max-height: 30px; max-width: 100%; width: auto; object-fit: contain;">
+                
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Sobha Realty</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Luxury</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">1976</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">2 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Backward-integrated builder known for in-house construction quality and finishing.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Sobha Hartland</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Sobha Sanctuary</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Sobha One</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">1 project</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 999K</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=sobha" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Omniyat profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592664/xr_media/eegv6rcdfjm5wmzsyfad.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592664/xr_media/eegv6rcdfjm5wmzsyfad.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Omniyat</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Omniyat</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Ultra luxury</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2005</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">3 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Ultra-luxury, architect-led residences — from The Opus to Dorchester Collection.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Business Bay</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Palm Jumeirah</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Marasi Bay</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">On request</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">On request</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=omniyat" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Beyond profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Beyond</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Beyond</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Luxury</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2024</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">New brand</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Omniyat's newer brand bringing design-led waterfront living to more buyers.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Dubai Maritime City</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Dubailand</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">2 projects</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 1M</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=beyond-developments" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Ellington profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Ellington</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Ellington Properties</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Boutique</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2014</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">3 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Boutique, design-first residences with consistently high finishing standards.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">MBR City</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Jumeirah Village Circle</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Downtown</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">1 project</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">AED 1.9M</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=ellington-properties" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Dubai Properties profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024589/xr_media/azldwpnaxgzt1hcqt9xi.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024589/xr_media/azldwpnaxgzt1hcqt9xi.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Dubai Properties</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Dubai Properties</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Master developer</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2002</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">3 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Dubai Holding developer behind JBR, Business Bay towers and Mudon.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">JBR</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Mudon</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Villanova</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">On request</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">On request</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=dubai-properties" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Nshama profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Nshama</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Nshama</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Value</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2014</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">1 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Affordable, amenity-rich family living at Town Square Dubai.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Town Square</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">On request</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">On request</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=nshama" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+          <article class="scp8" style="display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg);">
+            <button aria-label="Open Arada profile" style="position: relative; display: flex; align-items: flex-end; justify-content: center; height: 180px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(26, 26, 26); cursor: pointer; padding: 0px 28px 16px; overflow: hidden;">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592577/xr_media/wvi2lddsjau1ya5kmihm.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592577/xr_media/wvi2lddsjau1ya5kmihm.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+              <span style="position: absolute; inset: 0px; background: linear-gradient(rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.5));"></span>
+              <span style="position: relative; display: flex; align-items: center; justify-content: center; min-width: 110px; max-width: 60%; height: 52px; padding: 0px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.96); box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px -12px;">
+                
+                
+                  <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 28px; line-height: 1; color: rgb(10, 10, 10); letter-spacing: -0.01em; white-space: nowrap;"><span class="sc-interp">Arada</span></span>
+                
+              </span>
+              
+            </button>
+            <div style="flex: 1 1 0%; display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0px;">
+                  <span style="font-size: 19px; font-weight: 700; line-height: 1.2;"><span class="sc-interp">Arada</span></span>
+                  <span style="font-size: 13px; color: var(--muted);"><span style="white-space: nowrap;"><span class="sc-interp">Master developer</span></span> · <span style="white-space: nowrap;">Est. <span class="sc-interp">2017</span></span> · <span style="white-space: nowrap;"><span class="sc-interp">2 landmark completions</span></span></span>
+                </div>
+                <label title="Compare" style="flex-shrink: 0; display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0px 12px; border-radius: 999px; border: 1px solid var(--line2); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink);">
+                  <input type="checkbox" style="width: 16px; height: 16px; margin: 0px; accent-color: rgb(255, 145, 0); cursor: pointer;">
+                  Compare
+                </label>
+              </div>
+              <p style="margin: 0px; font-size: 14px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Fast-growing master developer of Aljada and Masaar, now expanding into Dubai.</span></p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Aljada</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Masaar</span></span>
+                
+                  <span style="display: inline-flex; align-items: center; height: 28px; padding: 0px 10px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 600;"><span class="sc-interp">Dubai</span></span>
+                
+              </div>
+              <dl style="margin: auto 0px 0px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Live with XR</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700;"><span class="sc-interp">On request</span></dd>
+                </div>
+                <div style="display: flex; flex-direction: column-reverse; gap: 2px;">
+                  <dt style="font-size: 12px; color: var(--muted);">Entry price</dt>
+                  <dd style="margin: 0px; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums;"><span class="sc-interp">On request</span></dd>
+                </div>
+              </dl>
+              <div style="display: grid; grid-template-columns: auto minmax(0px, 1fr); gap: 8px;">
+                <button class="scp7" style="height: 48px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;">Quick view</button>
+                <a href="?d=arada-developments" class="scp6" style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; white-space: nowrap;">View developer<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></a>
+              </div>
+            </div>
+          </article>
+        
+      </div>
+    
+    
+  </section>
+
+  
+
+  <section data-screen-label="Why developer-direct" style="margin-top: clamp(64px, 8vw, 112px); background: radial-gradient(90% 120% at 100% 0%, rgba(255, 145, 0, 0.18), rgba(255, 145, 0, 0) 55%), linear-gradient(115deg, rgba(10, 10, 10, 0.95) 25%, rgba(10, 10, 10, 0.82) 70%, rgba(10, 10, 10, 0.7)), url(&quot;https://res.cloudinary.com/dkhns25jh/image/upload/w_1800,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp&quot;) center center / cover no-repeat, rgb(10, 10, 10); box-shadow: rgba(255, 145, 0, 0.22) 0px 0px 0px 1px inset; color: rgb(255, 255, 255);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(36px, 6vw, 96px); align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(189, 189, 189);">Developer-direct, with an advisor</span>
+        <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 62px); line-height: 1; letter-spacing: -0.015em; text-wrap: balance;">Same developer price. <em style="color: rgb(255, 145, 0);">Better buying.</em></h2>
+        <p style="margin: 0px; max-width: 46ch; font-size: 16px; line-height: 1.6; color: rgb(189, 189, 189); text-wrap: pretty;">Developers pay our fee on most launches, so you get independent advice, priority units and handover support at no extra cost.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0px 32px;">
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 22px 0px; border-top: 1px solid rgba(255, 255, 255, 0.18);">
+            <span style="font-size: 13px; font-weight: 700; color: rgb(255, 145, 0);"><span class="sc-interp">01</span></span>
+            <span style="font-size: 17px; font-weight: 600;"><span class="sc-interp">Priority allocation</span></span>
+            <span style="font-size: 15px; line-height: 1.55; color: rgb(189, 189, 189); text-wrap: pretty;"><span class="sc-interp">Access to EOIs and launch inventory, often before units reach the portals.</span></span>
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 22px 0px; border-top: 1px solid rgba(255, 255, 255, 0.18);">
+            <span style="font-size: 13px; font-weight: 700; color: rgb(255, 145, 0);"><span class="sc-interp">02</span></span>
+            <span style="font-size: 17px; font-weight: 600;"><span class="sc-interp">Zero buyer commission</span></span>
+            <span style="font-size: 15px; line-height: 1.55; color: rgb(189, 189, 189); text-wrap: pretty;"><span class="sc-interp">On most developer-direct purchases, the developer pays our fee.</span></span>
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 22px 0px; border-top: 1px solid rgba(255, 255, 255, 0.18);">
+            <span style="font-size: 13px; font-weight: 700; color: rgb(255, 145, 0);"><span class="sc-interp">03</span></span>
+            <span style="font-size: 17px; font-weight: 600;"><span class="sc-interp">SPA and plan review</span></span>
+            <span style="font-size: 15px; line-height: 1.55; color: rgb(189, 189, 189); text-wrap: pretty;"><span class="sc-interp">We check the sale agreement, escrow and payment schedule before you sign.</span></span>
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 22px 0px; border-top: 1px solid rgba(255, 255, 255, 0.18);">
+            <span style="font-size: 13px; font-weight: 700; color: rgb(255, 145, 0);"><span class="sc-interp">04</span></span>
+            <span style="font-size: 17px; font-weight: 600;"><span class="sc-interp">Handover support</span></span>
+            <span style="font-size: 15px; line-height: 1.55; color: rgb(189, 189, 189); text-wrap: pretty;"><span class="sc-interp">Snagging, DEWA, service charges and leasing once your keys are ready.</span></span>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Vetting checklist" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px) 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(28px, 6vw, 96px); align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Before you commit</span>
+      <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 62px); line-height: 1; letter-spacing: -0.015em; text-wrap: balance;">How to vet a developer</h2>
+      <p style="margin: 0px; max-width: 44ch; font-size: 16px; line-height: 1.6; color: var(--muted);">We check all six on every project we put in front of you.</p>
+      <a href="guide?g=off-plan" style="align-self: flex-start; margin-top: 8px; font-size: 15px; font-weight: 600; border-bottom: 1px solid; padding-bottom: 4px;">Read the off-plan guide →</a>
+    </div>
+    <ol style="margin: 0px; padding: 0px; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 0px 32px;">
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">RERA registration</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">The developer and project are registered with RERA and the Dubai Land Department.</span></span>
+          </span>
+        </li>
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">Escrow account</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">Your payments go into a project escrow account, not to the developer directly.</span></span>
+          </span>
+        </li>
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">Delivery track record</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">How many projects were handed over — and how close to the promised date.</span></span>
+          </span>
+        </li>
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">Oqood registration</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">Your off-plan purchase is registered with the DLD in your name.</span></span>
+          </span>
+        </li>
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">Service charges</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">Projected charges per sq ft, and the history of the developer's other buildings.</span></span>
+          </span>
+        </li>
+      
+        <li style="display: grid; grid-template-columns: 28px minmax(0px, 1fr); gap: 12px; padding: 18px 0px; border-top: 1px solid var(--line);">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 2px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: 16px; font-weight: 600;"><span class="sc-interp">Resale performance</span></span>
+            <span style="font-size: 14px; line-height: 1.55; color: var(--muted);"><span class="sc-interp">Price growth and rental demand in the developer's completed communities.</span></span>
+          </span>
+        </li>
+      
+    </ol>
+  </section>
+
+  
+
+  <section id="alerts" data-screen-label="Launch alerts" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px) 0px; scroll-margin-top: 80px;">
+    <div style="border-radius: 12px; background: var(--soft); padding: clamp(28px, 4.5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(24px, 4vw, 64px); align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span style="width: 8px; height: 8px; border-radius: 999px; background: rgb(255, 145, 0); box-shadow: rgba(255, 145, 0, 0.22) 0px 0px 0px 4px;"></span>Launch alerts</span>
+        <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(34px, 4vw, 56px); line-height: 1; letter-spacing: -0.015em; text-wrap: balance;">Hear about launches before the portals do.</h2>
+        <p style="margin: 0px; max-width: 48ch; font-size: 16px; line-height: 1.6; color: var(--muted);">Pick the developers you follow. We'll message you with floor plans and pricing as soon as an EOI opens.</p>
+      </div>
+      
+        <form novalidate="" style="display: flex; flex-direction: column; gap: 14px;">
+          <fieldset style="margin: 0px; padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; display: flex; flex-direction: column; gap: 8px;">
+            <legend style="padding: 0px; margin-bottom: 10px; font-size: 13px; font-weight: 600;">Developers</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              
+                
+                  <button type="button" aria-pressed="true" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer;"><span class="sc-interp">Emaar</span></button>
+                
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Nakheel</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Damac</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Sobha</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Meraas</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Omniyat</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Beyond</span></button>
+                
+              
+                
+                
+                  <button type="button" aria-pressed="false" class="scp7" style="height: 40px; padding: 0px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Ellington</span></button>
+                
+              
+            </div>
+          </fieldset>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-size: 13px; font-weight: 600;">WhatsApp number</span>
+            <span style="display: flex; height: 52px; border-radius: 8px; border: 1px solid var(--line2); background: var(--bg); overflow: hidden;">
+              <span style="display: flex; align-items: center; padding: 0px 14px; border-right: 1px solid var(--line); font-size: 16px; color: var(--muted);">+971</span>
+              <input type="tel" inputmode="tel" autocomplete="tel-national" placeholder="50 123 4567" value="" style="flex: 1 1 0%; min-width: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 0px 16px; font-size: 16px; color: var(--ink); background: transparent;">
+            </span>
+          </label>
+          
+          <button type="submit" class="scp9" style="height: 54px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 600; cursor: pointer;"><span class="sc-interp">Alert me about 1 developer</span></button>
+        </form>
+      
+      
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(28px, 6vw, 96px); align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Quick answers</span>
+      <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(36px, 4.4vw, 62px); line-height: 1; letter-spacing: -0.015em;">Buying from a developer</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; border-bottom: 1px solid var(--line);">
+      
+        <div style="border-top: 1px solid var(--line);">
+          <button aria-expanded="true" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; text-align: left; cursor: pointer; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35;">
+            <span><span class="sc-interp">Is buying directly from a developer cheaper?</span></span>
+            <span aria-hidden="true" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 400;"><span class="sc-interp">−</span></span>
+          </button>
+          
+            <p style="margin: 0px; padding: 0px 56px 24px 0px; font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">No — the price is the same whether you buy directly or through a registered broker. On most launches the developer pays the broker's fee, so you get independent advice at no extra cost.</span></p>
+          
+        </div>
+      
+        <div style="border-top: 1px solid var(--line);">
+          <button aria-expanded="false" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; text-align: left; cursor: pointer; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35;">
+            <span><span class="sc-interp">What is an EOI?</span></span>
+            <span aria-hidden="true" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 400;"><span class="sc-interp">+</span></span>
+          </button>
+          
+        </div>
+      
+        <div style="border-top: 1px solid var(--line);">
+          <button aria-expanded="false" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; text-align: left; cursor: pointer; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35;">
+            <span><span class="sc-interp">How is my off-plan money protected?</span></span>
+            <span aria-hidden="true" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 400;"><span class="sc-interp">+</span></span>
+          </button>
+          
+        </div>
+      
+        <div style="border-top: 1px solid var(--line);">
+          <button aria-expanded="false" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; text-align: left; cursor: pointer; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35;">
+            <span><span class="sc-interp">What if the handover is delayed?</span></span>
+            <span aria-hidden="true" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 400;"><span class="sc-interp">+</span></span>
+          </button>
+          
+        </div>
+      
+    </div>
+  </section>
+
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 40px clamp(20px, 5vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; font-size: 13px;">
+      <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto;">
+      <span>Developer details are indicative. Logos are trademarks of their owners.</span>
+      <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+
+  
+
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 60; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;">Call</a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;">WhatsApp</a>
+      <a href="#alerts" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;">Launch alerts</a>
+    </div>
+  
+
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">

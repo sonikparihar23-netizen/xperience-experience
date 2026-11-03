@@ -20,8 +20,292 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
+html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="legal"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 500; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="scp1" aria-label="View in Arabic" title="View in Arabic" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font-size: 13px; font-weight: 600; cursor: pointer;"><span class="sc-interp">عربي</span></button>
+        <button class="scp1" aria-label="Switch to light mode" title="Switch to light mode" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        <a href="compare.html" class="scp1" aria-label="Shortlist, empty" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          
+        </a>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+  <main>
+
+    <section style="max-width: 1360px; margin: 0px auto; padding-left: clamp(20px, 5vw, 64px); padding-right: clamp(20px, 5vw, 64px); padding-top: clamp(48px, 6vw, 88px); display: flex; flex-direction: column; gap: 22px;">
+      <nav aria-label="Breadcrumb" style="display: flex; gap: 8px; font-size: 13px; color: var(--muted);"><a href="index.html" style="color: var(--muted);">Home</a><span aria-hidden="true">/</span><span style="color: var(--ink);"><span class="sc-interp">Terms of use</span></span></nav>
+      <h1 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(44px, 6vw, 92px); line-height: 0.96; letter-spacing: -0.02em; text-wrap: balance;"><span class="sc-interp">Terms of use</span></h1>
+      <span style="font-size: 14px; color: var(--muted);">Last updated <span class="sc-interp">Oct 2026</span></span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        
+          <a href="legal?doc=privacy" style="display: inline-flex; align-items: center; height: 42px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 600;"><span class="sc-interp">Privacy policy</span></a>
+        
+          <a href="legal?doc=terms" aria-current="page" style="display: inline-flex; align-items: center; height: 42px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600;"><span class="sc-interp">Terms of use</span></a>
+        
+      </div>
+    </section>
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(36px, 4vw, 56px) clamp(20px, 5vw, 64px) clamp(64px, 8vw, 112px);">
+      <article style="max-width: 760px; display: flex; flex-direction: column; gap: clamp(28px, 3vw, 40px);">
+        <p style="margin: 0px; font-size: 18px; line-height: 1.7;"><span class="sc-interp">These terms set out the rules for using the Xperience Realty website. Please read them carefully, as by using the website you agree to them.</span></p>
+        
+          <section id="about" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">1</span>. <span class="sc-interp">About these terms and about us</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">This website is operated by Xperience Realty Real Estate L.L.C ("Xperience Realty", "XR", "we", "us"), a real estate brokerage based in Dubai Hills Estate, Dubai, UAE.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">By accessing or using the website, you accept these terms and our Privacy Policy. If you do not agree, please do not use the website.</span></p>
+            
+          </section>
+        
+          <section id="information-is-indicative" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">2</span>. <span class="sc-interp">Information is for guidance only</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">Content on this website, including prices, availability, floor plans, payment plans, service charges, yields, fees and visa information, is provided in good faith for general guidance. It may change without notice and may not always be complete or up to date.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">Nothing on the website is an offer, a contract or a guarantee of any outcome. It is not financial, investment, tax or legal advice. Please confirm the details of any property with us and take independent professional advice before making a decision.</span></p>
+            
+          </section>
+        
+          <section id="listings-and-links" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">3</span>. <span class="sc-interp">Listings, third-party content and links</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">Some listings, images, brochures and project details are supplied by developers, owners or other third parties. We take reasonable care to present them accurately, but we cannot guarantee their accuracy, and images and renders may be illustrative only.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">The website may link to other websites that we do not control. We are not responsible for their content, availability or privacy practices, and a link does not mean we endorse them.</span></p>
+            
+          </section>
+        
+          <section id="enquiries" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">4</span>. <span class="sc-interp">Enquiries and communications</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">When you send an enquiry, request a valuation or book a viewing, you agree that we may contact you by phone, email or messaging apps about that request. Please make sure the details you give us are accurate.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">We will only send you marketing with your consent, and you can opt out at any time. We handle your personal data as described in our Privacy Policy.</span></p>
+            
+          </section>
+        
+          <section id="intellectual-property" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">5</span>. <span class="sc-interp">Intellectual property</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">The website and its content, including text, design, logos, photography, video and guides, belong to Xperience Realty or our licensors. You may view and print pages for your own personal, non-commercial use.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">You may not copy, reproduce, republish or commercially use any content without our prior written permission.</span></p>
+            
+          </section>
+        
+          <section id="acceptable-use" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">6</span>. <span class="sc-interp">Acceptable use</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">You agree to use the website lawfully and not to:</span></p>
+            
+              <ul style="margin: 0px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+                <li style="font-size: 16px; line-height: 1.6; color: var(--ink-h);"><span class="sc-interp">Submit false, misleading or someone else's information</span></li><li style="font-size: 16px; line-height: 1.6; color: var(--ink-h);"><span class="sc-interp">Scrape, harvest or copy listings or data by automated means</span></li><li style="font-size: 16px; line-height: 1.6; color: var(--ink-h);"><span class="sc-interp">Try to gain unauthorised access to the website or its systems, or disrupt how it works</span></li><li style="font-size: 16px; line-height: 1.6; color: var(--ink-h);"><span class="sc-interp">Upload or send viruses or other harmful code</span></li><li style="font-size: 16px; line-height: 1.6; color: var(--ink-h);"><span class="sc-interp">Use the website to send unsolicited marketing or for any unlawful purpose</span></li>
+              </ul>
+            
+          </section>
+        
+          <section id="liability" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">7</span>. <span class="sc-interp">Limitation of liability</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">The website is provided "as is" and "as available". We do not guarantee that it will always be available, uninterrupted or free from errors.</span></p><p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">To the extent permitted by law, Xperience Realty is not liable for any loss or damage arising from your use of the website or your reliance on its content. Nothing in these terms limits any liability that cannot be limited under UAE law.</span></p>
+            
+          </section>
+        
+          <section id="governing-law" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">8</span>. <span class="sc-interp">Governing law</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">These terms are governed by the laws of the Emirate of Dubai and the federal laws of the UAE. Any dispute arising from them or from your use of the website will be subject to the jurisdiction of the courts of Dubai.</span></p>
+            
+          </section>
+        
+          <section id="changes" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">9</span>. <span class="sc-interp">Changes to these terms</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">We may update these terms from time to time and will publish the latest version on this page with its date. If you continue to use the website after a change, you accept the updated terms.</span></p>
+            
+          </section>
+        
+          <section id="contact" style="display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 100px;">
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.1;"><span class="sc-interp">10</span>. <span class="sc-interp">Contact us</span></h2>
+            <p style="margin: 0px; font-size: 16px; line-height: 1.7; color: var(--ink-h);"><span class="sc-interp">If you have any questions about these terms, email info@xrealty.ae or call +971 5 640 80888.</span></p>
+            
+          </section>
+        
+        <p style="margin: 0px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 15px; color: var(--muted);">Questions about this page? Email <a href="mailto:info@xrealty.ae" style="text-decoration: underline;">info@xrealty.ae</a> or call <a href="tel:+971564080888" style="text-decoration: underline;">+971 5 640 80888</a>.</p>
+      </article>
+    </div>
+
+  </main>
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 64px) 32px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 36px 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 44px; width: auto; align-self: flex-start;">
+          <p style="margin: 0px; max-width: 34ch; font-size: 14px; line-height: 1.6;">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
+        </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Explore</span></span>
+            
+              <a href="search.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Properties</span></a>
+            
+              <a href="community" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Communities</span></a>
+            
+              <a href="developers" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Developers</span></a>
+            
+              <a href="rent.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Rent a home</span></a>
+            
+              <a href="compare.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Shortlist &amp; compare</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Popular searches</span></span>
+            
+              <a href="search.html?budget=mid" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Homes AED 1.25M – 2M</span></a>
+            
+              <a href="search.html?type=Villa" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Villas for sale</span></a>
+            
+              <a href="search.html?community=creek-harbour" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Creek Harbour</span></a>
+            
+              <a href="search.html?budget=gv" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Golden Visa homes (AED 2M – 5M)</span></a>
+            
+              <a href="search.html?budget=lux" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Luxury AED 5M+</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Learn</span></span>
+            
+              <a href="guides.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Guides</span></a>
+            
+              <a href="insights.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Insights</span></a>
+            
+              <a href="faqs.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai FAQs</span></a>
+            
+              <a href="living" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai living</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Company</span></span>
+            
+              <a href="about.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">About XR</span></a>
+            
+              <a href="sell.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Sell with XR</span></a>
+            
+              <a href="team.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">XR Team</span></a>
+            
+              <a href="careers.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Careers</span></a>
+            
+              <a href="contact.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Contact us</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Visit us</span></span>
+            
+              <a href="tel:+971564080888" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">+971 5 640 80888</span></a>
+            
+              <a href="mailto:info@xrealty.ae" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">info@xrealty.ae</span></a>
+            
+              <a href="https://maps.app.goo.gl/ChpufZ9MafTGmcc47" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Hills Estate, Dubai</span></a>
+            
+          </div>
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 13px;">
+        <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+          
+            <a href="https://www.youtube.com/@xrealtyae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">YouTube</span></a>
+          
+            <a href="https://www.instagram.com/xperience.realty" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">Instagram</span></a>
+          
+            <a href="https://www.linkedin.com/company/xrealty-ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">LinkedIn</span></a>
+          
+            <a href="https://x.com/xrealty_ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">X</span></a>
+          
+        </div>
+      </div>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 600; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">Call</span></a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">WhatsApp</span></a>
+      <a href="contact.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;"><span class="sc-interp">Enquire</span></a>
+    </div>
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">

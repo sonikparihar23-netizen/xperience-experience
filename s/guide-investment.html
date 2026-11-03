@@ -20,8 +20,502 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
+html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="guide"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 500; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="scp1" aria-label="View in Arabic" title="View in Arabic" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font-size: 13px; font-weight: 600; cursor: pointer;"><span class="sc-interp">عربي</span></button>
+        <button class="scp1" aria-label="Switch to light mode" title="Switch to light mode" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        <a href="compare.html" class="scp1" aria-label="Shortlist, empty" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          
+        </a>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+  <main>
+
+    
+    <div id="xr-progress" aria-hidden="true" style="position: fixed; left: 0px; right: 0px; top: 72px; height: 3px; background: rgb(255, 145, 0); transform: scaleX(0); transform-origin: 0px 50%; z-index: 499; pointer-events: none;"></div>
+    <section data-screen-label="Article hero" style="position: relative; background: rgb(26, 26, 26); color: rgb(255, 255, 255); overflow: hidden;">
+      <img src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" fetchpriority="high" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.65) 50%, rgba(10, 10, 10, 0.3) 100%), linear-gradient(rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.75));"></div>
+      <div style="position: relative; max-width: 1360px; margin: 0px auto; padding: clamp(56px, 8vw, 120px) clamp(20px, 5vw, 64px) clamp(40px, 5vw, 64px); display: flex; flex-direction: column; gap: 22px;">
+        <nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: rgb(214, 214, 214);">
+          <a href="index.html" class="scp3" style="color: rgb(214, 214, 214);">Home</a><span aria-hidden="true">/</span>
+          <a href="guides.html" class="scp3" style="color: rgb(214, 214, 214);"><span class="sc-interp">Guides</span></a><span aria-hidden="true">/</span>
+          <span style="color: rgb(255, 255, 255);"><span class="sc-interp">Investors</span></span>
+        </nav>
+        <span style="align-self: flex-start; display: inline-flex; align-items: center; height: 28px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.4); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;"><span class="sc-interp">Investors guide</span></span>
+        <h1 style="margin: 0px; max-width: 18ch; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 80px); line-height: 0.98; letter-spacing: -0.02em; text-wrap: balance;"><span class="sc-interp">Investing in Dubai property,</span> <em style="color: rgb(255, 145, 0);"><span class="sc-interp">by the numbers.</span></em></h1>
+        <p style="margin: 0px; max-width: 58ch; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: rgb(230, 230, 230); text-wrap: pretty;"><span class="sc-interp">Why investors choose Dubai, what yields and taxes look like, and how to pick the right property and strategy.</span></p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding-top: 8px;">
+          
+          <span style="font-size: 13px; color: rgb(214, 214, 214);"><span class="sc-interp">Updated Sep 2026 · 10 min read · 8 chapters</span></span>
+        </div>
+      </div>
+    </section>
+
+    <div style="max-width: 1360px; margin: 0px auto; padding-left: clamp(20px, 5vw, 64px); padding-right: clamp(20px, 5vw, 64px); padding-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0px, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start;">
+      
+
+      <article style="min-width: 0px; max-width: 760px; display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px);">
+        
+          <details style="border: 1px solid var(--line); border-radius: 12px; padding: 0px 18px;">
+            <summary style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; font-size: 15px; font-weight: 700; cursor: pointer; list-style: none;"><span><span class="sc-interp">In this guide</span> · <span class="sc-interp">8 chapters</span></span><span aria-hidden="true" style="color: rgb(255, 145, 0);">+</span></summary>
+            <nav aria-label="Contents" style="display: flex; flex-direction: column; padding-bottom: 12px;">
+              
+                <a href="#why" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">01</span></span><span><span class="sc-interp">Why investors look at Dubai</span></span></a>
+              
+                <a href="#yields" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">02</span></span><span><span class="sc-interp">Rental yields</span></span></a>
+              
+                <a href="#tax" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">03</span></span><span><span class="sc-interp">A low-tax market</span></span></a>
+              
+                <a href="#residency" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">04</span></span><span><span class="sc-interp">Residency through property</span></span></a>
+              
+                <a href="#costs" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">05</span></span><span><span class="sc-interp">Costs to factor in</span></span></a>
+              
+                <a href="#strategy" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">06</span></span><span><span class="sc-interp">Ready or off-plan</span></span></a>
+              
+                <a href="#type" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">07</span></span><span><span class="sc-interp">Choose the right property</span></span></a>
+              
+                <a href="#advice" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">08</span></span><span><span class="sc-interp">Get the right advice</span></span></a>
+              
+            </nav>
+          </details>
+        
+
+        <div style="border-radius: 12px; background: var(--soft); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Key takeaways</span>
+          <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">Average rental yields of 6–7%, against 2.5–3% in London and New York.</span></span>
+              </li>
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">No income tax, capital gains tax or wealth tax on your property.</span></span>
+              </li>
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">AED 2M or more can qualify you for a 10-year golden visa.</span></span>
+              </li>
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">Strong returns come with some volatility, so plan for the long term.</span></span>
+              </li>
+            
+          </ul>
+        </div>
+
+        
+          <section id="why" data-chapter="why" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 01</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Why investors look at Dubai</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Since the Freehold Law of 2002 opened ownership to foreign buyers, Dubai has become a magnet for global investors. Today the market runs from affordable apartments to ultra-luxury villas, so there's an entry point for most budgets.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">A strong economy, a growing population and a regulated market keep demand steady.</span></p>
+            
+            
+            
+            
+          </section>
+        
+          <section id="yields" data-chapter="yields" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 02</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Rental yields</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Dubai's average rental yield sits around 6–7%, well above the 2.5–3% typical of major cities like London and New York. Yields vary by community, property type and price, so compare like with like.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">A busy tourism industry and a growing population both support rental demand.</span></p>
+            
+            
+              <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Dubai average</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">6–7%</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">London and New York</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Around 2.5–3%</span></span>
+                  </li>
+                
+              </ul>
+            
+            
+              <div style="display: grid; grid-template-columns: 4px minmax(0px, 1fr); gap: 16px; padding: 4px 0px;">
+                <span style="border-radius: 999px; background: rgb(255, 145, 0);"></span>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0px;">
+                  <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Xpert tip</span>
+                  <span style="font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Judge yield after service charges, not before. Two similar buildings can produce very different net returns.</span></span>
+                </div>
+              </div>
+            
+            
+          </section>
+        
+          <section id="tax" data-chapter="tax" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 03</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">A low-tax market</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Dubai charges no income tax on rent, no capital gains tax when you sell and no wealth tax. The 5% VAT doesn't apply to residential property purchases.</span></p>
+            
+            
+              <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Income tax</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">None</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Capital gains tax</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">None</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Wealth tax</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">None</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">VAT on residential purchases</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Not applicable</span></span>
+                  </li>
+                
+              </ul>
+            
+            
+            
+          </section>
+        
+          <section id="residency" data-chapter="residency" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 04</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Residency through property</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Property owners can qualify for UAE residency. Buying property worth AED 2 million or more can qualify you for a 10-year golden visa, which also covers your family, while smaller investments may qualify for a two-year visa.</span></p>
+            
+            
+            
+            
+              <a href="guides.html#tools" class="scp5" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-radius: 12px; border: 1px solid var(--line2);">
+                <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 16px; font-weight: 700;"><span class="sc-interp">Check if you qualify</span></span><span style="font-size: 14px; color: var(--muted);"><span class="sc-interp">Golden visa checker on the guides page</span></span></span>
+                <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+              </a>
+            
+          </section>
+        
+          <section id="costs" data-chapter="costs" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 05</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Costs to factor in</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Low taxes don't mean no costs. Allow for the 4% DLD transfer fee and agency commission when you buy, plus annual service charges and maintenance while you hold.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">If you let the property, add the cost of furnishing or property management to your sums.</span></p>
+            
+            
+            
+            
+              <a href="guides.html#fees" class="scp5" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-radius: 12px; border: 1px solid var(--line2);">
+                <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 16px; font-weight: 700;"><span class="sc-interp">Estimate your buying costs</span></span><span style="font-size: 14px; color: var(--muted);"><span class="sc-interp">Fees calculator on the guides page</span></span></span>
+                <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+              </a>
+            
+          </section>
+        
+          <section id="strategy" data-chapter="strategy" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 06</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Ready or off-plan</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">A ready property starts earning rent straight away. Off-plan offers a lower entry price, flexible payment plans and room for capital growth during construction, but no income until handover.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Dubai offers high yields and strong capital gains, but it can move faster than more mature markets. Invest with a long-term view.</span></p>
+            
+            
+            
+              <div style="display: grid; grid-template-columns: 4px minmax(0px, 1fr); gap: 16px; padding: 4px 0px;">
+                <span style="border-radius: 999px; background: rgb(255, 145, 0);"></span>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0px;">
+                  <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Xpert tip</span>
+                  <span style="font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Match the strategy to your goal: ready for income now, off-plan for growth and staged payments.</span></span>
+                </div>
+              </div>
+            
+            
+          </section>
+        
+          <section id="type" data-chapter="type" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 07</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Choose the right property</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Apartments are the most common entry point and are easy to let. Townhouses appeal to families, while villas sit at the premium end of the market.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Location drives both rent and resale. Look at transport, schools, nearby amenities and what's being built around you.</span></p>
+            
+            
+            
+              <div style="display: grid; grid-template-columns: 4px minmax(0px, 1fr); gap: 16px; padding: 4px 0px;">
+                <span style="border-radius: 999px; background: rgb(255, 145, 0);"></span>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0px;">
+                  <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Xpert tip</span>
+                  <span style="font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Think about who your tenant will be before you choose the property, not after.</span></span>
+                </div>
+              </div>
+            
+            
+          </section>
+        
+          <section id="advice" data-chapter="advice" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Chapter 08</span></span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Get the right advice</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Good investments start with the right information. Our multilingual team gives tailored recommendations based on your budget, goals and timeline, whether this is your first property or one of many.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">We stay with you from the first shortlist to handover and beyond.</span></p>
+            
+            
+            
+            
+          </section>
+        
+
+        <section id="ask" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px; padding-top: clamp(24px, 3vw, 40px); border-top: 1px solid var(--line);">
+          <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Ask an Xpert about investing</span></h2>
+          <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: var(--muted);">Pick a question or write your own. It opens WhatsApp with your message ready to send.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">Which areas have the best yields?</span></button>
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">Should I buy ready or off-plan?</span></button>
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">How do I qualify for a golden visa?</span></button>
+            
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Your question</span>
+            <textarea rows="3" placeholder="Type your question…" style="padding: 14px 16px; border-radius: 8px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-family: inherit; font-size: 16px; line-height: 1.5; resize: vertical;"></textarea>
+          </label>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <a href="https://wa.me/971565467991?text=Hi%2C%20I'm%20reading%20the%20XR%20Investors%20guide.%20Could%20an%20Xpert%20help%20me%3F" class="scp7" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 600;">Send on WhatsApp</a>
+            <a href="tel:+971564080888" class="scp5" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0px 24px; border-radius: 999px; border: 1px solid var(--line2); color: var(--ink); font-size: 15px; font-weight: 600;"><span class="sc-interp">Call a specialist</span></a>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <section data-screen-label="Keep reading" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px);">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px;">
+        <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.6vw, 50px); line-height: 1;">Keep reading</h2>
+        <a href="guides.html" style="font-size: 15px; font-weight: 600; border-bottom: 1px solid; padding-bottom: 4px;"><span class="sc-interp">All guides</span> →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0px clamp(24px, 4vw, 56px);">
+        
+          <a href="guide?g=off-plan" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Off-plan buyers</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">Buying off-plan in Dubai</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+          <a href="guide?g=buying" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Buyers</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">Buying property in Dubai</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+          <a href="guide?g=landlords" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Landlords</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">Renting out your property</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+      </div>
+    </section>
+  </main>
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 64px) 32px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 36px 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 44px; width: auto; align-self: flex-start;">
+          <p style="margin: 0px; max-width: 34ch; font-size: 14px; line-height: 1.6;">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
+        </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Explore</span></span>
+            
+              <a href="search.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Properties</span></a>
+            
+              <a href="community" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Communities</span></a>
+            
+              <a href="developers" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Developers</span></a>
+            
+              <a href="rent.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Rent a home</span></a>
+            
+              <a href="compare.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Shortlist &amp; compare</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Popular searches</span></span>
+            
+              <a href="search.html?budget=mid" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Homes AED 1.25M – 2M</span></a>
+            
+              <a href="search.html?type=Villa" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Villas for sale</span></a>
+            
+              <a href="search.html?community=creek-harbour" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Creek Harbour</span></a>
+            
+              <a href="search.html?budget=gv" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Golden Visa homes (AED 2M – 5M)</span></a>
+            
+              <a href="search.html?budget=lux" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Luxury AED 5M+</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Learn</span></span>
+            
+              <a href="guides.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Guides</span></a>
+            
+              <a href="insights.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Insights</span></a>
+            
+              <a href="faqs.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai FAQs</span></a>
+            
+              <a href="living" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai living</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Company</span></span>
+            
+              <a href="about.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">About XR</span></a>
+            
+              <a href="sell.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Sell with XR</span></a>
+            
+              <a href="team.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">XR Team</span></a>
+            
+              <a href="careers.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Careers</span></a>
+            
+              <a href="contact.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Contact us</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Visit us</span></span>
+            
+              <a href="tel:+971564080888" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">+971 5 640 80888</span></a>
+            
+              <a href="mailto:info@xrealty.ae" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">info@xrealty.ae</span></a>
+            
+              <a href="https://maps.app.goo.gl/ChpufZ9MafTGmcc47" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Hills Estate, Dubai</span></a>
+            
+          </div>
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 13px;">
+        <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+          
+            <a href="https://www.youtube.com/@xrealtyae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">YouTube</span></a>
+          
+            <a href="https://www.instagram.com/xperience.realty" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">Instagram</span></a>
+          
+            <a href="https://www.linkedin.com/company/xrealty-ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">LinkedIn</span></a>
+          
+            <a href="https://x.com/xrealty_ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">X</span></a>
+          
+        </div>
+      </div>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 600; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">Call</span></a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">WhatsApp</span></a>
+      <a href="#ask" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;"><span class="sc-interp">Enquire</span></a>
+    </div>
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">

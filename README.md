@@ -28,6 +28,8 @@ Pages in `templates/` aren't deployed directly. `python3 tools/build_seo.py` gen
 python3 tools/build_seo.py
 ```
 
+The build also runs `tools/prerender.py`, which renders every page in headless Google Chrome (at phone size) and embeds the result as a static snapshot, so the content is in the HTML before any JavaScript runs. `support.js` swaps the snapshot for the live page once it has rendered. It takes about a minute; add `--no-prerender` to skip it while experimenting, but run the full build before pushing.
+
 Canonical URLs and the sitemap use `https://www.xrealty.ae` (`SITE` at the top of the script). Every `*.vercel.app` address sends `X-Robots-Tag: noindex`, so the staging site stays out of search results until the real domain is connected.
 
 ## Run locally

@@ -20,8 +20,330 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="insights"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 50; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="xr-lang-btn" type="button" aria-label="التبديل إلى العربية" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font: 600 15px &quot;IBM Plex Sans Arabic&quot;, &quot;Hanken Grotesk&quot;, sans-serif; cursor: pointer;">ع</button><button aria-label="Switch to light mode" title="Switch to light mode" class="scp1" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+
+  <section data-screen-label="Insights header" style="max-width: 1360px; margin: 0px auto; padding: clamp(40px, 5vw, 72px) clamp(20px, 5vw, 64px) 0px; display: flex; flex-direction: column; gap: 18px;">
+    <nav aria-label="Breadcrumb" style="display: flex; gap: 8px; font-size: 13px; color: var(--muted);">
+      <a href="index.html" class="scp3" style="color: var(--muted);">Home</a><span aria-hidden="true">/</span><span style="color: var(--ink);">Insights</span>
+    </nav>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px;">
+      <h1 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(46px, 6.4vw, 96px); line-height: 0.95; letter-spacing: -0.02em;">Dubai property <em style="color: rgb(255, 145, 0);">insights.</em></h1>
+      <p style="margin: 0px; max-width: 42ch; font-size: 16px; line-height: 1.6; color: var(--muted);">Market data, buyer advice and new launches — written by the XR research team.</p>
+    </div>
+  </section>
+
+  
+    <section data-screen-label="Featured article" style="max-width: 1360px; margin: 0px auto; padding: clamp(28px, 3.4vw, 48px) clamp(20px, 5vw, 64px) 0px;">
+      <a class="xr-zc scp3" href="blog?b=where-to-buy-dubai-five-buyer-priorities" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(24px, 4vw, 56px); align-items: center; color: var(--ink);">
+        <span style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+          <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024664/xr_media/hf14iqghcjyalcrgr8rv.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024664/xr_media/hf14iqghcjyalcrgr8rv.webp" alt="Where to buy in Dubai in 2026: five areas for different buyer priorities" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0px 12px; border-radius: 999px; background: rgba(10, 10, 10, 0.78); color: rgb(255, 255, 255); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0);"></span>Latest</span>
+        </span>
+        <span style="display: flex; flex-direction: column; gap: 16px;">
+          <span style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Market</span></span><span><span class="sc-interp">Sep 29, 2026</span></span><span><span class="sc-interp">6 min read</span></span></span>
+          <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(34px, 3.8vw, 56px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Where to buy in Dubai in 2026: five areas for different buyer priorities</span></span>
+          <span style="font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Five Dubai locations for end users, long-term growth buyers and income-focused investors.</span></span>
+          <span style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 4px; padding-top: 16px; border-top: 1px solid var(--line);">
+            <span style="display: flex; align-items: center; gap: 10px;">
+              <img loading="lazy" decoding="async" src="https://media.xrealty.ae/large_Tarun_sharma_8ea57a02a7.webp" alt="" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover; object-position: center top;">
+              <span style="display: flex; flex-direction: column; font-size: 13px;"><span style="font-weight: 700;">Tarun Sharma</span><span style="color: var(--muted);">Director, Research &amp; Strategy</span></span>
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;">Read article<span aria-hidden="true" style="color: rgb(255, 145, 0);">→</span></span>
+          </span>
+        </span>
+      </a>
+    </section>
+  
+
+  <section id="articles" data-screen-label="Articles" style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 5vw, 64px) 0px; scroll-margin-top: 80px;">
+    <div style="position: static; top: 72px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 14px 0px; margin-bottom: 24px; background: var(--bg); border-bottom: 1px solid var(--line);">
+      <div role="tablist" aria-label="Category" style="display: flex; gap: 8px; overflow-x: auto; padding: 2px; margin: -2px; scrollbar-width: none; flex: 1 1 auto; min-width: 0px;">
+        
+          
+            <button role="tab" aria-selected="true" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer;"><span class="sc-interp">All</span><span style="font-size: 12px; opacity: 0.7;"><span class="sc-interp">12</span></span></button>
+          
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Market</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">5</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Investing</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">2</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Buying</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">2</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Communities</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">New launches</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+          
+          
+            <button role="tab" aria-selected="false" class="scp4" style="flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 18px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer;"><span class="sc-interp">Lifestyle</span><span style="font-size: 12px; color: var(--muted);"><span class="sc-interp">1</span></span></button>
+          
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; flex: 0 1 auto;">
+      <label style="position: relative; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0px 16px; border-radius: 999px; border: 1px solid var(--line2); font-size: 14px; flex-shrink: 0;">
+        <span style="color: var(--muted);">Sort</span>
+        <select data-v="new" aria-label="Sort articles" style="appearance: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; font-size: 14px; font-weight: 600; color: var(--ink); padding-right: 18px; cursor: pointer; font-family: inherit;">
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+          <option value="short">Quick reads</option>
+        </select>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" style="position: absolute; right: 16px; pointer-events: none; color: var(--muted);"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4"></path></svg>
+      </label>
+      <label style="position: relative; display: flex; align-items: center; flex: 1 1 240px; height: 44px; border-radius: 999px; border: 1px solid var(--line2); background: var(--bg);">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-left: 16px; flex-shrink: 0; color: var(--muted);"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+        <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Search articles</span>
+        <input type="search" placeholder="Search articles" value="" style="flex: 1 1 0%; min-width: 0px; height: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; padding: 0px 16px 0px 10px; font-size: 15px; color: var(--ink); border-radius: 999px;">
+      </label>
+      </div>
+    </div>
+    <span aria-live="polite" style="display: block; margin-bottom: 24px; font-size: 14px; color: var(--muted);"><span class="sc-interp">12 articles</span></span>
+
+    
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: clamp(36px, 4vw, 56px) clamp(20px, 2.4vw, 32px);">
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=why-dubai-real-estate-is-resilient" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024607/xr_media/fhn0x36pa0lu8qrw3qjf.webp" alt="What makes Dubai so resilient?" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Market</span></span><time><span class="sc-interp">Sep 9, 2026</span></time><span><span class="sc-interp">5 min read</span></span></span>
+            <a href="blog?b=why-dubai-real-estate-is-resilient" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">What makes Dubai so resilient?</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Population growth, investor demand, infrastructure and a strong economy — why the market holds.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=why-invest-in-dubai-creek-harbour" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="Why Dubai Creek Harbour is set to become a property hotspot" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Communities</span></span><time><span class="sc-interp">Aug 15, 2026</span></time><span><span class="sc-interp">6 min read</span></span></span>
+            <a href="blog?b=why-invest-in-dubai-creek-harbour" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Why Dubai Creek Harbour is set to become a property hotspot</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">100% freehold, prime location, new Emaar launches and the upcoming Metro Blue Line.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=real-estate-vs-stocks-where-to-invest" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592835/xr_media/v26qtyo0vqwehgevvc4h.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592835/xr_media/v26qtyo0vqwehgevvc4h.webp" alt="Real estate vs stocks: where does money actually grow in Dubai?" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Investing</span></span><time><span class="sc-interp">Apr 30, 2026</span></time><span><span class="sc-interp">7 min read</span></span></span>
+            <a href="blog?b=real-estate-vs-stocks-where-to-invest" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Real estate vs stocks: where does money actually grow in Dubai?</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Comparing returns, risk and liquidity between Dubai property and equities.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=dubai-real-estate-2026-dfm-crash" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp" alt="Dubai real estate after the DFM crash: what the data actually shows" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Market</span></span><time><span class="sc-interp">Apr 18, 2026</span></time><span><span class="sc-interp">6 min read</span></span></span>
+            <a href="blog?b=dubai-real-estate-2026-dfm-crash" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Dubai real estate after the DFM crash: what the data actually shows</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">The DFM real estate index fell sharply in two weeks — but Q1 2026 transaction data tells a different story.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=dubai-real-estate-market-outlook-will-sales-slow-down" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592590/xr_media/xljqzm8fduxygd9lmhvy.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592590/xr_media/xljqzm8fduxygd9lmhvy.webp" alt="Dubai real estate market outlook: will sales slow down?" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Market</span></span><time><span class="sc-interp">Mar 3, 2026</span></time><span><span class="sc-interp">5 min read</span></span></span>
+            <a href="blog?b=dubai-real-estate-market-outlook-will-sales-slow-down" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Dubai real estate market outlook: will sales slow down?</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Why Dubai property is likely to stay resilient and act as a regional safe haven.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=top-investors-buying-property-in-dubai" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024589/xr_media/azldwpnaxgzt1hcqt9xi.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024589/xr_media/azldwpnaxgzt1hcqt9xi.webp" alt="What are the top 5% of investors buying in Dubai?" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Investing</span></span><time><span class="sc-interp">Feb 16, 2026</span></time><span><span class="sc-interp">5 min read</span></span></span>
+            <a href="blog?b=top-investors-buying-property-in-dubai" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">What are the top 5% of investors buying in Dubai?</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Why elite investors choose off-plan, luxury villas and land — and what drives long-term value.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=dubai-polo-2026-elite-sports-meets-strategic-real-estate" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp" alt="Dubai Polo Gold Cup 2026: where elite sport meets strategic real estate" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Lifestyle</span></span><time><span class="sc-interp">Feb 15, 2026</span></time><span><span class="sc-interp">4 min read</span></span></span>
+            <a href="blog?b=dubai-polo-2026-elite-sports-meets-strategic-real-estate" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Dubai Polo Gold Cup 2026: where elite sport meets strategic real estate</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Polo-centric communities like Emaar Grand Polo Club are drawing global HNI investors.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=shahrukhz-by-danube-invest-in-commercial-spaces" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" alt="Shahrukhz by Danube: commercial offices for sale" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">New launches</span></span><time><span class="sc-interp">Feb 14, 2026</span></time><span><span class="sc-interp">4 min read</span></span></span>
+            <a href="blog?b=shahrukhz-by-danube-invest-in-commercial-spaces" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Shahrukhz by Danube: commercial offices for sale</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Offices on Sheikh Zayed Road with premium amenities and a 70/30 payment plan.</span></p>
+          </article>
+        
+          <article style="display: flex; flex-direction: column; gap: 14px;">
+            <a class="xr-zc" href="blog?b=common-mistakes-to-avoid-investing-dubai-real-estate" tabindex="-1" aria-hidden="true" style="position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--img);">
+              <img class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592664/xr_media/eegv6rcdfjm5wmzsyfad.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592664/xr_media/eegv6rcdfjm5wmzsyfad.webp" alt="Common mistakes to avoid before investing in Dubai real estate" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </a>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; font-weight: 600; color: var(--muted);"><span style="color: var(--ink); text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; font-weight: 700;"><span class="sc-interp">Buying</span></span><time><span class="sc-interp">Feb 14, 2026</span></time><span><span class="sc-interp">6 min read</span></span></span>
+            <a href="blog?b=common-mistakes-to-avoid-investing-dubai-real-estate" class="scp5" style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(25px, 2.1vw, 30px); line-height: 1.1; color: var(--ink); text-wrap: balance;"><span class="sc-interp">Common mistakes to avoid before investing in Dubai real estate</span></a>
+            <p style="margin: 0px; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">The costly errors investors make — and how the right advisor helps you avoid them.</span></p>
+          </article>
+        
+      </div>
+    
+    
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: clamp(36px, 4vw, 56px);">
+      
+        <button class="scp6" style="height: 52px; padding: 0px 28px; border-radius: 999px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer;">Load more articles</button>
+      
+      <span style="font-size: 13px; color: var(--muted);"><span class="sc-interp">Showing 10 of 12</span></span>
+    </div>
+    <a href="guides.html" class="scp3" style="margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 20px; align-items: center; padding: clamp(22px, 3vw, 32px) 0px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink);">
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Prefer step by step?</span>
+        <span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.1;">Buyer, seller, investor and off-plan guides — plus fee, mortgage and visa calculators.</span>
+      </span>
+      <span style="width: 52px; height: 52px; border-radius: 999px; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; color: rgb(255, 145, 0);">
+        <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+      </span>
+    </a>
+  </section>
+
+  <section id="subscribe" data-screen-label="Subscribe" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px); scroll-margin-top: 80px;">
+    <div style="border-radius: 12px; background: radial-gradient(90% 120% at 100% 0%, rgba(255, 145, 0, 0.18), rgba(255, 145, 0, 0) 55%), linear-gradient(115deg, rgba(10, 10, 10, 0.95) 25%, rgba(10, 10, 10, 0.82) 70%, rgba(10, 10, 10, 0.7)), url(&quot;https://res.cloudinary.com/dkhns25jh/image/upload/w_1800,f_auto,q_auto/v1783592656/xr_media/xgid55zsix2nhwyqaa1u.webp&quot;) center center / cover no-repeat, rgb(10, 10, 10); box-shadow: rgba(255, 145, 0, 0.22) 0px 0px 0px 1px inset; color: rgb(255, 255, 255); padding: clamp(32px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(24px, 4vw, 64px); align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(189, 189, 189);">The XR Brief · monthly</span>
+        <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(34px, 4.2vw, 58px); line-height: 1; letter-spacing: -0.015em; text-wrap: balance;">The Dubai market, <em style="color: rgb(255, 145, 0);">in five minutes.</em></h2>
+        <p style="margin: 0px; max-width: 46ch; font-size: 16px; line-height: 1.6; color: rgb(189, 189, 189);">Transaction data, new launches and one clear take — straight to your inbox.</p>
+      </div>
+      
+        <form novalidate="" style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <label style="flex: 1 1 240px; display: flex;"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Email address</span>
+              <input type="email" autocomplete="email" placeholder="Your email address" value="" style="flex: 1 1 0%; min-width: 0px; height: 56px; padding: 0px 22px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font-size: 15px;">
+            </label>
+            <button type="submit" class="scp7" style="height: 56px; padding: 0px 28px; border-radius: 999px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 15px; font-weight: 600; cursor: pointer;">Subscribe</button>
+          </div>
+          
+          <span style="font-size: 13px; color: rgb(189, 189, 189);">No spam. Unsubscribe any time.</span>
+        </form>
+      
+      
+    </div>
+  </section>
+
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 40px clamp(20px, 5vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; font-size: 13px;">
+      <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto;">
+      <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp8" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp8" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp8" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp8" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 60; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;">Call</a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;">WhatsApp</a>
+      <a href="#subscribe" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;">Subscribe</a>
+    </div>
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">

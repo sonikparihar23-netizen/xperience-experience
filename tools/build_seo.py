@@ -10,13 +10,14 @@ It:
     own head block, so link previews and crawlers that don't run JavaScript see the right
     title, description and image (edit templates/*.html, never s/*.html)
   * writes sitemap.xml and robots.txt
+  * runs tools/prerender.py so each page's content is in its HTML (skip: --no-prerender)
   * updates vercel.json: rewrites (/blog?b=x serves s/blog-x.html, the address bar
     doesn't change), redirects for old .html links, and X-Robots-Tag: noindex on
     *.vercel.app so only the real domain is indexed
 
 Data comes from xr-data.js and xr-content.js via tools/export_data.js (macOS osascript).
 """
-import datetime, html, json, os, re, subprocess
+import datetime, html, json, os, re, subprocess, sys
 
 SITE = 'https://www.xrealty.ae'          # production domain used for canonical URLs and the sitemap
 STAGING_HOST = 'xrealty123.vercel.app'   # kept out of search results
@@ -225,6 +226,9 @@ def main():
     with open(vp, 'w') as fh:
         fh.write(json.dumps(v, indent=2) + '\n')
     print(f'{len(pages)} pages, {len(items)} item copies in s/, {len(sitemap)} sitemap URLs')
+    # Snapshot every page into its HTML (needs Google Chrome; skip with --no-prerender)
+    if '--no-prerender' not in sys.argv:
+        subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'prerender.py')], check=True)
 
 
 if __name__ == '__main__':

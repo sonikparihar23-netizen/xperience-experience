@@ -20,8 +20,317 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
+html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="community"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 500; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="scp1" aria-label="View in Arabic" title="View in Arabic" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font-size: 13px; font-weight: 600; cursor: pointer;"><span class="sc-interp">عربي</span></button>
+        <button class="scp1" aria-label="Switch to light mode" title="Switch to light mode" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        <a href="compare.html" class="scp1" aria-label="Shortlist, empty" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          
+        </a>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+  <main>
+    
+
+    
+      <section data-screen-label="Community hero" style="position: relative; min-height: clamp(420px, 62vh, 620px); display: flex; align-items: flex-end; background: rgb(26, 26, 26); overflow: hidden;">
+        <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.35) 55%, rgba(10, 10, 10, 0.1) 100%), linear-gradient(rgba(10, 10, 10, 0.2) 40%, rgba(10, 10, 10, 0.85) 100%);"></div>
+        <div style="position: relative; max-width: 1360px; width: 100%; margin: 0px auto; padding: clamp(96px, 10vw, 140px) clamp(20px, 5vw, 64px) clamp(28px, 4vw, 48px); color: rgb(255, 255, 255); display: flex; flex-direction: column; gap: 16px;">
+          <nav aria-label="Breadcrumb" style="display: flex; gap: 8px; font-size: 13px; color: rgb(230, 230, 230);"><a href="community" style="color: rgb(230, 230, 230);"><span class="sc-interp">Communities</span></a><span aria-hidden="true">/</span><span><span class="sc-interp">MBR City</span></span></nav>
+          <h1 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(46px, 6.4vw, 96px); line-height: 0.95; letter-spacing: -0.02em; text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 24px;"><span class="sc-interp">MBR City</span></h1>
+          <p style="margin: 0px; font-size: clamp(17px, 1.5vw, 20px); color: rgb(230, 230, 230);"><span class="sc-interp">Green, central and well connected</span></p>
+        </div>
+      </section>
+
+      <section aria-label="Key figures" style="border-bottom: 1px solid var(--line);">
+        <dl style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));">
+          
+            <div style="padding: 24px 20px 24px 0px; display: flex; flex-direction: column-reverse; gap: 6px;">
+              <dt style="font-size: 13px; color: var(--muted);"><span class="sc-interp">Entry price (approx.)</span></dt>
+              <dd style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(32px, 3.2vw, 46px); line-height: 1;"><span class="sc-interp">AED 1.2M</span></dd>
+            </div>
+          
+            <div style="padding: 24px 20px 24px 0px; display: flex; flex-direction: column-reverse; gap: 6px;">
+              <dt style="font-size: 13px; color: var(--muted);"><span class="sc-interp">Avg. price / sq ft</span></dt>
+              <dd style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(32px, 3.2vw, 46px); line-height: 1;"><span class="sc-interp">AED 2,100</span></dd>
+            </div>
+          
+            <div style="padding: 24px 20px 24px 0px; display: flex; flex-direction: column-reverse; gap: 6px;">
+              <dt style="font-size: 13px; color: var(--muted);"><span class="sc-interp">Gross rental yield</span></dt>
+              <dd style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(32px, 3.2vw, 46px); line-height: 1;"><span class="sc-interp">6.5%</span></dd>
+            </div>
+          
+            <div style="padding: 24px 20px 24px 0px; display: flex; flex-direction: column-reverse; gap: 6px;">
+              <dt style="font-size: 13px; color: var(--muted);"><span class="sc-interp">Ownership</span></dt>
+              <dd style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-size: clamp(32px, 3.2vw, 46px); line-height: 1;"><span class="sc-interp">Freehold</span></dd>
+            </div>
+          
+        </dl>
+      </section>
+
+      <section style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 5vw, 64px) 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(32px, 5vw, 80px); align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(34px, 4vw, 56px); line-height: 1;">Living in <span class="sc-interp">MBR City</span></h2>
+          <p style="margin: 0px; max-width: 60ch; font-size: 17px; line-height: 1.7; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Mohammed Bin Rashid City spans parks, lagoons and family communities minutes from Downtown.</span></p>
+          <ul style="list-style: none; margin: 0px; padding: 0px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px;">
+            
+              <li style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 8px; background: var(--soft); font-size: 15px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0); flex-shrink: 0;"></span><span class="sc-interp">Crystal Lagoon</span></li>
+            
+              <li style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 8px; background: var(--soft); font-size: 15px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0); flex-shrink: 0;"></span><span class="sc-interp">Meydan racecourse</span></li>
+            
+              <li style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 8px; background: var(--soft); font-size: 15px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0); flex-shrink: 0;"></span><span class="sc-interp">Large parks</span></li>
+            
+              <li style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 8px; background: var(--soft); font-size: 15px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 999px; background: rgb(255, 145, 0); flex-shrink: 0;"></span><span class="sc-interp">Top schools nearby</span></li>
+            
+          </ul>
+          <div style="display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+            <span style="padding: 16px 0px 4px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Drive times</span>
+            
+              <div style="display: flex; justify-content: space-between; padding: 12px 0px; border-bottom: 1px solid var(--line); font-size: 15px;"><span><span class="sc-interp">Downtown Dubai</span></span><strong><span class="sc-interp">10 min</span></strong></div>
+            
+              <div style="display: flex; justify-content: space-between; padding: 12px 0px; border-bottom: 1px solid var(--line); font-size: 15px;"><span><span class="sc-interp">DXB Airport</span></span><strong><span class="sc-interp">15 min</span></strong></div>
+            
+              <div style="display: flex; justify-content: space-between; padding: 12px 0px; border-bottom: 1px solid var(--line); font-size: 15px;"><span><span class="sc-interp">Business Bay</span></span><strong><span class="sc-interp">10 min</span></strong></div>
+            
+          </div>
+        </div>
+        <div role="region" aria-label="Map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="height: clamp(340px, 40vw, 520px); border-radius: 12px; overflow: hidden; background: var(--img); z-index: 0; position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 16; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3503/5354" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(69px, -55px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3504/5354" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(69px, 201px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3503/5353" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-187px, -55px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3503/5355" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(325px, -55px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3504/5353" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-187px, 201px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/13/3504/5355" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(325px, 201px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(225px, 170px, 0px); z-index: 170;"><div style="width:18px;height:18px;border-radius:999px;background:#FF9100;border:3px solid #fff;box-shadow:0 0 0 6px rgba(255,145,0,.25)"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: 0px; margin-top: -9px; width: 0px; height: 18px; transform: translate3d(225px, 170px, 0px); z-index: 170;"><div style="transform:translate(-50%,-100%);white-space:nowrap;background:#0A0A0A;color:#fff;font:600 12px 'Hanken Grotesk',sans-serif;padding:6px 10px;border-radius:999px;border:2px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.3)">AED 1.9M</div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.37078e+06px, 896993px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> Tiles © Esri</div></div></div></div>
+      </section>
+
+      <section style="max-width: 1360px; margin: 0px auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 64px) 0px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 28px;">
+          <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(34px, 4vw, 56px); line-height: 1;">Projects in <span class="sc-interp">MBR City</span></h2>
+          <a href="search.html?community=mbr-city" style="font-size: 15px; font-weight: 600; border-bottom: 1px solid; padding-bottom: 4px;">Search this area →</a>
+        </div>
+        
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 28px 20px;">
+            
+              <a class="xr-zc scp4" href="property?p=everly" style="display: flex; flex-direction: column; gap: 12px; color: var(--ink);">
+                <span style="display: block; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: var(--img);"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1786024596/xr_media/tng4fvgqeipawfjdsdh3.webp" alt="Everly Place by Ellington" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span>
+                <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Ellington Properties</span></span>
+                <span style="font-size: 18px; font-weight: 600; line-height: 1.25;"><span class="sc-interp">Everly Place by Ellington</span></span>
+                <span style="font-size: 14px; color: var(--muted);"><span class="sc-interp">1 BR – 3 BR</span> · <span class="sc-interp">From</span> <strong style="color: var(--ink);"><span class="sc-interp">AED 1,900,000</span></strong></span>
+              </a>
+            
+          </div>
+        
+        
+      </section>
+
+      <section style="max-width: 1360px; margin: 0px auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 64px);">
+        <div style="border-radius: 12px; background: radial-gradient(90% 120% at 100% 0%, rgba(255, 145, 0, 0.18), rgba(255, 145, 0, 0) 55%), linear-gradient(115deg, rgba(10, 10, 10, 0.95) 25%, rgba(10, 10, 10, 0.82) 70%, rgba(10, 10, 10, 0.7)), url(&quot;https://res.cloudinary.com/dkhns25jh/image/upload/w_1800,f_auto,q_auto/v1786024547/xr_media/c6shcktnp8peisklmv1u.webp&quot;) center center / cover no-repeat, rgb(10, 10, 10); box-shadow: rgba(255, 145, 0, 0.22) 0px 0px 0px 1px inset; color: rgb(255, 255, 255); padding: clamp(28px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(189, 189, 189);">Area specialists</span>
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.6vw, 50px); line-height: 1;">Talk to someone who <em style="color: rgb(255, 145, 0);">knows <span class="sc-interp">MBR City</span>.</em></h2>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+            
+              <a href="https://wa.me/971554508979" class="scp6" style="display: flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); color: rgb(255, 255, 255);">
+                <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://media.xrealty.ae/large_Rakhi_72f9cbb2de.webp" src="https://media.xrealty.ae/large_Rakhi_72f9cbb2de.webp" alt="Rakhi Megchiani" style="width: 44px; height: 44px; border-radius: 999px; object-fit: cover; object-position: center top; background: rgb(38, 38, 38);">
+                <span style="display: flex; flex-direction: column;"><span style="font-size: 15px; font-weight: 600;"><span class="sc-interp">Rakhi Megchiani</span></span><span style="font-size: 12px; color: rgb(189, 189, 189);">WhatsApp · <span class="sc-interp">English, Hindi</span></span></span>
+              </a>
+            
+              <a href="https://wa.me/971529270836" class="scp6" style="display: flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); color: rgb(255, 255, 255);">
+                <img loading="lazy" decoding="async" class="xr-lazy" data-src="https://media.xrealty.ae/large_asma_5bce8500d7.webp" src="https://media.xrealty.ae/large_asma_5bce8500d7.webp" alt="Asmaa Zerroukat" style="width: 44px; height: 44px; border-radius: 999px; object-fit: cover; object-position: center top; background: rgb(38, 38, 38);">
+                <span style="display: flex; flex-direction: column;"><span style="font-size: 15px; font-weight: 600;"><span class="sc-interp">Asmaa Zerroukat</span></span><span style="font-size: 12px; color: rgb(189, 189, 189);">WhatsApp · <span class="sc-interp">French, Arabic, English</span></span></span>
+              </a>
+            
+          </div>
+        </div>
+      </section>
+    
+  </main>
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 64px) 32px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 36px 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 44px; width: auto; align-self: flex-start;">
+          <p style="margin: 0px; max-width: 34ch; font-size: 14px; line-height: 1.6;">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
+        </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Explore</span></span>
+            
+              <a href="search.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Properties</span></a>
+            
+              <a href="community" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Communities</span></a>
+            
+              <a href="developers" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Developers</span></a>
+            
+              <a href="rent.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Rent a home</span></a>
+            
+              <a href="compare.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Shortlist &amp; compare</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Popular searches</span></span>
+            
+              <a href="search.html?budget=mid" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Homes AED 1.25M – 2M</span></a>
+            
+              <a href="search.html?type=Villa" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Villas for sale</span></a>
+            
+              <a href="search.html?community=creek-harbour" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Creek Harbour</span></a>
+            
+              <a href="search.html?budget=gv" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Golden Visa homes (AED 2M – 5M)</span></a>
+            
+              <a href="search.html?budget=lux" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Luxury AED 5M+</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Learn</span></span>
+            
+              <a href="guides.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Guides</span></a>
+            
+              <a href="insights.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Insights</span></a>
+            
+              <a href="faqs.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai FAQs</span></a>
+            
+              <a href="living" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai living</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Company</span></span>
+            
+              <a href="about.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">About XR</span></a>
+            
+              <a href="sell.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Sell with XR</span></a>
+            
+              <a href="team.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">XR Team</span></a>
+            
+              <a href="careers.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Careers</span></a>
+            
+              <a href="contact.html" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Contact us</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Visit us</span></span>
+            
+              <a href="tel:+971564080888" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">+971 5 640 80888</span></a>
+            
+              <a href="mailto:info@xrealty.ae" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">info@xrealty.ae</span></a>
+            
+              <a href="https://maps.app.goo.gl/ChpufZ9MafTGmcc47" class="scp7" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Hills Estate, Dubai</span></a>
+            
+          </div>
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 13px;">
+        <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp7" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp7" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp7" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp7" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+          
+            <a href="https://www.youtube.com/@xrealtyae" class="scp7" style="color: rgb(189, 189, 189);"><span class="sc-interp">YouTube</span></a>
+          
+            <a href="https://www.instagram.com/xperience.realty" class="scp7" style="color: rgb(189, 189, 189);"><span class="sc-interp">Instagram</span></a>
+          
+            <a href="https://www.linkedin.com/company/xrealty-ae" class="scp7" style="color: rgb(189, 189, 189);"><span class="sc-interp">LinkedIn</span></a>
+          
+            <a href="https://x.com/xrealty_ae" class="scp7" style="color: rgb(189, 189, 189);"><span class="sc-interp">X</span></a>
+          
+        </div>
+      </div>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 600; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">Call</span></a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">WhatsApp</span></a>
+      <a href="contact.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;"><span class="sc-interp">Enquire</span></a>
+    </div>
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">

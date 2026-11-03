@@ -173,6 +173,26 @@
     const hostEl = doc.createElement("div");
     hostEl.id = "dc-root";
     dc.replaceWith(hostEl);
+    // Pre-rendered snapshot (tools/prerender.py): keep it on screen while the live page renders
+    // hidden but laid out (so measurements work), then swap the two in one frame once the live page has caught up.
+    const pre = doc.getElementById("xr-prerender");
+    if (pre) {
+      pre.parentNode.insertBefore(hostEl, pre);
+      hostEl.style.cssText = "position:absolute;top:0;left:0;width:100%;visibility:hidden";
+      const want = Math.min(pre.textContent.replace(/\s+/g, "").length * 0.6, 400), t0 = Date.now();
+      const swap = () => {
+        hostEl.style.cssText = "";
+        pre.remove();
+        const css = doc.getElementById("xr-prerender-css");
+        if (css) css.remove();
+      };
+      const check = () => {
+        if (!pre.isConnected) return;
+        if (hostEl.textContent.replace(/\s+/g, "").length >= want || Date.now() - t0 > 2500) requestAnimationFrame(swap);
+        else setTimeout(check, 40);
+      };
+      setTimeout(check, 0);
+    }
     if (!parsed.preview) {
       const s = doc.createElement("style");
       s.textContent = FULL_PAGE_CSS;

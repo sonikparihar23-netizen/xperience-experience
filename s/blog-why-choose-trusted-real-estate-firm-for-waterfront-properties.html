@@ -20,8 +20,447 @@
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
+<!-- prerender:start -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@400;600&amp;display=swap" rel="stylesheet" data-dc-tpl="2">
+<style id="xr-prerender-css">
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+
+html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}
+
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk','Noto Kufi Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Hanken Grotesk',system-ui,sans-serif}
+html[dir="rtl"] :is(h1,h2,h3,p,span,a,li,dt,dd,label,strong,em,button,td,th,time,legend,option){unicode-bidi:plaintext}
+*{box-sizing:border-box}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--muted)}
+input,button,select,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.leaflet-container{font-family:'Hanken Grotesk',sans-serif;background:var(--img)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
+
+:is(.xr-zoom,[classname~="xr-zoom"]){transition:transform .6s cubic-bezier(.2,.6,.2,1)}@media (hover:hover){:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]),:is(.xr-zc,[classname~="xr-zc"]):focus-visible :is(.xr-zoom,[classname~="xr-zoom"]){transform:scale(1.06)}}@media (prefers-reduced-motion:reduce){:is(.xr-zoom,[classname~="xr-zoom"]){transition:none}:is(.xr-zc,[classname~="xr-zc"]):hover :is(.xr-zoom,[classname~="xr-zoom"]){transform:none}}</style>
+<!-- prerender:end -->
 </head>
 <body>
+<div id="xr-prerender"><div class="sc-host" data-sc-name="blog"><div style="min-height: 100vh; background: var(--bg); color: var(--ink);">
+  <header style="position: sticky; top: 0px; z-index: 500; background: rgba(10, 10, 10, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: 0px clamp(20px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="index.html" aria-label="Xperience Realty home" style="display: flex; flex-shrink: 0;">
+        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 36px; width: auto; display: block;">
+      </a>
+      
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="scp1" aria-label="View in Arabic" title="View in Arabic" style="min-width: 44px; height: 44px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: rgb(255, 255, 255); font-size: 13px; font-weight: 600; cursor: pointer;"><span class="sc-interp">عربي</span></button>
+        <button class="scp1" aria-label="Switch to light mode" title="Switch to light mode" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+          
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
+          
+          
+        </button>
+        <a href="compare.html" class="scp1" aria-label="Shortlist, empty" style="position: relative; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"></path></svg>
+          
+        </a>
+        
+        
+          <button aria-label="Menu" aria-expanded="false" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 5H16M2 9H16M2 13H16" stroke="currentColor" stroke-width="1.6"></path></svg>
+          </button>
+        
+      </div>
+    </div>
+    
+  </header>
+  <main>
+
+    
+    <div id="xr-progress" aria-hidden="true" style="position: fixed; left: 0px; right: 0px; top: 72px; height: 3px; background: rgb(255, 145, 0); transform: scaleX(0); transform-origin: 0px 50%; z-index: 499; pointer-events: none;"></div>
+    <section data-screen-label="Article hero" style="position: relative; background: rgb(26, 26, 26); color: rgb(255, 255, 255); overflow: hidden;">
+      <img src="https://res.cloudinary.com/dkhns25jh/image/upload/w_1400,f_auto,q_auto/v1783592577/xr_media/wvi2lddsjau1ya5kmihm.webp" alt="" fetchpriority="high" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.65) 50%, rgba(10, 10, 10, 0.3) 100%), linear-gradient(rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.75));"></div>
+      <div style="position: relative; max-width: 1360px; margin: 0px auto; padding: clamp(56px, 8vw, 120px) clamp(20px, 5vw, 64px) clamp(40px, 5vw, 64px); display: flex; flex-direction: column; gap: 22px;">
+        <nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: rgb(214, 214, 214);">
+          <a href="index.html" class="scp3" style="color: rgb(214, 214, 214);">Home</a><span aria-hidden="true">/</span>
+          <a href="insights.html" class="scp3" style="color: rgb(214, 214, 214);"><span class="sc-interp">Insights</span></a><span aria-hidden="true">/</span>
+          <span style="color: rgb(255, 255, 255);"><span class="sc-interp">Buying</span></span>
+        </nav>
+        <span style="align-self: flex-start; display: inline-flex; align-items: center; height: 28px; padding: 0px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.4); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;"><span class="sc-interp">Buying</span></span>
+        <h1 style="margin: 0px; max-width: 18ch; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 80px); line-height: 0.98; letter-spacing: -0.02em; text-wrap: balance;"><span class="sc-interp">Why a trusted real estate firm matters for waterfront</span> <em style="color: rgb(255, 145, 0);"><span class="sc-interp">property in Dubai</span></em></h1>
+        <p style="margin: 0px; max-width: 58ch; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: rgb(230, 230, 230); text-wrap: pretty;"><span class="sc-interp">Dubai's waterfront homes offer lifestyle, rental demand and long-term growth. They also carry pricing and cost differences that are easy to miss without expert guidance.</span></p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding-top: 8px;">
+          
+          <span style="font-size: 13px; color: rgb(214, 214, 214);"><span class="sc-interp">Feb 12, 2026 · 5 min read</span></span>
+        </div>
+      </div>
+    </section>
+
+    <div style="max-width: 1360px; margin: 0px auto; padding-left: clamp(20px, 5vw, 64px); padding-right: clamp(20px, 5vw, 64px); padding-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0px, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start;">
+      
+
+      <article style="min-width: 0px; max-width: 760px; display: flex; flex-direction: column; gap: clamp(40px, 5vw, 64px);">
+        
+          <details style="border: 1px solid var(--line); border-radius: 12px; padding: 0px 18px;">
+            <summary style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; font-size: 15px; font-weight: 700; cursor: pointer; list-style: none;"><span><span class="sc-interp">In this article</span> · <span class="sc-interp">5 sections</span></span><span aria-hidden="true" style="color: rgb(255, 145, 0);">+</span></summary>
+            <nav aria-label="Contents" style="display: flex; flex-direction: column; padding-bottom: 12px;">
+              
+                <a href="#waterfront-is-different" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">01</span></span><span><span class="sc-interp">Why waterfront property is different</span></span></a>
+              
+                <a href="#what-a-good-firm-does" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">02</span></span><span><span class="sc-interp">What the right firm does for you</span></span></a>
+              
+                <a href="#what-to-check" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">03</span></span><span><span class="sc-interp">What to check before you invest</span></span></a>
+              
+                <a href="#top-locations" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">04</span></span><span><span class="sc-interp">Dubai's main waterfront locations</span></span></a>
+              
+                <a href="#small-details" style="display: grid; grid-template-columns: 32px minmax(0px, 1fr); min-height: 44px; align-items: center; border-top: 1px solid var(--line); font-size: 15px;"><span style="color: var(--muted);"><span class="sc-interp">05</span></span><span><span class="sc-interp">Small details, big differences</span></span></a>
+              
+            </nav>
+          </details>
+        
+
+        <div style="border-radius: 12px; background: var(--soft); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);">Key takeaways</span>
+          <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 12px;">
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">Waterfront pricing, costs and buyers differ from inland homes</span></span>
+              </li>
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">Check service charges, supply and resale demand before you buy</span></span>
+              </li>
+            
+              <li style="display: grid; grid-template-columns: 20px minmax(0px, 1fr); gap: 10px; font-size: 16px; line-height: 1.5;">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top: 3px; color: rgb(255, 145, 0);"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
+                <span><span class="sc-interp">Small details such as orientation and floor level change value</span></span>
+              </li>
+            
+          </ul>
+        </div>
+
+        
+          <section id="waterfront-is-different" data-chapter="waterfront-is-different" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Why waterfront property is different</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Waterfront homes behave differently from inland ones. Pricing, demand cycles, maintenance and buyer profiles vary widely by location and project type.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Yield expectations, service charges and resale liquidity can differ in ways that are not obvious from a listing. Good advice helps you judge long-term value rather than short-term trends.</span></p>
+            
+            
+            
+            
+          </section>
+        
+          <section id="what-a-good-firm-does" data-chapter="what-a-good-firm-does" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">What the right firm does for you</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Without guidance, buyers risk overpaying, choosing the wrong location or underestimating the long-term cost of owning on the water. An experienced firm adds structure at every step.</span></p>
+            
+            
+              <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Pricing and valuation</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">True market value across different waterfront clusters</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Community insight</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Rental demand, tenant profiles and resale activity compared</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Verified inventory</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Legitimate listings that match your goals</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Documentation</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Contracts, approvals and compliance handled transparently</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Long-term advice</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Resale and portfolio planning after the purchase</span></span>
+                  </li>
+                
+              </ul>
+            
+            
+            
+          </section>
+        
+          <section id="what-to-check" data-chapter="what-to-check" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">What to check before you invest</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Look at access and connectivity to business districts, past rental performance and vacancy, and service charges and long-term maintenance costs.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Then look ahead: the supply pipeline nearby and buyer demand in the secondary market. Together, these decide whether a home works as a lifestyle asset, an income asset or both.</span></p>
+            
+            
+            
+            
+          </section>
+        
+          <section id="top-locations" data-chapter="top-locations" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Dubai's main waterfront locations</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Each waterfront community suits a different buyer, from lifestyle-led end users to long-term investors.</span></p>
+            
+            
+              <ul style="margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--line);">
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Dubai Marina</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Established high-rise living near Media City and JLT, with steady tenant demand and resale activity</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Palm Jumeirah</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Benchmark luxury apartments and villas with beach access; limited supply supports price stability</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Bluewaters Island</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Residential, leisure and hospitality together, with tourism-led rental demand near JBR</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">Dubai Creek Harbour</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Master-planned waterfront with long-term growth potential and competitive pricing</span></span>
+                  </li>
+                
+                  <li style="display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, auto); gap: 4px 16px; padding: 14px 0px; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.5;">
+                    <span style="font-weight: 600;"><span class="sc-interp">JBR</span></span><span style="color: var(--muted); text-align: right;"><span class="sc-interp">Busy beachfront community suited to both short-term and long-term letting</span></span>
+                  </li>
+                
+              </ul>
+            
+            
+            
+          </section>
+        
+          <section id="small-details" data-chapter="small-details" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px;">
+            
+            <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Small details, big differences</span></h2>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">Waterfront homes are often premium-priced and competitive. Building orientation, floor level and distance to amenities can shift value significantly within the same community.</span></p>
+            
+              <p style="margin: 0px; font-size: 17px; line-height: 1.7; text-wrap: pretty;"><span class="sc-interp">At Xperience Realty, we compare communities, analyse rental yields and assess risk so your choice matches both your lifestyle and your financial goals.</span></p>
+            
+            
+            
+              <div style="display: grid; grid-template-columns: 4px minmax(0px, 1fr); gap: 16px; padding: 4px 0px;">
+                <span style="border-radius: 999px; background: rgb(255, 145, 0);"></span>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0px;">
+                  <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Xpert tip</span>
+                  <span style="font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty;"><span class="sc-interp">Ask for the service charge history of any waterfront building you shortlist. Higher maintenance on the water can eat into your net yield.</span></span>
+                </div>
+              </div>
+            
+            
+              <a href="contact.html" class="scp5" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-radius: 12px; border: 1px solid var(--line2);">
+                <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 16px; font-weight: 700;"><span class="sc-interp">Speak to a waterfront specialist</span></span><span style="font-size: 14px; color: var(--muted);"><span class="sc-interp">Explore on xrealty</span></span></span>
+                <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+              </a>
+            
+          </section>
+        
+
+        <section id="ask" style="display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px; padding-top: clamp(24px, 3vw, 40px); border-top: 1px solid var(--line);">
+          <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;"><span class="sc-interp">Talk to an Xpert</span></h2>
+          <p style="margin: 0px; font-size: 16px; line-height: 1.6; color: var(--muted);">Pick a question or write your own. It opens WhatsApp with your message ready to send.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">Which areas suit my budget?</span></button>
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">Can you send me current launches?</span></button>
+            
+              <button class="scp6" style="min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink); font-size: 14px; cursor: pointer; text-align: left;"><span class="sc-interp">What returns can I expect?</span></button>
+            
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px);">Your question</span>
+            <textarea rows="3" placeholder="Type your question…" style="padding: 14px 16px; border-radius: 8px; border: 1px solid var(--line2); background: var(--bg); color: var(--ink); font-family: inherit; font-size: 16px; line-height: 1.5; resize: vertical;"></textarea>
+          </label>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <a href="https://wa.me/971565467991?text=Hi%2C%20I%20just%20read%20%22Why%20a%20trusted%20real%20estate%20firm%20matters%20for%20waterfront%20property%20in%20Dubai%22%20on%20the%20XR%20website.%20Could%20an%20Xpert%20advise%20me%3F" class="scp7" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 15px; font-weight: 600;">Send on WhatsApp</a>
+            <a href="contact.html" class="scp5" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0px 24px; border-radius: 999px; border: 1px solid var(--line2); color: var(--ink); font-size: 15px; font-weight: 600;"><span class="sc-interp">Book a consultation</span></a>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <section data-screen-label="Keep reading" style="max-width: 1360px; margin: 0px auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 64px);">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px;">
+        <h2 style="margin: 0px; font-family: &quot;Instrument Serif&quot;, serif; font-weight: 400; font-size: clamp(32px, 3.6vw, 50px); line-height: 1;">Keep reading</h2>
+        <a href="insights.html" style="font-size: 15px; font-weight: 600; border-bottom: 1px solid; padding-bottom: 4px;"><span class="sc-interp">All insights</span> →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0px clamp(24px, 4vw, 56px);">
+        
+          <a href="blog?b=common-mistakes-to-avoid-investing-dubai-real-estate" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Buying · Feb 14, 2026</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">Common mistakes to avoid before investing in Dubai real estate</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+          <a href="blog?b=where-to-buy-dubai-five-buyer-priorities" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Market · Sep 29, 2026</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">Where to buy in Dubai in 2026: five areas for different buyer priorities</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+          <a href="blog?b=why-dubai-real-estate-is-resilient" class="scp8" style="display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 16px; align-items: center; padding: 22px 0px; border-top: 1px solid var(--line);">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted);"><span class="sc-interp">Market · Sep 9, 2026</span></span><span style="font-family: &quot;Instrument Serif&quot;, serif; font-size: 26px; line-height: 1.1;"><span class="sc-interp">What makes Dubai so resilient?</span></span></span>
+            <span aria-hidden="true" style="color: rgb(255, 145, 0); font-size: 18px;">→</span>
+          </a>
+        
+      </div>
+    </section>
+  </main>
+  <footer style="background: rgb(10, 10, 10); color: rgb(189, 189, 189);">
+    <div style="max-width: 1360px; margin: 0px auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 64px) 32px; display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 36px 32px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height: 44px; width: auto; align-self: flex-start;">
+          <p style="margin: 0px; max-width: 34ch; font-size: 14px; line-height: 1.6;">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
+        </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Explore</span></span>
+            
+              <a href="search.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Properties</span></a>
+            
+              <a href="community" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Communities</span></a>
+            
+              <a href="developers" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Developers</span></a>
+            
+              <a href="rent.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Rent a home</span></a>
+            
+              <a href="compare.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Shortlist &amp; compare</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Popular searches</span></span>
+            
+              <a href="search.html?budget=mid" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Homes AED 1.25M – 2M</span></a>
+            
+              <a href="search.html?type=Villa" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Villas for sale</span></a>
+            
+              <a href="search.html?community=creek-harbour" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Creek Harbour</span></a>
+            
+              <a href="search.html?budget=gv" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Golden Visa homes (AED 2M – 5M)</span></a>
+            
+              <a href="search.html?budget=lux" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Luxury AED 5M+</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Learn</span></span>
+            
+              <a href="guides.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Guides</span></a>
+            
+              <a href="insights.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Insights</span></a>
+            
+              <a href="faqs.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai FAQs</span></a>
+            
+              <a href="living" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai living</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Company</span></span>
+            
+              <a href="about.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">About XR</span></a>
+            
+              <a href="sell.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Sell with XR</span></a>
+            
+              <a href="team.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">XR Team</span></a>
+            
+              <a href="careers.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Careers</span></a>
+            
+              <a href="contact.html" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Contact us</span></a>
+            
+          </div>
+        
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: rgb(255, 255, 255);"><span class="sc-interp">Visit us</span></span>
+            
+              <a href="tel:+971564080888" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">+971 5 640 80888</span></a>
+            
+              <a href="mailto:info@xrealty.ae" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">info@xrealty.ae</span></a>
+            
+              <a href="https://maps.app.goo.gl/ChpufZ9MafTGmcc47" class="scp3" style="font-size: 15px; color: rgb(189, 189, 189);"><span class="sc-interp">Dubai Hills Estate, Dubai</span></a>
+            
+          </div>
+        
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 13px;">
+        <span style="display: flex; flex-direction: column; gap: 6px; max-width: 72ch;"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color: rgb(255, 255, 255);">[ORN no.]</strong> · DED licence <strong style="color: rgb(255, 255, 255);">[licence no.]</strong></span><span style="display: flex; flex-wrap: wrap; gap: 6px 18px;"><a href="legal?doc=privacy" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Privacy policy</a><a href="legal?doc=terms" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Terms of use</a><a href="#cookie-settings" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Cookie settings</a><a href="sell.html" class="scp3" style="color: rgb(189, 189, 189); text-decoration: underline;">Sell with XR</a></span></span>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+          
+            <a href="https://www.youtube.com/@xrealtyae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">YouTube</span></a>
+          
+            <a href="https://www.instagram.com/xperience.realty" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">Instagram</span></a>
+          
+            <a href="https://www.linkedin.com/company/xrealty-ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">LinkedIn</span></a>
+          
+            <a href="https://x.com/xrealty_ae" class="scp3" style="color: rgb(189, 189, 189);"><span class="sc-interp">X</span></a>
+          
+        </div>
+      </div>
+    </div>
+    <div style="height: 76px;"></div>
+  </footer>
+  
+    <div style="position: fixed; left: 0px; right: 0px; bottom: 0px; z-index: 600; background: rgb(10, 10, 10); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px;">
+      <a href="tel:+971564080888" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">Call</span></a>
+      <a href="https://wa.me/971565467991" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255); font-size: 14px; font-weight: 600;"><span class="sc-interp">WhatsApp</span></a>
+      <a href="#ask" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: rgb(255, 255, 255); color: rgb(10, 10, 10); font-size: 14px; font-weight: 600;"><span class="sc-interp">Enquire</span></a>
+    </div>
+  </div></div><!-- /xr-prerender --></div>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
