@@ -1,5 +1,13 @@
 (function () {
   if (window.__xrExtras) return; window.__xrExtras = true;
+  // Card photos (marked xr-zoom inside an xr-zc card) zoom gently while the card is hovered
+  const zoomCss = document.createElement('style');
+  // (the runtime renders class on custom elements like <image-slot> as a "classname" attribute)
+  const Z = ':is(.xr-zoom,[classname~="xr-zoom"])', C = ':is(.xr-zc,[classname~="xr-zc"])';
+  zoomCss.textContent = Z + '{transition:transform .6s cubic-bezier(.2,.6,.2,1)}' +
+    '@media (hover:hover){' + C + ':hover ' + Z + ',' + C + ':focus-visible ' + Z + '{transform:scale(1.06)}}' +
+    '@media (prefers-reduced-motion:reduce){' + Z + '{transition:none}' + C + ':hover ' + Z + '{transform:none}}';
+  document.head.appendChild(zoomCss);
   const get = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const set = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 

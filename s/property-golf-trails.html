@@ -111,8 +111,8 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
         <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;height:clamp(420px,46vw,600px)">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
-            <button onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="position:relative;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);cursor:zoom-in;grid-row:{{ g.row }}">
-              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease" style-hover="transform:scale(1.03)">
+            <button class="xr-zc" onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="position:relative;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);cursor:zoom-in;grid-row:{{ g.row }}">
+              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
               <sc-if value="{{ g.last }}" hint-placeholder-val="{{ false }}">
                 <span style="position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.95);color:#0A0A0A;font-size:13px;font-weight:600">View all {{ galleryCount }} photos</span>
               </sc-if>
@@ -123,8 +123,8 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * clamp(20px,5vw,64px));padding:0 clamp(20px,5vw,64px);scrollbar-width:none">
           <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="3">
-            <button onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="flex:0 0 86%;aspect-ratio:4/3;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);scroll-snap-align:center">
-              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+            <button class="xr-zc" onClick="{{ g.open }}" aria-label="{{ g.aria }}" style="flex:0 0 86%;aspect-ratio:4/3;padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--img);scroll-snap-align:center">
+              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ g.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
             </button>
           </sc-for>
         </div>
@@ -284,8 +284,8 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:28px 20px">
         <sc-for list="{{ similar }}" as="s" hint-placeholder-count="3">
-          <a href="{{ s.href }}" style="display:flex;flex-direction:column;gap:12px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
-            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+          <a class="xr-zc" href="{{ s.href }}" style="display:flex;flex-direction:column;gap:12px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
+            <span style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ s.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ s.developer }}</span>
             <span style="font-size:18px;font-weight:600;line-height:1.25">{{ s.name }}</span>
             <span style="font-size:14px;color:var(--muted)">{{ s.community }} · {{ t.from }} <strong style="color:var(--ink)">{{ s.priceLabel }}</strong></span>

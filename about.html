@@ -103,8 +103,8 @@ html[data-theme="dark"]{--city-op:.16;--city-blend:screen;--plan:rgba(255,255,25
       <h1 style="margin:0;max-width:16ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,6.8vw,104px);line-height:.95;letter-spacing:-.02em;text-wrap:balance">Advice that outlasts <em style="color:#FF9100">the transaction.</em></h1>
     </section>
     <section style="max-width:1360px;margin:0 auto;padding:clamp(32px,4vw,56px) clamp(20px,5vw,64px) 0">
-      <div style="aspect-ratio:21/9;border-radius:12px;overflow:hidden;background:var(--img)">
-        <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ heroImg }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Dubai skyline" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="xr-zc" style="aspect-ratio:21/9;border-radius:12px;overflow:hidden;background:var(--img)">
+        <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ heroImg }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Dubai skyline" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
     </section>
     <section style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px)">
@@ -121,8 +121,8 @@ html[data-theme="dark"]{--city-op:.16;--city-blend:screen;--plan:rgba(255,255,25
       </div>
       <sc-for list="{{ founders }}" as="f" hint-placeholder-count="2">
         <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(24px,4vw,64px);align-items:center;padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--line)">
-          <div style="order:{{ f.imgOrder }};aspect-ratio:4/5;max-height:620px;border-radius:12px;overflow:hidden;background:var(--img)">
-            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ f.name }}, {{ f.role }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+          <div class="xr-zc" style="order:{{ f.imgOrder }};aspect-ratio:4/5;max-height:620px;border-radius:12px;overflow:hidden;background:var(--img)">
+            <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ f.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ f.name }}, {{ f.role }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
           </div>
           <div style="order:2;display:flex;flex-direction:column;gap:16px">
             <span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#FF9100">{{ f.role }}</span>
@@ -167,7 +167,7 @@ html[data-theme="dark"]{--city-op:.16;--city-blend:screen;--plan:rgba(255,255,25
       <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:24px 20px">
         <sc-for list="{{ awards }}" as="w" hint-placeholder-count="5">
           <li style="display:flex;flex-direction:column;gap:12px">
-            <span style="display:block;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ w.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ w.t }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span class="xr-zc" style="display:block;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ w.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ w.t }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="font-size:16px;font-weight:700">{{ w.t }}</span>
             <span style="font-size:14px;color:var(--muted)">{{ w.by }}</span>
           </li>

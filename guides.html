@@ -135,9 +135,9 @@ select,input,button{font-family:inherit}
     <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)">
         <sc-for list="{{ guides }}" as="g" hint-placeholder-count="6">
-          <a href="{{ g.href }}" style="display:flex;flex-direction:column;gap:16px;color:var(--ink)" style-hover="color:var(--ink)">
+          <a class="xr-zc" href="{{ g.href }}" style="display:flex;flex-direction:column;gap:16px;color:var(--ink)" style-hover="color:var(--ink)">
             <span style="position:relative;display:block;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:var(--img)">
-              <img src="{{ g.img }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img class="xr-zoom" src="{{ g.img }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
               <span style="position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.82);color:#FFFFFF;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">{{ g.audience }}</span>
             </span>
             <span style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;font-weight:600;color:var(--muted)">

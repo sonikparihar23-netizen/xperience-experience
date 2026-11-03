@@ -95,9 +95,9 @@ input,button{font-family:inherit}
 
   <sc-if value="{{ showFeature }}" hint-placeholder-val="{{ true }}">
     <section data-screen-label="Featured article" style="max-width:1360px;margin:0 auto;padding:clamp(28px,3.4vw,48px) clamp(20px,5vw,64px) 0">
-      <a href="{{ feature.href }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,56px);align-items:center;color:var(--ink)" style-hover="color:var(--ink)">
+      <a class="xr-zc" href="{{ feature.href }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,56px);align-items:center;color:var(--ink)" style-hover="color:var(--ink)">
         <span style="position:relative;display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--img)">
-          <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ feature.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ feature.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
           <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:rgba(10,10,10,.78);color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Latest</span>
         </span>
         <span style="display:flex;flex-direction:column;gap:16px">
@@ -151,8 +151,8 @@ input,button{font-family:inherit}
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(36px,4vw,56px) clamp(20px,2.4vw,32px)">
         <sc-for list="{{ posts }}" as="p" hint-placeholder-count="9">
           <article style="display:flex;flex-direction:column;gap:14px">
-            <a href="{{ p.href }}" tabindex="-1" aria-hidden="true" style="position:relative;display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--img)">
-              <img class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            <a class="xr-zc" href="{{ p.href }}" tabindex="-1" aria-hidden="true" style="position:relative;display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:var(--img)">
+              <img class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
             </a>
             <span style="display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;font-weight:600;color:var(--muted)"><span style="color:var(--ink);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700">{{ p.cat }}</span><time>{{ p.date }}</time><span>{{ p.read }}</span></span>
             <a href="{{ p.href }}" style="font-family:'Instrument Serif',serif;font-size:clamp(25px,2.1vw,30px);line-height:1.1;color:var(--ink);text-wrap:balance" style-hover="color:var(--muted)">{{ p.title }}</a>

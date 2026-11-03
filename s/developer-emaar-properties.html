@@ -153,9 +153,9 @@ select,input,button{font-family:inherit}
     <sc-if value="{{ pg.hasProjects }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(24px,3vw,36px) clamp(16px,2vw,24px)">
         <sc-for list="{{ pg.projects }}" as="p" hint-placeholder-count="3">
-          <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:14px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
+          <a class="xr-zc" href="{{ p.href }}" style="display:flex;flex-direction:column;gap:14px;color:var(--ink)" style-hover="color:var(--ink);opacity:.8">
             <span style="position:relative;display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)">
-              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
+              <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
             </span>
             <span style="display:flex;flex-direction:column;gap:6px">
               <span style="font-size:18px;font-weight:600;line-height:1.25">{{ p.name }}</span>
@@ -223,8 +223,8 @@ select,input,button{font-family:inherit}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)">
       <sc-for list="{{ others }}" as="o" hint-placeholder-count="3">
-        <a href="{{ o.href }}" onClick="{{ o.go }}" style="position:relative;display:flex;align-items:flex-end;height:220px;border-radius:12px;overflow:hidden;background:#262626;color:#FFFFFF" style-hover="color:#FFFFFF">
-          <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <a class="xr-zc" href="{{ o.href }}" onClick="{{ o.go }}" style="position:relative;display:flex;align-items:flex-end;height:220px;border-radius:12px;overflow:hidden;background:#262626;color:#FFFFFF" style-hover="color:#FFFFFF">
+          <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ o.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.85))"></span>
           <span style="position:relative;display:flex;flex-direction:column;gap:4px;padding:20px">
             <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1">{{ o.name }}</span>

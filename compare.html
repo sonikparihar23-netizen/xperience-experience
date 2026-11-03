@@ -109,7 +109,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:24px 20px">
         <sc-for list="{{ savedList }}" as="p" hint-placeholder-count="3">
           <article style="display:flex;flex-direction:column;gap:12px;padding:12px;border-radius:12px;border:2px solid {{ p.ring }}">
-            <a href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+            <a class="xr-zc" href="{{ p.href }}" style="display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--img)"><img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></a>
             <a href="{{ p.href }}" style="font-size:17px;font-weight:600;line-height:1.25;color:var(--ink)">{{ p.name }}</a>
             <span style="font-size:14px;color:var(--muted)">{{ p.community }} · {{ p.priceLabel }}</span>
             <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px">
