@@ -26,8 +26,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="./image-slot.js"><\/script>
 <style>
-:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--err:#B3261E;--accent:#FF9100;--accent-text:#B35C00;color-scheme:light}
-html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--err:#FFB4AB;--accent-text:#FF9100;color-scheme:dark}
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--err:#B3261E;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--err:#FFB4AB;color-scheme:dark}
 html,body{overflow-x:clip;margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:var(--ink);text-decoration:none}
@@ -49,8 +49,9 @@ a:hover .xr-logo{filter:none}
 
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
 
-  <sc-if value="{{ showTopBar }}" hint-placeholder-val="{{ true }}">
-    <div style="background:#0A0A0A;color:#D6D6D6;font-size:13px;letter-spacing:.02em;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="position:fixed;top:0;left:0;right:0;z-index:50">
+  <sc-if value="{{ showTopStrip }}" hint-placeholder-val="{{ true }}">
+    <div style="background:{{ topBg }};color:#D6D6D6;font-size:13px;letter-spacing:.02em;border-bottom:1px solid {{ topBorder }};transition:background-color .25s ease">
       <div style="max-width:1360px;margin:0 auto;padding:9px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;justify-content:space-between">
         <span>Dubai Hills Estate, Dubai, UAE</span>
         <div class="xr-top" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px">
@@ -71,7 +72,7 @@ a:hover .xr-logo{filter:none}
     </div>
   </sc-if>
 
-  <header onMouseLeave="{{ closeMenu }}" style="position:sticky;top:0;z-index:50;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
+  <header onMouseLeave="{{ closeMenu }}" style="position:relative;background:{{ headerBg }};border-bottom:1px solid {{ headerBorder }};transition:background-color .25s ease,border-color .25s ease">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;align-items:center;flex-shrink:0">
         <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
@@ -162,6 +163,7 @@ a:hover .xr-logo{filter:none}
       </div>
     </sc-if>
   </header>
+  </div>
 
   <section data-screen-label="Hero" style="position:relative;background:#1A1A1A;min-height:clamp(560px,86vh,840px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
     <div style="position:absolute;inset:0">
@@ -170,12 +172,12 @@ a:hover .xr-logo{filter:none}
       <sc-if value="{{ ytFailed }}" hint-placeholder-val="{{ false }}">
         <video autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"><source src="https://videos.pexels.com/video-files/7578552/7578552-hd_1920_1080_30fps.mp4" type="video/mp4"></video>
       </sc-if>
-      <iframe ref="{{ heroVideoRef }}" onLoad="{{ onYtLoad }}" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/zW52zGAURTw?start=40&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zW52zGAURTw&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Xperience Realty property video" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="position:absolute;top:50%;left:50%;width:max(100%,calc(100% * 16 / 9 * 1));min-width:177.78vh;height:max(100%,56.25vw);min-height:100%;transform:translate(-50%,-50%) scale(1.15);border:0;pointer-events:none;opacity:{{ ytOpacity }};transition:opacity .6s"></iframe>
+      <iframe ref="{{ heroVideoRef }}" onLoad="{{ onYtLoad }}" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/i-mE9N1Fn3s?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=i-mE9N1Fn3s&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Xperience Realty property video" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0" style="position:absolute;top:50%;left:50%;width:max(100%,calc(100% * 16 / 9 * 1));min-width:177.78vh;height:max(100%,56.25vw);min-height:100%;transform:translate(-50%,-50%) scale(1.15);border:0;pointer-events:none;opacity:{{ ytOpacity }};transition:opacity .6s"></iframe>
       </sc-if>
     </div>
-    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.3) 45%,rgba(10,10,10,0) 78%),linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,.1) 45%,rgba(10,10,10,.82) 100%)"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.3) 45%,rgba(10,10,10,0) 78%),linear-gradient(180deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,0) 28%,rgba(10,10,10,.1) 45%,rgba(10,10,10,.82) 100%)"></div>
     <sc-if value="{{ heroVideo }}" hint-placeholder-val="{{ true }}">
-    <button onClick="{{ toggleHeroSound }}" aria-label="{{ heroSoundAria }}" title="{{ heroSoundAria }}" style="position:absolute;top:20px;right:calc(clamp(20px,5vw,64px) + 54px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+    <button onClick="{{ toggleHeroSound }}" aria-label="{{ heroSoundAria }}" title="{{ heroSoundAria }}" style="position:absolute;top:{{ heroCtrlTop }};right:calc(clamp(20px,5vw,64px) + 54px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
       <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ true }}">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="M16 9.5l5 5M21 9.5l-5 5"></path></svg>
       </sc-if>
@@ -183,7 +185,7 @@ a:hover .xr-logo{filter:none}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"></path></svg>
       </sc-if>
     </button>
-    <button onClick="{{ toggleHeroVideo }}" aria-label="{{ heroVideoAria }}" style="position:absolute;top:20px;right:clamp(20px,5vw,64px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+    <button onClick="{{ toggleHeroVideo }}" aria-label="{{ heroVideoAria }}" style="position:absolute;top:{{ heroCtrlTop }};right:clamp(20px,5vw,64px);z-index:2;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(10,10,10,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
       <sc-if value="{{ heroPlaying }}" hint-placeholder-val="{{ true }}">
         <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" rx="1"></rect><rect x="7.5" y="1" width="3.5" height="12" rx="1"></rect></svg>
       </sc-if>
@@ -293,7 +295,7 @@ a:hover .xr-logo{filter:none}
       <ul ref="{{ awardsRef }}" style="list-style:none;margin:0;padding:0;display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none">
 
 
-          <li style="flex:0 0 calc((100% - 48px) / 3);min-width:240px;scroll-snap-align:start;display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg)"><span style="font-family:'Instrument Serif',serif;font-size:clamp(34px,3.4vw,48px);line-height:1;text-wrap:pretty">4.9<span style="color:var(--accent-text)">★</span></span><span style="max-width:17ch;font-size:14px;line-height:1.35;color:var(--muted)">Google rating from verified clients</span></li>
+          <li style="flex:0 0 calc((100% - 48px) / 3);min-width:240px;scroll-snap-align:start;display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg)"><span style="font-family:'Instrument Serif',serif;font-size:clamp(34px,3.4vw,48px);line-height:1;text-wrap:pretty">4.9<span style="color:#FF9100">★</span></span><span style="max-width:17ch;font-size:14px;line-height:1.35;color:var(--muted)">Google rating from verified clients</span></li>
           <li style="flex:0 0 calc((100% - 48px) / 3);min-width:240px;scroll-snap-align:start;display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg)"><img src="https://media.xrealty.ae/thumbnail_XR_Ardee_ba70b2e8ee.webp" alt="Highest Performer 2025, Ardee Horizon Awards · Ardee Developments" loading="lazy" style="width:64px;height:64px;border-radius:8px;object-fit:cover;background:var(--img)"><span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:700;text-wrap:pretty">Highest Performer 2025</span><span style="font-size:13px;color:var(--muted);text-wrap:pretty">Ardee Horizon Awards · Ardee Developments</span></span></li>
           <li style="flex:0 0 calc((100% - 48px) / 3);min-width:240px;scroll-snap-align:start;display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg)"><span style="font-family:'Instrument Serif',serif;font-size:clamp(34px,3.4vw,48px);line-height:1;text-wrap:pretty">100+</span><span style="max-width:17ch;font-size:14px;line-height:1.35;color:var(--muted)">Strong team in Dubai Hills Estate</span></li>
           <li style="flex:0 0 calc((100% - 48px) / 3);min-width:240px;scroll-snap-align:start;display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;background:var(--bg)"><img src="https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_H1_2024_No_6_1_e5b8876313.jpg" alt="No. 6 Agency · H1 2024, Emaar Awards" loading="lazy" style="width:64px;height:64px;border-radius:8px;object-fit:cover;background:var(--img)"><span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:700;text-wrap:pretty">No. 6 Agency · H1 2024</span><span style="font-size:13px;color:var(--muted);text-wrap:pretty">Emaar Awards</span></span></li>
@@ -349,7 +351,7 @@ a:hover .xr-logo{filter:none}
       <div style="position:relative;height:clamp(440px,62vh,640px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--img)">
         <iframe ref="{{ mapRef }}" src="./dubai-map.html" title="Map of featured Dubai projects" onLoad="{{ onMapLoad }}" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
       </div>
-      <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Pins show starting prices. Click a pin for project details · <span style="color:var(--accent-text)">●</span> marks your saved projects.</p>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Pins show starting prices. Click a pin for project details · <span style="color:#FF9100">●</span> marks your saved projects.</p>
     </sc-if>
     <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)">
@@ -470,7 +472,7 @@ a:hover .xr-logo{filter:none}
     <div style="border:1px solid var(--line);border-radius:12px;padding:clamp(24px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,64px);align-items:center">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">For owners</span>
-        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.015em;text-wrap:balance">What's your property <em style="color:var(--accent-text)">worth today?</em></h2>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1;letter-spacing:-.015em;text-wrap:balance">What's your property <em style="color:#FF9100">worth today?</em></h2>
         <p style="margin:0;max-width:46ch;font-size:16px;line-height:1.6;color:var(--muted);text-wrap:pretty">Get a free, data-backed valuation from a specialist who sells in your community — based on recent Dubai Land Department transactions.</p>
       </div>
       <form onSubmit="{{ submitValuation }}" style="display:flex;flex-wrap:wrap;gap:8px">
@@ -917,6 +919,19 @@ class Component extends DCLogic {
       if (st === 1) { clearTimeout(this.ytTimer); this.setState({ ytPlaying: true }); }
     };
     window.addEventListener('message', this.onYtMsg);
+    // Floating header: transparent over the hero, solid once the hero has scrolled away
+    let queued = false;
+    this.onHeaderScroll = () => {
+      if (queued) return; queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        const hero = document.querySelector('[data-screen-label="Hero"]');
+        const offTop = window.scrollY > 8, pastHero = hero ? hero.getBoundingClientRect().bottom <= 80 : offTop;
+        if (offTop !== this.state.offTop || pastHero !== this.state.pastHero) this.setState({ offTop, pastHero });
+      });
+    };
+    window.addEventListener('scroll', this.onHeaderScroll, { passive: true });
+    this.onHeaderScroll();
     // Keep the Language select in step with the site-wide Arabic toggle
     this.readLang = () => { let l = null; try { l = localStorage.getItem('xr-lang'); } catch (e) {} const L = l === 'ar' ? 'AR' : 'EN'; if (L !== this.state.lang) this.setState({ lang: L }); };
     this.readLang(); window.addEventListener('xr-lang', this.readLang);
@@ -937,7 +952,7 @@ class Component extends DCLogic {
     this.onMsg = e => { if (e.data && e.data.type === 'xr-map-ready') this.postMap(true); };
     window.addEventListener('message', this.onMsg);
   }
-  componentWillUnmount() { window.removeEventListener('xr-lang', this.readLang); document.removeEventListener('visibilitychange', this.onVis); this.heroIO && this.heroIO.disconnect(); window.removeEventListener('keydown', this.onCalcKey); window.removeEventListener('message', this.onYtMsg); clearTimeout(this.ytTimer); window.removeEventListener('resize', this.onResize); window.removeEventListener('message', this.onMsg); }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onHeaderScroll); window.removeEventListener('xr-lang', this.readLang); document.removeEventListener('visibilitychange', this.onVis); this.heroIO && this.heroIO.disconnect(); window.removeEventListener('keydown', this.onCalcKey); window.removeEventListener('message', this.onYtMsg); clearTimeout(this.ytTimer); window.removeEventListener('resize', this.onResize); window.removeEventListener('message', this.onMsg); }
 
   calcVals(s) {
     const RATES = [['USD', 'US dollar', 3.6725], ['GBP', 'British pound', 4.90], ['EUR', 'Euro', 4.25], ['INR', 'Indian rupee', 0.0425], ['SAR', 'Saudi riyal', 0.979], ['CNY', 'Chinese yuan', 0.515], ['RUB', 'Russian rouble', 0.045]];
@@ -1151,6 +1166,11 @@ class Component extends DCLogic {
 
     return {
       showTopBar: (this.props.showTopBar ?? true) && !isMobile,
+      showTopStrip: (this.props.showTopBar ?? true) && !isMobile && !s.offTop,
+      headerBg: s.pastHero || s.drawer || s.menu ? 'rgba(10,10,10,.96)' : 'transparent',
+      headerBorder: s.pastHero || s.drawer || s.menu ? 'rgba(255,255,255,.1)' : 'transparent',
+      topBg: 'transparent', topBorder: 'rgba(255,255,255,.12)',
+      heroCtrlTop: (this.props.showTopBar ?? true) && !isMobile && !s.offTop ? '129px' : '92px',
       showOffPlan: this.props.showOffPlanBand ?? true,
       isMobile, isDesktop: !isMobile,
       calcOpen: !!s.calcOpen, calcTabCurrency: (s.calcTab || 'currency') === 'currency', calcTabArea: s.calcTab === 'area',

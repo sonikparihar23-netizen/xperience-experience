@@ -25,8 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;--accent-text:#B35C00;color-scheme:light}
-html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;--accent-text:#FF9100;color-scheme:dark}
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
+html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);transition:background-color .25s ease;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:var(--ink);text-decoration:none}
@@ -150,7 +150,7 @@ select,input,button{font-family:inherit}
                 <span style="display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:600;color:var(--ink)">{{ t }}</span>
               </sc-for>
             </span>
-            <span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding-top:4px">Read the guide <span aria-hidden="true" style="color:var(--accent-text)">→</span></span>
+            <span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding-top:4px">Read the guide <span aria-hidden="true" style="color:#FF9100">→</span></span>
           </a>
         </sc-for>
       </div>
@@ -188,7 +188,7 @@ select,input,button{font-family:inherit}
       <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
         <li style="display:flex;flex-direction:column;gap:10px;padding:24px 24px 24px 0;border-bottom:1px solid var(--line)">
           <span style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:var(--accent-text)">{{ st.n }}</span>
+            <span style="font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:#FF9100">{{ st.n }}</span>
             <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">{{ st.time }}</span>
           </span>
           <span style="font-size:17px;font-weight:600">{{ st.title }}</span>
