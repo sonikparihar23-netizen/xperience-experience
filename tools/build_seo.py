@@ -27,7 +27,7 @@ TPL = os.path.join(ROOT, 'templates')
 TODAY = datetime.date.today().isoformat()
 
 LOGO = 'https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png'
-HERO = 'https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp'
+HERO = 'https://media.xrealty.ae/medium_maxresdefault_1_1668429afd.webp'
 VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'
 
 
@@ -150,7 +150,7 @@ def main():
     # One copy per item: (base file, copy name, canonical path, title, desc, image, kind, JSON-LD)
     items = [  # overview pages served at the bare template address
         ('living.html', 'living-index', '/living', 'Dubai living' + T, C['living']['index']['lede'], HERO, 'website', []),
-        ('community.html', 'community-index', '/community', 'Dubai communities' + T, 'Compare Dubai communities by price per sq ft, rental yield, lifestyle and current projects.', HERO, 'website', []),
+        ('community.html', 'community-index', '/community', 'Dubai communities' + T, 'Explore Dubai communities, lifestyle guides and current listed projects. Ask an advisor for current market data.', HERO, 'website', []),
         ('developers.html', 'developer-index', '/developers', 'Dubai property developers' + T, 'Projects and track records from Emaar, Nakheel, Damac, Sobha, Meraas and other leading Dubai developers.', HERO, 'website', []),
     ]
     for g in C['guides']:
@@ -167,7 +167,7 @@ def main():
                       [faq_ld(a['faqs']), crumbs(('Home', '/'), ('Dubai living', '/living'), (a['name'], path))]))
     for pr in d['properties']:
         path = '/property?p=' + pr['slug']
-        title = f"{pr['name']}: {pr['type'].lower()}s from {pr['priceLabel']}" + T
+        title = f"{pr['name']}: homes from {pr['priceLabel']}" + T
         listing = {'@type': 'RealEstateListing', 'name': pr['name'], 'description': clip(pr.get('desc')), 'url': SITE + path, 'image': [og_img(u) for u in pr.get('gallery', [pr['img']])[:3]],
                    'offers': {'@type': 'Offer', 'price': pr['price'], 'priceCurrency': 'AED', 'availability': 'https://schema.org/PreOrder' if pr.get('status') == 'Off-plan' else 'https://schema.org/InStock'},
                    'provider': {'@id': SITE + '/#org'}}
@@ -214,11 +214,17 @@ def main():
                       for page, (key, prefix) in routes.items()] +
                      [{'source': '/' + page, 'destination': '/s/' + copy} for page, copy in bare.items()])
     keep = [r for r in v.get('redirects', []) if r['source'] == '/guide-article']
+    keep += [{'source':'/agent','destination':'/team','permanent':True}, {'source':'/about-us','destination':'/about','permanent':True}, {'source':'/contact-us-dubai-real-estate-agency','destination':'/contact','permanent':True}, {'source':'/privacy-policy','destination':'/legal?doc=privacy','permanent':True}]
+    team_source = open(os.path.join(ROOT,'xr-team.js'),encoding='utf-8').read().split('window.XR_TEAM = ',1)[1].rstrip(';\n')
+    keep += [{'source':'/agent/'+p['slug'],'destination':'/team?member='+p['slug'],'permanent':True} for p in json.loads(team_source)]
+    keep += [{'source':p['source'].replace(SITE,'' ).rstrip('/'),'destination':'/property?p='+p['slug'],'permanent':True} for p in d['properties'] if p.get('source')]
+    keep += [dict(rule,source=rule['source']+'/') for rule in list(keep) if not rule['source'].endswith('/')]
     v['redirects'] = keep + [
         {'source': '/blog', 'missing': [{'type': 'query', 'key': 'b'}], 'destination': '/insights', 'permanent': False},
         {'source': '/property', 'missing': [{'type': 'query', 'key': 'p'}], 'destination': '/search', 'permanent': False},
     ] + [{'source': f'/{page}.html', 'destination': f'/{page}', 'permanent': True} for page in routes]
     security = [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'X-Frame-Options', 'value': 'SAMEORIGIN'},
+                {'key': 'Content-Security-Policy', 'value': "object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'"},
                 {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
                 {'key': 'Permissions-Policy', 'value': 'camera=(), microphone=(), geolocation=(), payment=()'}]
     v['headers'] = [{'source': '/(.*)', 'headers': security}] + [{'source': '/(.*)', 'has': [{'type': 'host', 'value': STAGING_HOST}], 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex, nofollow'}]},

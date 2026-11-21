@@ -27,29 +27,15 @@
     d.innerHTML = "<span style='flex:1 1 " + (small ? '100%' : '260px') + "'>" + (small ? 'We use cookies to improve the site. ' : 'We use cookies to improve your experience and measure site performance. ') + "<a href='legal?doc=privacy' style='color:#FFFFFF;text-decoration:underline'>Privacy policy</a></span>" +
       "<span style='display:flex;gap:8px;" + (small ? 'flex:1 1 100%' : '') + "'><button data-v='essential' style='" + (small ? 'flex:1;' : '') + "height:" + h + ";padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer'>Essential only</button>" +
       "<button data-v='all' style='" + (small ? 'flex:1;' : '') + "height:" + h + ";padding:0 18px;border-radius:999px;border:none;background:#FF9100;color:#0A0A0A;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer'>Accept all</button></span>";
-    d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); } });
+    d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); document.dispatchEvent(new Event('xr-consent-change')); } });
     document.body.appendChild(d);
   }
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[href="#cookie-settings"]'); if (a) { e.preventDefault(); banner(true); } });
   const start = () => { if (window.innerWidth < 1180) document.documentElement.style.setProperty('--xr-bar', '72px'); setTimeout(() => banner(false), 900); };
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', start) : start();
 
-  // Lead source capture — ready for CRM hookup.
-  // Set window.XR_CRM_ENDPOINT = 'https://…' to POST each lead as JSON.
-  const q = new URLSearchParams(location.search);
-  if (!get('xr-first-touch')) set('xr-first-touch', JSON.stringify({ landing: location.pathname, referrer: document.referrer || null, utm: Object.fromEntries([...q].filter(([k]) => k.startsWith('utm_'))), at: new Date().toISOString() }));
-  document.addEventListener('submit', e => {
-    const f = e.target; if (!f || f.getAttribute('role') === 'search' || f.querySelector('input[type="search"]')) return;
-    const fields = {};
-    f.querySelectorAll('input,select,textarea').forEach((el, i) => { if (el.type === 'radio' && !el.checked) return; const k = el.getAttribute('aria-label') || el.getAttribute('autocomplete') || el.name || el.type || 'field' + i; if (el.value) fields[k] = el.value; });
-    const pressed = [...f.querySelectorAll('[aria-pressed="true"]')].map(b => b.textContent.trim());
-    if (!Object.keys(fields).length) return;
-    const lead = { page: document.title || location.pathname, path: location.pathname, property: q.get('p'), community: q.get('c'), interest: pressed, fields, firstTouch: (() => { try { return JSON.parse(get('xr-first-touch') || 'null'); } catch (e) { return null; } })(), lang: document.documentElement.lang, at: new Date().toISOString() };
-    let all = []; try { all = JSON.parse(get('xr-leads') || '[]'); } catch (err) {}
-    all.push(lead); set('xr-leads', JSON.stringify(all.slice(-50)));
-    window.dispatchEvent(new CustomEvent('xr-lead', { detail: lead }));
-    if (window.XR_CRM_ENDPOINT) fetch(window.XR_CRM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) }).catch(() => {});
-  }, true);
+  // New enquiries are not stored in the browser. Existing legacy records are left
+  // untouched so the owner can export or clear them without losing the only copy.
 
   // ---- Full-page Arabic translation ----
   const lang = () => get('xr-lang') === 'ar' ? 'ar' : 'en';

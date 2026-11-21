@@ -9,6 +9,491 @@
       "permanent": true
     },
     {
+      "source": "/agent",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us-dubai-real-estate-agency",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/legal?doc=privacy",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rakhi-megchiani",
+      "destination": "/team?member=rakhi-megchiani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/asma-zerroukat",
+      "destination": "/team?member=asma-zerroukat",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ankit-aujla",
+      "destination": "/team?member=ankit-aujla",
+      "permanent": true
+    },
+    {
+      "source": "/agent/hind-azzouzi",
+      "destination": "/team?member=hind-azzouzi",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ayaz-salman",
+      "destination": "/team?member=ayaz-salman",
+      "permanent": true
+    },
+    {
+      "source": "/agent/aakash-khanna",
+      "destination": "/team?member=aakash-khanna",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mohit-singh-sen",
+      "destination": "/team?member=mohit-singh-sen",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ranjit-nair",
+      "destination": "/team?member=ranjit-nair",
+      "permanent": true
+    },
+    {
+      "source": "/agent/seema-balwani",
+      "destination": "/team?member=seema-balwani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mamtu-mirchandani",
+      "destination": "/team?member=mamtu-mirchandani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/umangg-sain",
+      "destination": "/team?member=umangg-sain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ekta-madan",
+      "destination": "/team?member=ekta-madan",
+      "permanent": true
+    },
+    {
+      "source": "/agent/musaib-mehraj",
+      "destination": "/team?member=musaib-mehraj",
+      "permanent": true
+    },
+    {
+      "source": "/agent/tarun-sharma",
+      "destination": "/team?member=tarun-sharma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rushil-verma",
+      "destination": "/team?member=rushil-verma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/archana-bhan",
+      "destination": "/team?member=archana-bhan",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ghazal-khosroparviz",
+      "destination": "/team?member=ghazal-khosroparviz",
+      "permanent": true
+    },
+    {
+      "source": "/agent/madhuri-podeti",
+      "destination": "/team?member=madhuri-podeti",
+      "permanent": true
+    },
+    {
+      "source": "/agent/tanushree-jain",
+      "destination": "/team?member=tanushree-jain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/eram-parkar",
+      "destination": "/team?member=eram-parkar",
+      "permanent": true
+    },
+    {
+      "source": "/agent/sabatini-fialho",
+      "destination": "/team?member=sabatini-fialho",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rishika-kshetri",
+      "destination": "/team?member=rishika-kshetri",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rishab-goswami",
+      "destination": "/team?member=rishab-goswami",
+      "permanent": true
+    },
+    {
+      "source": "/agent/kuhoo-jain",
+      "destination": "/team?member=kuhoo-jain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/gourav-sharma",
+      "destination": "/team?member=gourav-sharma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/yousra-tageldeen",
+      "destination": "/team?member=yousra-tageldeen",
+      "permanent": true
+    },
+    {
+      "source": "/agent/briice-dsouza",
+      "destination": "/team?member=briice-dsouza",
+      "permanent": true
+    },
+    {
+      "source": "/agent/hema-gangwani",
+      "destination": "/team?member=hema-gangwani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/umair-abbas",
+      "destination": "/team?member=umair-abbas",
+      "permanent": true
+    },
+    {
+      "source": "/agent/darshil-shah",
+      "destination": "/team?member=darshil-shah",
+      "permanent": true
+    },
+    {
+      "source": "/agent/heena-patel",
+      "destination": "/team?member=heena-patel",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mehar-sindhu-batra",
+      "destination": "/team?member=mehar-sindhu-batra",
+      "permanent": true
+    },
+    {
+      "source": "/agent/naveed-fayyaz",
+      "destination": "/team?member=naveed-fayyaz",
+      "permanent": true
+    },
+    {
+      "source": "/agent/agrima-bhatnagar",
+      "destination": "/team?member=agrima-bhatnagar",
+      "permanent": true
+    },
+    {
+      "source": "/property/valia-at-dubai-creek-harbour",
+      "destination": "/property?p=valia",
+      "permanent": true
+    },
+    {
+      "source": "/property/fior-1-at-rashid-yachts-and-marina",
+      "destination": "/property?p=fior-1",
+      "permanent": true
+    },
+    {
+      "source": "/property/frond-f-beach-and-coral-collections-at-palm-jebel-ali",
+      "destination": "/property?p=frond-f",
+      "permanent": true
+    },
+    {
+      "source": "/property/kanyon-by-beyond",
+      "destination": "/property?p=kanyon",
+      "permanent": true
+    },
+    {
+      "source": "/property/everly-place-by-ellington-properties",
+      "destination": "/property?p=everly",
+      "permanent": true
+    },
+    {
+      "source": "/property/the-woods-at-sobha-sanctuary-by-sobha-realty",
+      "destination": "/property?p=the-woods",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-trails-at-emaar-south",
+      "destination": "/property?p=golf-trails",
+      "permanent": true
+    },
+    {
+      "source": "/property/arancia-the-yards-by-beyond",
+      "destination": "/property?p=arancia",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-vale-at-emaar-south",
+      "destination": "/property?p=golf-vale",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-fields-at-emaar-south",
+      "destination": "/property?p=golf-fields",
+      "permanent": true
+    },
+    {
+      "source": "/guide-article/",
+      "destination": "/guide?g=buying",
+      "permanent": true
+    },
+    {
+      "source": "/agent/",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us-dubai-real-estate-agency/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/legal?doc=privacy",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rakhi-megchiani/",
+      "destination": "/team?member=rakhi-megchiani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/asma-zerroukat/",
+      "destination": "/team?member=asma-zerroukat",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ankit-aujla/",
+      "destination": "/team?member=ankit-aujla",
+      "permanent": true
+    },
+    {
+      "source": "/agent/hind-azzouzi/",
+      "destination": "/team?member=hind-azzouzi",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ayaz-salman/",
+      "destination": "/team?member=ayaz-salman",
+      "permanent": true
+    },
+    {
+      "source": "/agent/aakash-khanna/",
+      "destination": "/team?member=aakash-khanna",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mohit-singh-sen/",
+      "destination": "/team?member=mohit-singh-sen",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ranjit-nair/",
+      "destination": "/team?member=ranjit-nair",
+      "permanent": true
+    },
+    {
+      "source": "/agent/seema-balwani/",
+      "destination": "/team?member=seema-balwani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mamtu-mirchandani/",
+      "destination": "/team?member=mamtu-mirchandani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/umangg-sain/",
+      "destination": "/team?member=umangg-sain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ekta-madan/",
+      "destination": "/team?member=ekta-madan",
+      "permanent": true
+    },
+    {
+      "source": "/agent/musaib-mehraj/",
+      "destination": "/team?member=musaib-mehraj",
+      "permanent": true
+    },
+    {
+      "source": "/agent/tarun-sharma/",
+      "destination": "/team?member=tarun-sharma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rushil-verma/",
+      "destination": "/team?member=rushil-verma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/archana-bhan/",
+      "destination": "/team?member=archana-bhan",
+      "permanent": true
+    },
+    {
+      "source": "/agent/ghazal-khosroparviz/",
+      "destination": "/team?member=ghazal-khosroparviz",
+      "permanent": true
+    },
+    {
+      "source": "/agent/madhuri-podeti/",
+      "destination": "/team?member=madhuri-podeti",
+      "permanent": true
+    },
+    {
+      "source": "/agent/tanushree-jain/",
+      "destination": "/team?member=tanushree-jain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/eram-parkar/",
+      "destination": "/team?member=eram-parkar",
+      "permanent": true
+    },
+    {
+      "source": "/agent/sabatini-fialho/",
+      "destination": "/team?member=sabatini-fialho",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rishika-kshetri/",
+      "destination": "/team?member=rishika-kshetri",
+      "permanent": true
+    },
+    {
+      "source": "/agent/rishab-goswami/",
+      "destination": "/team?member=rishab-goswami",
+      "permanent": true
+    },
+    {
+      "source": "/agent/kuhoo-jain/",
+      "destination": "/team?member=kuhoo-jain",
+      "permanent": true
+    },
+    {
+      "source": "/agent/gourav-sharma/",
+      "destination": "/team?member=gourav-sharma",
+      "permanent": true
+    },
+    {
+      "source": "/agent/yousra-tageldeen/",
+      "destination": "/team?member=yousra-tageldeen",
+      "permanent": true
+    },
+    {
+      "source": "/agent/briice-dsouza/",
+      "destination": "/team?member=briice-dsouza",
+      "permanent": true
+    },
+    {
+      "source": "/agent/hema-gangwani/",
+      "destination": "/team?member=hema-gangwani",
+      "permanent": true
+    },
+    {
+      "source": "/agent/umair-abbas/",
+      "destination": "/team?member=umair-abbas",
+      "permanent": true
+    },
+    {
+      "source": "/agent/darshil-shah/",
+      "destination": "/team?member=darshil-shah",
+      "permanent": true
+    },
+    {
+      "source": "/agent/heena-patel/",
+      "destination": "/team?member=heena-patel",
+      "permanent": true
+    },
+    {
+      "source": "/agent/mehar-sindhu-batra/",
+      "destination": "/team?member=mehar-sindhu-batra",
+      "permanent": true
+    },
+    {
+      "source": "/agent/naveed-fayyaz/",
+      "destination": "/team?member=naveed-fayyaz",
+      "permanent": true
+    },
+    {
+      "source": "/agent/agrima-bhatnagar/",
+      "destination": "/team?member=agrima-bhatnagar",
+      "permanent": true
+    },
+    {
+      "source": "/property/valia-at-dubai-creek-harbour/",
+      "destination": "/property?p=valia",
+      "permanent": true
+    },
+    {
+      "source": "/property/fior-1-at-rashid-yachts-and-marina/",
+      "destination": "/property?p=fior-1",
+      "permanent": true
+    },
+    {
+      "source": "/property/frond-f-beach-and-coral-collections-at-palm-jebel-ali/",
+      "destination": "/property?p=frond-f",
+      "permanent": true
+    },
+    {
+      "source": "/property/kanyon-by-beyond/",
+      "destination": "/property?p=kanyon",
+      "permanent": true
+    },
+    {
+      "source": "/property/everly-place-by-ellington-properties/",
+      "destination": "/property?p=everly",
+      "permanent": true
+    },
+    {
+      "source": "/property/the-woods-at-sobha-sanctuary-by-sobha-realty/",
+      "destination": "/property?p=the-woods",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-trails-at-emaar-south/",
+      "destination": "/property?p=golf-trails",
+      "permanent": true
+    },
+    {
+      "source": "/property/arancia-the-yards-by-beyond/",
+      "destination": "/property?p=arancia",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-vale-at-emaar-south/",
+      "destination": "/property?p=golf-vale",
+      "permanent": true
+    },
+    {
+      "source": "/property/golf-fields-at-emaar-south/",
+      "destination": "/property?p=golf-fields",
+      "permanent": true
+    },
+    {
       "source": "/blog",
       "missing": [
         {
@@ -176,6 +661,10 @@
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'"
         },
         {
           "key": "Referrer-Policy",

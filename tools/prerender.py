@@ -73,7 +73,14 @@ def snapshot(dom):
     return body, (fonts, '\n'.join(styles))
 
 
+def compact_html(body):
+    # HTML collapses ordinary whitespace; preserve preformatted content exactly.
+    chunks = re.split(r'(<(?:pre|textarea)\b.*?</(?:pre|textarea)>)', body, flags=re.S | re.I)
+    return ''.join(chunk if re.match(r'<(?:pre|textarea)\b', chunk, re.I) else re.sub(r'[ \t\r\n\f]+', ' ', chunk) for chunk in chunks)
+
+
 def embed(f, body, assets):
+    body = compact_html(body)
     p = os.path.join(ROOT, f)
     s = open(p, encoding='utf-8').read()
     s = re.sub(r'\n?' + re.escape(HEAD_START) + r'.*?' + re.escape(HEAD_END), '', s, flags=re.S)
@@ -87,7 +94,7 @@ def embed(f, body, assets):
 
 def main():
     if not os.path.exists(CHROME):
-        print('prerender: Google Chrome not found, skipped'); return
+        raise SystemExit('prerender: Google Chrome not found; snapshots were not refreshed')
     files = [p + '.html' for p in ROOT_PAGES] + sorted('s/' + f for f in os.listdir(os.path.join(ROOT, 's')) if f.endswith('.html'))
     port = free_port()
     server = subprocess.Popen([sys.executable, os.path.join(ROOT, 'tools', 'serve.py'), str(port)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -115,6 +122,7 @@ def main():
     bad = [r for r in results if r[1] != 'ok']
     print(f'prerender: {len(results) - len(bad)} of {len(results)} pages' + (f'; problems: {bad}' if bad else ''))
 
+    if bad: raise SystemExit(1)
 
 if __name__ == '__main__':
     main()

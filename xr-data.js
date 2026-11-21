@@ -1,5 +1,6 @@
 (function () {
   const B = 'https://www.xrealty.ae';
+  const MEDIA = window.XR_MEDIA || {properties:{}, communities:{}};
   const CL = (v, id, w = 1400) => `https://res.cloudinary.com/dkhns25jh/image/upload/w_${w},f_auto,q_auto/${v}/xr_media/${id}.webp`;
   const IMG = {
     valiaExt: CL('v1786024664', 'hf14iqghcjyalcrgr8rv'), valiaInt: CL('v1786024589', 'azldwpnaxgzt1hcqt9xi'), valia2: CL('v1786024596', 'tng4fvgqeipawfjdsdh3'),
@@ -24,7 +25,7 @@
     ['asma-zerroukat', 'Asmaa Zerroukat', 'Associate Director', '5 years', 'French, Arabic, English', 'large_asma_5bce8500d7.webp', '971529270836'],
   ].map(([slug, name, role, exp, langs, img, wa]) => ({ slug, name, first: name.split(' ')[0], role, exp, langs, img: M + img, wa: 'https://wa.me/' + wa, tel: 'tel:+' + wa, href: B + '/agent/' + slug + '/' }));
 
-  const C = (slug, name, tagline, img, from, psf, yld, lat, lng, agentIdx, about, highlights, travel) => ({ slug, name, tagline, img, from, psf, yld, lat, lng, agents: agentIdx.map(i => agents[i]), about, highlights, travel, href: P.community(slug) });
+  const C = (slug, name, tagline, img, from, psf, yld, lat, lng, agentIdx, about, highlights, travel) => ({ slug, name, tagline, img: MEDIA.communities[slug] || img, from: null, psf: null, yld: null, lat, lng, agents: agentIdx.map(i => agents[i]), about, highlights, travel, href: P.community(slug) });
   const communities = [
     C('creek-harbour', 'Dubai Creek Harbour', 'Where the city meets the water', IMG.valiaCity, 1300000, 2350, 6.4, 25.197, 55.349, [0, 1], 'A 6 sq km waterfront district by Emaar beside the Ras Al Khor wildlife sanctuary, with skyline views and a planned Metro Blue Line station.', ['Waterfront promenade & marina', 'Ras Al Khor wildlife sanctuary', 'Creek Island beach', 'Metro Blue Line (planned)'], [['Downtown Dubai', 12], ['DXB Airport', 10], ['Dubai Mall', 14]]),
     C('rashid-yachts', 'Rashid Yachts & Marina', 'A new marina for Port Rashid', IMG.fiorExt, 2200000, 3100, 5.8, 25.268, 55.276, [1, 3], 'Emaar\'s marina-front redevelopment of historic Mina Rashid, next to the QE2 and the Dubai Cruise Terminal.', ['Superyacht marina', 'QE2 & cruise terminal', 'Heritage Bur Dubai', 'Beach & boardwalk'], [['Downtown Dubai', 15], ['DXB Airport', 18], ['DIFC', 14]]),
@@ -43,16 +44,20 @@
   const cBy = byKey(communities);
 
   const pr = (slug, developer, short, name, cSlug, price, type, bMin, bMax, sMin, sMax, handover, plan, img, agent, desc, lat, lng) => {
+    const verified = window.XR_CATALOGUE[slug];
+    if (verified) ({price,type,bedsMin:bMin,bedsMax:bMax,handover,plan} = verified);
+    desc = verified && verified.description || desc;
     const c = cBy[cSlug];
-    const units = [];
-    for (let b = bMin; b <= bMax; b++) units.push({ label: b === 0 ? 'Studio' : b + ' bedroom' + (b > 1 ? 's' : ''), size: Math.round(sMin + (sMax - sMin) * (bMax === bMin ? 0 : (b - bMin) / (bMax - bMin))), price: Math.round(price * (1 + 0.55 * (b - bMin)) / 10000) * 10000 });
+    const units = verified ? verified.unitType.split('Unit Type').map(label => ({label:label.trim(),size:null,price:null})) : [];
     const gi = POOL.indexOf(img);
-    const gallery = [img, ...[1, 3, 5, 7].map(k => POOL[(gi + k) % POOL.length])];
-    return { slug, developer, short, name, community: c.name, communitySlug: c.slug, price, priceLabel: aed(price), type, bedsMin: bMin, bedsMax: bMax, beds: bMin === bMax ? bedLabel(bMin) : `${bedLabel(bMin)} – ${bMax} BR`, size: `${fmt(sMin)} – ${fmt(sMax)} sq ft`, sizeMin: sMin, status: 'Off-plan', handover, handoverYear: +handover.slice(-4), plan, planLabel: plan.join('/'), img, gallery, agent: agents[agent], desc, units, lat: lat ?? c.lat, lng: lng ?? c.lng, href: P.property(slug), live: B + '/property/' };
+    const photos = MEDIA.properties[slug];
+    const gallery = photos ? photos.gallery : [img, ...[1, 3, 5, 7].map(k => POOL[(gi + k) % POOL.length])];
+    img = photos ? photos.cover : img;
+    return { types: verified ? verified.types : [type], source: verified && verified.source, updated: verified && verified.updated, slug, developer, short, name, community: c.name, communitySlug: c.slug, price, priceLabel: aed(price), type, bedsMin: bMin, bedsMax: bMax, beds: bMin === bMax ? bedLabel(bMin) : `${bedLabel(bMin)} – ${bMax} BR`, size: verified ? verified.size : 'Confirm size with advisor', sizeMin: null, status: 'Off-plan', handover, handoverYear: +handover.slice(-4), plan, planLabel: plan.join('/'), img, gallery, agent: agents[agent], desc, units, lat: lat ?? c.lat, lng: lng ?? c.lng, href: P.property(slug), live: B + '/property/' };
   };
   const fmt = n => Math.round(n).toLocaleString('en-US');
-  const aed = n => 'AED ' + fmt(n);
-  const aedShort = n => n >= 1e6 ? 'AED ' + +(n / 1e6).toFixed(n >= 1e7 ? 0 : 2) + 'M' : 'AED ' + Math.round(n / 1000) + 'K';
+  const aed = n => window.XRCurrency ? window.XRCurrency.format(n) : 'AED ' + fmt(n);
+  const aedShort = n => window.XRCurrency ? window.XRCurrency.format(n,{compact:true}) : 'AED ' + fmt(n);
   const bedLabel = b => b === 0 ? 'Studio' : b + ' BR';
   const properties = [
     pr('valia', 'Emaar Properties', 'Emaar', 'Valia at Dubai Creek Harbour', 'creek-harbour', 1910000, 'Apartment', 1, 3, 760, 1720, 'Q4 2029', [80, 20], IMG.valiaExt, 0, 'Waterfront apartments in the heart of Dubai Creek Harbour with views of the Creek Tower plaza and the Downtown skyline, steps from the promenade and Creek Marina.', 25.199, 55.352),
@@ -66,7 +71,7 @@
     pr('golf-vale', 'Emaar Properties', 'Emaar', 'Golf Vale at Emaar South', 'emaar-south', 1090000, 'Apartment', 1, 3, 680, 1550, 'Q1 2029', [80, 20], IMG.valiaInt, 2, 'Mid-rise apartments overlooking the Emaar South golf course with family amenities and landscaped walkways.', 24.885, 55.175),
     pr('golf-fields', 'Emaar Properties', 'Emaar', 'Golf Fields at Emaar South', 'emaar-south', 1260000, 'Townhouse', 3, 4, 1900, 2600, 'Q4 2028', [80, 20], IMG.fiorLobby, 0, 'Three and four-bedroom townhouses on the Emaar South greens with private gardens and community parks.', 24.876, 55.165),
   ];
-  communities.forEach(c => { c.projects = properties.filter(p => p.communitySlug === c.slug); c.fromLabel = aedShort(c.from); });
+  communities.forEach(c => { c.projects = properties.filter(p => p.communitySlug === c.slug); c.from = c.projects.length ? Math.min(...c.projects.map(p => p.price)) : null; c.fromLabel = c.from ? aedShort(c.from) : 'Request pricing'; });
 
   const I18N = {
     en: { properties: 'Properties', developers: 'Developers', communities: 'Communities', guides: 'Guides', team: 'XR Team', insights: 'Insights', about: 'About', contact: 'Contact us', call: 'Call', whatsapp: 'WhatsApp', enquire: 'Enquire', saved: 'Shortlist', from: 'From', lang: 'عربي', langAria: 'View in Arabic', register: 'Register interest', compare: 'Compare', viewAll: 'View all', home: 'Home' },
@@ -92,10 +97,11 @@
     c.__xrU = () => c.setState({ xrTick: Date.now() });
     c.__xrR = () => window.innerWidth !== c.state.vw && c.setState(st => ({ vw: window.innerWidth, drawer: window.innerWidth >= 1180 ? false : st.drawer }));
     window.addEventListener('resize', c.__xrR); window.addEventListener('xr-store', c.__xrU); window.addEventListener('storage', c.__xrU);
-    const theme = raw('xr-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    window.addEventListener('xr-currency', c.__xrU);
+    const theme = raw('xr-theme') || window.XR_CONFIG.defaultTheme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     c.setState({ vw: window.innerWidth, theme, lang: raw('xr-lang') || 'en', xrReady: true });
   }
-  function unmount(c) { window.removeEventListener('resize', c.__xrR); window.removeEventListener('xr-store', c.__xrU); window.removeEventListener('storage', c.__xrU); }
+  function unmount(c) { window.removeEventListener('xr-currency', c.__xrU); window.removeEventListener('resize', c.__xrR); window.removeEventListener('xr-store', c.__xrU); window.removeEventListener('storage', c.__xrU); }
   function sync(c) {
     const d = document.documentElement, s = c.state;
     d.dataset.theme = s.theme || 'light'; d.dir = s.lang === 'ar' ? 'rtl' : 'ltr'; d.lang = s.lang || 'en';
@@ -140,7 +146,20 @@
     });
     return leafletP;
   }
-  async function map(el, opts) { try { return await map_(el, opts); } catch (e) { console.warn('XR map', e && e.message); return null; } }
+  async function map(el, opts) {
+    if (!el || !el.isConnected) return null;
+    if (!el.__map && window.IntersectionObserver && el.getBoundingClientRect().top > window.innerHeight + 240) {
+      el.__xrMapOpts = opts;
+      if (!el.__xrMapObserver) {
+        el.__xrMapObserver = new IntersectionObserver(([entry]) => {
+          if (!el.isConnected || entry.isIntersecting) { el.__xrMapObserver.disconnect(); delete el.__xrMapObserver; if (el.isConnected) map(el, el.__xrMapOpts); }
+        }, {rootMargin:'240px'});
+        el.__xrMapObserver.observe(el);
+      }
+      return null;
+    }
+    try { return await map_(el, opts); } catch (e) { console.warn('XR map', e && e.message); return null; }
+  }
   async function map_(el, { center, zoom = 12, markers = [], dark = false, fit = false }) {
     const L = await leaflet();
     if (!el || !el.isConnected) return null;
@@ -160,5 +179,6 @@
     return m;
   }
 
+  if (typeof window.addEventListener === 'function') window.addEventListener('xr-currency', () => { properties.forEach(p => p.priceLabel = aed(p.price)); communities.forEach(c => c.fromLabel = c.from ? aedShort(c.from) : 'Request pricing'); });
   window.XR = { B, IMG, LOGO, P, agents, communities, cBy, properties, pBy: byKey(properties), I18N, store, mount, unmount, sync, shell, boot, map, fmt, aed, aedShort, param: k => new URLSearchParams(location.search).get(k) };
 })();

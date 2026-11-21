@@ -17,14 +17,24 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "RealEstateAgent", "@id": "https://www.xrealty.ae/#org", "name": "Xperience Realty", "url": "https://www.xrealty.ae/", "logo": "https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png", "image": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp", "telephone": "+971564080888", "email": "info@xrealty.ae", "address": {"@type": "PostalAddress", "addressLocality": "Dubai Hills Estate, Dubai", "addressCountry": "AE"}, "areaServed": "Dubai", "sameAs": ["https://www.youtube.com/@xrealtyae", "https://www.instagram.com/xperience.realty", "https://www.linkedin.com/company/xrealty-ae", "https://x.com/xrealty_ae", "https://www.facebook.com/profile.php?id=61562378023612"]}]}</script>
 <!-- seo:end -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script src="/xr-config.js"></script>
+<script src="/xr-currency.js"></script>
+<script src="/xr-catalogue.js"></script>
+<script src="/xr-forms.js"></script>
+<script src="/xr-media.js"></script>
+<script src="/xr-data.js"></script>
 <script src="./support.js"></script>
+<link rel="stylesheet" href="/brand.css">
+<script src="/site-ui.js" defer></script>
+<script src="/xr-enhancements.js" defer></script>
 </head>
 <body>
+<a class="xr-skip-link" href="#xr-main">Skip to content</a>
 <x-dc><script type="text/x-dc-template">
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<script src="./xr-data.js"><\/script>
+
+
 <style>
 :root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-h:#2A2A2A;--muted:#5C5C5C;--line:#E3E3E3;--line2:#CFCFCF;--soft:#F3F3F3;--img:#EDEDED;--band:#0A0A0A;--accent:#FF9100;color-scheme:light}
 html[data-theme="dark"]{--bg:#121212;--ink:#F2F2F2;--ink-h:#D6D6D6;--muted:#A6A6A6;--line:#2A2A2A;--line2:#3D3D3D;--soft:#1C1C1C;--img:#222222;--band:#1E1E1E;color-scheme:dark}
@@ -40,12 +50,13 @@ input,button,select,textarea{font-family:inherit}
 html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) contrast(.9)}
 </style>
 <script src="./xr-extras.js"><\/script>
+<link rel="stylesheet" href="/brand.css">
 </helmet>
 <div style="min-height:100vh;background:var(--bg);color:var(--ink)">
   <header style="position:sticky;top:0;z-index:500;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(255,255,255,.1)">
     <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
       <a href="index.html" aria-label="Xperience Realty home" style="display:flex;flex-shrink:0">
-        <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:36px;width:auto;display:block">
+        <span class="xr-brand-lockup" role="img" aria-label="Xperience Realty"><img class="xr-brand-mark" src="/assets/brand/xr-mark.png" alt="" aria-hidden="true"><span class="xr-brand-name" aria-hidden="true"><span class="xr-brand-xperience">Xperience</span><span class="xr-brand-realty">Realty</span></span></span>
       </a>
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
         <nav aria-label="Primary" style="display:flex;align-items:center;height:100%">
@@ -54,7 +65,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
           </sc-for>
         </nav>
       </sc-if>
-      <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;align-items:center;gap:8px"><div class="xr-header-tools"><button type="button" class="xr-header-tools-toggle" aria-label="Quick tools" aria-expanded="false" aria-controls="xr-header-tools-panel"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="#151515"/><circle cx="15" cy="17" r="3" fill="#151515"/></svg></button><div id="xr-header-tools-panel" class="xr-header-tools-panel" role="group" aria-label="Header tools">
         <button onClick="{{ toggleLang }}" aria-label="{{ langAria }}" title="{{ langAria }}" style="min-width:44px;height:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#FFFFFF;font-size:13px;font-weight:600;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">{{ langBtn }}</button>
         <button onClick="{{ toggleTheme }}" aria-label="{{ themeAria }}" title="{{ themeAria }}" style="width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FFFFFF" style-hover="border-color:#FF9100;color:#FF9100">
           <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
@@ -70,6 +81,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
             <span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#FF9100;color:#0A0A0A;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ savedCount }}</span>
           </sc-if>
         </a>
+</div></div>
         <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
           <a href="contact.html" style="display:inline-flex;align-items:center;height:44px;padding:0 20px;background:#FFFFFF;color:#0A0A0A;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap" style-hover="background:#E3E3E3;color:#0A0A0A">{{ t.contact }}</a>
         </sc-if>
@@ -256,10 +268,10 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
               <input aria-label="Full name" autocomplete="name" placeholder="Full name" value="{{ lead.name }}" onChange="{{ onName }}" style="height:50px;padding:0 16px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:16px">
               <input aria-label="Phone" type="tel" autocomplete="tel" placeholder="Phone (+971…)" value="{{ lead.phone }}" onChange="{{ onPhone }}" style="height:50px;padding:0 16px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:16px">
               <select aria-label="Unit type" value="{{ lead.unit }}" onChange="{{ onUnit }}" style="height:50px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-size:16px">
-                <sc-for list="{{ unitOptions }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+                <sc-for list="{{ unitOptions }}" as="o" hint-placeholder-count="3"><option label="{{ o }}" value="{{ o }}" aria-label="{{ o }}">{{ o }}</option></sc-for>
               </select>
               <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:14px;font-weight:600;color:#D93025">{{ err }}</span></sc-if>
-              <button type="submit" style="height:52px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;cursor:pointer" style-hover="background:var(--ink-h)">Download brochure, price list &amp; floor plans</button>
+              <button type="submit" style="height:52px;border:none;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;cursor:pointer" style-hover="background:var(--ink-h)">Request brochure, prices &amp; floor plans</button>
             </form>
           </sc-if>
           <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
@@ -273,7 +285,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
             <a href="{{ agent.tel }}" style="display:flex;align-items:center;justify-content:center;height:46px;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:600" style-hover="border-color:var(--ink);color:var(--ink)">{{ t.call }}</a>
           </div>
         </div>
-        <p style="margin:0;font-size:12px;line-height:1.5;color:var(--muted)">Prices, sizes and payment plans are indicative and subject to developer availability. Zero buyer commission on most developer-direct purchases.</p>
+        <p style="margin:0;font-size:12px;line-height:1.5;color:var(--muted)">Published project facts checked 11 November 2026. Prices, sizes and availability must be confirmed with the developer. Zero buyer commission on most developer-direct purchases.</p>
       </aside>
     </div>
 
@@ -309,7 +321,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
     <div style="max-width:1360px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,5vw,64px) 32px;display:flex;flex-direction:column;gap:40px">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:36px 32px">
         <div style="display:flex;flex-direction:column;gap:14px">
-          <img src="https://res.cloudinary.com/dkhns25jh/image/upload/f_auto/v1733821293/xr_media/sqmxma6remiuh1mbv4x7.png" alt="Xperience Realty" style="height:44px;width:auto;align-self:flex-start">
+          <span class="xr-brand-lockup" role="img" aria-label="Xperience Realty"><img class="xr-brand-mark" src="/assets/brand/xr-mark.png" alt="" aria-hidden="true"><span class="xr-brand-name" aria-hidden="true"><span class="xr-brand-xperience">Xperience</span><span class="xr-brand-realty">Realty</span></span></span>
           <p style="margin:0;max-width:34ch;font-size:14px;line-height:1.6">Award-winning Dubai brokerage. RERA-certified specialists from consultation to handover.</p>
         </div>
         <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="4">
@@ -322,7 +334,7 @@ html[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) brightness(.85) cont
         </sc-for>
       </div>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px">
-        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C. · RERA ORN <strong style="color:#FFFFFF">[ORN no.]</strong> · DED licence <strong style="color:#FFFFFF">[licence no.]</strong></span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="legal?doc=privacy" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="legal?doc=terms" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
+        <span style="display:flex;flex-direction:column;gap:6px;max-width:72ch"><span>© 2026 Xperience Realty Real Estate L.L.C.</span><span style="display:flex;flex-wrap:wrap;gap:6px 18px"><a href="legal?doc=privacy" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Privacy policy</a><a href="legal?doc=terms" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Terms of use</a><a href="#cookie-settings" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Cookie settings</a><a href="sell.html" style="color:#BDBDBD;text-decoration:underline" style-hover="color:#FFFFFF">Sell with XR</a></span></span>
         <div style="display:flex;flex-wrap:wrap;gap:20px">
           <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
             <a href="{{ s.href }}" style="color:#BDBDBD" style-hover="color:#FFFFFF">{{ s.label }}</a>
@@ -374,19 +386,17 @@ class Component extends DCLogic {
       share: async () => { const url = location.href; try { if (navigator.share) await navigator.share({ title: p.name, url }); else { await navigator.clipboard.writeText(url); this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 2000); } } catch (e) {} },
       hasPermit: !!p.permit, permitNo: p.permit || '',
       permitQr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=0&data=' + encodeURIComponent(p.permitUrl || ('https://trakheesi.dubailand.gov.ae/rev/madmoun/listing/validate?permit=' + (p.permit || p.slug))),
-      visaTitle: p.price >= 2000000 ? 'Golden Visa eligible' : p.price >= 750000 ? 'Investor visa eligible' : 'Below visa threshold',
-      visaBody: p.price >= 2000000 ? 'AED 2M+ — may qualify for a 10-year UAE Golden Visa.' : p.price >= 750000 ? 'AED 750K+ — may qualify for a 2-year property visa.' : 'Ask an Xpert about qualifying options.',
-      visaIcon: p.price >= 750000 ? '✓' : 'i', visaDot: p.price >= 2000000 ? '#FF9100' : 'var(--soft)', visaBorder: p.price >= 2000000 ? 'rgba(255,145,0,.5)' : 'var(--line)',
+      visaTitle: 'Residency guidance', visaBody: 'Ask your advisor about current residency requirements. Property ownership does not guarantee approval.', visaIcon: 'i', visaDot: 'var(--soft)', visaBorder:'var(--line)',
       facts: [['Property type', p.type], ['Bedrooms', p.beds], ['Size', p.size], ['Status', p.status], ['Handover', p.handover], ['Payment plan', p.planLabel]].map(([k, v]) => ({ k, v })),
       planA: a + '%', planB: b + '%',
       planRows: [{ pct: a + '%', label: 'During construction', amount: X.aed(p.price * a / 100), dot: 'var(--ink)' }, { pct: b + '%', label: 'On handover', amount: X.aed(p.price * b / 100), dot: '#FF9100' }],
-      units: p.units.map(u => ({ ...u, sizeLabel: '~' + X.fmt(u.size) + ' sq ft', priceLabel: 'From ' + X.aed(u.price), request: () => { this.setState(st => ({ lead: { ...st.lead, unit: u.label } })); const el = document.getElementById('enquire'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 96, behavior: 'smooth' }); } })),
+      units: p.units.map(u => ({ ...u, sizeLabel: 'Request the confirmed floor plan', priceLabel: 'Ask for current availability', request: () => { this.setState(st => ({ lead: { ...st.lead, unit: u.label } })); const el = document.getElementById('enquire'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 96, behavior: 'smooth' }); } })),
       mapRef: this.mapRef,
       travel: c.travel.map(([place, m]) => ({ place, min: m + ' min' })),
       lead: { ...s.lead, unit: s.lead.unit || unitOptions[0] }, unitOptions, onName: setLead('name'), onPhone: setLead('phone'), onUnit: setLead('unit'),
       hasErr: !!s.err, err: s.err, leadOpen: !s.sent, sent: s.sent,
       thanksName: s.lead.name.trim() ? ', ' + s.lead.name.trim().split(/\s+/)[0] : '',
-      submit: e => { e.preventDefault(); const { name, phone } = this.state.lead; if (name.trim().length < 2) return this.setState({ err: 'Please enter your name.' }); if (phone.replace(/\D/g, '').length < 7) return this.setState({ err: 'Please enter a valid phone number.' }); this.setState({ sent: true }); },
+      submit: e => { e.preventDefault(); const { name, phone } = this.state.lead; if (name.trim().length < 2) return this.setState({ err: 'Please enter your name.' }); if (!window.XRForms.validPhone(phone)) return this.setState({ err: 'Please enter a valid phone number.' }); window.XRForms.submit(e.currentTarget,{type:'brochure',subject:'Request brochure and current price list: '+p.name,agent:p.agent.tel,fields:{Name:name,Phone:phone,Property:p.name,Unit:this.state.lead.unit||'Any unit type'}}); },
       waHref: p.agent.wa + '?text=' + encodeURIComponent(`Hi ${p.agent.first}, I'm interested in ${p.name}. Could you share the price list?`),
       similar: X.properties.filter(q => q.slug !== p.slug).sort((x, y) => (y.communitySlug === p.communitySlug) - (x.communitySlug === p.communitySlug) || (y.short === p.short) - (x.short === p.short) || Math.abs(x.price - p.price) - Math.abs(y.price - p.price)).slice(0, 3),
       lightbox: s.photo >= 0, lbSrc: p.gallery[Math.max(0, s.photo)], lbCounter: `${s.photo + 1} / ${p.gallery.length}`,
