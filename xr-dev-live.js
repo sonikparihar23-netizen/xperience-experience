@@ -451,63 +451,111 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp",
     "price": 1960000,
     "name": "Valia at Dubai Creek Harbour",
-    "community": "Dubai Creek Harbour"
+    "community": "Dubai Creek Harbour",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q4 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/golf-vale-at-emaar-south/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1785489911/xr_media/jbrilaxyzwkrjwzgqbme.webp",
     "price": 1090000,
     "name": "Golf Vale at Emaar South",
-    "community": "Emaar South"
+    "community": "Emaar South",
+    "types": [
+     "Apartment",
+     "Townhouse"
+    ],
+    "handover": "Q1 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/golf-fields-at-emaar-south/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1785570032/xr_media/y3utm3suc7rhuxldvybj.webp",
     "price": 1260000,
     "name": "Golf Fields at Emaar South",
-    "community": "Emaar South"
+    "community": "Emaar South",
+    "types": [
+     "Apartment",
+     "Townhouse"
+    ],
+    "handover": "Q4 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/golf-trails-at-emaar-south/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1784795432/xr_media/cdy1qpgmqkdrs2ghszca.webp",
     "price": 1250000,
     "name": "Golf Trails at Emaar South",
-    "community": "Emaar South"
+    "community": "Emaar South",
+    "types": [
+     "Apartment",
+     "Townhouse"
+    ],
+    "handover": "Q4 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/fior-1-at-rashid-yachts-and-marina/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp",
     "price": 2200000,
     "name": "Fior 1 at Rashid Yachts & Marina",
-    "community": "Rashid Yachts & Marina"
+    "community": "Rashid Yachts & Marina",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q3 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/palmiera-collective-at-the-oasis-by-emaar/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769684010/xr_media/ppotu1rn6jekyfox8q9g.webp",
     "price": 16530000,
     "name": "Palmiera Collective at The Oasis",
-    "community": "The Oasis"
+    "community": "The Oasis",
+    "types": [
+     "Villa"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/salva-the-heights-by-emaar/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769090116/xr_media/j3kke4ljatwa8gtlbs09.webp",
     "price": 6500000,
     "name": "Salva The Heights",
-    "community": "The Heights Country Club And Wellness"
+    "community": "The Heights Country Club And Wellness",
+    "types": [
+     "Villa"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/serro-2-the-heights-emaar/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769087939/xr_media/efmdlz9o8dd7xvs2oew7.webp",
     "price": 6500000,
     "name": "Serro 2 The Heights",
-    "community": "The Heights Country Club And Wellness"
+    "community": "The Heights Country Club And Wellness",
+    "types": [
+     "Villa"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/serro-the-heights-by-emaar/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769072665/xr_media/e2y1temw2mvgqfyp0cli.webp",
     "price": 6500000,
     "name": "Serro At The Heights",
-    "community": "The Heights Country Club And Wellness"
+    "community": "The Heights Country Club And Wellness",
+    "types": [
+     "Villa"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -975,35 +1023,65 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1794287999/xr_media/urxikw5jggtinnvuh9d9.jpg",
     "price": 3800000,
     "name": "Palm Springs by Nakheel",
-    "community": "Palm Jebel Ali"
+    "community": "Palm Jebel Ali",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q4 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/frond-f-beach-and-coral-collections-at-palm-jebel-ali/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1788343647/xr_media/s8cq6ew2f7yqtmhvd7jg.webp",
     "price": 30000000,
     "name": "Frond F Beach & Coral Collections at Palm Jebel Ali",
-    "community": "Palm Jebel Ali"
+    "community": "Palm Jebel Ali",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q1 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/palm-central-private-residences-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769250423/xr_media/ueovazptlvfvw58adyxc.webp",
     "price": 2500000,
     "name": "Palm Central Private Residences",
-    "community": "Palm Jebel Ali"
+    "community": "Palm Jebel Ali",
+    "types": [
+     "Apartment",
+     "Townhouse",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/naya-residences-district-one-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1754149174/xr_media/fs6tgnvwarirsyycth5h.jpg",
     "price": 1700000,
     "name": "Naya Residences At District One",
-    "community": "MBR City District One"
+    "community": "MBR City District One",
+    "types": [
+     "Apartment",
+     "Villa",
+     "Penthouse"
+    ],
+    "handover": "Q4 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/palm-jebel-ali-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1739626726/xr_media/iqmdkzw1ms7kiax0pokk.jpg",
     "price": 18100000,
     "name": "Palm Jebel Ali By Nakheel",
-    "community": "Palm Jebel Ali"
+    "community": "Palm Jebel Ali",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q4 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/bay-villas-at-dubai-islands/",
@@ -1016,21 +1094,35 @@ window.XR_DEV_LIVE = {
     "href": "https://www.xrealty.ae/property/jebel-ali-village-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722415835/xr_media/hb7nbsqdo2qj7bylpyud.jpg",
     "price": 4250000,
-    "name": "Jebel Ali Village By Nakheel"
+    "name": "Jebel Ali Village By Nakheel",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q4 2025",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/the-palm-tower-at-palm-jumeirah-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722415359/xr_media/yhzdo5m62hip8coc9wnv.jpg",
     "price": 1700000,
     "name": "THE PALM TOWER",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment"
+    ]
    },
    {
     "href": "https://www.xrealty.ae/property/palm-beach-towers-3-by-nakheel/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722407747/xr_media/ok54ibtxyscvmsmeowyx.webp",
     "price": 3600000,
     "name": "Palm Beach Towers At Palm Jumeirah",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    }
   ],
   "communities": [
@@ -1164,63 +1256,112 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770200218/xr_media/rtnfilejswjq93yvdeya.webp",
     "price": 1335000,
     "name": "Azure 2 - Damac Riverside Views",
-    "community": "Damac Riverside"
+    "community": "Damac Riverside",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/safa-gate-by-damac/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770706313/xr_media/m1a1tgrcjkx2vlzilj6a.webp",
     "price": 1414000,
     "name": "Safa Gate Residences by Damac",
-    "community": "Al Safa"
+    "community": "Al Safa",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/cavalli-couture-by-damac/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770040842/xr_media/us6frfx2wyvd1wy5rg5h.webp",
     "price": 21904000,
     "name": "Couture by Cavalli",
-    "community": "Dubai Canal"
+    "community": "Dubai Canal",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/chelsea-residences-by-damac/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1752324661/xr_media/fy8dsv3fglllavoupv7w.jpg",
     "price": 2170000,
     "name": "Chelsea Residences by DAMAC",
-    "community": "Dubai Maritime City"
+    "community": "Dubai Maritime City",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q4 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/damac-islands/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1730212564/xr_media/xwqh3rufu2dpv5aeg3mi.jpg",
     "price": 2350000,
     "name": "Damac Islands",
-    "community": "Damac Islands"
+    "community": "Damac Islands",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q4 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/sun-city-by-damac/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1752233488/xr_media/pihquw5dz9ckep2dv1fk.jpg",
     "price": 2270000,
     "name": "Sun City by Damac",
-    "community": "Sun City By Damac"
+    "community": "Sun City By Damac",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q1 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/violet-4-at-damac-hills-2/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751446765/xr_media/hptld2zof8h4jcmqu3vj.jpg",
     "price": 1960000,
     "name": "Violet 4 by Damac",
-    "community": "Damac Hills 2"
+    "community": "Damac Hills 2",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q3 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/lagoon-views-by-damac/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722405748/xr_media/ukn77gr2xx6of7mtj3av.jpg",
     "price": 979000,
     "name": "Damac Lagoon Views",
-    "community": "Damac Lagoons"
+    "community": "Damac Lagoons",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q2 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/damac-riverside/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722367814/xr_media/bsssiwtiviohbsfnvhms.webp",
     "price": 1990000,
     "name": "Damac Riverside",
-    "community": "Damac Riverside"
+    "community": "Damac Riverside",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q4 2027",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -1425,62 +1566,108 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1792073124/xr_media/yzmwzawg8ezhbsefbmxg.webp",
     "price": 2850000,
     "name": "The Yards Plaza by Beyond",
-    "community": "Dubailand"
+    "community": "Dubailand",
+    "types": [],
+    "handover": "Q3 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/kanyon-by-beyond/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1785397953/xr_media/c0rzt0i7oarchp4t9xeh.webp",
     "price": 2400000,
     "name": "Kanyon by Beyond",
-    "community": "Dubai Maritime City"
+    "community": "Dubai Maritime City",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q2 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/arancia-the-yards-by-beyond/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1781000094/xr_media/pb4b4uauuhedfoeigech.webp",
     "price": 1000000,
     "name": "Arancia Yards by Beyond Developments",
-    "community": "Dubailand"
+    "community": "Dubailand",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q1 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/le-chateau-at-evermore-by-beyond/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1771068134/xr_media/d3l1j1pq2pe6s4pphjpg.webp",
     "price": 2100000,
     "name": "LE CHATEAU",
-    "community": "Evermore"
+    "community": "Evermore",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/bella-by-passo-pam-jumeirah/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769509683/xr_media/jwa0vjahjfi7dxsgktxt.webp",
     "price": 6300000,
     "name": "BELLA by Passo",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/hado-by-beyond-at-siora-dubai-islands/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1768207111/xr_media/v89jwpagdkwenc1v5l1p.webp",
     "price": 2200000,
     "name": "Hado by Beyond at Siora",
-    "community": "Dubai Islands"
+    "community": "Dubai Islands",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "Q3 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/soulever-by-beyond/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1764412823/xr_media/jxoofwi8hwfmfy7i2fnp.webp",
     "price": 2900000,
     "name": "Soulever By Beyond At Dubai Maritime City",
-    "community": "Dubai Maritime City"
+    "community": "Dubai Maritime City",
+    "types": [
+     "Penthouse",
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "Q1 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/31-above-by-beyond/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1762931621/xr_media/mz5gk0mecwc7ni5hbgh6.jpg",
     "name": "31 Above by Beyond",
-    "community": "Dubai Maritime City"
+    "community": "Dubai Maritime City",
+    "types": [],
+    "handover": "Q1 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/passo-by-beyond-at-palm-jumeirah/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1757413681/xr_media/yujnvhh46qr4jrpe4hz1.jpg",
     "price": 4100000,
     "name": "PASSO BY BEYOND AT PALM JUMEIRAH",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q3 2029",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -1563,63 +1750,109 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732544149/xr_media/mghalfflplkmvb9be06a.jpg",
     "price": 1450000,
     "name": "Casa Viva At Serena, Dubailand",
-    "community": "Serena"
+    "community": "Serena",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q1 2021",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/la-rosa-vi-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732543505/xr_media/cuovawfwlyyydr0xokiv.jpg",
     "price": 1390000,
     "name": "La Rosa 6 Townhouses In Dubai",
-    "community": "Villanova"
+    "community": "Villanova",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/la-violeta-2-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732541544/xr_media/enlwgxsxlovaufgqubdv.jpg",
     "price": 1760000,
     "name": "La Violeta 2 At Villanova",
-    "community": "Villanova"
+    "community": "Villanova",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q1 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-views-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751872836/xr_media/k0gbapsgm6kxnges6n55.jpg",
     "price": 880000,
     "name": "Mudon Views",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q1 2020",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-al-ranim-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1752230189/xr_media/qx13vbm5wsxg5r6sbzov.jpg",
     "price": 1900000,
     "name": "Mudon Al Ranim At Mudon",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q4 2025",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-al-ranim-2-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751875286/xr_media/tpofrrvefiux4ejqiifd.jpg",
     "price": 2000000,
     "name": "Mudon Al Ranim 2 At Mudon",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q4 2025",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-al-ranim-3-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732531377/xr_media/nperfboojhjdtovhicul.jpg",
     "price": 2000000,
     "name": "Mudon Al Ranim 3 At Mudon",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q1 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-al-ranim-4-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751443420/xr_media/pwlrluu6b7bs6ec7scuh.jpg",
     "price": 2060000,
     "name": "Mudon Al Ranim 4 At Mudon",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q2 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/mudon-al-ranim-5-by-dubai-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732527525/xr_media/pllbcbhn96vkmpamtc1f.jpg",
     "price": 2280000,
     "name": "Mudon Al Ranim 5 At Mudon",
-    "community": "Mudon"
+    "community": "Mudon",
+    "types": [
+     "Townhouse"
+    ],
+    "handover": "Q3 2026",
+    "status": "Ready"
    }
   ],
   "communities": [
@@ -1724,41 +1957,73 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1783680792/xr_media/z7dktwu7rresqat21y81.webp",
     "price": 1900000,
     "name": "Everly Place by Ellington Properties",
-    "community": "Mbr City District One"
+    "community": "Mbr City District One",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q2 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/meriva-gardens-ellington-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1771062886/xr_media/vwegx4tx1ifo0toa9ci2.webp",
     "price": 2700000,
     "name": "Meriva Gardens",
-    "community": "Dubai Islands"
+    "community": "Dubai Islands",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ]
    },
    {
     "href": "https://www.xrealty.ae/property/eltiera-views-ellington-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770017396/xr_media/oi5jr8lprhrreqnhlzpm.webp",
     "price": 2100000,
     "name": "Eltiera Views",
-    "community": "Jumeirah Islands"
+    "community": "Jumeirah Islands",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/portside-square-ellington-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769867902/xr_media/iuxzzzm2cmw1mw9iewhl.webp",
     "price": 2300000,
     "name": "Portside Square",
-    "community": "Rashid Yachts & Marina"
+    "community": "Rashid Yachts & Marina",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/soto-grande-ellington-properties/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769851339/xr_media/twjdbi45jqdq2o533n48.webp",
     "name": "Soto Grande by Ellington Properties",
-    "community": "Al Hamra, Ras Al Khaimah"
+    "community": "Al Hamra, Ras Al Khaimah",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/windsor-house-by-ellington-at-dubai-south/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1754141075/xr_media/rrtv8fh199wfdep0qt0z.webp",
     "price": 1200000,
     "name": "Windsor House by Ellington at Dubai South",
-    "community": "Dubai South Residential District"
+    "community": "Dubai South Residential District",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q3 2028",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -1861,63 +2126,115 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769432388/xr_media/fofiwicg7md2gigxohik.webp",
     "price": 6100000,
     "name": "Nad Al Sheba Gardens Phase 11 by Meraas",
-    "community": "Nad Al Sheba Gardens"
+    "community": "Nad Al Sheba Gardens",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q2 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/the-edit-at-d3-by-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769270027/xr_media/wktrzbo2kbsuij8wac5m.png",
     "price": 2000000,
     "name": "The Edit at d3",
-    "community": "Dubai Design District"
+    "community": "Dubai Design District",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/nad-al-sheba-gardens-phase-10-by-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1754492128/xr_media/yjz6yul7cqnbkqczgii9.jpg",
     "price": 5100000,
     "name": "Nad Al Sheba Gardens Phase 10 by Meraas",
-    "community": "Nad Al Sheba Gardens"
+    "community": "Nad Al Sheba Gardens",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q1 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/city-walk-crestlane-by-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1740385696/xr_media/xlf9zeph3rinmgv9153i.webp",
     "price": 2600000,
     "name": "Crestlane at City Walk",
-    "community": "City Walk"
+    "community": "City Walk",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "Q4 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/nad-al-sheba-gardens-phase-7-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751627866/xr_media/af4qicqqsxllp45ehvfb.jpg",
     "price": 4430000,
     "name": "Nad Al Sheba Gardens Phase 7",
-    "community": "Nad Al Sheba Gardens"
+    "community": "Nad Al Sheba Gardens",
+    "types": [
+     "Townhouse",
+     "Villa"
+    ],
+    "handover": "Q3 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/the-acres-estate-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1727269450/xr_media/jkycri9mo9vbtun4nomc.avif",
     "price": 13300000,
     "name": "The Acres Estate by Meraas",
-    "community": "The Acres"
+    "community": "The Acres",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q1 2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/bluewaters-bay-by-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722413714/xr_media/wlgl0fxyvlrmj75wnkx2.webp",
     "price": 2560000,
     "name": "Bluewaters Bay By Meraas",
-    "community": "Bluewaters Island"
+    "community": "Bluewaters Island",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q2 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/the-acres-by-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722408680/xr_media/rcdpc7ekdzfvqehx2nid.jpg",
     "price": 5090000,
     "name": "THE ACRES",
-    "community": "The Acres"
+    "community": "The Acres",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q4 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/nad-al-sheba-gardens-phase-6-meraas/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1751525310/xr_media/tj2yerxq7zk8hovozzfs.jpg",
     "price": 4270000,
     "name": "NAD AL SHEBA GARDENS PHASE 6",
-    "community": "Nad Al Sheba Gardens"
+    "community": "Nad Al Sheba Gardens",
+    "types": [
+     "Villa",
+     "Townhouse"
+    ],
+    "handover": "Q3 2027",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -2021,56 +2338,101 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770450662/xr_media/j8zrvvdrzx9dyx7aec2d.webp",
     "price": 20000000,
     "name": "The Alba Residence",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/anwa-aria-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732955117/xr_media/llgnxzqutguwjirboqoi.webp",
     "price": 1400000,
     "name": "Anwa Aria By Omniyat",
-    "community": "Anwa Aria"
+    "community": "Anwa Aria",
+    "types": [
+     "Apartment",
+     "Townhouse"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/anwa-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732952323/xr_media/ss3iguupfdz6ya7iiw3n.webp",
     "price": 864000,
     "name": "Anwa By Omniyat, Dubai Maritime City",
-    "community": "Anwa"
+    "community": "Anwa",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q4 2021",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/one-at-palm-jumeirah-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732950540/xr_media/rafmeoabfmitghent85o.webp",
     "price": 14500000,
     "name": "One At Palm Jumeirah",
-    "community": "One"
+    "community": "One",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q2 2021",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/ava-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732892164/xr_media/zhploqyob9bit5ynqcqn.jpg",
     "price": 38000000,
     "name": "Ava By Omniyat",
-    "community": "Ava"
+    "community": "Ava",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q4 2025",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/orla-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732888175/xr_media/dx81e34uzcx0lvbvzjr7.webp",
     "price": 24000000,
     "name": "Orla By Omniyat",
-    "community": "Orla"
+    "community": "Orla",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/vela-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732886303/xr_media/okxbg9zc5omerfdl4vfq.webp",
     "price": 30000000,
     "name": "Vela By Omniyat",
-    "community": "Vela by Omniyat"
+    "community": "Vela by Omniyat",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/orla-infinity-by-omniyat/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1732882332/xr_media/umfdurbshrzmvb5ahamv.webp",
     "price": 54500000,
     "name": "Orla Infinity",
-    "community": "Orla Infinity"
+    "community": "Orla Infinity",
+    "types": [
+     "Penthouse",
+     "Apartment"
+    ],
+    "handover": "Q2 2026",
+    "status": "Ready"
    }
   ],
   "communities": [
@@ -2164,7 +2526,13 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1753804066/xr_media/ijayk0gxkuracatpvmxm.webp",
     "price": 2490000,
     "name": "Fairmont Residences Al Marjan Island",
-    "community": "Al Marjan Island"
+    "community": "Al Marjan Island",
+    "types": [
+     "Apartment",
+     "Townhouse"
+    ],
+    "handover": "Q4 2028",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -2208,21 +2576,37 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1781095988/xr_media/measn5y42qtezsv89mcr.webp",
     "price": 999000,
     "name": "The Woods at Sobha Sanctuary",
-    "community": "Dubailand"
+    "community": "Dubailand",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q4 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/sobha-seahaven-dubai-harbour/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722417899/xr_media/pbomvlyoxsmuqtri6ipf.jpg",
     "price": 3100000,
     "name": "Sobha Seahaven At Dubai Harbour",
-    "community": "Dubai Marina"
+    "community": "Dubai Marina",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q4 2026",
+    "status": "Ready"
    },
    {
     "href": "https://www.xrealty.ae/property/green-vistas-sobha-realty/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1722416816/xr_media/wulxbosawhkcrlbsnhxa.webp",
     "price": 1600000,
     "name": "Green Vistas By Sobha",
-    "community": "Sobha Hartland 2"
+    "community": "Sobha Hartland 2",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q2 2028",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -2327,49 +2711,87 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770643268/xr_media/kp7l01mg02ot27ngchi7.webp",
     "price": 1000000,
     "name": "EVELYN on the Park by NSHAMA",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/rosewell-by-nshama/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770641137/xr_media/oazjgip7od79omybujxk.webp",
     "price": 1000000,
     "name": "ROSEWELL by NSHAMA",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/fiori-at-town-square-by-nshama/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770637197/xr_media/bfr4srwz5m82banvfrv0.webp",
     "price": 1000000,
     "name": "Fiori by Nshama",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/olbia-by-nshama/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770623863/xr_media/nikcaiblhdqwsl0duhwd.webp",
     "price": 955000,
     "name": "Olbia by Nshama",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/camden-at-town-square-by-nshama/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770622102/xr_media/moshuuzotpiopboc5hxr.webp",
     "price": 1140000,
     "name": "Camden by Nshama",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment",
+     "Duplex"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/alton/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1770546256/xr_media/yghthhstmxtqhlumvc4s.webp",
     "price": 1200000,
     "name": "Alton by Nshama",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "2028",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/augusta-town-square-by-nshama/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1746111655/xr_media/wsntdyuwv61ter0lpvi8.jpg",
     "price": 950000,
     "name": "AUGUSTA BY NSHAMA",
-    "community": "Town Square by Nshama"
+    "community": "Town Square by Nshama",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q1 2028",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -2435,21 +2857,40 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1769949796/xr_media/riuwmpuxfcmvsmfz8bb7.webp",
     "price": 3600000,
     "name": "Inaura by arada",
-    "community": "Downtown Dubai"
+    "community": "Downtown Dubai",
+    "types": [
+     "Apartment",
+     "Penthouse",
+     "Villa"
+    ],
+    "handover": "2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/masaar-3-by-arada/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1757149720/xr_media/bwvyssik1zwowjysg3tw.jpg",
     "price": 1790000,
     "name": "Masaar 3 By Arada",
-    "community": "Masaar"
+    "community": "Masaar",
+    "types": [
+     "Villa",
+     "Townhouse"
+    ],
+    "handover": "Q1 2027",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/property/armani-beach-residences-arada/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1754564501/xr_media/rayfw8smm6czhscc7eyi.jpg",
     "price": 21500000,
     "name": "Armani Beach Residences",
-    "community": "Palm Jumeirah"
+    "community": "Palm Jumeirah",
+    "types": [
+     "Apartment",
+     "Penthouse"
+    ],
+    "handover": "Q4 2027",
+    "status": "Off-plan"
    }
   ],
   "communities": [
@@ -2807,21 +3248,36 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1794482512/xr_media/gezmhapzunnzpiow7rwz.jpg",
     "price": 3700000,
     "name": "The Row Saadiyat by Aldar",
-    "community": "Saadiyat Island"
+    "community": "Saadiyat Island",
+    "types": [
+     "Apartment"
+    ],
+    "handover": "Q1 2030",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/abu-dhabi/property/talay-at-marsa-al-saadiyat-by-aldar/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1794479154/xr_media/yyognkvcklafjdbri11m.jpg",
     "price": 13500000,
     "name": "Talay at Marsa Al Saadiyat by Aldar",
-    "community": "Saadiyat Island"
+    "community": "Saadiyat Island",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q4 2029",
+    "status": "Off-plan"
    },
    {
     "href": "https://www.xrealty.ae/abu-dhabi/property/yas-riva-at-yas-island/",
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1794031767/xr_media/jqftfpd3hdnpzfrlypni.jpg",
     "price": 8200000,
     "name": "Yas Riva at Yas Island",
-    "community": "Yas Island"
+    "community": "Yas Island",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q3 2028",
+    "status": "Off-plan"
    }
   ],
   "communities": [],
@@ -3168,7 +3624,12 @@ window.XR_DEV_LIVE = {
     "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_1200,f_auto,q_auto/v1794048665/xr_media/enimk8fecdkfdfqdglcu.webp",
     "price": 8700000,
     "name": "Wadeem Gardens at Hudayriyat Island",
-    "community": "Hudayriyat Island"
+    "community": "Hudayriyat Island",
+    "types": [
+     "Villa"
+    ],
+    "handover": "Q2 2031",
+    "status": "Off-plan"
    }
   ],
   "communities": [],

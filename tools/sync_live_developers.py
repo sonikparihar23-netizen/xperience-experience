@@ -117,13 +117,44 @@ def parse(page):
     projects=[x for x in projects if x.get('name') and x.get('img')]
     if not projects:raise ValueError('No project cards found')
     return dict(name=b[h1][1],logo=logo,slides=slides,intro=intro,sections=sections,projects=projects,communities=[x for x in communities if x.get('name')],faqs=faqs)
+TYPES=[('PENTHOUSE','Penthouse'),('TOWNHOUSE','Townhouse'),('VILLA','Villa'),('DUPLEX','Duplex'),('APARTMENT','Apartment'),('PLOT','Plot')]
+def facts(page,today=None):
+    """Unit types and handover from a property page's key-facts strip (Unit Type / Handover Date labels)."""
+    today=today or datetime.date.today()
+    p=Blocks();p.feed(page);b=p.out
+    h1=next((i for i,x in enumerate(b) if x[0]=='h1'),None)
+    if h1 is None:return {}
+    units=[];handover=None
+    for (k1,t1,_),(k2,t2,_) in zip(b[h1:h1+40],b[h1+1:h1+41]):
+        if k1!='text' or k2!='text':continue
+        if t1=='Unit Type':units.append(t2)
+        elif t1=='Handover Date' and handover is None:handover=t2
+        if k1=='h2':break
+    types=[]
+    for u in units:
+        for key,label in TYPES:
+            if key in u.upper() and label not in types:types.append(label);break
+    out={'types':types}
+    if handover:
+        out['handover']=handover
+        m=re.search(r'(?:Q([1-4])\s*)?(20\d\d)',handover)
+        if re.search(r'(?i)ready|completed|handed',handover):out['status']='Ready'
+        elif m:
+            q=int(m.group(1) or 4);y=int(m.group(2))
+            out['status']='Ready' if (y,q)<=(today.year,(today.month-1)//3+1) else 'Off-plan'
+    return out
 def main():
+    get=lambda url:subprocess.run(['curl','--fail','--silent','--show-error','--location','--max-time','40',url],check=True,capture_output=True,text=True).stdout
     def fetch(slug):
-        url=SITE+'/developer/'+slug+'/'
-        page=subprocess.run(['curl','--fail','--silent','--show-error','--location','--max-time','40',url],check=True,capture_output=True,text=True).stdout
-        return slug,parse(page)
+        return slug,parse(get(SITE+'/developer/'+slug+'/'))
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:data=dict(pool.map(fetch,SLUGS))
-    for slug,d in data.items():print(f"{slug}: {len(d['slides'])} slides, {len(d['projects'])} projects, {len(d['sections'])} sections, {len(d['communities'])} communities, {len(d['faqs'])} FAQs")
+    # Each project's own page gives its unit types and handover (used by the hub filters).
+    # A page that fails to load just leaves that project without type/status.
+    def detail(p):
+        try:p.update(facts(get(p['href'])))
+        except Exception as e:print('  skipped',p['href'],e)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:list(pool.map(detail,[p for d in data.values() for p in d['projects']]))
+    for slug,d in data.items():print(f"{slug}: {len(d['slides'])} slides, {len(d['projects'])} projects ({sum(1 for p in d['projects'] if p.get('types'))} typed), {len(d['sections'])} sections, {len(d['communities'])} communities, {len(d['faqs'])} FAQs")
     text='/* Developer content copied from xrealty.ae/developer/ on '+datetime.date.today().isoformat()+' by tools/sync_live_developers.py. */\nwindow.XR_DEV_LIVE = '+json.dumps(data,ensure_ascii=False,indent=1)+';\n'
     path=ROOT/'xr-dev-live.js';staging=path.with_suffix('.tmp');staging.write_text(text);staging.replace(path)
 if __name__=='__main__':main()
