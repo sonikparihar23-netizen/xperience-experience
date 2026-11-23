@@ -44,6 +44,12 @@ a{color:var(--ink);text-decoration:none}
 a:hover{color:var(--muted)}
 select,input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.xr-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+@media (max-width:1100px){.xr-logos{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:760px){.xr-logos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:480px){.xr-logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Logos published as white-on-black thumbnails: show them black on white like the others */
+.xr-logo-inv{filter:invert(1) grayscale(1) contrast(1.8) brightness(1.15);mix-blend-mode:multiply;transform:scale(1.35)}
 .xr-pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,28px)}
 @media (max-width:1100px){.xr-pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:680px){.xr-pgrid{grid-template-columns:minmax(0,1fr)}}
@@ -875,6 +881,26 @@ select,input,button{font-family:inherit}
           </div>
         </sc-for>
       </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Developer logos" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:92ch;margin-bottom:clamp(28px,3.5vw,44px)">
+      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Our developer partners</span>
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Choosing the right developer</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:var(--muted);text-wrap:pretty">The developer behind a project shapes its build quality, handover date and resale value. We work with established names across Dubai and Abu Dhabi, from master developers to boutique and luxury brands, and check each one's delivery record, escrow set-up and pricing before we recommend a unit. Pick a developer to see its current projects and track record.</p>
+    </div>
+    <div class="xr-logos">
+      <sc-for list="{{ logoWall }}" as="lw" hint-placeholder-count="12">
+        <a href="{{ lw.href }}" onClick="{{ lw.go }}" aria-label="{{ lw.name }}" style="display:flex;align-items:center;justify-content:center;aspect-ratio:8/5;padding:clamp(14px,2vw,24px);border:1px solid var(--line);border-radius:10px;background:#FFFFFF;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease" style-hover="border-color:#FF9100;box-shadow:0 18px 36px -22px rgba(0,0,0,.35);transform:translateY(-3px)">
+          <sc-if value="{{ lw.hasLogo }}" hint-placeholder-val="{{ true }}">
+            <img loading="lazy" decoding="async" class="xr-lazy {{ lw.cls }}" data-src="{{ lw.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="display:block;width:100%;height:100%;max-height:72px;object-fit:contain">
+          </sc-if>
+          <sc-if value="{{ lw.noLogo }}" hint-placeholder-val="{{ false }}">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(20px,2vw,28px);line-height:1.05;color:#0A0A0A;text-align:center">{{ lw.name }}</span>
+          </sc-if>
+        </a>
+      </sc-for>
     </div>
   </section>
 
@@ -1721,6 +1747,7 @@ class Component extends DCLogic {
       toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
       goAlerts: go('alerts'), goCompare: go('compare'),
       devCount: all.length,
+      logoWall: all.map(d => ({ name: d.full, logo: d.logo, cls: /media\.xrealty\.ae|strapi-xr/.test(d.logo || '') ? 'xr-logo-inv' : '', hasLogo: !!d.logo, noLogo: !d.logo, href: this.pageHref(d.slug), go: e => { e.preventDefault(); this.navTo(d.slug); } })),
       q: s.q, onQ: e => this.setState({ q: e.target.value }),
       segs, sort: s.sort, onSort: e => this.setState({ sort: e.target.value }), sortOptions: Object.entries(sortLabel).map(([v, label]) => ({ v, label })),
       resultLabel: `${shown.length} developer${shown.length === 1 ? '' : 's'}${s.seg !== 'All' ? ' · ' + s.seg : ''}${q ? ` matching “${s.q.trim()}”` : ''}`,
