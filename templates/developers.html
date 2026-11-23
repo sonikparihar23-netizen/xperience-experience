@@ -170,10 +170,6 @@ select,input,button{font-family:inherit}
         <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(36px,3.6vw,52px);line-height:1">{{ pg.deliveredCount }}</dd>
       </div>
       <div style="padding:26px 20px 26px 0;display:flex;flex-direction:column-reverse;gap:6px">
-        <dt style="font-size:13px;color:var(--muted)">Live with XR</dt>
-        <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(36px,3.6vw,52px);line-height:1">{{ pg.liveNum }}</dd>
-      </div>
-      <div style="padding:26px 20px 26px 0;display:flex;flex-direction:column-reverse;gap:6px">
         <dt style="font-size:13px;color:var(--muted)">Entry price</dt>
         <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(36px,3.6vw,52px);line-height:1">{{ pg.fromLabel }}</dd>
       </div>
@@ -695,8 +691,6 @@ select,input,button{font-family:inherit}
       <div style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:#E6E6E6;padding-top:4px">
         <span>{{ devCount }} partner developers</span>
         <span style="width:1px;height:14px;background:rgba(255,255,255,.35);align-self:center"></span>
-        <span>{{ liveCount }} live projects</span>
-        <span style="width:1px;height:14px;background:rgba(255,255,255,.35);align-self:center"></span>
         <span>RERA escrow-protected off-plan</span>
       </div>
     </div>
@@ -732,8 +726,8 @@ select,input,button{font-family:inherit}
     <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(16px,2vw,24px)">
         <sc-for list="{{ devs }}" as="d" hint-placeholder-count="9">
-          <article style="display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)" style-hover="border-color:var(--line2)">
-            <button onClick="{{ d.open }}" aria-label="Open {{ d.name }} profile" style="position:relative;display:flex;align-items:flex-end;justify-content:center;height:180px;border:none;background:#1A1A1A;cursor:pointer;padding:0 28px 16px;overflow:hidden">
+          <article style="display:grid;grid-template-rows:2fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)" style-hover="border-color:var(--line2)">
+            <button onClick="{{ d.open }}" aria-label="Open {{ d.name }} profile" style="position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:240px;border:none;background:#1A1A1A;cursor:pointer;padding:0 28px 16px;overflow:hidden">
               <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
               <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.5))"></span>
               <span style="position:relative;display:flex;align-items:center;justify-content:center;min-width:110px;max-width:60%;height:52px;padding:0 16px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 12px 28px -12px rgba(0,0,0,.45)">
@@ -747,8 +741,9 @@ select,input,button{font-family:inherit}
               <sc-if value="{{ d.isPartner }}" hint-placeholder-val="{{ false }}">
                 <span style="position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Award partner</span>
               </sc-if>
+              <span style="position:absolute;top:12px;right:12px;display:inline-flex;align-items:baseline;gap:5px;height:28px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.96);color:#0A0A0A;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)"><sc-if value="{{ d.hasFrom }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;font-weight:600;color:#5C5C5C;line-height:28px">From</span></sc-if><span style="font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;line-height:28px">{{ d.priceTag }}</span></span>
             </button>
-            <div style="flex:1;display:flex;flex-direction:column;gap:14px;padding:20px">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:16px 18px 18px">
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
                 <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
                   <span style="font-size:19px;font-weight:700;line-height:1.2">{{ d.full }}</span>
@@ -759,23 +754,13 @@ select,input,button{font-family:inherit}
                   Compare
                 </label>
               </div>
-              <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted);text-wrap:pretty">{{ d.tagline }}</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ d.tagline }}</p>
               <div style="display:flex;flex-wrap:wrap;gap:6px">
                 <sc-for list="{{ d.flagship }}" as="f" hint-placeholder-count="3">
                   <span style="display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:600">{{ f }}</span>
                 </sc-for>
               </div>
-              <dl style="margin:auto 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:14px;border-top:1px solid var(--line)">
-                <div style="display:flex;flex-direction:column-reverse;gap:2px">
-                  <dt style="font-size:12px;color:var(--muted)">Live with XR</dt>
-                  <dd style="margin:0;font-size:16px;font-weight:700">{{ d.liveLabel }}</dd>
-                </div>
-                <div style="display:flex;flex-direction:column-reverse;gap:2px">
-                  <dt style="font-size:12px;color:var(--muted)">Entry price</dt>
-                  <dd style="margin:0;font-size:16px;font-weight:700;font-variant-numeric:tabular-nums">{{ d.fromLabel }}</dd>
-                </div>
-              </dl>
-              <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px">
+              <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;margin-top:auto">
                 <button onClick="{{ d.open }}" style="height:48px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="border-color:var(--ink)">Quick view</button>
                 <a href="{{ d.page }}" onClick="{{ d.goPage }}" style="display:flex;align-items:center;justify-content:space-between;height:48px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;white-space:nowrap" style-hover="background:var(--ink-h);color:var(--bg)">View developer<span aria-hidden="true" style="color:#FF9100">→</span></a>
               </div>
@@ -994,14 +979,10 @@ select,input,button{font-family:inherit}
           <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4vw,46px);line-height:1">{{ sel.full }}</h2>
           <span style="font-size:14px;color:var(--muted)">{{ sel.seg }} · {{ sel.estLabel }} · {{ sel.hq }}</span>
         </div>
-        <dl style="margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <dl style="margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
           <div style="padding:16px 12px 16px 0;display:flex;flex-direction:column-reverse;gap:4px">
             <dt style="font-size:12px;color:var(--muted)">Years in market</dt>
             <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:32px;line-height:1">{{ sel.years }}</dd>
-          </div>
-          <div style="padding:16px 12px;display:flex;flex-direction:column-reverse;gap:4px;border-left:1px solid var(--line)">
-            <dt style="font-size:12px;color:var(--muted)">Live with XR</dt>
-            <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:32px;line-height:1">{{ sel.liveNum }}</dd>
           </div>
           <div style="padding:16px 0 16px 12px;display:flex;flex-direction:column-reverse;gap:4px;border-left:1px solid var(--line)">
             <dt style="font-size:12px;color:var(--muted)">Entry price</dt>
@@ -1093,7 +1074,7 @@ class Component extends DCLogic {
     const inC = s.compare.includes(d.slug);
     return {
       isIndex: false, isProfile: true,
-      pg: { ...d, hasLogo: !!d.logo, noLogo: !d.logo, years: d.years, liveNum: d.live || '—',
+      pg: { ...d, hasLogo: !!d.logo, noLogo: !d.logo, years: d.years,
         hasProjects: d.live > 0, noProjects: d.live === 0, projects: d.projects.map(p => ({ ...p })),
         hasDelivered: d.delivered.length > 0, noDelivered: !d.delivered.length, deliveredCount: d.delivered.length || '—',
         delivered: d.delivered.map((t, k) => ({ t, n: String(k + 1).padStart(2, '0') })),
@@ -1517,7 +1498,6 @@ class Component extends DCLogic {
       ['Segment', x => x.seg, 400],
       ['Established', x => x.establishedLabel, 400],
       ['Landmark completions', x => x.delivered.length ? String(x.delivered.length) : 'New brand', 400],
-      ['Live with XR', x => x.live ? `${x.live} project${x.live === 1 ? '' : 's'}` : 'On request', 700],
       ['Entry price', x => x.fromLabel, 700],
       ['Typical payment plan', x => x.plan, 400],
     ].map(([label, fn, weight]) => ({ label, cells: cols.map((x, k) => ({ v: fn(x), weight, bg: k === 0 ? 'var(--soft)' : 'transparent' })) }));
@@ -1641,23 +1621,23 @@ class Component extends DCLogic {
     const segNames = ['All', 'Master developer', 'Luxury', 'Ultra luxury', 'Boutique', 'Value'];
     const bySeg = seg => seg === 'All' ? searched : searched.filter(d => d.seg === seg);
     const segs = segNames.map(label => ({ label, count: bySeg(label).length, active: s.seg === label, inactive: s.seg !== label, select: () => this.setState({ seg: label }) })).filter(c => c.count > 0 || c.label === 'All' || c.active);
-    const sorters = { featured: () => 0, az: (a, b) => a.name.localeCompare(b.name), live: (a, b) => b.live - a.live, price: (a, b) => (a.from ?? 1e12) - (b.from ?? 1e12), est: (a, b) => (a.founded || 9999) - (b.founded || 9999) };
+    const sorters = { featured: () => 0, az: (a, b) => a.name.localeCompare(b.name), price: (a, b) => (a.from ?? 1e12) - (b.from ?? 1e12), est: (a, b) => (a.founded || 9999) - (b.founded || 9999) };
     const shown = [...bySeg(s.seg)].sort(sorters[s.sort] || sorters.featured);
     const full = s.compare.length >= 3;
     const toggleCmp = slug => () => this.setState(st => ({ compare: st.compare.includes(slug) ? st.compare.filter(x => x !== slug) : st.compare.length >= 3 ? st.compare : [...st.compare, slug] }));
     const devs = shown.map(d => {
       const inC = s.compare.includes(d.slug);
-      return { ...d, hasLogo: !!d.logo, noLogo: !d.logo, isPartner: !!d.partner, liveLabel: d.live ? `${d.live} project${d.live === 1 ? '' : 's'}` : 'On request', flagship: d.flagship.slice(0, 3), inCompare: inC, cmpDisabled: !inC && full, cmpBorder: inC ? '#FF9100' : 'var(--line2)', toggleCompare: toggleCmp(d.slug), open: () => this.setState({ sel: d.slug }), page: this.pageHref(d.slug), goPage: e => { e.preventDefault(); this.navTo(d.slug); }, trackLabel: d.delivered.length ? `${d.delivered.length} landmark completions` : 'New brand' };
+      return { ...d, hasLogo: !!d.logo, noLogo: !d.logo, isPartner: !!d.partner, hasFrom: !!d.from, priceTag: d.from ? d.fromLabel : 'Price on request', flagship: d.flagship.slice(0, 3), inCompare: inC, cmpDisabled: !inC && full, cmpBorder: inC ? '#FF9100' : 'var(--line2)', toggleCompare: toggleCmp(d.slug), open: () => this.setState({ sel: d.slug }), page: this.pageHref(d.slug), goPage: e => { e.preventDefault(); this.navTo(d.slug); }, trackLabel: d.delivered.length ? `${d.delivered.length} landmark completions` : 'New brand' };
     });
     const cmp = s.compare.map(slug => all.find(d => d.slug === slug)).filter(Boolean);
     const cmpRows = [
       ['Segment', d => d.seg], ['Established', d => d.establishedLabel], ['Signature communities', d => d.flagship.join(', ')], ['Landmark completions', d => d.delivered.length ? d.delivered.join(', ') : 'New brand — first projects under construction'],
-      ['Live with XR', d => d.live ? `${d.live} project${d.live === 1 ? '' : 's'}` : 'On request'], ['Entry price', d => d.fromLabel], ['Typical payment plan', d => d.plan],
+      ['Entry price', d => d.fromLabel], ['Typical payment plan', d => d.plan],
     ].map(([label, fn], ri) => ({ label, cells: cmp.map(d => ({ v: fn(d), weight: ri === 4 ? 700 : 400 })) }));
     const sd = all.find(d => d.slug === s.sel);
     const sel = sd ? {
-      ...sd, hasLogo: !!sd.logo, noLogo: !sd.logo, years: sd.years, liveNum: sd.live || '—',
-      hasProjects: sd.live > 0, noProjects: sd.live === 0, projTitle: sd.live ? `Live projects with XR · ${sd.live}` : 'Projects',
+      ...sd, hasLogo: !!sd.logo, noLogo: !sd.logo, years: sd.years,
+      hasProjects: sd.live > 0, noProjects: sd.live === 0, projTitle: 'Projects',
       projects: sd.projects.map(p => ({ ...p })),
       wa: 'https://wa.me/971565467991?text=' + encodeURIComponent(`Hi, please register me for the next ${sd.full} launch and share current projects.`),
       page: this.pageHref(sd.slug), goPage: e => { e.preventDefault(); this.navTo(sd.slug); },
@@ -1666,7 +1646,7 @@ class Component extends DCLogic {
     const alertNames = ['Emaar', 'Nakheel', 'Damac', 'Sobha', 'Meraas', 'Omniyat', 'Beyond', 'Ellington'];
     const nav = [['Home', 'index.html'], ['Properties', 'search.html'], ['Developers', '#directory', true], ['Guides', 'guides.html'], ['XR Team', 'team.html'], ['Insights', 'insights.html']].map(([label, href, cur]) => ({ label, href, current: cur ? 'page' : undefined, bar: cur ? '#FF9100' : 'transparent' }));
     const go = id => e => { e.preventDefault(); this.setState({ drawer: false }, () => requestAnimationFrame(() => this.scrollTo(id))); };
-    const sortLabel = { featured: 'Featured', az: 'A–Z', live: 'Most live projects', price: 'Lowest entry price', est: 'Longest track record' };
+    const sortLabel = { featured: 'Featured', az: 'A–Z', price: 'Lowest entry price', est: 'Longest track record' };
     return {
       isMobile, isDesktop: !isMobile, nav,
       drawerOpen: s.drawer, showDrawer: isMobile && s.drawer, toggleDrawer: () => this.setState({ drawer: !s.drawer }),
@@ -1675,7 +1655,7 @@ class Component extends DCLogic {
       themeAria: s.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
       toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
       goAlerts: go('alerts'), goCompare: go('compare'),
-      devCount: all.length, liveCount: all.reduce((n, d) => n + d.live, 0),
+      devCount: all.length,
       q: s.q, onQ: e => this.setState({ q: e.target.value }),
       segs, sort: s.sort, onSort: e => this.setState({ sort: e.target.value }), sortOptions: Object.entries(sortLabel).map(([v, label]) => ({ v, label })),
       resultLabel: `${shown.length} developer${shown.length === 1 ? '' : 's'}${s.seg !== 'All' ? ' · ' + s.seg : ''}${q ? ` matching “${s.q.trim()}”` : ''}`,
