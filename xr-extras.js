@@ -27,8 +27,12 @@
     d.innerHTML = "<span style='flex:1 1 " + (small ? '100%' : '260px') + "'>" + (small ? 'We use cookies to improve the site. ' : 'We use cookies to improve your experience and measure site performance. ') + "<a href='legal?doc=privacy' style='color:#FFFFFF;text-decoration:underline'>Privacy policy</a></span>" +
       "<span style='display:flex;gap:8px;" + (small ? 'flex:1 1 100%' : '') + "'><button data-v='essential' style='" + (small ? 'flex:1;' : '') + "height:" + h + ";padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#FFFFFF;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer'>Essential only</button>" +
       "<button data-v='all' style='" + (small ? 'flex:1;' : '') + "height:" + h + ";padding:0 18px;border-radius:999px;border:none;background:#FF9100;color:#0A0A0A;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer'>Accept all</button></span>";
-    d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); document.dispatchEvent(new Event('xr-consent-change')); } });
+    // While the banner is up, pad the page bottom by its height so it never hides buttons at the end of the page
+    const prevPad = document.body.style.paddingBottom;
+    const pad = () => { document.body.style.paddingBottom = (d.offsetHeight + (small ? 16 : 32)) + 'px'; };
+    d.addEventListener('click', e => { const v = e.target && e.target.getAttribute('data-v'); if (v) { set('xr-consent', v); d.remove(); window.removeEventListener('resize', pad); document.body.style.paddingBottom = prevPad; document.dispatchEvent(new Event('xr-consent-change')); } });
     document.body.appendChild(d);
+    pad(); window.addEventListener('resize', pad);
   }
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[href="#cookie-settings"]'); if (a) { e.preventDefault(); banner(true); } });
   const start = () => { if (window.innerWidth < 1180) document.documentElement.style.setProperty('--xr-bar', '72px'); setTimeout(() => banner(false), 900); };

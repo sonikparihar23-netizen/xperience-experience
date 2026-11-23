@@ -49,12 +49,65 @@ select,input,button{font-family:inherit}
 @media (max-width:760px){.xr-logos{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:480px){.xr-logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Logos published as white-on-black thumbnails: show them black on white like the others */
-.xr-logo-inv{filter:invert(1) grayscale(1) contrast(1.8) brightness(1.15);mix-blend-mode:multiply;transform:scale(1.35)}
 .xr-pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,28px)}
 @media (max-width:1100px){.xr-pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:680px){.xr-pgrid{grid-template-columns:minmax(0,1fr)}}
 .xr-acc>summary{list-style:none}.xr-acc>summary::-webkit-details-marker{display:none}
 .xr-acc .xr-acc-i{transition:transform .2s ease}.xr-acc[open] .xr-acc-i{transform:rotate(45deg)}
+/* Developers hub layout (Developers Hub dev brief, rev 1) */
+.xr-sans{font-family:'Articulat CF',Arial,sans-serif!important;font-weight:600!important}
+.xr-hub-hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);column-gap:56px;align-items:start;padding-top:120px;padding-bottom:96px}
+.xr-hub-crumb{grid-column:1/-1;margin-bottom:24px}
+.xr-hub-h1{margin:0 0 16px;font-weight:500!important;font-size:13px!important;line-height:1.4;letter-spacing:.16em;text-transform:uppercase;color:#FF9100}
+.xr-hub-display{margin:0;max-width:760px;font-size:clamp(40px,5.2vw,76px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.xr-hub-lede{margin:24px 0 0;max-width:620px;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:#E6E6E6;text-wrap:pretty}
+.xr-hub-search{position:relative;display:flex;align-items:center;width:100%;max-width:620px;height:56px;margin-top:32px;border-radius:999px;background:#FFFFFF;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.xr-hub-trust{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px;font-size:14px;color:#E6E6E6}
+.xr-hub-trust i{width:1px;height:14px;background:rgba(255,255,255,.35)}
+.xr-hub-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:24px;margin:0;padding:0;list-style:none}
+.xr-hub-stat{display:flex;flex-direction:column;gap:10px;padding:22px 20px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(10,10,10,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.xr-hub-stat b{font-family:'Lavish',Georgia,serif;font-weight:400;font-size:clamp(30px,2.6vw,40px);line-height:1;white-space:nowrap;color:#FFFFFF}
+.xr-hub-stat>span{font-size:13px;line-height:1.45;color:#D6D6D6}
+@media (max-width:1100px){.xr-hub-hero-in{grid-template-columns:minmax(0,1fr)}.xr-hub-stats{max-width:620px;margin-top:40px}}
+.xr-hub-sec{padding-top:96px}
+.xr-hub-last{padding-bottom:96px}
+.xr-why{background:#111111;color:#FFFFFF;margin-top:96px}
+.xr-why-in{display:grid;grid-template-columns:42% minmax(0,1fr);column-gap:64px;align-items:start;padding-top:96px;padding-bottom:96px}
+.xr-why-l{display:flex;flex-direction:column;align-items:flex-start;border-top:1px solid rgba(255,255,255,.15);padding-top:24px}
+.xr-why-h2{margin:16px 0 0;font-size:clamp(32px,3.1vw,46px);line-height:1.05;letter-spacing:-.015em}
+.xr-why-h2>span,.xr-why-h2>em{display:block}
+.xr-why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;row-gap:40px;margin:0;padding:0;list-style:none}
+.xr-why-grid>li{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.15);padding-top:24px}
+.xr-vet{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:64px;align-items:start}
+.xr-vet-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px;margin:0;padding:0;list-style:none}
+.xr-vet-list>li{display:grid;grid-template-columns:16px minmax(0,1fr);column-gap:12px;padding:20px 0;border-top:1px solid #E5E5E5}
+html[data-theme="dark"] .xr-vet-list>li{border-top-color:var(--line)}
+.xr-faq{border-bottom:1px solid var(--line)}
+.xr-faq>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;cursor:pointer;list-style:none}
+.xr-faq>summary::-webkit-details-marker{display:none}
+.xr-faq>summary::after{content:'+';flex-shrink:0;width:24px;text-align:center;font-size:24px;line-height:1;font-weight:400;color:var(--ink)}
+.xr-faq[open]>summary::after{content:'\2212'}
+.xr-faq h3{margin:0;font-size:17px!important;line-height:1.4;color:var(--ink)}
+.xr-faq-a{max-width:760px;padding:0 0 24px;font-size:16px;line-height:1.65;color:var(--muted);text-wrap:pretty}
+.xr-faq-a a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:767px){
+  .xr-hub-hero-in{padding-top:96px;padding-bottom:56px}
+  .xr-hub-crumb{margin-bottom:16px}
+  .xr-hub-h1{margin-bottom:12px}
+  .xr-hub-display{font-size:clamp(36px,10vw,40px);line-height:1.1}
+  .xr-hub-lede{margin-top:16px}
+  .xr-hub-search{height:52px;margin-top:24px}
+  .xr-hub-trust{margin-top:20px;gap:12px 24px}.xr-hub-trust i{display:none}
+  .xr-hub-stats{gap:12px}
+  .xr-hub-stat{padding:18px 16px}
+  .xr-hub-sec{padding-top:64px}.xr-hub-last{padding-bottom:64px}
+  .xr-why{margin-top:64px}
+  .xr-why-in{grid-template-columns:minmax(0,1fr);row-gap:40px;padding-top:64px;padding-bottom:64px}
+  .xr-why-h2{margin-top:12px;line-height:1.1}
+  .xr-why-grid{grid-template-columns:minmax(0,1fr);row-gap:32px}
+  .xr-vet{grid-template-columns:minmax(0,1fr);row-gap:40px}
+  .xr-vet-list{grid-template-columns:minmax(0,1fr)}
+}
 </style>
 <script src="./xr-extras.js"><\/script>
 <link rel="stylesheet" href="/brand.css">
@@ -722,26 +775,32 @@ select,input,button{font-family:inherit}
   <section data-screen-label="Developers hero" style="position:relative;background:#1A1A1A;color:#FFFFFF;overflow:hidden">
     <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 50%,rgba(10,10,10,.35) 100%),linear-gradient(180deg,rgba(10,10,10,.1),rgba(10,10,10,.7))"></div>
-    <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(20px,5vw,64px) clamp(36px,4vw,56px);display:flex;flex-direction:column;gap:22px">
-      <nav aria-label="Breadcrumb" style="display:flex;gap:8px;font-size:13px;color:#D6D6D6">
+    <div class="xr-hub-hero-in" style="position:relative;max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)">
+      <nav aria-label="Breadcrumb" class="xr-hub-crumb" style="display:flex;gap:8px;font-size:13px;color:#D6D6D6">
         <a href="index.html" style="color:#D6D6D6" style-hover="color:#FFFFFF">Home</a><span aria-hidden="true">/</span><span style="color:#FFFFFF">Developers</span>
       </nav>
-      <h1 style="margin:0;max-width:15ch;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(42px,5.8vw,84px);line-height:.98;letter-spacing:-.02em;text-wrap:balance">Dubai's leading developers, <em style="color:#FF9100">one trusted advisor.</em></h1>
-      <p style="margin:0;max-width:54ch;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:#E6E6E6;text-wrap:pretty">Compare track records, entry prices and payment plans side by side — then buy developer-direct through XR with priority allocation and zero buyer commission on most launches.</p>
-      <label style="position:relative;display:flex;align-items:center;max-width:620px;height:60px;margin-top:6px;border-radius:999px;background:#FFFFFF;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)">
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-left:22px;flex-shrink:0;color:#5C5C5C"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
-        <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search developers</span>
-        <input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Search developer or community — e.g. Emaar, Palm Jumeirah" style="flex:1;min-width:0;height:100%;border:none;background:transparent;padding:0 22px 0 12px;font-size:16px;color:#0A0A0A;border-radius:999px">
-      </label>
-      <div style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:#E6E6E6;padding-top:4px">
-        <span>{{ devCount }} partner developers</span>
-        <span style="width:1px;height:14px;background:rgba(255,255,255,.35);align-self:center"></span>
-        <span>RERA escrow-protected off-plan</span>
+      <div style="display:flex;flex-direction:column;min-width:0">
+        <h1 class="xr-sans xr-hub-h1">Top property developers in Dubai &amp; the UAE · 2026</h1>
+        <p class="xr-hub-display" style="font-family:'Instrument Serif',serif;font-weight:400">Dubai's leading developers, <em style="color:#FF9100">one trusted advisor.</em></p>
+        <p class="xr-hub-lede">Compare track records, entry prices and payment plans side by side — then buy developer-direct through XR with priority allocation and zero buyer commission on most launches.</p>
+        <label class="xr-hub-search">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-left:22px;flex-shrink:0;color:#5C5C5C"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+          <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search developers</span>
+          <input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Search developer or community — e.g. Emaar, Palm Jumeirah" style="flex:1;min-width:0;height:100%;border:none;background:transparent;padding:0 22px 0 12px;font-size:16px;color:#0A0A0A;border-radius:999px">
+        </label>
+        <div class="xr-hub-trust">
+          <span>Developer-direct prices</span><i aria-hidden="true"></i><span>RERA escrow-protected off-plan</span>
+        </div>
       </div>
+      <ul class="xr-hub-stats" aria-label="Xperience Realty in numbers">
+        <sc-for list="{{ heroStats }}" as="st" hint-placeholder-count="4">
+          <li class="xr-hub-stat"><b>{{ st.value }}</b><span>{{ st.label }}</span></li>
+        </sc-for>
+      </ul>
     </div>
   </section>
 
-  <section id="directory" data-screen-label="Directory" style="max-width:1360px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,64px) 0;scroll-margin-top:80px">
+  <section id="directory" data-screen-label="Directory" class="xr-hub-sec" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);scroll-margin-top:80px">
     <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px">
       <div role="tablist" aria-label="Developer type" style="display:flex;gap:8px;overflow-x:auto;padding:2px;margin:-2px;scrollbar-width:none">
         <sc-for list="{{ segs }}" as="c" hint-placeholder-count="5">
@@ -775,9 +834,9 @@ select,input,button{font-family:inherit}
             <button onClick="{{ d.open }}" aria-label="Open {{ d.name }} profile" style="position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:200px;border:none;background:#1A1A1A;cursor:pointer;padding:0 28px 16px;overflow:hidden">
               <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
               <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.5))"></span>
-              <span style="position:relative;display:flex;align-items:center;justify-content:center;min-width:110px;max-width:60%;height:52px;padding:0 16px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 12px 28px -12px rgba(0,0,0,.45)">
+              <span style="position:relative;display:flex;align-items:center;justify-content:center;width:190px;max-width:calc(100% - 16px);height:64px;padding:12px 20px;border-radius:10px;background:#FFFFFF;box-shadow:0 12px 28px -12px rgba(0,0,0,.45)">
                 <sc-if value="{{ d.hasLogo }}" hint-placeholder-val="{{ false }}">
-                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ d.name }}" style="height:{{ d.logoH }};max-height:30px;max-width:100%;width:auto;object-fit:contain">
+                  <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ d.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ d.full }} logo" style="display:block;width:100%;height:100%;max-width:150px;max-height:40px;object-fit:contain;object-position:center">
                 </sc-if>
                 <sc-if value="{{ d.noLogo }}" hint-placeholder-val="{{ true }}">
                   <span style="font-family:'Instrument Serif',serif;font-size:28px;line-height:1;color:#0A0A0A;letter-spacing:-.01em;white-space:nowrap">{{ d.name }}</span>
@@ -792,17 +851,17 @@ select,input,button{font-family:inherit}
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
                 <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
                   <span style="font-size:19px;font-weight:700;line-height:1.2">{{ d.full }}</span>
-                  <span style="font-size:13px;color:var(--muted)"><span style="white-space:nowrap">{{ d.seg }}</span> · <span style="white-space:nowrap">{{ d.estLabel }}</span> · <span style="white-space:nowrap">{{ d.trackLabel }}</span></span>
+                  <span style="font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.seg }} · {{ d.estLabel }}</span>
                 </div>
                 <label title="Compare" style="flex-shrink:0;display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid {{ d.cmpBorder }};font-size:13px;font-weight:600;cursor:pointer;color:var(--ink)">
                   <input type="checkbox" checked="{{ d.inCompare }}" onChange="{{ d.toggleCompare }}" disabled="{{ d.cmpDisabled }}" style="width:16px;height:16px;margin:0;accent-color:#FF9100;cursor:pointer">
                   Compare
                 </label>
               </div>
-              <p style="margin:0;font-size:14px;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ d.tagline }}</p>
-              <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <p style="margin:0;min-height:3em;font-size:14px;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ d.tagline }}</p>
+              <div style="display:flex;gap:6px;min-width:0;overflow:hidden">
                 <sc-for list="{{ d.flagship }}" as="f" hint-placeholder-count="3">
-                  <span style="display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:600">{{ f }}</span>
+                  <span style="display:block;min-width:0;flex:0 1 auto;height:28px;line-height:28px;padding:0 10px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ f }}</span>
                 </sc-for>
               </div>
               <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;margin-top:auto">
@@ -827,7 +886,7 @@ select,input,button{font-family:inherit}
   </section>
 
   <sc-if value="{{ showCompare }}" hint-placeholder-val="{{ false }}">
-    <section id="compare" data-screen-label="Compare" style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,64px) 0;scroll-margin-top:80px">
+    <section id="compare" data-screen-label="Compare" class="xr-hub-sec" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);scroll-margin-top:80px">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px">
         <div style="display:flex;flex-direction:column;gap:12px">
           <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Side by side</span>
@@ -865,26 +924,27 @@ select,input,button{font-family:inherit}
     </section>
   </sc-if>
 
-  <section data-screen-label="Why developer-direct" style="margin-top:clamp(64px,8vw,112px);background:radial-gradient(90% 120% at 100% 0%,rgba(255,145,0,.18),rgba(255,145,0,0) 55%),linear-gradient(115deg,rgba(10,10,10,.95) 25%,rgba(10,10,10,.82) 70%,rgba(10,10,10,.7)),url(https://res.cloudinary.com/dkhns25jh/image/upload/w_1800,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp) center/cover no-repeat,#0A0A0A;box-shadow:inset 0 0 0 1px rgba(255,145,0,.22);color:#FFFFFF">
-    <div style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,6vw,96px);align-items:start">
-      <div style="display:flex;flex-direction:column;gap:18px">
-        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#BDBDBD">Developer-direct, with an advisor</span>
-        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Same developer price. <em style="color:#FF9100">Better buying.</em></h2>
-        <p style="margin:0;max-width:46ch;font-size:16px;line-height:1.6;color:#BDBDBD;text-wrap:pretty">Developers pay our fee on most launches, so you get independent advice, priority units and handover support at no extra cost.</p>
+  <section data-screen-label="Why developer-direct" class="xr-why">
+    <div class="xr-why-in" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)">
+      <div class="xr-why-l">
+        <span style="font-size:13px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#BDBDBD">Developer-direct, with an advisor</span>
+        <h2 class="xr-why-h2" style="font-family:'Instrument Serif',serif;font-weight:400"><span>Same developer price.</span> <em style="color:#FF9100">Better buying.</em></h2>
+        <p style="margin:24px 0 0;max-width:460px;font-size:16px;line-height:1.6;color:#BDBDBD">Developers pay our fee on most launches, so you get independent advice, priority units and handover support at no extra cost.</p>
+        <a href="{{ waAdvisor }}" style="display:inline-flex;align-items:center;height:48px;margin-top:32px;padding:0 24px;border-radius:999px;background:#FF9100;color:#0A0A0A;font-size:15px;font-weight:600;white-space:nowrap" style-hover="background:#FFA733;color:#0A0A0A">Talk to an advisor</a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 32px">
+      <ol class="xr-why-grid">
         <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="4">
-          <div style="display:flex;flex-direction:column;gap:8px;padding:22px 0;border-top:1px solid rgba(255,255,255,.18)">
-            <span style="font-size:13px;font-weight:700;color:#FF9100">{{ b.n }}</span>
-            <span style="font-size:17px;font-weight:600">{{ b.title }}</span>
-            <span style="font-size:15px;line-height:1.55;color:#BDBDBD;text-wrap:pretty">{{ b.body }}</span>
-          </div>
+          <li>
+            <span style="font-size:13px;line-height:1.4;font-weight:700;color:#FF9100">{{ b.n }}</span>
+            <h3 class="xr-sans" style="margin:12px 0 0;font-size:17px;line-height:1.35;color:#FFFFFF">{{ b.title }}</h3>
+            <p style="margin:8px 0 0;font-size:15px;line-height:1.55;color:#BDBDBD;text-wrap:pretty">{{ b.body }}</p>
+          </li>
         </sc-for>
-      </div>
+      </ol>
     </div>
   </section>
 
-  <section data-screen-label="Developer logos" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0">
+  <section data-screen-label="Developer logos" class="xr-hub-sec" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)">
     <div style="display:flex;flex-direction:column;gap:14px;max-width:92ch;margin-bottom:clamp(28px,3.5vw,44px)">
       <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Our developer partners</span>
       <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em;text-wrap:balance">Choosing the right developer</h2>
@@ -894,7 +954,7 @@ select,input,button{font-family:inherit}
       <sc-for list="{{ logoWall }}" as="lw" hint-placeholder-count="12">
         <a href="{{ lw.href }}" onClick="{{ lw.go }}" aria-label="{{ lw.name }}" style="display:flex;align-items:center;justify-content:center;aspect-ratio:8/5;padding:clamp(14px,2vw,24px);border:1px solid var(--line);border-radius:10px;background:#FFFFFF;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease" style-hover="border-color:#FF9100;box-shadow:0 18px 36px -22px rgba(0,0,0,.35);transform:translateY(-3px)">
           <sc-if value="{{ lw.hasLogo }}" hint-placeholder-val="{{ true }}">
-            <img loading="lazy" decoding="async" class="xr-lazy {{ lw.cls }}" data-src="{{ lw.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="display:block;width:100%;height:100%;max-height:72px;object-fit:contain">
+            <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ lw.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="display:block;width:100%;height:100%;max-height:72px;object-fit:contain">
           </sc-if>
           <sc-if value="{{ lw.noLogo }}" hint-placeholder-val="{{ false }}">
             <span style="font-family:'Instrument Serif',serif;font-size:clamp(20px,2vw,28px);line-height:1.05;color:#0A0A0A;text-align:center">{{ lw.name }}</span>
@@ -904,29 +964,31 @@ select,input,button{font-family:inherit}
     </div>
   </section>
 
-  <section data-screen-label="Vetting checklist" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,6vw,96px);align-items:start">
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Before you commit</span>
-      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em;text-wrap:balance">How to vet a developer</h2>
-      <p style="margin:0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)">We check all six on every project we put in front of you.</p>
-      <a href="guide?g=off-plan" style="align-self:flex-start;margin-top:8px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">Read the off-plan guide →</a>
+  <section data-screen-label="Vetting checklist" class="xr-hub-sec" style="background:var(--bg)">
+    <div class="xr-vet" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)">
+      <div style="display:flex;flex-direction:column;align-items:flex-start">
+        <span style="font-size:13px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Before you commit</span>
+        <h2 style="margin:16px 0 0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance">How to vet a Dubai developer: 6 checks</h2>
+        <p style="margin:24px 0 0;max-width:44ch;font-size:16px;line-height:1.6;color:var(--muted)">We run all six checks on every project we put in front of you.</p>
+        <a href="guide?g=off-plan" style="margin-top:20px;font-size:15px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:4px">Read the off-plan guide →</a>
+      </div>
+      <ol class="xr-vet-list">
+        <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="6">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top:3px;color:#E8892B"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.4"></path></svg>
+            <div style="min-width:0">
+              <h3 class="xr-sans" style="margin:0;font-size:16px;line-height:1.4">{{ c.title }}</h3>
+              <p style="margin:6px 0 0;font-size:14px;line-height:1.55;color:var(--muted)">{{ c.body }}</p>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
     </div>
-    <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px">
-      <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="6">
-        <li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:18px 0;border-top:1px solid var(--line)">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="margin-top:2px;color:#FF9100"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2"></path></svg>
-          <span style="display:flex;flex-direction:column;gap:4px">
-            <span style="font-size:16px;font-weight:600">{{ c.title }}</span>
-            <span style="font-size:14px;line-height:1.55;color:var(--muted)">{{ c.body }}</span>
-          </span>
-        </li>
-      </sc-for>
-    </ol>
   </section>
 
   </sc-if>
 
-  <section id="alerts" data-screen-label="Launch alerts" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) 0;scroll-margin-top:80px">
+  <section id="alerts" data-screen-label="Launch alerts" class="xr-hub-sec" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px);scroll-margin-top:80px">
     <div style="border-radius:12px;background:var(--soft);padding:clamp(28px,4.5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4vw,64px);align-items:center">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)"><span style="width:8px;height:8px;border-radius:999px;background:#FF9100;box-shadow:0 0 0 4px rgba(255,145,0,.22)"></span>Launch alerts</span>
@@ -970,25 +1032,48 @@ select,input,button{font-family:inherit}
     </div>
   </section>
 
-  <section data-screen-label="FAQ" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,6vw,96px);align-items:start">
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Quick answers</span>
-      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1;letter-spacing:-.015em">Buying from a developer</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;border-bottom:1px solid var(--line)">
-      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
-        <div style="border-top:1px solid var(--line)">
-          <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border:none;background:transparent;text-align:left;cursor:pointer;color:var(--ink);font-size:17px;font-weight:600;line-height:1.35">
-            <span>{{ f.q }}</span>
-            <span aria-hidden="true" style="flex-shrink:0;width:36px;height:36px;border-radius:999px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400">{{ f.icon }}</span>
-          </button>
-          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-            <p style="margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ f.a }}</p>
-          </sc-if>
-        </div>
-      </sc-for>
+  <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ true }}">
+  <section id="faqs" data-screen-label="FAQ" class="xr-hub-sec xr-hub-last" style="max-width:1360px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)">
+    <span style="font-size:13px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">Quick answers</span>
+    <h2 style="margin:16px 0 0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1.05;letter-spacing:-.015em">Buying from a Dubai developer: FAQs</h2>
+    <div style="margin-top:32px;border-top:1px solid var(--line)">
+      <!-- hub-faqs:start (tools/build_seo.py builds the FAQPage schema from these, so the two always match) -->
+        <details class="xr-faq" open="open">
+          <summary><h3 class="xr-sans">Who are the top property developers in Dubai?</h3></summary>
+          <div class="xr-faq-a"><a href="/developers?d=emaar-properties">Emaar Properties</a> is Dubai's largest developer, the company behind Burj Khalifa, Downtown Dubai and Dubai Hills Estate. Other leading developers include <a href="/developers?d=nakheel">Nakheel</a>, <a href="/developers?d=meraas">Meraas</a> and <a href="/developers?d=dubai-properties">Dubai Properties</a>, which build master-planned communities, and <a href="/developers?d=sobha">Sobha Realty</a>, <a href="/developers?d=damac-properties">Damac Properties</a>, <a href="/developers?d=omniyat">Omniyat</a> and <a href="/developers?d=ellington-properties">Ellington Properties</a> in the luxury and boutique segments.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">Which Dubai developer is best for investment?</h3></summary>
+          <div class="xr-faq-a">The best developer depends on your strategy. Emaar communities have historically held strong resale and rental demand. Sobha Realty is known for build quality. Damac offers flexible payment plans and lower entry prices. Boutique developers such as Ellington appeal to design-focused buyers. Compare entry prices, payment plans and delivery records using the Compare tool on this page.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">Emaar vs Nakheel vs Damac: which should I choose?</h3></summary>
+          <div class="xr-faq-a">Choose Emaar for established city communities and a long delivery record. Choose Nakheel for waterfront and island living, such as Palm Jumeirah and Palm Jebel Ali. Choose Damac for branded luxury residences and flexible payment plans, often at lower entry prices. Compare all three on price, payment plan and handover history before deciding.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">What is the difference between a master developer and a boutique developer?</h3></summary>
+          <div class="xr-faq-a">A master developer plans and builds entire communities, including roads, schools, retail and infrastructure. Emaar's Dubai Hills Estate and Nakheel's Palm Jumeirah are examples. A boutique developer builds a small number of individual buildings and focuses on design and finishing; Ellington Properties is one example. Master developers offer scale; boutique developers offer more distinctive homes.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">What payment plans do Dubai developers offer?</h3></summary>
+          <div class="xr-faq-a">Most Dubai developers offer construction-linked payment plans such as 60/40, 70/30 or 50/50. You pay part of the price during construction, usually starting with a 10–20% down payment, and the balance at handover. Some developers also offer post-handover plans, spreading payments over two to five years after you receive the keys.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">How do I know if a Dubai developer is reliable?</h3></summary>
+          <div class="xr-faq-a">Check four things: the developer and project are registered with RERA, your payments go into a regulated project escrow account, the developer has a record of on-time handovers, and resale prices have held in its completed communities. You can check a project's registration and construction progress on the Dubai Land Department's <a href="https://dubailand.gov.ae/en/eservices/dubai-rest/" target="_blank" rel="noopener">Dubai REST app</a>.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">Is it better to buy directly from the developer or through an agent?</h3></summary>
+          <div class="xr-faq-a">The price is the same either way. Dubai developers sell at the same list price whether you buy directly or through a RERA-registered agent, and on most launches the developer pays the agent's fee. Buying through Xperience Realty adds independent comparison across developers, priority access to launches and a review of your sale agreement, at no extra cost.</div>
+        </details>
+        <details class="xr-faq">
+          <summary><h3 class="xr-sans">How can I get early access to new developer launches in Dubai?</h3></summary>
+          <div class="xr-faq-a">Developers usually open new launches to registered agents first through an EOI (Expression of Interest), often before units appear on property portals. Set up Xperience Realty <a href="#alerts">launch alerts</a> for the developers you follow, and we'll send floor plans, prices and payment plans on WhatsApp as soon as an EOI opens.</div>
+        </details>
+      <!-- hub-faqs:end -->
     </div>
   </section>
+  </sc-if>
 
   <footer style="background:#0A0A0A;color:#BDBDBD">
     <div style="max-width:1360px;margin:0 auto;padding:40px clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:13px">
@@ -1105,7 +1190,7 @@ select,input,button{font-family:inherit}
 </script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { route: null, copied: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', seg: 'All', sort: 'featured', compare: [], cmpProps: [], slide: 0, slideHover: false, slideStopped: false, sel: null, faq: 0, alertDevs: ['Emaar'], alertPhone: '', alertErr: '', alertSent: false };
+  state = { route: null, copied: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', seg: 'All', sort: 'featured', compare: [], cmpProps: [], slide: 0, slideHover: false, slideStopped: false, sel: null, alertDevs: ['Emaar'], alertPhone: '', alertErr: '', alertSent: false };
   mapRef = React.createRef();
   componentDidMount() {
     this.onFx = () => this.setState({fxTick:Date.now()}); window.addEventListener('xr-currency',this.onFx);
@@ -1604,6 +1689,16 @@ class Component extends DCLogic {
     };
   }
   pageHref(slug) { return '?d=' + slug; }
+  // Hub hero stat cards: only figures that are published and provable (xr-config.js holds them).
+  // The "AED transacted" and ORN cards appear only once marketing fills them in the config.
+  heroStats(devCount) {
+    const c = (window.XR_CONFIG || {}).company || {}, out = [];
+    if (c.rating && c.rating.value) out.push({ value: c.rating.value + '★', label: `Google rating · ${c.rating.reviews} reviews` });
+    out.push(c.transacted ? { value: c.transacted, label: 'Transacted for clients' } : { value: '0%', label: 'Buyer commission on most launches' });
+    out.push({ value: String(devCount), label: 'Partner developers' });
+    out.push({ value: 'RERA', label: c.orn ? `Registered brokerage · ORN ${c.orn}` : 'Registered brokerage' });
+    return out;
+  }
   scrollTo(id, off = 80) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' }); }
 
   data() {
@@ -1639,39 +1734,39 @@ class Component extends DCLogic {
         tagline: 'Backward-integrated builder known for in-house construction quality and finishing.',
         about: 'Sobha designs, engineers and builds its projects in-house, which gives tight control over quality and finishing. Sobha Hartland and Sobha Sanctuary are its signature Dubai communities.',
         flagship: ['Sobha Hartland', 'Sobha Sanctuary', 'Sobha One'], plan: 'Usually 10% booking, 60/40 across construction and handover.' },
-      { slug: 'omniyat', delivered: ['The Opus by Zaha Hadid', 'One at Palm Jumeirah', 'The Pad'], name: 'Omniyat', full: 'Omniyat', seg: 'Ultra luxury', founded: 2005, hq: 'Dubai', logo: null, img: I.fiorLiving,
+      { slug: 'omniyat', delivered: ['The Opus by Zaha Hadid', 'One at Palm Jumeirah', 'The Pad'], name: 'Omniyat', full: 'Omniyat', seg: 'Ultra luxury', founded: 2005, hq: 'Dubai', logo: '/assets/logos/omniyat.png', img: I.fiorLiving,
         tagline: 'Ultra-luxury, architect-led residences — from The Opus to Dorchester Collection.',
         about: 'Omniyat works with world-renowned architects on a small number of landmark residences. Expect very limited inventory, hotel-branded services and some of the highest prices per square foot in Dubai.',
         flagship: ['Business Bay', 'Palm Jumeirah', 'Marasi Bay'], plan: 'Bespoke plans, often weighted toward handover.' },
-      { slug: 'beyond-developments', delivered: [], name: 'Beyond', full: 'Beyond', seg: 'Luxury', founded: 2024, hq: 'Dubai', logo: null, img: I.valia3,
+      { slug: 'beyond-developments', delivered: [], name: 'Beyond', full: 'Beyond', seg: 'Luxury', founded: 2024, hq: 'Dubai', logo: '/assets/logos/beyond-developments.png', img: I.valia3,
         tagline: 'Omniyat\'s newer brand bringing design-led waterfront living to more buyers.',
         about: 'Beyond is backed by Omniyat\'s design and delivery expertise, with a focus on waterfront and nature-led communities at more accessible price points.',
         flagship: ['Dubai Maritime City', 'Dubailand'], plan: 'Typically 10% booking, construction-linked to handover.' },
-      { slug: 'ellington-properties', delivered: ['Belgravia', 'DT1', 'Wilton Park Residences'], name: 'Ellington', full: 'Ellington Properties', seg: 'Boutique', founded: 2014, hq: 'Dubai', logo: null, img: I.valia2,
+      { slug: 'ellington-properties', delivered: ['Belgravia', 'DT1', 'Wilton Park Residences'], name: 'Ellington', full: 'Ellington Properties', seg: 'Boutique', founded: 2014, hq: 'Dubai', logo: '/assets/logos/ellington-properties.png', img: I.valia2,
         tagline: 'Boutique, design-first residences with consistently high finishing standards.',
         about: 'Ellington focuses on design and interiors, with smaller buildings and carefully detailed homes. Its projects are popular with end users who value finish over scale.',
         flagship: ['MBR City', 'Jumeirah Village Circle', 'Downtown'], plan: 'Usually 10–20% booking, 50/50 or 60/40.' },
-      { slug: 'dubai-properties', delivered: ['Jumeirah Beach Residence', 'Mudon', 'Villanova'], name: 'Dubai Properties', full: 'Dubai Properties', seg: 'Master developer', founded: 2002, hq: 'Dubai', logo: null, img: I.valiaInt,
+      { slug: 'dubai-properties', delivered: ['Jumeirah Beach Residence', 'Mudon', 'Villanova'], name: 'Dubai Properties', full: 'Dubai Properties', seg: 'Master developer', founded: 2002, hq: 'Dubai', logo: '/assets/logos/dubai-properties.png', img: I.valiaInt,
         tagline: 'Dubai Holding developer behind JBR, Business Bay towers and Mudon.',
         about: 'Part of Dubai Holding, Dubai Properties developed Jumeirah Beach Residence and family communities such as Mudon and Villanova, with a long delivery track record.',
         flagship: ['JBR', 'Mudon', 'Villanova'], plan: 'Construction-linked plans, typically 60/40.' },
-      { slug: 'nshama', delivered: ['Town Square (multiple phases)'], name: 'Nshama', full: 'Nshama', seg: 'Value', founded: 2014, hq: 'Dubai', logo: null, img: I.fiorLobby,
+      { slug: 'nshama', delivered: ['Town Square (multiple phases)'], name: 'Nshama', full: 'Nshama', seg: 'Value', founded: 2014, hq: 'Dubai', logo: '/assets/logos/nshama.png', img: I.fiorLobby,
         tagline: 'Affordable, amenity-rich family living at Town Square Dubai.',
         about: 'Nshama is the developer of Town Square — a large community of apartments and townhouses designed around parks, retail and family amenities at accessible prices.',
         flagship: ['Town Square'], plan: 'Often 5–10% booking with long instalment plans.' },
-      { slug: 'arada-developments', delivered: ['Aljada (first phases)', 'Nasma Residences'], name: 'Arada', full: 'Arada', seg: 'Master developer', founded: 2017, hq: 'Sharjah', logo: null, img: I.fiorLiving2,
+      { slug: 'arada-developments', delivered: ['Aljada (first phases)', 'Nasma Residences'], name: 'Arada', full: 'Arada', seg: 'Master developer', founded: 2017, hq: 'Sharjah', logo: '/assets/logos/arada-developments.png', img: I.fiorLiving2,
         tagline: 'Fast-growing master developer of Aljada and Masaar, now expanding into Dubai.',
         about: 'Arada builds large mixed-use communities with a strong focus on landscaping and lifestyle amenities, led by Aljada and Masaar in Sharjah.',
         flagship: ['Aljada', 'Masaar', 'Dubai'], plan: 'Typically 10% booking with construction-linked instalments.' },
-      { slug: 'ardee-developments', delivered: [], name: 'Ardee', full: 'Ardee Developments', seg: 'Boutique', founded: null, hq: 'UAE', logo: null, img: I.fairmont,
+      { slug: 'ardee-developments', delivered: [], name: 'Ardee', full: 'Ardee Developments', seg: 'Boutique', founded: null, hq: 'UAE', logo: '/assets/logos/ardee-developments.png', img: I.fairmont,
         tagline: 'Boutique UAE developer behind Fairmont Residences on Al Marjan Island.',
         about: 'Ardee Developments is a UAE-based developer focused on boutique, design-led communities, starting with branded residences on Al Marjan Island in Ras Al Khaimah.',
         flagship: ['Al Marjan Island'], plan: 'Plans vary by project. Request the current developer schedule.' },
-      { slug: 'aldar-properties', delivered: ['Yas Marina Circuit', 'Yas Mall', 'Aldar HQ at Al Raha Beach'], name: 'Aldar', full: 'Aldar Properties', seg: 'Master developer', founded: 2004, hq: 'Abu Dhabi', logo: null, img: I.rowSaadiyat,
+      { slug: 'aldar-properties', delivered: ['Yas Marina Circuit', 'Yas Mall', 'Aldar HQ at Al Raha Beach'], name: 'Aldar', full: 'Aldar Properties', seg: 'Master developer', founded: 2004, hq: 'Abu Dhabi', logo: '/assets/logos/aldar-properties.png', img: I.rowSaadiyat,
         tagline: 'Abu Dhabi\'s largest listed developer, behind Yas Island and Saadiyat Island.',
         about: 'Aldar is the master developer behind Yas Island, Saadiyat Island, Al Raha and Reem Island, and now builds communities in Dubai, Ras Al Khaimah, Egypt and the UK.',
         flagship: ['Yas Island', 'Saadiyat Island', 'Al Raha', 'Reem Island'], plan: 'Plans vary by project. Request the current developer schedule.' },
-      { slug: 'modon-properties', delivered: [], name: 'Modon', full: 'Modon Properties', seg: 'Master developer', founded: 2024, hq: 'Abu Dhabi', logo: null, img: I.wadeem,
+      { slug: 'modon-properties', delivered: [], name: 'Modon', full: 'Modon Properties', seg: 'Master developer', founded: 2024, hq: 'Abu Dhabi', logo: '/assets/logos/modon-properties.png', img: I.wadeem,
         tagline: 'Abu Dhabi developer behind Hudayriyat Island and Reem Hills.',
         about: 'Modon develops freehold master communities on Hudayriyat Island and Al Reem Island in Abu Dhabi, and leads Ras El Hekma on Egypt\'s Mediterranean coast.',
         flagship: ['Hudayriyat Island', 'Al Reem Island', 'Ras El Hekma'], plan: 'Plans vary by project. Request the current developer schedule.' },
@@ -1718,7 +1813,7 @@ class Component extends DCLogic {
     const toggleCmp = slug => () => this.setState(st => ({ compare: st.compare.includes(slug) ? st.compare.filter(x => x !== slug) : st.compare.length >= 3 ? st.compare : [...st.compare, slug] }));
     const devs = shown.map(d => {
       const inC = s.compare.includes(d.slug);
-      return { ...d, hasLogo: !!d.logo, noLogo: !d.logo, isPartner: !!d.partner, hasFrom: !!d.from, priceTag: d.from ? d.fromLabel : 'Price on request', flagship: d.flagship.slice(0, 3), inCompare: inC, cmpDisabled: !inC && full, cmpBorder: inC ? '#FF9100' : 'var(--line2)', toggleCompare: toggleCmp(d.slug), open: () => this.setState({ sel: d.slug }), page: this.pageHref(d.slug), goPage: e => { e.preventDefault(); this.navTo(d.slug); }, trackLabel: d.delivered.length ? `${d.delivered.length} landmark completions` : 'New brand' };
+      return { ...d, hasLogo: !!d.logo, noLogo: !d.logo, isPartner: !!d.partner, hasFrom: !!d.from, priceTag: d.from ? d.fromLabel : 'Price on request', flagship: d.flagship.slice(0, 3), inCompare: inC, cmpDisabled: !inC && full, cmpBorder: inC ? '#FF9100' : 'var(--line2)', toggleCompare: toggleCmp(d.slug), open: () => this.setState({ sel: d.slug }), page: this.pageHref(d.slug), goPage: e => { e.preventDefault(); this.navTo(d.slug); } };
     });
     const cmp = s.compare.map(slug => all.find(d => d.slug === slug)).filter(Boolean);
     const cmpRows = [
@@ -1747,7 +1842,9 @@ class Component extends DCLogic {
       toggleTheme: () => { const theme = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('xr-theme', theme); } catch (e) {} this.setState({ theme }); },
       goAlerts: go('alerts'), goCompare: go('compare'),
       devCount: all.length,
-      logoWall: all.map(d => ({ name: d.full, logo: d.logo, cls: /media\.xrealty\.ae|strapi-xr/.test(d.logo || '') ? 'xr-logo-inv' : '', hasLogo: !!d.logo, noLogo: !d.logo, href: this.pageHref(d.slug), go: e => { e.preventDefault(); this.navTo(d.slug); } })),
+      heroStats: this.heroStats(all.length),
+      waAdvisor: 'https://wa.me/971565467991?text=' + encodeURIComponent('Hi, I would like to talk to an advisor about buying developer-direct.'),
+      logoWall: all.map(d => ({ name: d.full, logo: d.logo, hasLogo: !!d.logo, noLogo: !d.logo, href: this.pageHref(d.slug), go: e => { e.preventDefault(); this.navTo(d.slug); } })),
       q: s.q, onQ: e => this.setState({ q: e.target.value }),
       segs, sort: s.sort, onSort: e => this.setState({ sort: e.target.value }), sortOptions: Object.entries(sortLabel).map(([v, label]) => ({ v, label })),
       resultLabel: `${shown.length} developer${shown.length === 1 ? '' : 's'}${s.seg !== 'All' ? ' · ' + s.seg : ''}${q ? ` matching “${s.q.trim()}”` : ''}`,
@@ -1764,7 +1861,7 @@ class Component extends DCLogic {
       hasSel: !!sd, sel,
       ...this.routeVals(s, all, toggleCmp, full), closeSel: () => this.setState({ sel: null }),
       benefits: [['Priority allocation', 'Access to EOIs and launch inventory, often before units reach the portals.'], ['Zero buyer commission', 'On most developer-direct purchases, the developer pays our fee.'], ['SPA and plan review', 'We check the sale agreement, escrow and payment schedule before you sign.'], ['Handover support', 'Snagging, DEWA, service charges and leasing once your keys are ready.']].map(([title, body], i) => ({ n: '0' + (i + 1), title, body })),
-      checklist: [['RERA registration', 'The developer and project are registered with RERA and the Dubai Land Department.'], ['Escrow account', 'Your payments go into a project escrow account, not to the developer directly.'], ['Delivery track record', 'How many projects were handed over — and how close to the promised date.'], ['Oqood registration', 'Your off-plan purchase is registered with the DLD in your name.'], ['Service charges', 'Projected charges per sq ft, and the history of the developer\'s other buildings.'], ['Resale performance', 'Price growth and rental demand in the developer\'s completed communities.']].map(([title, body]) => ({ title, body })),
+      checklist: [['RERA registration', 'The developer and project are registered with RERA and the Dubai Land Department.'], ['Escrow account', 'Your payments go into a project escrow account, not to the developer directly.'], ['Delivery track record', 'How many projects were handed over, and how close to the promised date.'], ['Oqood registration', 'Your off-plan purchase is registered with the DLD in your name.'], ['Service charges', 'Projected charges per sq ft, and the history of the developer\'s other buildings.'], ['Resale performance', 'Price growth and rental demand in the developer\'s completed communities.']].map(([title, body]) => ({ title, body })),
       alertChips: alertNames.map(label => { const on = s.alertDevs.includes(label); return { label, active: on, inactive: !on, toggle: () => this.setState(st => ({ alertDevs: on ? st.alertDevs.filter(x => x !== label) : [...st.alertDevs, label], alertErr: '' })) }; }),
       alertPhone: s.alertPhone, onAlertPhone: e => this.setState({ alertPhone: e.target.value, alertErr: '' }),
       hasAlertErr: !!s.alertErr, alertErr: s.alertErr, alertOpen: !s.alertSent, alertSent: s.alertSent,
@@ -1776,12 +1873,6 @@ class Component extends DCLogic {
         if (!window.XRForms.validPhone(this.state.alertPhone)) return this.setState({ alertErr: 'Please enter a valid WhatsApp number.' });
         window.XRForms.submit(e.currentTarget,{type:'alert',subject:'Developer launch alerts',fields:{Phone:this.state.alertPhone,Developers:this.state.alertDevs.join(', ')}});
       },
-      faqs: [
-        ['Is buying directly from a developer cheaper?', 'No — the price is the same whether you buy directly or through a registered broker. On most launches the developer pays the broker\'s fee, so you get independent advice at no extra cost.'],
-        ['What is an EOI?', 'An Expression of Interest is a refundable deposit that reserves your place in the queue before a launch. It gives priority when units and floors are allocated.'],
-        ['How is my off-plan money protected?', 'Off-plan payments go into a RERA-regulated escrow account and are released to the developer only as construction milestones are certified.'],
-        ['What if the handover is delayed?', 'Your SPA sets out the completion date and any grace period. We check these terms before you sign and track progress through to handover.'],
-      ].map(([q, a], i) => ({ q, a, open: s.faq === i, icon: s.faq === i ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }) })),
     };
   }
 }

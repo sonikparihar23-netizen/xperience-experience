@@ -74,6 +74,17 @@ def faq_ld(qas):
     return {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q['q'], 'acceptedAnswer': {'@type': 'Answer', 'text': q['a']}} for q in qas]}
 
 
+def hub_faqs():
+    """The developers hub FAQs, read from the visible accordion so the schema matches it word for word."""
+    s = open(os.path.join(TPL, 'developers.html'), encoding='utf-8').read()
+    block = s[s.index('<!-- hub-faqs:start'):s.index('<!-- hub-faqs:end')]
+    text = lambda h: re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', h))).strip()
+    qas = [{'q': text(q), 'a': text(a)} for q, a in re.findall(r'<h3[^>]*>(.*?)</h3></summary>\s*<div class="xr-faq-a">(.*?)</div>', block, re.S)]
+    if not qas:
+        raise SystemExit('developers.html: no hub FAQs found between the hub-faqs markers')
+    return qas
+
+
 def head_block(path, title, desc, img=HERO, kind='website', ld=(), robots=None):
     url = SITE + path
     graph = [ORG] + [x for x in ld if x]
@@ -151,7 +162,7 @@ def main():
     items = [  # overview pages served at the bare template address
         ('living.html', 'living-index', '/living', 'Dubai living' + T, C['living']['index']['lede'], HERO, 'website', []),
         ('community.html', 'community-index', '/community', 'Dubai communities' + T, 'Explore Dubai communities, lifestyle guides and current listed projects. Ask an advisor for current market data.', HERO, 'website', []),
-        ('developers.html', 'developer-index', '/developers', 'Dubai property developers' + T, 'Projects and track records from Emaar, Nakheel, Damac, Sobha, Meraas and other leading Dubai developers.', HERO, 'website', []),
+        ('developers.html', 'developer-index', '/developers', 'Dubai property developers' + T, 'Projects and track records from Emaar, Nakheel, Damac, Sobha, Meraas and other leading Dubai developers.', HERO, 'website', [faq_ld(hub_faqs())]),
     ]
     for g in C['guides']:
         path = '/guide?g=' + g['slug']
