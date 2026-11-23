@@ -35,7 +35,7 @@ class Blocks(HTMLParser):
         if self.skip:return
         if self.buf is not None:self.buf.append(value)
         elif value.strip():self.out.append(('text',re.sub(r'\s+',' ',value).strip(),''))
-def full_size(src):return re.sub(r'/upload/[^/]*?(?=/v\d+/)','/upload/w_1200,f_auto,q_auto',src)
+def full_size(src,w=1200):return re.sub(r'/upload/(?:[^/]+/)?(?=v\d+/)','/upload/w_'+str(w)+',f_auto,q_auto/',src)
 def clip(text,n=260):
     if len(text)<=n:return text
     cut=text[:n];end=max(cut.rfind('. '),cut.rfind('! '),cut.rfind('? '))
@@ -48,6 +48,16 @@ def parse(page):
     def h2(title):return next((i for i in heads if b[i][1]==title),None)
     proj=next(i for i in heads if re.fullmatch(r'(All|Abu Dhabi|Dubai) Projects',b[i][1]))
     comm=h2('Communities');faq=h2('Frequently Asked Questions')
+    # Slideshow above the title: picture, label (e.g. NEWLY LAUNCHED), project heading, line, link
+    slides=[];sl=None
+    for kind,text,extra in b[:h1]:
+        if kind=='img':sl={'img':full_size(extra,2000),'title':text,'n':0};slides.append(sl);continue
+        if sl is None:continue
+        sl['n']+=1
+        if kind=='text' and sl['n']==1:sl['label']=text
+        elif kind=='p' and 'subtitle' not in sl:sl['subtitle']=text
+        elif kind=='a' and re.match(r'/([a-z-]+/)?property/',text) and 'href' not in sl:sl['href']=SITE+text
+    slides=[{k:v for k,v in x.items() if k!='n'} for x in slides if x.get('label') and x.get('href') and x.get('title') and '/xr_media/' in x['img']]
     # Intro and long-form sections sit between the title and the project list
     intro=[];sections=[];cur=None;rows=None
     for kind,text,_ in b[h1+1:proj]:
@@ -106,14 +116,14 @@ def parse(page):
         elif kind in ('h2','h3') :break
     projects=[x for x in projects if x.get('name') and x.get('img')]
     if not projects:raise ValueError('No project cards found')
-    return dict(name=b[h1][1],logo=logo,intro=intro,sections=sections,projects=projects,communities=[x for x in communities if x.get('name')],faqs=faqs)
+    return dict(name=b[h1][1],logo=logo,slides=slides,intro=intro,sections=sections,projects=projects,communities=[x for x in communities if x.get('name')],faqs=faqs)
 def main():
     def fetch(slug):
         url=SITE+'/developer/'+slug+'/'
         page=subprocess.run(['curl','--fail','--silent','--show-error','--location','--max-time','40',url],check=True,capture_output=True,text=True).stdout
         return slug,parse(page)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:data=dict(pool.map(fetch,SLUGS))
-    for slug,d in data.items():print(f"{slug}: {len(d['projects'])} projects, {len(d['sections'])} sections, {len(d['communities'])} communities, {len(d['faqs'])} FAQs")
+    for slug,d in data.items():print(f"{slug}: {len(d['slides'])} slides, {len(d['projects'])} projects, {len(d['sections'])} sections, {len(d['communities'])} communities, {len(d['faqs'])} FAQs")
     text='/* Developer content copied from xrealty.ae/developer/ on '+datetime.date.today().isoformat()+' by tools/sync_live_developers.py. */\nwindow.XR_DEV_LIVE = '+json.dumps(data,ensure_ascii=False,indent=1)+';\n'
     path=ROOT/'xr-dev-live.js';staging=path.with_suffix('.tmp');staging.write_text(text);staging.replace(path)
 if __name__=='__main__':main()

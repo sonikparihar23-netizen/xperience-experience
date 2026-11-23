@@ -1,8 +1,73 @@
-/* Developer content copied from xrealty.ae/developer/ on 2026-11-21 by tools/sync_live_developers.py. */
+/* Developer content copied from xrealty.ae/developer/ on 2026-11-23 by tools/sync_live_developers.py. */
 window.XR_DEV_LIVE = {
  "emaar-properties": {
   "name": "Emaar Properties",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_emaar_f120d95ad2.jpg",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1786024414/xr_media/yih9rhneuqhgovopmcjb.webp",
+    "title": "Valia at Dubai Creek Harbour",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Valia at Dubai Creek Harbour",
+    "href": "https://www.xrealty.ae/property/valia-at-dubai-creek-harbour/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1783592438/xr_media/sehvczef0ido9pytdygz.webp",
+    "title": "Fior 1 at Rashid Yachts & Marina",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Waterfront Living at Rashid Yachts & Marina",
+    "href": "https://www.xrealty.ae/property/fior-1-at-rashid-yachts-and-marina/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1769072665/xr_media/e2y1temw2mvgqfyp0cli.webp",
+    "title": "Serro At The Heights",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Serro at The Heights Country Club & Wellness by Emaar",
+    "href": "https://www.xrealty.ae/property/serro-the-heights-by-emaar/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1768489761/xr_media/cmp7jwyczykq4zsq1dai.webp",
+    "title": "GreenCrest at Dubai Hills Estate",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Greencrest at Dubai Hills Estate",
+    "href": "https://www.xrealty.ae/property/greencrest-at-dubai-hills-estate/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1768391238/xr_media/usel4pasef4v4weeatmi.webp",
+    "title": "Vista Ridge",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Vista Ridge Emaar South",
+    "href": "https://www.xrealty.ae/property/vista-ridge-emaar-south/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1768310555/xr_media/k85rtm9ezsjf04lpl6m1.webp",
+    "title": "Creek Haven At Dubai Creek Harbour",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Creek Haven at Dubai Creek Harbour",
+    "href": "https://www.xrealty.ae/property/creek-haven-at-dubai-creek-harbour/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1767604797/xr_media/hnmjeed0ovbm0ecrlkqs.webp",
+    "title": "Mareva At The Oasis By Emaar",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Immerse in Pure Luxury",
+    "href": "https://www.xrealty.ae/property/mareva-at-the-oasis-by-emaar/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1763651140/xr_media/acikbsyvedq8julukcsx.webp",
+    "title": "Equiterra At Grand Polo Club & Resort",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Where Equestrian Heritage Transcends Time",
+    "href": "https://www.xrealty.ae/property/equiterra-at-grand-polo-club-and-resort/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1758786993/xr_media/csfifzaqa1sunxig3ttm.jpg",
+    "title": "Vindera at The Valley",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Vindera at The Valley",
+    "href": "https://www.xrealty.ae/property/vindera-at-the-valley-emaar/"
+   }
+  ],
   "intro": [
    "Emaar Properties, founded in Dubai in 1997, is the developer behind the Burj Khalifa, The Dubai Mall, and most of what a first time visitor associates with Dubai. Its residential masterplans- Dubai Hills Estate, Arabian Ranches, Emaar Beachfront, Dubai Creek Harbour, The Oasis - have absorbed a meaningful share of the HNI capital moving into the city over the last decade."
   ],
@@ -547,6 +612,36 @@ window.XR_DEV_LIVE = {
  "nakheel": {
   "name": "Nakheel Properties",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_nakheel_b9e4b1f440.jpg",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1794287999/xr_media/urxikw5jggtinnvuh9d9.jpg",
+    "title": "Palm Springs by Nakheel",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Palm Springs by Nakheel",
+    "href": "https://www.xrealty.ae/property/palm-springs-by-nakheel/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1754149174/xr_media/fs6tgnvwarirsyycth5h.jpg",
+    "title": "Naya Residences At District One",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Where Life Shines Through - Nakheel",
+    "href": "https://www.xrealty.ae/property/naya-residences-district-one-by-nakheel/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1739626726/xr_media/iqmdkzw1ms7kiax0pokk.jpg",
+    "title": "Palm Jebel Ali By Nakheel",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A New Phase in Palm Jebel Ali",
+    "href": "https://www.xrealty.ae/property/palm-jebel-ali-by-nakheel/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1728908362/xr_media/boraljm59wutxg3xemei.webp",
+    "title": "Bay Grove Residences By Nakheel",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Majestic Waterfront Living",
+    "href": "https://www.xrealty.ae/property/bay-grove-residences-dubai-islands-by-nakheel/"
+   }
+  ],
   "intro": [
    "Nakheel was founded in the early 2000s and one of the most influential developers in the Dubai real estate market and when it comes to delivering Dubai’s most iconic waterfront developments and master-planned neighborhoods, without a doubt, Nakheel has played a leading role to transform the coastline into innovative large scale masterpieces.",
    "The developer has built a strong reputation over time by creating wonders such as The Palm Jumeirah, Palm Jebel Ali, Jumeirah Village Circle (JVC), Dubai Islands, and many more high quality, vibrant urban developments that attract investors from across the globe."
@@ -986,6 +1081,29 @@ window.XR_DEV_LIVE = {
  "damac-properties": {
   "name": "Damac Properties",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_damac_a1b3fc31a6.jpg",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1752324661/xr_media/fy8dsv3fglllavoupv7w.jpg",
+    "title": "Chelsea Residences by DAMAC",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Legacy Meets Luxury Living",
+    "href": "https://www.xrealty.ae/property/chelsea-residences-by-damac/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1730212564/xr_media/xwqh3rufu2dpv5aeg3mi.jpg",
+    "title": "Damac Islands",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Live The Island State of Mind",
+    "href": "https://www.xrealty.ae/property/damac-islands/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1752233488/xr_media/pihquw5dz9ckep2dv1fk.jpg",
+    "title": "Sun City by Damac",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Luxury Living Meets Holistic Wellness",
+    "href": "https://www.xrealty.ae/property/sun-city-by-damac/"
+   }
+  ],
   "intro": [
    "DAMAC Properties is one of Dubai’s most prominent real estate developers, recognised for creating modern residential communities, luxury lifestyle destinations and architecturally distinctive waterfront landmarks. Since its establishment, the developer has played a significant role in shaping Dubai’s residential offering, especially across villa communities, branded residences and lifestyle-led neighbourhoods.",
    "The developer’s portfolio includes large-scale master communities such as DAMAC Hills, DAMAC Hills 2 Dubai , and DAMAC Lagoon as well as high-rise branded towers including Cavalli Tower, DAMAC Bay by Cavalli, and premium residential releases in Business Bay and Dubai Maritime City. Many buyers and investors searching for DAMAC properties appreciate the brand’s focus on luxury design, modern amenities and lifestyle integration."
@@ -1181,6 +1299,64 @@ window.XR_DEV_LIVE = {
  "beyond-developments": {
   "name": "Beyond Developments",
   "logo": "https://media.xrealty.ae/thumbnail_Beyond_logo_fc3ce2dbdb.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1771068134/xr_media/d3l1j1pq2pe6s4pphjpg.webp",
+    "title": "LE CHATEAU",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Le Château by BEYOND Developments",
+    "href": "https://www.xrealty.ae/property/le-chateau-at-evermore-by-beyond/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1769509683/xr_media/jwa0vjahjfi7dxsgktxt.webp",
+    "title": "BELLA by Passo",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "BELLA by PASSO – Sculptural Waterfront Living on Palm Jumeirah",
+    "href": "https://www.xrealty.ae/property/bella-by-passo-pam-jumeirah/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1768207111/xr_media/v89jwpagdkwenc1v5l1p.webp",
+    "title": "Hado by Beyond at Siora",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Hado by Beyond at Siora",
+    "href": "https://www.xrealty.ae/property/hado-by-beyond-at-siora-dubai-islands/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1764412823/xr_media/jxoofwi8hwfmfy7i2fnp.webp",
+    "title": "Soulever By Beyond At Dubai Maritime City",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Elevated waterfront living with panoramic ocean serenity.",
+    "href": "https://www.xrealty.ae/property/soulever-by-beyond/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1762931621/xr_media/mz5gk0mecwc7ni5hbgh6.jpg",
+    "title": "31 Above by Beyond",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "31 Above by Beyond",
+    "href": "https://www.xrealty.ae/property/31-above-by-beyond/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1757413681/xr_media/yujnvhh46qr4jrpe4hz1.jpg",
+    "title": "PASSO BY BEYOND AT PALM JUMEIRAH",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Beyond Luxury, Beyond Palm",
+    "href": "https://www.xrealty.ae/property/passo-by-beyond-at-palm-jumeirah/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1755867451/xr_media/cm8orsdd6mkqka2nwjbm.jpg",
+    "title": "Talea by Beyond",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Dubai's World-First Forest Community",
+    "href": "https://www.xrealty.ae/property/talea-by-beyond-at-dubai-maritime-city/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1733577783/xr_media/jlehuwwvslgsep2pjrhk.jpg",
+    "title": "Orise By Beyond At Dubai Maritime City",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Feel Inspired by Breathtaking Perspectives",
+    "href": "https://www.xrealty.ae/property/orise-by-beyond-at-dubai-maritime-city/"
+   }
+  ],
   "intro": [
    "Beyond Developments represents one of the newest additions to Dubai’s premium real estate landscape, offering a refined portfolio of architecturally distinct residences shaped by innovation, design excellence and long-term investment potential. Developed under Omniyat, one of Dubai’s most respected luxury real estate brands, Beyond brings a boutique approach to modern living where quality, craftsmanship and exclusivity define every detail. Positioned in landmark locations including Dubai Maritime City and Palm Jumeirah, Beyond Developments appeals to buyers and investors prioritising elevated lifestyle experiences, privacy and access to Dubai’s prime waterfront. With a growing interest in luxury real estate in Dubai, the brand continues to gain strong recognition among those seeking residences with high aesthetic value, limited supply and a premium coastal setting."
   ],
@@ -1361,6 +1537,22 @@ window.XR_DEV_LIVE = {
  "dubai-properties": {
   "name": "Dubai Properties",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_dubai_properties_099028a33c.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1732543505/xr_media/cuovawfwlyyydr0xokiv.jpg",
+    "title": "La Rosa 6 Townhouses In Dubai",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Mediterranean Charm",
+    "href": "https://www.xrealty.ae/property/la-rosa-vi-by-dubai-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1752234215/xr_media/qj1bga4h4rfrbfxpbbno.jpg",
+    "title": "La Tilia, Dubailand",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A New Standard in Family Living",
+    "href": "https://www.xrealty.ae/property/la-tilia-at-villanova-by-dubai-properties/"
+   }
+  ],
   "intro": [
    "Dubai Properties is a renowned developer responsible for some of Dubai’s most iconic commercial, residential, and mixed-use developments. With over 18 years of experience, the master developer has gained deep insights into the needs of property seekers by delivering a high-end lifestyle through its projects. The company’s journey began in 2002 when it was launched as Estithmaar Realty, with the vision of creating a world class real estate and asset management organization to shape Dubai’s growing real estate sector. Its first project, Jumeirah Beach Residences (JBR), earned global recognition as the world’s largest single-phase residential development. In 2005, Dubai Properties became part of Dubai Holding, a diversified global enterprise established in 2004 to drive Dubai’s economic, social, and industrial growth. With nearly two decades of experience, Dubai Properties has positioned itself as a leading residential developer with a long-term strategic vision. Its diverse portfolio spans JBR, Business Bay, Mudon, Remraam, Dubailand, Business Bay Marina, Jaddaf Waterfront, and more by reinforcing Dubai as the top choice for living and investing in Dubai."
   ],
@@ -1478,6 +1670,50 @@ window.XR_DEV_LIVE = {
  "ellington-properties": {
   "name": "Ellington Properties",
   "logo": "https://media.xrealty.ae/thumbnail_Ellington_Properties_Logo_75d39ff008.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1783680792/xr_media/z7dktwu7rresqat21y81.webp",
+    "title": "Everly Place by Ellington Properties",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Everly Place by Ellington Properties Waterfront Residences at Sunset",
+    "href": "https://www.xrealty.ae/property/everly-place-by-ellington-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1771062886/xr_media/vwegx4tx1ifo0toa9ci2.webp",
+    "title": "Meriva Gardens",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Meriva Gardens by Ellington Properties",
+    "href": "https://www.xrealty.ae/property/meriva-gardens-ellington-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770017396/xr_media/oi5jr8lprhrreqnhlzpm.webp",
+    "title": "Eltiera Views",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Eltiera Views by Ellington Properties",
+    "href": "https://www.xrealty.ae/property/eltiera-views-ellington-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1769867902/xr_media/iuxzzzm2cmw1mw9iewhl.webp",
+    "title": "Portside Square",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Portside Square at Mina Rashid by Ellington Properties",
+    "href": "https://www.xrealty.ae/property/portside-square-ellington-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1769851339/xr_media/twjdbi45jqdq2o533n48.webp",
+    "title": "Soto Grande by Ellington Properties",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Soto Grande by Ellington",
+    "href": "https://www.xrealty.ae/property/soto-grande-ellington-properties/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1754141075/xr_media/rrtv8fh199wfdep0qt0z.webp",
+    "title": "Windsor House by Ellington at Dubai South",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Elevated Living in a Strategic Master Plan",
+    "href": "https://www.xrealty.ae/property/windsor-house-by-ellington-at-dubai-south/"
+   }
+  ],
   "intro": [
    "Ellington Properties is a boutique property development firm in Dubai that further extends its services to investors and landowners for asset management and consultation. With over 75 years of regional and international property development and real estate experience, Ellington was founded in 2014 to offer unique living solutions within the competitive landscape that bring a new level of sophistication to the city of Dubai. Ellington endeavours to craft beautiful environments for exceptionally high-quality lifestyles. Inspired by art and reflective of their owners’ aspirations, Ellington residences are classic in feel but contemporary of vision, canvases to be filled with the experience and exuberance of life. Ellington’s current projects include high-rise luxury residences and multi-family communities in Dubai, located in the prestigious Downtown Dubai, Business Bay, Palm Jumeirah, Jumeirah Village Circle and Majan area of Dubai Land. Where contemporary meets classic, Ellington Properties envisions a new way of living for discerning homeowners in Dubai and beyond."
   ],
@@ -1585,6 +1821,36 @@ window.XR_DEV_LIVE = {
  "meraas": {
   "name": "Meraas",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_meraas_957e23e45c.jpg",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1754492128/xr_media/yjz6yul7cqnbkqczgii9.jpg",
+    "title": "Nad Al Sheba Gardens Phase 10 by Meraas",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A Sanctuary of Legacy and Elegance",
+    "href": "https://www.xrealty.ae/property/nad-al-sheba-gardens-phase-10-by-meraas/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1740385696/xr_media/xlf9zeph3rinmgv9153i.webp",
+    "title": "Crestlane at City Walk",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Every Corner Speaks Urban Pulse",
+    "href": "https://www.xrealty.ae/property/city-walk-crestlane-by-meraas/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1751627866/xr_media/af4qicqqsxllp45ehvfb.jpg",
+    "title": "Nad Al Sheba Gardens Phase 7",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A Sanctuary of Luxury Living",
+    "href": "https://www.xrealty.ae/property/nad-al-sheba-gardens-phase-7-meraas/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1727269450/xr_media/jkycri9mo9vbtun4nomc.avif",
+    "title": "The Acres Estate by Meraas",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Your Path to Redefine Living",
+    "href": "https://www.xrealty.ae/property/the-acres-estate-meraas/"
+   }
+  ],
   "intro": [
    "Meraas is a leading Dubai-based company established in 2007 with the aim of creating innovative and sustainable urban living spaces. Meraas is the mastermind behind the iconic projects like City Walk, Bluewaters Island, Nad Al Sheba Gardens, Madinat Jumeirah Living, The Acres and La Mer, which are all placed in prime locations. Bulgari Resorts and Nikki Beach Resorts & Spa are the luxury hotels and resort contributions of Meraas towards the hospitality segment. The developer has already strengthened their position in the market for delivering projects that are of the highest quality with customer satisfaction. Their dedication to ethical and responsible business practices, strong track record of delivering projects on time and within budget has gained them a reputation as the most trusted yet the reliable partner in the region. Their impressive growth over time is evidence to the strength of their diverse portfolio, which spans across core development, leisure, and hospitality sectors."
   ],
@@ -1708,6 +1974,43 @@ window.XR_DEV_LIVE = {
  "omniyat": {
   "name": "Omniyat",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_omniyat_08be16cf02.webp",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770450662/xr_media/j8zrvvdrzx9dyx7aec2d.webp",
+    "title": "The Alba Residence",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "The Alba Residences Palm Jumeirah by OMNIYAT",
+    "href": "https://www.xrealty.ae/property/the-alba-residence-palm-jumeirah-by-omniyat/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1732950540/xr_media/rafmeoabfmitghent85o.webp",
+    "title": "One At Palm Jumeirah",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Redefining Luxury on the Iconic Palm",
+    "href": "https://www.xrealty.ae/property/one-at-palm-jumeirah-by-omniyat/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1732892164/xr_media/zhploqyob9bit5ynqcqn.jpg",
+    "title": "Ava By Omniyat",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A Masterpiece in Waterfront Living",
+    "href": "https://www.xrealty.ae/property/ava-by-omniyat/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1732888175/xr_media/dx81e34uzcx0lvbvzjr7.webp",
+    "title": "Orla By Omniyat",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Discover the Art of Luxury Living",
+    "href": "https://www.xrealty.ae/property/orla-by-omniyat/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1732882332/xr_media/umfdurbshrzmvb5ahamv.webp",
+    "title": "Orla Infinity",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Elevate Your Living Experience",
+    "href": "https://www.xrealty.ae/property/orla-infinity-by-omniyat/"
+   }
+  ],
   "intro": [
    "Omniyat is a visionary property developer, who made its debut in 2005 under a sharp legendary leadership. Since its inception, Omniyat has firmly established itself as one of the UAE's most prominent real estate developers, earning a global reputation for its exquisite art-inspired designs and uncomparable dedication to high-quality and consistent standards. Over the years, Omniyat has delivered a series of awe-inspiring projects that has left an indelible mark on Dubai's skyline. By collaborating with the world's leading architects, engineers, interior designers, and artists, Omniyat consistently transforms its developments into works of art. This approach has not only yielded remarkable residential, commercial, hospitality, and retail spaces but has also captured the imagination of every discerning investor seeking high-end luxury and innovation. Omniyat Properties offers a diverse range of real estate options, each with its own unique pricing structure based on factors such as location, property type, conditions, and the number of bedrooms. The developer’s impressive portfolio of flagship properties includes developments such as One at Palm Jumeirah, Dorchester Collection Dubai, The Residences Dorchester collection and The Opus."
   ],
@@ -1842,6 +2145,15 @@ window.XR_DEV_LIVE = {
  "ardee-developments": {
   "name": "Ardee Developments",
   "logo": "https://media.xrealty.ae/thumbnail_Ardee_developments_o1_599b9f19ec.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1753804066/xr_media/ijayk0gxkuracatpvmxm.webp",
+    "title": "Fairmont Residences Al Marjan Island",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Fairmont Residences at Al Marjan Island",
+    "href": "https://www.xrealty.ae/property/fairmont-residences-al-marjan-island/"
+   }
+  ],
   "intro": [
    "Ardee Developments is a UAE-based developer redefining modern living, where thoughtful design meets everyday practicality to enhance communities and elevate lifestyles. Their vision extends beyond physical structures, they innovate to push boundaries, set new standards, and inspire new ways of living. By integrating sustainable design, cutting-edge technology, and world-class entertainment, they craft spaces that transform everyday experiences and shape the future of exceptional living. It starts with Al Marjan Island in Ras Al Khaimah, their first signature community and a bold new chapter in coastal living. This vibrant beachside destination is designed for connection, inspiration, and elevated living."
   ],
@@ -1885,6 +2197,7 @@ window.XR_DEV_LIVE = {
  "sobha": {
   "name": "Sobha Realty",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_sobha_realty_2dbe4661e2.jpg",
+  "slides": [],
   "intro": [
    "Sobha Realty, founded in 1976 is an esteemed international luxury developer with a strong focus on sustainability and community building. The company has made its mission to enhance the lifestyles and living standards of individuals globally by creating sustainable and flourishing communities. Though the company’s roots lie in Oman, it has expanded its reach over 4 decades and is now recognized as a reputable developer across the globe. Over the past few decades, the industry of real estate development has witnessed significant changes, with many developers establishing their own distinct design, development, and conceptualization teams. These changes have paved the way for a competitive market, with each developer aspiring to be renowned as the most trusted and reputable company in the industry. Among these comes Sobha realty in Dubai whose global presence is felt through projects such as the Sobha Hartland in Dubai, Sobha Reserve and more. The impressive financial result can be attributed to the strategic business approach of Sobha Realty in Dubai when it comes to real estate, which focuses on delivering to the evolving demands of the market. As a leading developer in Dubai, Sobha Real Estate has set a standard of excellence in the industry and continues to boom amidst challenging economic conditions."
   ],
@@ -1954,6 +2267,56 @@ window.XR_DEV_LIVE = {
  "nshama": {
   "name": "Nshama",
   "logo": "https://media.xrealty.ae/thumbnail_NSHAMA_ae26731c09.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770643268/xr_media/kp7l01mg02ot27ngchi7.webp",
+    "title": "EVELYN on the Park by NSHAMA",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "EVELYN on the Park by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/evelyn-town-square-by-nshama/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770641137/xr_media/oazjgip7od79omybujxk.webp",
+    "title": "ROSEWELL by NSHAMA",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "ROSEWELL by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/rosewell-by-nshama/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770637197/xr_media/bfr4srwz5m82banvfrv0.webp",
+    "title": "Fiori by Nshama",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "FIORI by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/fiori-at-town-square-by-nshama/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770623863/xr_media/nikcaiblhdqwsl0duhwd.webp",
+    "title": "Olbia by Nshama",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "OLBIA by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/olbia-by-nshama/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770622102/xr_media/moshuuzotpiopboc5hxr.webp",
+    "title": "Camden by Nshama",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "CAMDEN by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/camden-at-town-square-by-nshama/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1770546256/xr_media/yghthhstmxtqhlumvc4s.webp",
+    "title": "Alton by Nshama",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "ALTON by NSHAMA at Town Square Dubai",
+    "href": "https://www.xrealty.ae/property/alton/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1746111655/xr_media/wsntdyuwv61ter0lpvi8.jpg",
+    "title": "AUGUSTA BY NSHAMA",
+    "label": "NEWLY LAUNCHED",
+    "href": "https://www.xrealty.ae/property/augusta-town-square-by-nshama/"
+   }
+  ],
   "intro": [
    "NSHAMA is a leading Dubai-based real estate developer established in 2014, known for delivering affordable housing in Dubai through sustainable, family-friendly master communities. Best known for its flagship project Town Square Dubai, NSHAMA offers modern apartments and townhouses designed to promote a balanced lifestyle with integrated retail, hospitality, parks and leisure facilities. The developer has redefined affordable luxury living by offering high-quality homes with value-driven pricing, ideal for first-time buyers, young professionals and families seeking urban living with green spaces. With a reputation for on-time project delivery, transparent dealings and thoughtful urban planning, NSHAMA is widely regarded as one of the most reliable and customer-focused developers in Dubai."
   ],
@@ -2039,6 +2402,29 @@ window.XR_DEV_LIVE = {
  "arada-developments": {
   "name": "Arada Developments",
   "logo": "https://strapi-xr-website-backend-media-storage.s3.ap-south-1.amazonaws.com/thumbnail_g_Afpnf_Pj_Lv_a5c6d5ab37.jpg",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1769949796/xr_media/riuwmpuxfcmvsmfz8bb7.webp",
+    "title": "Inaura by arada",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "INAURA Residences by Arada | Downtown Dubai",
+    "href": "https://www.xrealty.ae/property/inaura-by-arada/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1757149720/xr_media/bwvyssik1zwowjysg3tw.jpg",
+    "title": "Masaar 3 By Arada",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Welcome to Masaar – where your home is your sanctuary",
+    "href": "https://www.xrealty.ae/property/masaar-3-by-arada/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1754564501/xr_media/rayfw8smm6czhscc7eyi.jpg",
+    "title": "Armani Beach Residences",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "A Legacy of Design, Shaped by Icons",
+    "href": "https://www.xrealty.ae/property/armani-beach-residences-arada/"
+   }
+  ],
   "intro": [
    "Established in 2017 and headquartered in the United Arab Emirates, Arada was co‑founded by Sheikh Sultan bin Ahmed Al Qasimi (Chairman of Basma Group) and Prince Khaled bin Alwaleed bin Talal Alsaud (Vice Chairman of KBW Investments). The Group CEO leading its operations is Ahmed Alkhoshaibi Arada has rapidly emerged as a leading property developer across Sharjah and Dubai, delivering over AED 60 billion worth of residential and mixed-use projects since inception. It commands more than 50% of off‑plan home sales volume market share in Sharjah Arada’s founding purpose is to create community-centric, healthy, sustainable and technologically advanced environments that foster meaningful living experiences. They focus on neighborhoods where people truly connect with their surroundings."
   ],
@@ -2108,6 +2494,29 @@ window.XR_DEV_LIVE = {
  "aldar-properties": {
   "name": "Aldar Properties",
   "logo": "https://media.xrealty.ae/thumbnail_aldar_Properties_42be33352b.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1794482512/xr_media/gezmhapzunnzpiow7rwz.jpg",
+    "title": "The Row Saadiyat by Aldar",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "The Row Saadiyat by Aldar",
+    "href": "https://www.xrealty.ae/abu-dhabi/property/the-row-saadiyat-by-aldar/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1794479154/xr_media/yyognkvcklafjdbri11m.jpg",
+    "title": "Talay at Marsa Al Saadiyat by Aldar",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Talay at Marsa Al Saadiyat",
+    "href": "https://www.xrealty.ae/abu-dhabi/property/talay-at-marsa-al-saadiyat-by-aldar/"
+   },
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1794031767/xr_media/jqftfpd3hdnpzfrlypni.jpg",
+    "title": "Yas Riva at Yas Island",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Yas Riva at Yas Island",
+    "href": "https://www.xrealty.ae/abu-dhabi/property/yas-riva-at-yas-island/"
+   }
+  ],
   "intro": [
    "Aldar Properties is Abu Dhabi's largest listed real estate developer, founded in 2004 and listed on the Abu Dhabi Securities Exchange (ADX) since 2005. Aldar is the master developer behind Yas Island, Saadiyat Island, Al Raha and Reem Island, and now builds communities in Dubai, Ras Al Khaimah, Egypt and the UK.",
    "From the Yas Marina Circuit to waterfront villas on Saadiyat Island, Aldar has shaped how Abu Dhabi lives, works and plays. For buyers and investors, an Aldar address means a master planned community, a developer with a strong delivery record, and homes in the capital's most in-demand freehold zones. At Xperience Realty, we help you compare Aldar launches, secure units at launch and choose the right payment plan."
@@ -2450,6 +2859,15 @@ window.XR_DEV_LIVE = {
  "modon-properties": {
   "name": "Modon Properties",
   "logo": "https://media.xrealty.ae/thumbnail_Modon_Properties_1e23b18192.png",
+  "slides": [
+   {
+    "img": "https://res.cloudinary.com/dkhns25jh/image/upload/w_2000,f_auto,q_auto/v1794048665/xr_media/enimk8fecdkfdfqdglcu.webp",
+    "title": "Wadeem Gardens at Hudayriyat Island",
+    "label": "NEWLY LAUNCHED",
+    "subtitle": "Wadeem Gardens at Hudayriyat Island",
+    "href": "https://www.xrealty.ae/abu-dhabi/property/wadeem-gardens-at-hudayriyat-island/"
+   }
+  ],
   "intro": [
    "Modon Holding is an Abu Dhabi based real estate, hospitality and events group listed on the Abu Dhabi Securities Exchange (ADX). Formed in 2024 when Q Holding acquired Modon Properties and ADNEC, Modon develops freehold communities on Hudayriyat Island and Al Reem Island, and is master developer of Ras El Hekma in Egypt.",
    "From island mansions on Hudayriyat to hilltop villas at Reem Hills, Modon has quickly become one of the most in demand names in the UAE capital. In the first half of 2026 it was Abu Dhabi’s largest developer by sales value, and its Hudayriyat Golf Estates launch set a UAE record. At Xperience Realty, we help you compare Modon launches, register early for new releases and choose the right payment plan."

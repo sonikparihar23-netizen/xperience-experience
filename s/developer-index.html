@@ -172,16 +172,19 @@ select,input,button{font-family:inherit}
   </header>
 
   <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
-  <section data-screen-label="Developer profile" style="position:relative;background:#1A1A1A;color:#FFFFFF;overflow:hidden">
-    <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ pg.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.7) 50%,rgba(10,10,10,.35) 100%),linear-gradient(180deg,rgba(10,10,10,.1),rgba(10,10,10,.7))"></div>
-    <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(40px,6vw,88px) clamp(20px,5vw,64px) clamp(32px,4vw,52px);display:flex;flex-direction:column;gap:22px">
+  <section data-screen-label="Developer profile" aria-roledescription="carousel" aria-label="{{ pg.full }} projects" onMouseEnter="{{ slideHoverOn }}" onMouseLeave="{{ slideHoverOff }}" style="position:relative;display:flex;flex-direction:column;min-height:clamp(620px,calc(100vh - 72px),920px);background:#1A1A1A;color:#FFFFFF;overflow:hidden">
+    <sc-for list="{{ pSlides }}" as="sl" hint-placeholder-count="1">
+      <img decoding="async" class="xr-lazy" data-src="{{ sl.src }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ sl.opacity }};transition:opacity .9s ease">
+    </sc-for>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.68) 0%,rgba(10,10,10,.34) 42%,rgba(10,10,10,.04) 72%),linear-gradient(180deg,rgba(10,10,10,.38) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 52%,rgba(10,10,10,.72) 100%)"></div>
+    <div style="position:relative;flex:1;width:100%;max-width:1360px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,5vw,64px) clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:22px;text-shadow:0 2px 18px rgba(0,0,0,.35)">
       <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:#D6D6D6">
         <a href="index.html" style="color:#D6D6D6" style-hover="color:#FFFFFF">Home</a><span aria-hidden="true">/</span>
         <a href="?" onClick="{{ backToDir }}" style="color:#D6D6D6" style-hover="color:#FFFFFF">Developers</a><span aria-hidden="true">/</span>
         <span style="color:#FFFFFF">{{ pg.full }}</span>
       </nav>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:36px clamp(32px,5vw,72px)">
+      <div style="flex:1;min-height:24px"></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:36px clamp(32px,5vw,72px)">
         <div style="flex:1.4 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px">
           <sc-if value="{{ pg.isPartner }}" hint-placeholder-val="{{ false }}">
             <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>XR award partner</span>
@@ -225,6 +228,42 @@ select,input,button{font-family:inherit}
             </div>
           </dl>
         </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.28);text-shadow:none">
+        <div aria-live="polite" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;min-width:0;flex:1 1 360px">
+          <sc-if value="{{ slide.hasLabel }}" hint-placeholder-val="{{ true }}">
+            <span style="display:inline-flex;align-items:center;height:26px;padding:0 10px;border:1px solid rgba(255,255,255,.8);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">{{ slide.label }}</span>
+          </sc-if>
+          <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <span style="font-family:'Instrument Serif',serif;font-size:clamp(22px,2vw,28px);line-height:1.1">{{ slide.title }}</span>
+            <sc-if value="{{ slide.hasSubtitle }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:14px;color:#E6E6E6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ slide.subtitle }}</span>
+            </sc-if>
+          </span>
+          <sc-if value="{{ slide.hasHref }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ slide.href }}" style="display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;background:#FFFFFF;color:#0A0A0A;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap" style-hover="background:#E3E3E3;color:#0A0A0A">View project<span aria-hidden="true" style="color:#FF9100">→</span></a>
+          </sc-if>
+        </div>
+        <sc-if value="{{ hasManySlides }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px">
+            <button type="button" onClick="{{ slideToggle }}" aria-label="{{ slideToggleLabel }}" style="width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(10,10,10,.35);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100">
+              <sc-if value="{{ slidePlaying }}" hint-placeholder-val="{{ true }}">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="3.5" height="12" rx="1"></rect><rect x="7.5" y="1" width="3.5" height="12" rx="1"></rect></svg>
+              </sc-if>
+              <sc-if value="{{ slideStopped }}" hint-placeholder-val="{{ false }}">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true"><path d="M2 1.2v11.6L11.5 7z"></path></svg>
+              </sc-if>
+            </button>
+            <button type="button" onClick="{{ prevSlide }}" aria-label="Previous slide" style="width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(10,10,10,.35);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8"></path></svg></button>
+            <div style="display:flex;align-items:center">
+              <sc-for list="{{ slideDots }}" as="dot" hint-placeholder-count="5">
+                <button type="button" onClick="{{ dot.go }}" aria-label="{{ dot.label }}" aria-current="{{ dot.current }}" style="width:{{ dot.hit }};height:24px;padding:0;border:none;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="display:block;width:{{ dot.w }};height:6px;border-radius:999px;background:{{ dot.bg }};transition:width .3s ease,background-color .3s ease"></span></button>
+              </sc-for>
+            </div>
+            <button type="button" onClick="{{ nextSlide }}" aria-label="Next slide" style="width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(10,10,10,.35);color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="border-color:#FF9100;color:#FF9100"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8"></path></svg></button>
+            <span style="min-width:44px;text-align:right;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;color:#E6E6E6">{{ slideCounter }}</span>
+          </div>
+        </sc-if>
       </div>
     </div>
   </section>
@@ -1110,7 +1149,7 @@ select,input,button{font-family:inherit}
 </script></x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { route: null, copied: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', seg: 'All', sort: 'featured', compare: [], cmpProps: [], sel: null, faq: 0, alertDevs: ['Emaar'], alertPhone: '', alertErr: '', alertSent: false };
+  state = { route: null, copied: false, vw: typeof window !== 'undefined' ? window.innerWidth : 1280, theme: 'light', drawer: false, q: '', seg: 'All', sort: 'featured', compare: [], cmpProps: [], slide: 0, slideHover: false, slideStopped: false, sel: null, faq: 0, alertDevs: ['Emaar'], alertPhone: '', alertErr: '', alertSent: false };
   mapRef = React.createRef();
   componentDidMount() {
     this.onFx = () => this.setState({fxTick:Date.now()}); window.addEventListener('xr-currency',this.onFx);
@@ -1118,15 +1157,22 @@ class Component extends DCLogic {
     this.onKey = e => { if (e.key === 'Escape' && this.state.sel) this.setState({ sel: null }); };
     window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onKey);
-    this.readRoute = () => { let d = null; try { d = new URLSearchParams(location.search).get('d'); } catch (e) {} this.setState({ route: d, sel: null, cmpProps: [] }); };
+    this.readRoute = () => { let d = null; try { d = new URLSearchParams(location.search).get('d'); } catch (e) {} this.setState({ route: d, sel: null, cmpProps: [], slide: 0 }); };
     this.readRoute();
     window.addEventListener('popstate', this.readRoute);
     let t = null; try { t = localStorage.getItem('xr-theme'); } catch (e) {}
     const theme = t || window.XR_CONFIG.defaultTheme || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     this.setState({ theme }, () => this.sync());
+    // Developer slideshow: advance every 6s unless paused, hovered, hidden or reduced motion is on
+    const still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.slideTimer = setInterval(() => {
+      const st = this.state, d = st.route && this.data().find(x => x.slug === st.route);
+      if (still || document.hidden || st.slideHover || st.slideStopped || !d || d.slides.length < 2) return;
+      this.setState({ slide: (st.slide + 1) % d.slides.length });
+    }, 6000);
   }
   componentDidUpdate() { this.sync(); this.drawMap(); }
-  componentWillUnmount() { window.removeEventListener('xr-currency',this.onFx); window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); window.removeEventListener('popstate', this.readRoute); document.body.style.overflow = ''; }
+  componentWillUnmount() { clearInterval(this.slideTimer); window.removeEventListener('xr-currency',this.onFx); window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); window.removeEventListener('popstate', this.readRoute); document.body.style.overflow = ''; }
   sync() {
     document.documentElement.dataset.theme = this.state.theme;
     document.body.style.overflow = this.state.sel ? 'hidden' : '';
@@ -1134,7 +1180,7 @@ class Component extends DCLogic {
   }
   navTo(slug) {
     try { const u = new URL(location.href); if (slug) u.searchParams.set('d', slug); else u.searchParams.delete('d'); history.pushState({}, '', u.toString()); } catch (e) {}
-    this.setState({ route: slug, sel: null, copied: false, drawer: false, cmpProps: [] }, () => window.scrollTo({ top: 0 }));
+    this.setState({ route: slug, sel: null, copied: false, drawer: false, cmpProps: [], slide: 0 }, () => window.scrollTo({ top: 0 }));
   }
   routeVals(s, all, toggleCmp, full) {
     const d = all.find(x => x.slug === s.route);
@@ -1152,7 +1198,7 @@ class Component extends DCLogic {
         wa: 'https://wa.me/971565467991?text=' + encodeURIComponent(`Hi, please register me for the next ${d.full} launch and share current projects.`),
         cmpLabel: inC ? 'Remove from compare' : full ? 'Compare is full (3)' : 'Add to compare', toggleCompare: toggleCmp(d.slug),
         shareLabel: s.copied ? 'Link copied' : 'Share' },
-      others, ...this.profileExtras(s, d, all),
+      others, ...this.profileExtras(s, d, all), ...this.slideVals(s, d),
       backToDir: e => { e.preventDefault(); this.navTo(null); },
       share: () => { const url = location.href; const done = () => { this.setState({ copied: true }); clearTimeout(this._ct); this._ct = setTimeout(() => this.setState({ copied: false }), 2000); };
         if (navigator.share && this.state.vw < 980) { navigator.share({ title: d.full + ' | Xperience Realty', url }).catch(() => {}); return; }
@@ -1586,6 +1632,21 @@ class Component extends DCLogic {
       ...this.editorialVals(d),
     };
   }
+  slideVals(s, d) {
+    const n = d.slides.length, cur = Math.min(s.slide, n - 1), sl = d.slides[cur], go = k => () => this.setState({ slide: (k + n) % n });
+    // Load each picture once it is shown or next in line
+    if (this._slideRoute !== d.slug) { this._slideRoute = d.slug; this._slideSeen = 1; }
+    this._slideSeen = Math.max(this._slideSeen, cur + 1);
+    return {
+      pSlides: d.slides.map((x, k) => ({ src: k <= this._slideSeen ? x.img : '', opacity: k === cur ? 1 : 0 })),
+      slide: { ...sl, hasLabel: !!sl.label, hasSubtitle: !!sl.subtitle && sl.subtitle !== sl.title, hasHref: !!sl.href },
+      hasManySlides: n > 1, slideCounter: `${cur + 1} / ${n}`, prevSlide: go(cur - 1), nextSlide: go(cur + 1),
+      slideDots: d.slides.map((x, k) => ({ go: go(k), label: `Go to slide ${k + 1}: ${x.title}`, current: k === cur ? 'true' : undefined, hit: k === cur ? '36px' : '18px', w: k === cur ? '24px' : '6px', bg: k === cur ? '#FF9100' : 'rgba(255,255,255,.6)' })),
+      slideHoverOn: () => this.setState({ slideHover: true }), slideHoverOff: () => this.setState({ slideHover: false }),
+      slidePlaying: !s.slideStopped, slideStopped: !!s.slideStopped, slideToggleLabel: s.slideStopped ? 'Play slideshow' : 'Pause slideshow',
+      slideToggle: () => this.setState(st => ({ slideStopped: !st.slideStopped })),
+    };
+  }
   pageHref(slug) { return '?d=' + slug; }
   scrollTo(id, off = 80) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' }); }
 
@@ -1660,11 +1721,15 @@ class Component extends DCLogic {
         flagship: ['Hudayriyat Island', 'Al Reem Island', 'Ras El Hekma'], plan: 'Plans vary by project. Request the current developer schedule.' },
     ].map(d => {
       // Projects, pictures and copy published on xrealty.ae/developer/ (xr-dev-live.js)
-      const L = (window.XR_DEV_LIVE || {})[d.slug] || { projects: [], intro: [], sections: [], communities: [], faqs: [] };
+      const L = (window.XR_DEV_LIVE || {})[d.slug] || { slides: [], projects: [], intro: [], sections: [], communities: [], faqs: [] };
       d.projects = L.projects.map(p => {
         const known = window.XR.properties.find(k => k.source === p.href);
         return known ? { ...known, priceNum: known.price, price: window.XR.aed(known.price), img: p.img } : { name: p.name, community: p.community || '', priceNum: p.price || null, price: p.price ? window.XR.aed(p.price) : 'Price on request', href: p.href, img: p.img };
       });
+      const localHref = href => { const known = window.XR.properties.find(k => k.source === href); return known ? known.href : href; };
+      d.slides = (L.slides || []).length ? L.slides.map(x => ({ ...x, href: localHref(x.href) }))
+        : d.projects.length ? d.projects.slice(0, 6).map(p => ({ img: p.img.replace('/w_1200,', '/w_2000,'), title: p.name, subtitle: p.community, label: 'Available now', href: p.href }))
+        : [{ img: d.img, title: d.full, label: '', href: '' }];
       d.logo = d.logo || L.logo || null;
       d.img = d.projects.length ? d.projects[0].img : d.img;
       if (L.intro.length) d.about = L.intro[0];
