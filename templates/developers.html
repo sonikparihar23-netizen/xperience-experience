@@ -44,6 +44,9 @@ a{color:var(--ink);text-decoration:none}
 a:hover{color:var(--muted)}
 select,input,button{font-family:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.xr-pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,28px)}
+@media (max-width:1100px){.xr-pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:680px){.xr-pgrid{grid-template-columns:minmax(0,1fr)}}
 .xr-acc>summary{list-style:none}.xr-acc>summary::-webkit-details-marker{display:none}
 .xr-acc .xr-acc-i{transition:transform .2s ease}.xr-acc[open] .xr-acc-i{transform:rotate(45deg)}
 </style>
@@ -125,12 +128,12 @@ select,input,button{font-family:inherit}
       </div>
         </div>
         <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;justify-content:center;height:clamp(180px,18vw,240px);padding:0 clamp(24px,4vw,48px);border-radius:16px;background:#FFFFFF;box-shadow:0 24px 48px -24px rgba(0,0,0,.6)">
+          <div style="display:flex;align-items:center;justify-content:center;height:120px;padding:0 24px;border-radius:16px;background:#FFFFFF;box-shadow:0 24px 48px -24px rgba(0,0,0,.6)">
             <sc-if value="{{ pg.hasLogo }}" hint-placeholder-val="{{ false }}">
-              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ pg.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ pg.name }}" style="max-height:96px;max-width:100%;width:auto;object-fit:contain">
+              <img loading="lazy" decoding="async" class="xr-lazy" data-src="{{ pg.logo }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ pg.name }}" style="display:block;width:200px;max-width:100%;height:64px;object-fit:contain">
             </sc-if>
             <sc-if value="{{ pg.noLogo }}" hint-placeholder-val="{{ true }}">
-              <span style="font-family:'Instrument Serif',serif;font-size:clamp(36px,4vw,52px);line-height:1;color:#0A0A0A;text-align:center">{{ pg.name }}</span>
+              <span style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;color:#0A0A0A;text-align:center">{{ pg.name }}</span>
             </sc-if>
           </div>
           <dl style="margin:0;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.22);border-radius:12px;background:rgba(10,10,10,.5)">
@@ -209,34 +212,34 @@ select,input,button{font-family:inherit}
       <sc-if value="{{ pHasMany }}" hint-placeholder-val="{{ true }}">
         <p style="margin:0 0 20px;font-size:14px;color:var(--muted)">Tick up to 3 projects to compare them side by side.</p>
       </sc-if>
-      <div style="display:flex;flex-direction:column;gap:clamp(20px,2.4vw,28px)">
+      <div class="xr-pgrid">
         <sc-for list="{{ pProps }}" as="p" hint-placeholder-count="3">
-          <article class="xr-zc" style="display:flex;flex-wrap:wrap;border:1px solid {{ p.cardBorder }};border-radius:16px;overflow:hidden;background:var(--bg)">
-            <a href="{{ p.href }}" aria-label="View {{ p.name }}" style="position:relative;display:block;flex:1 1 340px;min-height:260px;background:var(--img)">
+          <article class="xr-zc" style="display:flex;flex-direction:column;min-width:0;border:1px solid {{ p.cardBorder }};border-radius:16px;overflow:hidden;background:var(--bg)">
+            <a href="{{ p.href }}" aria-label="View {{ p.name }}" style="position:relative;display:block;aspect-ratio:4/3;background:var(--img)">
               <img loading="lazy" decoding="async" class="xr-zoom xr-lazy" data-src="{{ p.img }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ p.name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
               <sc-if value="{{ p.isLowest }}" hint-placeholder-val="{{ false }}">
                 <span style="position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;background:#0A0A0A;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:999px;background:#FF9100"></span>Lowest entry price</span>
               </sc-if>
             </a>
-            <div style="flex:1.2 1 360px;min-width:0;display:flex;flex-direction:column;gap:18px;padding:clamp(20px,2.4vw,32px)">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;padding:clamp(18px,2vw,24px)">
               <div style="display:flex;flex-direction:column;gap:6px">
                 <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)">{{ p.community }}</span>
-                <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,2.8vw,38px);line-height:1.05;letter-spacing:-.01em">{{ p.name }}</h3>
+                <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(24px,2.2vw,30px);line-height:1.08;letter-spacing:-.01em">{{ p.name }}</h3>
               </div>
-              <p style="margin:0;font-size:15px;line-height:1.65;color:var(--muted);text-wrap:pretty">{{ p.desc }}</p>
-              <dl style="margin:auto 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px 24px;padding-top:16px;border-top:1px solid var(--line)">
-                <div style="display:flex;flex-direction:column-reverse;gap:2px">
+              <p style="margin:0;font-size:14px;line-height:1.6;color:var(--muted);text-wrap:pretty">{{ p.desc }}</p>
+              <dl style="margin:auto 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;padding-top:14px;border-top:1px solid var(--line)">
+                <div style="display:flex;flex-direction:column-reverse;gap:2px;min-width:0">
                   <dt style="font-size:12px;color:var(--muted)">Starting price</dt>
-                  <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums">{{ p.price }}</dd>
+                  <dd style="margin:0;font-family:'Instrument Serif',serif;font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums">{{ p.price }}</dd>
                 </div>
-                <div style="display:flex;flex-direction:column-reverse;gap:2px">
+                <div style="display:flex;flex-direction:column-reverse;gap:2px;min-width:0">
                   <dt style="font-size:12px;color:var(--muted)">Developer</dt>
-                  <dd style="margin:0;font-size:16px;font-weight:600">{{ p.devName }}</dd>
+                  <dd style="margin:0;font-size:15px;font-weight:600">{{ p.devName }}</dd>
                 </div>
               </dl>
               <div style="display:grid;grid-template-columns:4px minmax(0,1fr);gap:12px">
                 <span style="border-radius:999px;background:#FF9100"></span>
-                <span style="font-size:14px;line-height:1.5;color:var(--muted)"><strong style="color:var(--ink)">Typical payment plan.</strong> {{ p.plan }}</span>
+                <span style="font-size:13px;line-height:1.5;color:var(--muted)"><strong style="color:var(--ink)">Typical payment plan.</strong> {{ p.plan }}</span>
               </div>
               <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
                 <a href="{{ p.href }}" style="display:inline-flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;white-space:nowrap" style-hover="background:var(--ink-h);color:var(--bg)">View property<span aria-hidden="true" style="color:#FF9100">→</span></a>
