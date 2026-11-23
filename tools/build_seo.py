@@ -179,7 +179,7 @@ def main():
         place = {'@type': 'Place', 'name': c['name'], 'url': SITE + path, 'description': clip(desc), 'image': og_img(c.get('img')),
                  'geo': {'@type': 'GeoCoordinates', 'latitude': c.get('lat'), 'longitude': c.get('lng')}}
         items.append(('community.html', 'community-' + c['slug'], path, c['name'] + ': homes, prices and projects' + T, desc, c.get('img'), 'website',
-                      [place, crumbs(('Home', '/'), ('Communities', '/community'), (c['name'], path))]))
+                      [place, faq_ld(c['faqs']), crumbs(('Home', '/'), ('Communities', '/community'), (c['name'], path))]))
     for dv in d['developers']:
         path = '/developers?d=' + dv['slug']
         items.append(('developers.html', 'developer-' + dv['slug'], path, dv['full'] + ': projects in Dubai' + T, dv['tagline'], dv['img'], 'website',

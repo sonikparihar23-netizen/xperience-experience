@@ -73,6 +73,34 @@
   ];
   communities.forEach(c => { c.projects = properties.filter(p => p.communitySlug === c.slug); c.from = c.projects.length ? Math.min(...c.projects.map(p => p.price)) : null; c.fromLabel = c.from ? aedShort(c.from) : 'Request pricing'; });
 
+  // Area guide extras built only from facts already above (no market averages: those stay advisor requests)
+  const DEV = { 'Emaar Properties': 'emaar-properties', Meraas: 'meraas', Nakheel: 'nakheel', Beyond: 'beyond-developments', 'Ellington Properties': 'ellington-properties', 'Sobha Realty': 'sobha' };
+  const MASTER = { 'creek-harbour': ['Emaar Properties'], 'rashid-yachts': ['Emaar Properties'], 'palm-jebel-ali': ['Nakheel'], 'emaar-south': ['Emaar Properties'],
+    'dubai-hills': ['Emaar Properties', 'Meraas'], 'grand-polo': ['Emaar Properties'], 'the-valley': ['Emaar Properties'], 'the-oasis': ['Emaar Properties'] };
+  const AKA = { 'creek-harbour': ['Creek Harbour'], 'rashid-yachts': ['Rashid Yachts', 'Mina Rashid'], 'maritime-city': ['Maritime City'], 'mbr-city': ['Mohammed Bin Rashid City'],
+    'dubai-hills': ['Dubai Hills'], 'al-marjan': ['Marjan Island'] };
+  const aedFixed = n => 'AED ' + (n >= 1e6 ? (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M' : fmt(n));
+  const list = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+  const km = (a, b) => { const r = Math.PI / 180, x = (b.lng - a.lng) * r * Math.cos((a.lat + b.lat) * r / 2), y = (b.lat - a.lat) * r; return Math.sqrt(x * x + y * y) * 6371; };
+  communities.forEach(c => {
+    c.master = MASTER[c.slug] || [];
+    c.terms = [c.name, ...(AKA[c.slug] || [])];
+    const devNames = [...new Set([...c.master, ...c.projects.map(p => p.developer)])];
+    c.developers = devNames.map(name => ({ name, href: DEV[name] ? P.developers + '?d=' + DEV[name] : null })).filter(d => d.href);
+    c.nearby = communities.filter(o => o !== c).map(o => ({ slug: o.slug, name: o.name, tagline: o.tagline, img: o.img, href: o.href, km: Math.round(km(c, o)) }))
+      .filter(o => o.km <= 40).sort((a, b) => a.km - b.km).slice(0, 3).map(o => ({ ...o, kmLabel: o.km + ' km away' }));
+    const projs = c.projects.slice().sort((a, b) => a.price - b.price);
+    c.faqs = [
+      { q: `What is it like to live in ${c.name}?`, a: `${c.about} Highlights: ${c.highlights.join(', ')}.` },
+      { q: `How far is ${c.name} from ${list(c.travel.map(t => t[0]))}?`, a: `Typical drive times are about ${list(c.travel.map(([p, m]) => m + ' minutes to ' + p))}, depending on traffic.` },
+      ...(c.master.length ? [{ q: `Who developed ${c.name}?`, a: `${c.name} is developed by ${list(c.master)}.` }] : []),
+      { q: `Which projects can I buy in ${c.name}?`, a: projs.length
+        ? `We currently list ${projs.length} project${projs.length > 1 ? 's' : ''} here: ${list(projs.map(p => `${p.name} by ${p.developer} (from ${aedFixed(p.price)})`))}. Our area specialists can also tell you about resales and upcoming launches.`
+        : `We have no public listings in ${c.name} right now. Our area specialists can tell you about off-market resales and upcoming launches.` },
+      { q: `What are property prices and rental yields in ${c.name}?`, a: `Prices and yields vary by project, unit type and view, so we don't publish an area average that could be out of date. ${projs.length ? `Listed projects start from ${aedFixed(projs[0].price)}. ` : ''}Ask one of our area specialists for current transaction data.` },
+    ];
+  });
+
   const I18N = {
     en: { properties: 'Properties', developers: 'Developers', communities: 'Communities', guides: 'Guides', team: 'XR Team', insights: 'Insights', about: 'About', contact: 'Contact us', call: 'Call', whatsapp: 'WhatsApp', enquire: 'Enquire', saved: 'Shortlist', from: 'From', lang: 'عربي', langAria: 'View in Arabic', register: 'Register interest', compare: 'Compare', viewAll: 'View all', home: 'Home' },
     ar: { properties: 'العقارات', developers: 'المطورون', communities: 'المجتمعات', guides: 'الأدلة', team: 'فريق XR', insights: 'رؤى', about: 'من نحن', contact: 'تواصل معنا', call: 'اتصال', whatsapp: 'واتساب', enquire: 'استفسار', saved: 'المفضلة', from: 'ابتداءً من', lang: 'EN', langAria: 'View in English', register: 'سجّل اهتمامك', compare: 'قارن', viewAll: 'عرض الكل', home: 'الرئيسية' },
